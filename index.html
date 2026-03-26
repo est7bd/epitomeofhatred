@@ -11,7 +11,6 @@
   <meta property="og:type" content="website">
   <link rel="stylesheet" href="/assets/css/style.css">
   <style>
-    /* --- Hero --- */
     .hero {
       min-height: 100svh;
       display: flex;
@@ -38,10 +37,7 @@
       color: var(--text);
       margin-bottom: 2rem;
     }
-    .hero-name span {
-      display: block;
-      color: var(--accent);
-    }
+    .hero-name span { display: block; color: var(--accent); }
     .hero-tagline {
       font-size: clamp(1.1rem, 2.5vw, 1.45rem);
       color: var(--text-muted);
@@ -50,10 +46,7 @@
       margin-bottom: 3rem;
       line-height: 1.5;
     }
-    .hero-tagline strong {
-      color: var(--text);
-      font-style: normal;
-    }
+    .hero-tagline strong { color: var(--text); font-style: normal; }
     .hero-scroll {
       font-family: var(--font-mono);
       font-size: 0.72rem;
@@ -71,7 +64,6 @@
       height: 1px;
       background: var(--text-dim);
     }
-    /* Ghost background text */
     .hero-bg-text {
       position: absolute;
       right: -0.02em;
@@ -87,8 +79,6 @@
       z-index: -1;
       letter-spacing: -0.02em;
     }
-
-    /* --- Manifesto section --- */
     .manifesto-grid {
       display: grid;
       grid-template-columns: 1fr 1.8fr;
@@ -109,16 +99,11 @@
       font-size: 1.15rem;
       line-height: 1.8;
     }
-    .manifesto-text p:first-of-type {
-      font-size: 1.3rem;
-      color: var(--text);
-    }
+    .manifesto-text p:first-of-type { font-size: 1.3rem; color: var(--text); }
     .manifesto-text strong { color: var(--text); }
-
-    /* --- Blog preview --- */
     .blog-preview-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 1.5rem;
       margin-top: 3rem;
     }
@@ -135,16 +120,12 @@
       content: '';
       position: absolute;
       top: 0; left: 0;
-      width: 3px;
-      height: 0;
+      width: 3px; height: 0;
       background: var(--accent);
       transition: height 0.3s ease;
     }
     .blog-card:hover::before { height: 100%; }
-    .blog-card:hover {
-      border-color: var(--accent-dim);
-      transform: translateY(-2px);
-    }
+    .blog-card:hover { border-color: var(--accent-dim); transform: translateY(-2px); }
     .blog-card-date {
       font-family: var(--font-mono);
       font-size: 0.72rem;
@@ -165,6 +146,23 @@
       color: var(--text-muted);
       line-height: 1.6;
     }
+    .blog-card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 1rem;
+    }
+    .blog-card-tag {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      border: 1px solid var(--border);
+      padding: 0.15rem 0.5rem;
+      border-radius: 2px;
+    }
+    .blog-card-tag.fc { color: var(--accent2); border-color: var(--accent-dim); }
     .blog-card-link {
       display: inline-block;
       margin-top: 1.2rem;
@@ -184,46 +182,18 @@
       padding-bottom: 2px;
       transition: color var(--transition), border-color var(--transition);
     }
-    .view-all:hover {
-      color: var(--accent2);
-      border-color: var(--accent2);
-    }
-
-    /* --- Tag pills on cards --- */
-    .blog-card-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-      margin-top: 1rem;
-    }
-    .blog-card-tag {
-      font-family: var(--font-mono);
-      font-size: 0.65rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--text-dim);
-      border: 1px solid var(--border);
-      padding: 0.15rem 0.5rem;
-      border-radius: 2px;
-    }
-
-    /* Animations */
+    .view-all:hover { color: var(--accent2); border-color: var(--accent2); }
+    .dark-section { background: var(--bg2); }
     .fade-up {
       opacity: 0;
       transform: translateY(24px);
       animation: fadeUp 0.7s ease forwards;
     }
-    @keyframes fadeUp {
-      to { opacity: 1; transform: translateY(0); }
-    }
+    @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
     .hero-eyebrow  { animation-delay: 0.1s; }
     .hero-name     { animation-delay: 0.2s; }
     .hero-tagline  { animation-delay: 0.35s; }
     .hero-scroll   { animation-delay: 0.5s; }
-
-    /* Dark alt section */
-    .dark-section { background: var(--bg2); }
-
     @media (max-width: 768px) {
       .manifesto-grid { grid-template-columns: 1fr; }
       .manifesto-number { display: none; }
@@ -232,18 +202,14 @@
   </style>
 </head>
 <body>
-
 <div id="header-placeholder"></div>
-
 <main>
   <!-- HERO -->
   <section style="position:relative; overflow:hidden;">
     <div class="hero">
       <div class="hero-bg-text" aria-hidden="true">EOH</div>
       <p class="hero-eyebrow fade-up">epitomeofhatred.com</p>
-      <h1 class="hero-name fade-up">
-        Epitome<span>of Hatred.</span>
-      </h1>
+      <h1 class="hero-name fade-up">Epitome<span>of Hatred.</span></h1>
       <p class="hero-tagline fade-up">
         No filter. No apologies. No more pretending this is normal.<br>
         <strong>Someone has to say it.</strong>
@@ -263,10 +229,9 @@
         <div class="manifesto-number" aria-hidden="true">01</div>
         <div class="manifesto-text">
           <p>This site exists because "agree to disagree" stopped being an option a long time ago.</p>
-          <p>MAGA isn't a policy disagreement. It's not a difference of opinion on tax brackets or trade policy. It's a daily assault on truth, on decency, on the basic functioning of a democracy — and I'm not going to sit quietly and pretend otherwise.</p>
-          <p>I'm a Democrat. I live in Los Angeles. I care deeply about this country. And I've watched the Republican Party — the MAGA version of it — spend years lying, obstructing, and cheering for cruelty like it's a sport.</p>
-          <p><strong>I'm writing about it. Loudly. Without apology.</strong></p>
-          <p>If you're here because you agree — welcome. If you're here because you don't — read anyway. Maybe something lands.</p>
+          <p>MAGA isn't a policy disagreement. It's a daily assault on truth, on decency, on the basic functioning of a democracy — and I'm not going to sit quietly and pretend otherwise.</p>
+          <p>I'm a Democrat. I live in Los Angeles. And I've watched the Republican Party — the MAGA version of it — spend years lying, obstructing, and cheering for cruelty like it's a sport.</p>
+          <p><strong>I'm writing about it. Loudly. With sources. Without apology.</strong></p>
         </div>
       </div>
     </div>
@@ -280,26 +245,42 @@
       <span class="section-label">latest posts</span>
       <h2 class="section-title">The Rants.</h2>
       <div class="blog-preview-grid">
+
+        <div class="blog-card" onclick="location.href='/blog/your-wallet-called-it-wants-its-money-back'">
+          <div class="blog-card-date">Mar 26, 2026</div>
+          <div class="blog-card-title">Your Wallet Called. It Wants Its Money Back.</div>
+          <p class="blog-card-excerpt">Gas nearly $4. Groceries up. No DOGE check. No tariff check. The "roaring economy" is roaring straight into your wallet.</p>
+          <div class="blog-card-tags">
+            <span class="blog-card-tag fc">fact-checked</span>
+            <span class="blog-card-tag">economy</span>
+            <span class="blog-card-tag">gas</span>
+          </div>
+          <a href="/blog/your-wallet-called-it-wants-its-money-back" class="blog-card-link">read more →</a>
+        </div>
+
         <div class="blog-card" onclick="location.href='/blog/hes-lying-about-everything-again'">
           <div class="blog-card-date">Mar 26, 2026</div>
           <div class="blog-card-title">He's Lying. About Everything. Again.</div>
-          <p class="blog-card-excerpt">Tariffs. Mail-in voting. Iran. The receipts are right here — every lie sourced and documented.</p>
+          <p class="blog-card-excerpt">Tariffs, mail-in voting, Iran. Just another week of industrial-grade bullshit — with receipts.</p>
           <div class="blog-card-tags">
+            <span class="blog-card-tag fc">fact-checked</span>
             <span class="blog-card-tag">trump</span>
-            <span class="blog-card-tag">fact-checked</span>
+            <span class="blog-card-tag">lies</span>
           </div>
           <a href="/blog/hes-lying-about-everything-again" class="blog-card-link">read more →</a>
         </div>
+
         <div class="blog-card" onclick="location.href='/blog/i-almost-ran-for-congress'">
           <div class="blog-card-date">Mar 25, 2026</div>
           <div class="blog-card-title">I Almost Ran for Congress.</div>
-          <p class="blog-card-excerpt">I'm a Democrat. I live in LA. I care deeply about this country. And I decided not to run — here's the honest version of why.</p>
+          <p class="blog-card-excerpt">I'm a Democrat. I live in LA. I decided not to run — here's the honest version of why.</p>
           <div class="blog-card-tags">
             <span class="blog-card-tag">politics</span>
             <span class="blog-card-tag">personal</span>
           </div>
           <a href="/blog/i-almost-ran-for-congress" class="blog-card-link">read more →</a>
         </div>
+
         <div class="blog-card" onclick="location.href='/blog/i-said-what-i-said'">
           <div class="blog-card-date">Mar 25, 2026</div>
           <div class="blog-card-title">I Said What I Said.</div>
@@ -310,12 +291,12 @@
           </div>
           <a href="/blog/i-said-what-i-said" class="blog-card-link">read more →</a>
         </div>
+
       </div>
       <a href="/blog" class="view-all">all posts →</a>
     </div>
   </section>
 </main>
-
 <div id="footer-placeholder"></div>
 <script src="/assets/js/includes.js"></script>
 </body>
