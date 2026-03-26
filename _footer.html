@@ -6,12 +6,31 @@
     </div>
     <div class="footer-links">
       <a href="/blog">blog</a>
-      <a href="/about">about</a>
       <a href="/the-lies">the lies</a>
+      <a href="/about">about</a>
+      <!-- Email obfuscated — assembled by JS, never in plain text -->
+      <a href="#" id="contact-link" onclick="this.href='mail'+'to'+String.fromCharCode(58)+window._eoh_em();return true;" style="cursor:pointer;">contact</a>
     </div>
   </div>
   <div class="footer-bottom">
     <p>&copy; <span id="footer-year"></span> epitomeofhatred.com &mdash; Say it louder.</p>
   </div>
 </footer>
-<script>document.getElementById('footer-year').textContent = new Date().getFullYear();</script>
+<script>
+// Email assembled from char codes — never stored as plain text
+window._eoh_em = function() {
+  return String.fromCharCode(102,97,99,116,115,64,101,112,105,116,111,109,101,111,102,104,97,116,114,101,100,46,99,111,109);
+};
+document.getElementById('footer-year').textContent = new Date().getFullYear();
+
+// Lazy-reveal: only build the mailto when user hovers the link
+var cl = document.getElementById('contact-link');
+if (cl) {
+  cl.addEventListener('mouseenter', function() {
+    this.href = 'mailto:' + window._eoh_em();
+  });
+  cl.addEventListener('touchstart', function() {
+    this.href = 'mailto:' + window._eoh_em();
+  }, {passive:true});
+}
+</script>
