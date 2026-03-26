@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Epitome of Hatred — No Filter. No Apologies.</title>
+  <meta name="description" content="Unfiltered takes on MAGA, Trump, and the Republican Party's ongoing war on competence, truth, and decency. Always sourced. Never sorry.">
+  <link rel="canonical" href="https://epitomeofhatred.com/">
+  <meta property="og:title" content="Epitome of Hatred">
+  <meta property="og:description" content="Unfiltered takes on MAGA, Trump, and the GOP's ongoing war on truth. Always sourced. Never sorry.">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <style>
+    .hero { min-height: 100svh; display: flex; flex-direction: column; justify-content: flex-end; padding: 0 2rem 5rem; max-width: var(--max-w); margin: 0 auto; position: relative; }
+    .hero-eyebrow { font-family: var(--font-mono); font-size: 0.78rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.5rem; }
+    .hero-name { font-family: var(--font-display); font-size: clamp(4.5rem, 16vw, 13rem); line-height: 0.88; letter-spacing: 0.01em; color: var(--text); margin-bottom: 2rem; }
+    .hero-name span { display: block; color: var(--accent); }
+    .hero-tagline { font-size: clamp(1.1rem, 2.5vw, 1.45rem); color: var(--text-muted); font-style: italic; max-width: 580px; margin-bottom: 3rem; line-height: 1.5; }
+    .hero-tagline strong { color: var(--text); font-style: normal; }
+    .hero-scroll { font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-dim); letter-spacing: 0.15em; text-transform: uppercase; display: flex; align-items: center; gap: 0.8rem; }
+    .hero-scroll::before { content: ''; display: block; width: 40px; height: 1px; background: var(--text-dim); }
+    .hero-bg-text { position: absolute; right: -0.02em; top: 50%; transform: translateY(-50%); font-family: var(--font-display); font-size: clamp(10rem, 26vw, 24rem); color: transparent; -webkit-text-stroke: 1px rgba(204,34,34,0.12); pointer-events: none; user-select: none; white-space: nowrap; z-index: -1; letter-spacing: -0.02em; }
+    .manifesto-grid { display: grid; grid-template-columns: 1fr 1.8fr; gap: 4rem; align-items: start; }
+    .manifesto-number { font-family: var(--font-display); font-size: clamp(6rem, 14vw, 12rem); color: transparent; -webkit-text-stroke: 1px var(--border); line-height: 0.9; letter-spacing: -0.02em; }
+    .manifesto-text p { margin-bottom: 1.4rem; color: var(--text-muted); font-size: 1.15rem; line-height: 1.8; }
+    .manifesto-text p:first-of-type { font-size: 1.3rem; color: var(--text); }
+    .manifesto-text strong { color: var(--text); }
+    .blog-preview-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 3rem; }
+    .blog-card { border: 1px solid var(--border); padding: 2rem; background: var(--bg2); transition: border-color var(--transition), transform var(--transition); cursor: pointer; position: relative; overflow: hidden; }
+    .blog-card::before { content: ''; position: absolute; top: 0; left: 0; width: 3px; height: 0; background: var(--accent); transition: height 0.3s ease; }
+    .blog-card:hover::before { height: 100%; }
+    .blog-card:hover { border-color: var(--accent-dim); transform: translateY(-2px); }
+    .blog-card-date { font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-dim); letter-spacing: 0.1em; margin-bottom: 0.8rem; }
+    .blog-card-title { font-family: var(--font-display); font-size: 1.7rem; color: var(--text); letter-spacing: 0.02em; line-height: 1.05; margin-bottom: 0.8rem; }
+    .blog-card-excerpt { font-size: 0.95rem; color: var(--text-muted); line-height: 1.6; }
+    .blog-card-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 1rem; }
+    .blog-card-tag { font-family: var(--font-mono); font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-dim); border: 1px solid var(--border); padding: 0.15rem 0.5rem; border-radius: 2px; }
+    .blog-card-tag.fc { color: var(--accent2); border-color: var(--accent-dim); }
+    .blog-card-tag.new { color: #5dab6e; border-color: rgba(93,171,110,0.3); }
+    .blog-card-link { display: inline-block; margin-top: 1.2rem; font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent2); letter-spacing: 0.08em; }
+    .view-all { display: inline-block; margin-top: 2.5rem; font-family: var(--font-mono); font-size: 0.78rem; letter-spacing: 0.1em; color: var(--text-muted); border-bottom: 1px solid var(--border); padding-bottom: 2px; transition: color var(--transition), border-color var(--transition); }
+    .view-all:hover { color: var(--accent2); border-color: var(--accent2); }
+    .dark-section { background: var(--bg2); }
+    .fade-up { opacity: 0; transform: translateY(24px); animation: fadeUp 0.7s ease forwards; }
+    @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+    .hero-eyebrow { animation-delay: 0.1s; }
+    .hero-name { animation-delay: 0.2s; }
+    .hero-tagline { animation-delay: 0.35s; }
+    .hero-scroll { animation-delay: 0.5s; }
+    @media (max-width: 768px) { .manifesto-grid { grid-template-columns: 1fr; } .manifesto-number { display: none; } .hero-bg-text { display: none; } }
+  </style>
+  <!-- Primary SEO -->
+  <meta name="description" content="Epitome of Hatred — Unfiltered, sourced fact-checks on Trump, MAGA, and the GOP's ongoing war on truth. No filter. No apologies. Updated daily.">
+  <meta name="keywords" content="Trump lies fact check, MAGA fact check, Trump Social Security cuts, DOGE dividend check, Iran war Trump lies, Trump Epstein files, Republican lies 2026, political fact check">
+  <meta name="author" content="Darrell Nelson">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://epitomeofhatred.com/">
+  <meta property="og:title" content="Epitome of Hatred — No Filter. No Apologies.">
+  <meta property="og:description" content="Unfiltered, sourced fact-checks on Trump, MAGA, and the GOP's ongoing war on truth. Every lie documented. Every claim sourced. Updated daily.">
+  <meta property="og:site_name" content="Epitome of Hatred">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Epitome of Hatred — No Filter. No Apologies.">
+  <meta name="twitter:description" content="Unfiltered, sourced fact-checks on Trump, MAGA, and the GOP. Every lie documented. Updated daily.">
+  <meta name="twitter:site" content="@est7bd">
+  <meta name="twitter:creator" content="@est7bd">
+
+  <!-- Schema.org WebSite + Person -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://epitomeofhatred.com/#website",
+        "url": "https://epitomeofhatred.com",
+        "name": "Epitome of Hatred",
+        "description": "Unfiltered, sourced fact-checks on Trump, MAGA, and the GOP's ongoing war on truth.",
+        "publisher": {
+          "@id": "https://epitomeofhatred.com/#person"
+        }
+      },
+      {
+        "@type": "Person",
+        "@id": "https://epitomeofhatred.com/#person",
+        "name": "Darrell Nelson",
+        "url": "https://epitomeofhatred.com/about",
+        "sameAs": [
+          "https://twitter.com/est7bd",
+          "https://7bd.org"
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+<div id="header-placeholder"></div>
+<main>
+  <section style="position:relative; overflow:hidden;">
+    <div class="hero">
+      <div class="hero-bg-text" aria-hidden="true">EOH</div>
+      <p class="hero-eyebrow fade-up">epitomeofhatred.com</p>
+      <h1 class="hero-name fade-up">Epitome<span>of Hatred.</span></h1>
+      <p class="hero-tagline fade-up">No filter. No apologies. No more pretending this is normal.<br><strong>Someone has to say it. With sources. Every day.</strong></p>
+      <p class="hero-scroll fade-up">scroll down</p>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <section id="about">
+    <div class="section">
+      <span class="section-label">what this is</span>
+      <h2 class="section-title">I'm done being polite about it.</h2>
+      <div class="manifesto-grid">
+        <div class="manifesto-number" aria-hidden="true">01</div>
+        <div class="manifesto-text">
+          <p>This site exists because "agree to disagree" stopped being an option a long time ago.</p>
+          <p>MAGA isn't a policy disagreement. It's a daily assault on truth, on decency, on the basic functioning of a democracy. I'm not sitting quietly about it.</p>
+          <p>I'm a Democrat. I live in Los Angeles. I've watched this party lie, obstruct, and cheer for cruelty like it's a sport. Every post on this site is sourced. Every fact-check has receipts. No apologies.</p>
+          <p><strong>Updated daily. Sometimes several times a day. Because they never stop and neither do I.</strong></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <section id="blog-preview" class="dark-section">
+    <div class="section">
+      <span class="section-label">latest posts</span>
+      <h2 class="section-title">The Rants.</h2>
+      <div class="blog-preview-grid">
+
+        <div class="blog-card" onclick="location.href='/blog/iran-war-what-trump-knows-vs-reality'">
+          <div class="blog-card-date">Mar 26, 2026</div>
+          <div class="blog-card-title">Trump's Iran War: What He Knows vs. What's Actually Happening.</div>
+          <p class="blog-card-excerpt">He's watching a 2-min highlight reel of explosions. Wasn't told 5 planes got hit. 59% say it was wrong. FCC threatening broadcast licenses.</p>
+          <div class="blog-card-tags"><span class="blog-card-tag fc">fact-checked</span><span class="blog-card-tag new">new today</span><span class="blog-card-tag">iran</span></div>
+          <a href="/blog/iran-war-what-trump-knows-vs-reality" class="blog-card-link">read more →</a>
+        </div>
+
+        <div class="blog-card" onclick="location.href='/blog/things-trump-just-made-up-this-week'">
+          <div class="blog-card-date">Mar 26, 2026</div>
+          <div class="blog-card-title">Things Trump Just Made Up This Week.</div>
+          <p class="blog-card-excerpt">15 million phantom ballots. Drugs down 97%. Hormuz "doesn't affect us." Iran has Tomahawks. All false. All sourced. All this week.</p>
+          <div class="blog-card-tags"><span class="blog-card-tag fc">fact-checked</span><span class="blog-card-tag">trump</span><span class="blog-card-tag">lies</span></div>
+          <a href="/blog/things-trump-just-made-up-this-week" class="blog-card-link">read more →</a>
+        </div>
+
+        <div class="blog-card" onclick="location.href='/blog/we-will-always-protect-social-security'">
+          <div class="blog-card-date">Mar 26, 2026</div>
+          <div class="blog-card-title">"We Will ALWAYS Protect Social Security."</div>
+          <p class="blog-card-excerpt">60-year SSA staffing low. Medicare broke 12 years early. 64 million seniors getting less. He said ALWAYS. He lied ALWAYS.</p>
+          <div class="blog-card-tags"><span class="blog-card-tag fc">fact-checked</span><span class="blog-card-tag">social security</span><span class="blog-card-tag">doge</span></div>
+          <a href="/blog/we-will-always-protect-social-security" class="blog-card-link">read more →</a>
+        </div>
+
+      </div>
+      <a href="/blog" class="view-all">all 8 posts →</a>
+    </div>
+  </section>
+</main>
+<div id="footer-placeholder"></div>
+<script src="/assets/js/includes.js"></script>
+</body>
+</html>
