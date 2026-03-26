@@ -4,90 +4,27 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Blog — Epitome of Hatred</title>
-  <meta name="description" content="Unfiltered, sourced takes on Trump, MAGA, and the GOP's ongoing disaster.">
+  <meta name="description" content="Unfiltered, sourced takes on Trump, MAGA, and the GOP's ongoing disaster. No filter. No apologies.">
   <link rel="canonical" href="https://epitomeofhatred.com/blog">
   <link rel="stylesheet" href="/assets/css/style.css">
   <style>
-    .page-hero {
-      padding: 6rem 2rem 3rem;
-      max-width: var(--max-w);
-      margin: 0 auto;
-      border-bottom: 1px solid var(--border);
-    }
-    .page-hero h1 {
-      font-family: var(--font-display);
-      font-size: clamp(3rem, 10vw, 8rem);
-      line-height: 0.9;
-      color: var(--text);
-      letter-spacing: 0.02em;
-    }
-    .page-hero .sub {
-      margin-top: 1.5rem;
-      font-size: 1.1rem;
-      color: var(--text-muted);
-      font-style: italic;
-      max-width: 520px;
-    }
-    .blog-list {
-      max-width: var(--max-w);
-      margin: 0 auto;
-      padding: 3rem 2rem 6rem;
-    }
+    .page-hero { padding: 6rem 2rem 3rem; max-width: var(--max-w); margin: 0 auto; border-bottom: 1px solid var(--border); }
+    .page-hero h1 { font-family: var(--font-display); font-size: clamp(3rem, 10vw, 8rem); line-height: 0.9; color: var(--text); letter-spacing: 0.02em; }
+    .page-hero .sub { margin-top: 1.5rem; font-size: 1.1rem; color: var(--text-muted); font-style: italic; max-width: 520px; }
+    .blog-list { max-width: var(--max-w); margin: 0 auto; padding: 3rem 2rem 6rem; }
     .post-list { list-style: none; }
-    .post-item {
-      border-bottom: 1px solid var(--border);
-      padding: 2.5rem 0;
-      display: grid;
-      grid-template-columns: 160px 1fr;
-      gap: 2rem;
-      align-items: start;
-      transition: opacity var(--transition);
-    }
+    .post-item { border-bottom: 1px solid var(--border); padding: 2.5rem 0; display: grid; grid-template-columns: 160px 1fr; gap: 2rem; align-items: start; transition: opacity var(--transition); }
     .post-item:hover { opacity: 0.72; }
     .post-item:first-child { border-top: 1px solid var(--border); }
-    .post-date {
-      font-family: var(--font-mono);
-      font-size: 0.75rem;
-      color: var(--text-dim);
-      letter-spacing: 0.08em;
-      padding-top: 0.4rem;
-    }
-    .post-title {
-      font-family: var(--font-display);
-      font-size: 2.1rem;
-      color: var(--text);
-      letter-spacing: 0.02em;
-      line-height: 1;
-      margin-bottom: 0.6rem;
-      display: block;
-      transition: color var(--transition);
-    }
+    .post-date { font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-dim); letter-spacing: 0.08em; padding-top: 0.4rem; }
+    .post-title { font-family: var(--font-display); font-size: 2.1rem; color: var(--text); letter-spacing: 0.02em; line-height: 1; margin-bottom: 0.6rem; display: block; transition: color var(--transition); }
     .post-title:hover { color: var(--accent2); }
-    .post-excerpt {
-      font-size: 0.95rem;
-      color: var(--text-muted);
-      line-height: 1.6;
-    }
-    .post-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-      margin-top: 1rem;
-    }
-    .post-tag {
-      display: inline-block;
-      font-family: var(--font-mono);
-      font-size: 0.68rem;
-      letter-spacing: 0.1em;
-      color: var(--text-dim);
-      border: 1px solid var(--border);
-      padding: 0.15rem 0.5rem;
-      border-radius: 2px;
-    }
-    .fact-checked-tag { color: var(--accent2); border-color: var(--accent-dim); }
-    @media (max-width: 600px) {
-      .post-item { grid-template-columns: 1fr; gap: 0.5rem; }
-    }
+    .post-excerpt { font-size: 0.95rem; color: var(--text-muted); line-height: 1.6; }
+    .post-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 1rem; }
+    .post-tag { display: inline-block; font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.1em; color: var(--text-dim); border: 1px solid var(--border); padding: 0.15rem 0.5rem; border-radius: 2px; }
+    .fc { color: var(--accent2); border-color: var(--accent-dim); }
+    .new-tag { color: #5dab6e; border-color: rgba(93,171,110,0.3); }
+    @media (max-width: 600px) { .post-item { grid-template-columns: 1fr; gap: 0.5rem; } }
   </style>
 </head>
 <body>
@@ -96,59 +33,83 @@
   <div class="page-hero">
     <span class="section-label">blog</span>
     <h1>The Rants.</h1>
-    <p class="sub">Unfiltered. Unapologetic. Sourced. Someone had to say it.</p>
+    <p class="sub">Unfiltered. Unapologetic. Sourced. Updated daily. Someone had to say it.</p>
   </div>
   <div class="blog-list">
     <ul class="post-list">
+
+      <li class="post-item">
+        <span class="post-date">Mar 26, 2026</span>
+        <div class="post-body">
+          <a href="/blog/iran-war-what-trump-knows-vs-reality" class="post-title">Trump's Iran War: What He Knows vs. What's Actually Happening.</a>
+          <p class="post-excerpt">He's been watching a 2-minute highlight reel of explosions and calling it a briefing. He wasn't told 5 US planes got hit. 59% say wrong decision. Democrats flipped a seat in his backyard. FCC threatening broadcast licenses. All today.</p>
+          <div class="post-tags"><span class="post-tag fc">fact-checked</span><span class="post-tag new-tag">new today</span><span class="post-tag">iran war</span><span class="post-tag">press freedom</span></div>
+        </div>
+      </li>
+
+      <li class="post-item">
+        <span class="post-date">Mar 26, 2026</span>
+        <div class="post-body">
+          <a href="/blog/things-trump-just-made-up-this-week" class="post-title">Things Trump Just Made Up This Week.</a>
+          <p class="post-excerpt">15 million phantom California ballots. Drugs down 97% with zero evidence. The Strait of Hormuz "doesn't affect us." Iran has Tomahawk missiles. The nuclear deal "gave Iran the right to nukes." All false. All sourced.</p>
+          <div class="post-tags"><span class="post-tag fc">fact-checked</span><span class="post-tag">trump</span><span class="post-tag">iran</span><span class="post-tag">voting</span></div>
+        </div>
+      </li>
+
+      <li class="post-item">
+        <span class="post-date">Mar 26, 2026</span>
+        <div class="post-body">
+          <a href="/blog/the-state-of-the-union-was-fiction" class="post-title">The State of the Union Was a Work of Fiction.</a>
+          <p class="post-excerpt">8 documented lies from the longest SOTU in history. Jobs numbers wrong. Crime stats fabricated. Healthcare credit stolen from Biden. Wars he didn't end. Annotated with sources.</p>
+          <div class="post-tags"><span class="post-tag fc">fact-checked</span><span class="post-tag">state of the union</span><span class="post-tag">economy</span></div>
+        </div>
+      </li>
+
+      <li class="post-item">
+        <span class="post-date">Mar 26, 2026</span>
+        <div class="post-body">
+          <a href="/blog/we-will-always-protect-social-security" class="post-title">"We Will ALWAYS Protect Social Security."</a>
+          <p class="post-excerpt">He said it a thousand times. Then DOGE gutted the SSA to a 60-year staffing low, Medicare went broke 12 years early, and 64 million seniors started getting less. Every lie sourced.</p>
+          <div class="post-tags"><span class="post-tag fc">fact-checked</span><span class="post-tag">social security</span><span class="post-tag">medicare</span><span class="post-tag">doge</span></div>
+        </div>
+      </li>
+
       <li class="post-item">
         <span class="post-date">Mar 26, 2026</span>
         <div class="post-body">
           <a href="/blog/your-wallet-called-it-wants-its-money-back" class="post-title">Your Wallet Called. It Wants Its Money Back.</a>
-          <p class="post-excerpt">Gas nearly $4 a gallon. Groceries up. The DOGE check never came. The $2,000 tariff check is a fantasy. But the economy is "roaring." Sure it is.</p>
-          <div class="post-tags">
-            <span class="post-tag fact-checked-tag">fact-checked</span>
-            <span class="post-tag">economy</span>
-            <span class="post-tag">gas</span>
-            <span class="post-tag">groceries</span>
-            <span class="post-tag">doge</span>
-          </div>
+          <p class="post-excerpt">Gas nearly $4. Groceries up. No DOGE check. No tariff check. The "roaring economy" is roaring straight into your wallet and not in a good way.</p>
+          <div class="post-tags"><span class="post-tag fc">fact-checked</span><span class="post-tag">economy</span><span class="post-tag">gas</span><span class="post-tag">doge</span></div>
         </div>
       </li>
+
       <li class="post-item">
         <span class="post-date">Mar 26, 2026</span>
         <div class="post-body">
           <a href="/blog/hes-lying-about-everything-again" class="post-title">He's Lying. About Everything. Again.</a>
           <p class="post-excerpt">Tariffs, mail-in voting, Iran, the economy. Just another week of industrial-grade bullshit from the Oval Office — with receipts.</p>
-          <div class="post-tags">
-            <span class="post-tag fact-checked-tag">fact-checked</span>
-            <span class="post-tag">trump</span>
-            <span class="post-tag">lies</span>
-            <span class="post-tag">iran</span>
-          </div>
+          <div class="post-tags"><span class="post-tag fc">fact-checked</span><span class="post-tag">trump</span><span class="post-tag">lies</span></div>
         </div>
       </li>
+
       <li class="post-item">
         <span class="post-date">Mar 25, 2026</span>
         <div class="post-body">
           <a href="/blog/i-almost-ran-for-congress" class="post-title">I Almost Ran for Congress.</a>
           <p class="post-excerpt">I'm a Democrat. I live in LA. I care deeply about this country. And I decided not to run — here's the honest version of why.</p>
-          <div class="post-tags">
-            <span class="post-tag">politics</span>
-            <span class="post-tag">personal</span>
-          </div>
+          <div class="post-tags"><span class="post-tag">politics</span><span class="post-tag">personal</span></div>
         </div>
       </li>
+
       <li class="post-item">
         <span class="post-date">Mar 25, 2026</span>
         <div class="post-body">
           <a href="/blog/i-said-what-i-said" class="post-title">I Said What I Said.</a>
           <p class="post-excerpt">About that Facebook post. Yes, I meant every word. No, I'm not walking it back.</p>
-          <div class="post-tags">
-            <span class="post-tag">politics</span>
-            <span class="post-tag">personal</span>
-          </div>
+          <div class="post-tags"><span class="post-tag">politics</span><span class="post-tag">personal</span></div>
         </div>
       </li>
+
     </ul>
   </div>
 </main>
