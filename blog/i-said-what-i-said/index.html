@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>I Said What I Said — Epitome of Hatred</title>
+  <meta name="description" content="About that Facebook post. Yes, I meant it. No, I'm not sorry.">
+  <link rel="canonical" href="https://epitomeofhatred.com/blog/i-said-what-i-said">
+  <meta property="og:title" content="I Said What I Said">
+  <meta property="og:description" content="About that Facebook post. Yes, I meant it. No, I'm not sorry.">
+  <meta property="og:url" content="https://epitomeofhatred.com/blog/i-said-what-i-said">
+  <meta property="og:type" content="article">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <style>
+    .post-hero {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 6rem 2rem 3rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .post-meta {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+    .post-date {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--text-dim);
+      letter-spacing: 0.12em;
+    }
+    .post-tag {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent2);
+      border: 1px solid var(--accent-dim);
+      padding: 0.2rem 0.6rem;
+      border-radius: 2px;
+    }
+    .post-hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 9vw, 7.5rem);
+      line-height: 0.9;
+      letter-spacing: 0.01em;
+      color: var(--text);
+      margin-bottom: 1.5rem;
+    }
+    .post-hero .deck {
+      font-size: clamp(1.1rem, 2vw, 1.35rem);
+      color: var(--text-muted);
+      font-style: italic;
+      max-width: 580px;
+      line-height: 1.6;
+    }
+
+    /* Article body */
+    .post-body {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 4rem 2rem 6rem;
+    }
+    .post-body p {
+      margin-bottom: 1.6rem;
+      color: var(--text-muted);
+      font-size: 1.15rem;
+      line-height: 1.8;
+    }
+    .post-body p:first-of-type {
+      font-size: 1.3rem;
+      color: var(--text);
+    }
+    .post-body h2 {
+      font-family: var(--font-display);
+      font-size: 2.2rem;
+      color: var(--text);
+      letter-spacing: 0.02em;
+      margin: 3rem 0 1rem;
+      line-height: 1;
+    }
+    .post-body strong { color: var(--text); }
+    .post-body a { color: var(--accent2); }
+    .post-body a:hover { color: var(--text); }
+
+    /* Pull quote */
+    .pull-quote {
+      border-left: 3px solid var(--accent);
+      margin: 2.5rem 0;
+      padding: 1rem 0 1rem 2rem;
+    }
+    .pull-quote p {
+      font-size: 1.3rem !important;
+      color: var(--text) !important;
+      font-style: italic;
+      margin: 0 !important;
+      line-height: 1.5;
+    }
+
+    /* Facebook post card */
+    .fb-post {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-left: 3px solid #1877F2;
+      padding: 1.8rem 2rem;
+      margin: 2.5rem 0;
+      font-size: 1rem !important;
+      line-height: 1.7;
+      color: var(--text-muted) !important;
+      font-style: normal;
+      position: relative;
+    }
+    .fb-post::before {
+      content: 'Facebook · March 25, 2026';
+      display: block;
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      color: var(--text-dim);
+      letter-spacing: 0.1em;
+      margin-bottom: 1rem;
+    }
+    .fb-post p {
+      font-size: 1rem !important;
+      color: var(--text-muted) !important;
+      margin-bottom: 0.8rem !important;
+    }
+    .fb-post p:last-child { margin-bottom: 0 !important; }
+
+    /* Back link */
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      color: var(--text-dim);
+      margin-bottom: 3rem;
+      transition: color 0.2s;
+    }
+    .back-link:hover { color: var(--accent2); }
+
+    /* Post nav */
+    .post-nav {
+      border-top: 1px solid var(--border);
+      margin-top: 4rem;
+      padding-top: 2.5rem;
+      display: flex;
+      justify-content: flex-end;
+    }
+    .post-nav a {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+      text-align: right;
+    }
+    .post-nav a span:first-child { color: var(--text-dim); font-size: 0.68rem; }
+    .post-nav a span:last-child { color: var(--accent2); font-size: 1rem; font-family: var(--font-display); letter-spacing: 0.05em; }
+    .post-nav a:hover span:last-child { color: var(--text); }
+  </style>
+  <!-- SEO -->
+  <meta name="description" content="About that Facebook post telling Trump supporters to unfriend me. Yes, I meant every word. No, I'm not walking it back. Agree to disagree is for pizza toppings, not human rights.">
+  <meta name="keywords" content="unfriend Trump supporters, cutting off Trump supporters, agree to disagree politics, Trump supporters Facebook, political boundaries">
+  <meta name="author" content="Darrell Nelson">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://epitomeofhatred.com/blog/i-said-what-i-said">
+  <meta property="og:title" content="I Said What I Said — Epitome of Hatred">
+  <meta property="og:description" content="About that Facebook post telling Trump supporters to unfriend me. Yes, I meant every word. No, I'm not walking it back. Agree to disagree is for pizza toppings, not human rights.">
+  <meta property="og:site_name" content="Epitome of Hatred">
+  <meta property="og:locale" content="en_US">
+  <meta property="article:published_time" content="2026-03-25T08:00:00-07:00">
+  <meta property="article:author" content="Darrell Nelson">
+  <meta property="article:section" content="Politics">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="I Said What I Said">
+  <meta name="twitter:description" content="About that Facebook post telling Trump supporters to unfriend me. Yes, I meant every word. No, I'm not walking it back. Agree to disagree is for pizza toppings, not human rights.">
+  <meta name="twitter:site" content="@est7bd">
+  <meta name="twitter:creator" content="@est7bd">
+
+  <!-- Article Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "NewsArticle",
+    "headline": "I Said What I Said",
+    "description": "About that Facebook post telling Trump supporters to unfriend me. Yes, I meant every word. No, I'm not walking it back. Agree to disagree is for pizza toppings, not human rights.",
+    "url": "https://epitomeofhatred.com/blog/i-said-what-i-said",
+    "datePublished": "2026-03-25T08:00:00-07:00",
+    "dateModified": "2026-03-25T08:00:00-07:00",
+    "author": {
+      "@type": "Person",
+      "name": "Darrell Nelson",
+      "url": "https://epitomeofhatred.com/about"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Epitome of Hatred",
+      "url": "https://epitomeofhatred.com"
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://epitomeofhatred.com/blog/i-said-what-i-said"
+    }
+  }
+  </script>
+</head>
+<body>
+
+<div id="header-placeholder"></div>
+
+<main>
+  <article>
+    <div class="post-hero">
+      <div class="post-meta">
+        <span class="post-date">March 25, 2026</span>
+        <span class="post-tag">politics</span>
+        <span class="post-tag">personal</span>
+      </div>
+      <h1>I Said What I Said.</h1>
+      <p class="deck">About that Facebook post. Yes, I meant every word. No, I'm not walking it back.</p>
+    </div>
+
+    <div class="post-body">
+      <a href="/blog" class="back-link">← all posts</a>
+
+      <p>I posted something on Facebook today that some people in my life are not going to like. And before anyone slides into my DMs with a "can't we all just get along" — no. We can't. Not about this. Not anymore.</p>
+
+      <p>Here's what I said:</p>
+
+      <div class="fb-post">
+        <p>If you still support Trump after everything — and I mean EVERYTHING — unfriend me. Block me. Delete my number. Burn the bridge. I'll bring the matches (trust me, it wouldn't be the first time I brought the matches).</p>
+        <p>I'm not your "agree to disagree" friend. I don't want to "keep the peace" at Christmas. I'm good.</p>
+      </div>
+
+      <p>Some people will read that and think I'm being dramatic. That I'm letting politics ruin relationships. That I should be more open-minded, more tolerant, more willing to "hear the other side."</p>
+
+      <p>I've heard the other side. For years. I've sat at tables with people I love and listened politely while they repeated things that weren't true, defended things that were indefensible, and waved away things that were genuinely harmful to real people. I've bitten my tongue so many times I'm surprised it's still attached.</p>
+
+      <div class="pull-quote">
+        <p>"Agree to disagree" is a courtesy you extend over pizza toppings. Not over whether certain people deserve basic human rights.</p>
+      </div>
+
+      <h2>This Isn't About Policy.</h2>
+
+      <p>I want to be clear about something because I know how this gets misread. This isn't about tax brackets. It isn't about immigration policy in the abstract, or healthcare approaches, or any of the things where reasonable people can land in different places based on different values and priorities.</p>
+
+      <p>This is about watching someone <strong>lie, constantly and deliberately</strong>, and watching people I know nod along. This is about watching a political party burn down every norm and guardrail that holds a democracy together, and watching people I used to respect cheer for it. This is about cruelty being rebranded as strength and calling it out being rebranded as weakness.</p>
+
+      <p>I'm a Democrat. I own that fully. But this isn't a partisan post — it's a personal one. There are plenty of Republicans I've respected over the years. This particular version of the Republican Party, the MAGA version, is something different. Something I don't have the stomach for anymore.</p>
+
+      <h2>What "Keeping the Peace" Actually Costs.</h2>
+
+      <p>Here's the thing nobody talks about: keeping the peace has a price, and it's not split evenly. The people who absorb the cost of "keeping the peace" are usually the ones who have the most to lose if the wrong people win. I don't have that luxury. And honestly, neither do most of the people reading this.</p>
+
+      <p>So yeah. I posted it. I meant it. And if someone in my life reads it and decides to hit unfriend — well, I already brought the matches.</p>
+
+      <div class="post-nav">
+        <a href="/blog/i-almost-ran-for-congress">
+          <span>next post</span>
+          <span>I Almost Ran for Congress. →</span>
+        </a>
+      </div>
+    </div>
+  </article>
+</main>
+
+<div id="footer-placeholder"></div>
+<script src="/assets/js/includes.js"></script>
+</body>
+</html>

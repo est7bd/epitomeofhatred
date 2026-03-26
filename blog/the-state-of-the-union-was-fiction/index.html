@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The State of the Union Was a Work of Fiction. — Epitome of Hatred</title>
+  <meta name="description" content="Trump called it the greatest State of the Union in history. It was also one of the most dishonest. Jobs numbers fabricated. Crime stats wrong. Healthcare claims false. Wars he didn't end. All of it annotated with sources.">
+  <link rel="canonical" href="https://epitomeofhatred.com/blog/the-state-of-the-union-was-fiction">
+  <meta property="og:title" content="The State of the Union Was a Work of Fiction.">
+  <meta property="og:description" content="Jobs. Crime. Healthcare. Wars. He lied about all of it. Here's the annotated version.">
+  <meta property="og:type" content="article">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <style>
+    .post-hero { max-width: var(--max-w); margin: 0 auto; padding: 6rem 2rem 3rem; border-bottom: 1px solid var(--border); }
+    .post-meta { display: flex; align-items: center; gap: 1.5rem; margin-bottom: 2rem; flex-wrap: wrap; }
+    .post-date { font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-dim); letter-spacing: 0.12em; }
+    .post-tag { font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent2); border: 1px solid var(--accent-dim); padding: 0.2rem 0.6rem; border-radius: 2px; }
+    .post-hero h1 { font-family: var(--font-display); font-size: clamp(3rem, 9vw, 7.5rem); line-height: 0.9; letter-spacing: 0.01em; color: var(--text); margin-bottom: 1.5rem; }
+    .post-hero .deck { font-size: clamp(1.1rem, 2vw, 1.35rem); color: var(--text-muted); font-style: italic; max-width: 620px; line-height: 1.6; }
+    .post-body { max-width: 720px; margin: 0 auto; padding: 4rem 2rem 6rem; }
+    .post-body p { margin-bottom: 1.6rem; color: var(--text-muted); font-size: 1.15rem; line-height: 1.8; }
+    .post-body p:first-of-type { font-size: 1.3rem; color: var(--text); }
+    .post-body h2 { font-family: var(--font-display); font-size: 2.4rem; color: var(--text); letter-spacing: 0.02em; margin: 3.5rem 0 1rem; line-height: 1; }
+    .post-body strong { color: var(--text); }
+    .post-body em { color: var(--text); font-style: italic; }
+    .post-body a { color: var(--accent2); border-bottom: 1px solid var(--accent-dim); }
+    .post-body a:hover { color: var(--text); border-color: transparent; }
+    .pull-quote { border-left: 3px solid var(--accent); margin: 2.5rem 0; padding: 1rem 0 1rem 2rem; }
+    .pull-quote p { font-size: 1.3rem !important; color: var(--text) !important; font-style: italic; margin: 0 !important; line-height: 1.5; }
+
+    /* Annotation style — quote then debunk */
+    .sotu-quote {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent2);
+      padding: 1.5rem;
+      margin: 2.5rem 0 0;
+      position: relative;
+    }
+    .sotu-quote::before {
+      content: 'TRUMP SAID:';
+      display: block;
+      font-family: var(--font-mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.18em;
+      color: var(--accent2);
+      margin-bottom: 0.6rem;
+    }
+    .sotu-quote p {
+      font-style: italic;
+      color: var(--text) !important;
+      font-size: 1.1rem !important;
+      margin: 0 !important;
+      line-height: 1.6;
+    }
+    .sotu-reality {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-left: 3px solid #5dab6e;
+      border-top: none;
+      padding: 1.5rem;
+      margin: 0 0 2.5rem;
+    }
+    .sotu-reality::before {
+      content: 'REALITY:';
+      display: block;
+      font-family: var(--font-mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.18em;
+      color: #5dab6e;
+      margin-bottom: 0.6rem;
+    }
+    .sotu-reality p {
+      color: var(--text-muted) !important;
+      font-size: 1rem !important;
+      margin: 0 0 0.5rem !important;
+      line-height: 1.7;
+    }
+    .sotu-reality p:last-child { margin: 0 !important; }
+    .sotu-reality strong { color: var(--text); }
+    .source-links { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.8rem; }
+    .source-link { font-family: var(--font-mono); font-size: 0.68rem; color: var(--accent2); border: 1px solid var(--accent-dim); padding: 0.15rem 0.5rem; border-radius: 2px; text-decoration: none; transition: all 0.2s; }
+    .source-link:hover { background: var(--accent-dim); color: var(--text); border-color: transparent; }
+    .back-link { display: inline-flex; align-items: center; gap: 0.5rem; font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.1em; color: var(--text-dim); margin-bottom: 3rem; transition: color 0.2s; text-decoration: none; border: none; }
+    .back-link:hover { color: var(--accent2); }
+    .post-nav { border-top: 1px solid var(--border); margin-top: 4rem; padding-top: 2.5rem; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+    .post-nav a { font-family: var(--font-mono); font-size: 0.78rem; letter-spacing: 0.08em; color: var(--text-muted); display: flex; flex-direction: column; gap: 0.3rem; border: none; }
+    .post-nav a span:first-child { color: var(--text-dim); font-size: 0.68rem; }
+    .post-nav a span:last-child { color: var(--accent2); font-size: 1rem; font-family: var(--font-display); letter-spacing: 0.05em; }
+    .post-nav a:hover span:last-child { color: var(--text); }
+    .lie-counter {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.8rem;
+      background: var(--accent);
+      padding: 0.4rem 1rem 0.4rem 0.5rem;
+      margin-bottom: -1px;
+    }
+    .lie-counter-num { font-family: var(--font-display); font-size: 1.8rem; color: #fff; line-height: 1; }
+    .lie-counter-label { font-family: var(--font-mono); font-size: 0.65rem; color: rgba(255,255,255,0.8); letter-spacing: 0.1em; text-transform: uppercase; }
+  </style>
+  <!-- SEO -->
+  <meta name="description" content="Trump's 2026 State of the Union contained 8 documented lies: inflated jobs numbers, fabricated crime stats, stolen credit for lowering drug prices, and wars he didn't end. Every lie annotated with sources.">
+  <meta name="keywords" content="Trump State of the Union lies 2026, SOTU fact check 2026, Trump SOTU false claims, Trump jobs numbers wrong, Trump crime statistics false">
+  <meta name="author" content="Darrell Nelson">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://epitomeofhatred.com/blog/the-state-of-the-union-was-fiction">
+  <meta property="og:title" content="The State of the Union Was a Work of Fiction — Epitome of Hatred">
+  <meta property="og:description" content="Trump's 2026 State of the Union contained 8 documented lies: inflated jobs numbers, fabricated crime stats, stolen credit for lowering drug prices, and wars he didn't end. Every lie annotated with sources.">
+  <meta property="og:site_name" content="Epitome of Hatred">
+  <meta property="og:locale" content="en_US">
+  <meta property="article:published_time" content="2026-03-26T08:00:00-07:00">
+  <meta property="article:author" content="Darrell Nelson">
+  <meta property="article:section" content="Politics">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The State of the Union Was a Work of Fiction">
+  <meta name="twitter:description" content="Trump's 2026 State of the Union contained 8 documented lies: inflated jobs numbers, fabricated crime stats, stolen credit for lowering drug prices, and wars he didn't end. Every lie annotated with sources.">
+  <meta name="twitter:site" content="@est7bd">
+  <meta name="twitter:creator" content="@est7bd">
+
+  <!-- Article Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "NewsArticle",
+    "headline": "The State of the Union Was a Work of Fiction",
+    "description": "Trump's 2026 State of the Union contained 8 documented lies: inflated jobs numbers, fabricated crime stats, stolen credit for lowering drug prices, and wars he didn't end. Every lie annotated with sources.",
+    "url": "https://epitomeofhatred.com/blog/the-state-of-the-union-was-fiction",
+    "datePublished": "2026-03-26T08:00:00-07:00",
+    "dateModified": "2026-03-26T08:00:00-07:00",
+    "author": {
+      "@type": "Person",
+      "name": "Darrell Nelson",
+      "url": "https://epitomeofhatred.com/about"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Epitome of Hatred",
+      "url": "https://epitomeofhatred.com"
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://epitomeofhatred.com/blog/the-state-of-the-union-was-fiction"
+    }
+  }
+  </script>
+</head>
+<body>
+<div id="header-placeholder"></div>
+<main>
+  <article>
+    <div class="post-hero">
+      <div class="post-meta">
+        <span class="post-date">March 26, 2026</span>
+        <span class="post-tag">state of the union</span>
+        <span class="post-tag">trump</span>
+        <span class="post-tag">fact-checked</span>
+        <span class="post-tag">lies</span>
+      </div>
+      <h1>The State of the Union Was a Work of Fiction.</h1>
+      <p class="deck">On February 24th, Trump delivered the longest State of the Union address in history. He also delivered one of the most dishonest. Here's the annotated version — every major lie, every exaggeration, every fabrication. With sources.</p>
+    </div>
+
+    <div class="post-body">
+      <a href="/blog" class="back-link">← all posts</a>
+
+      <p>Trump stood before Congress on February 24th and declared that "our nation is back, bigger, better, richer and stronger than ever before." He claimed a roaring economy. Record jobs. Ending wars. Protecting seniors. Saving prescription drug costs.</p>
+
+      <p>Almost none of it was true. NBC News, PBS, FactCheck.org, and others went through the speech line by line. What they found was a greatest hits collection of Trump fabrications — some familiar, some new, all documented, all provably false. Here's the annotated version.</p>
+
+      <h2>The Jobs Lies.</h2>
+
+      <div class="lie-counter">
+        <span class="lie-counter-num">LIE 1</span>
+        <span class="lie-counter-label">Construction Jobs</span>
+      </div>
+      <div class="sotu-quote"><p>"We've created 70,000 new construction jobs."</p></div>
+      <div class="sotu-reality">
+        <p>The Bureau of Labor Statistics shows <strong>44,000 construction jobs were added</strong> from January 2025 to January 2026. Trump inflated the number by nearly 60%. Not a rounding error — a fabrication.</p>
+        <div class="source-links">
+          <a href="https://www.nbcnews.com/politics/donald-trump/state-of-union-fact-check-trump-speech-2026-rcna259900" target="_blank" rel="noopener" class="source-link">NBC News Fact Check</a>
+          <a href="https://www.factcheck.org/person/donald-trump/" target="_blank" rel="noopener" class="source-link">FactCheck.org</a>
+        </div>
+      </div>
+
+      <div class="lie-counter">
+        <span class="lie-counter-num">LIE 2</span>
+        <span class="lie-counter-label">Food Stamps</span>
+      </div>
+      <div class="sotu-quote"><p>"We have lifted 2.4 million Americans — a record — off of food stamps."</p></div>
+      <div class="sotu-reality">
+        <p>This needs context Trump deliberately left out. Those 2.4 million people aren't thriving — they're <strong>losing eligibility</strong> because of new work requirements in Trump's One Big Beautiful Bill. Being removed from a program because you were cut off is not the same as being lifted out of poverty. Nearly 42 million Americans still rely on food stamps. This stat is a cruel rebranding of people losing food assistance as an economic success story.</p>
+        <div class="source-links">
+          <a href="https://www.nbcnews.com/politics/donald-trump/state-of-union-fact-check-trump-speech-2026-rcna259900" target="_blank" rel="noopener" class="source-link">NBC News Fact Check</a>
+        </div>
+      </div>
+
+      <h2>The Crime Lies.</h2>
+
+      <div class="lie-counter">
+        <span class="lie-counter-num">LIE 3</span>
+        <span class="lie-counter-label">"Almost No Crime" in DC</span>
+      </div>
+      <div class="sotu-quote"><p>"There is almost no crime in Washington, D.C. right now."</p></div>
+      <div class="sotu-reality">
+        <p>Metropolitan Police Department data shows that since January 1, 2026 there have been <strong>9 homicides, 126 assaults with a dangerous weapon, and 322 motor vehicle thefts</strong> in Washington DC. Year-to-date homicides are down 67% — which is genuinely good news — but "almost no crime" is not a description of any real city on Earth. Assault with a dangerous weapon is actually the <strong>only crime category that increased</strong> in 2026 so far.</p>
+        <div class="source-links">
+          <a href="https://www.nbcnews.com/politics/donald-trump/state-of-union-fact-check-trump-speech-2026-rcna259900" target="_blank" rel="noopener" class="source-link">NBC News Fact Check</a>
+        </div>
+      </div>
+
+      <div class="lie-counter">
+        <span class="lie-counter-num">LIE 4</span>
+        <span class="lie-counter-label">Immigrant Murders</span>
+      </div>
+      <div class="sotu-quote"><p>"They poured in by the millions and millions — from prisons, from mental institutions. There were murders — 11,888 murders. They came into our country."</p></div>
+      <div class="sotu-reality">
+        <p>There is <strong>no evidence that millions of migrants came from prisons and mental institutions</strong>. The 11,888 figure refers to convicted murderers without legal status not currently in ICE custody — but that number cannot be attributed exclusively to Biden, since it's not clear when those individuals entered the US or under what circumstances. Trump's framing deliberately conflates legal status with criminality in a way the data does not support.</p>
+        <div class="source-links">
+          <a href="https://www.nbcnews.com/politics/donald-trump/state-of-union-fact-check-trump-speech-2026-rcna259900" target="_blank" rel="noopener" class="source-link">NBC News Fact Check</a>
+        </div>
+      </div>
+
+      <h2>The Healthcare Lies.</h2>
+
+      <div class="lie-counter">
+        <span class="lie-counter-num">LIE 5</span>
+        <span class="lie-counter-label">Prescription Drug Costs</span>
+      </div>
+      <div class="sotu-quote"><p>"I am also ending the wildly inflated cost of prescription drugs. Other presidents tried to do it, but they never could. They didn't even come close."</p></div>
+      <div class="sotu-reality">
+        <p>This is <strong>false</strong>. In 2022, President Biden signed the Inflation Reduction Act which capped insulin at $35/month for Medicare recipients, placed a $2,000 annual cap on out-of-pocket drug costs for Medicare patients, and — for the first time ever — allowed Medicare to negotiate prescription drug prices directly with manufacturers. Biden didn't just "come close." He actually did it. Trump is taking credit for work already done and erasing the person who did it.</p>
+        <div class="source-links">
+          <a href="https://www.nbcnews.com/politics/donald-trump/state-of-union-fact-check-trump-speech-2026-rcna259900" target="_blank" rel="noopener" class="source-link">NBC News Fact Check</a>
+          <a href="https://www.factcheck.org/person/donald-trump/" target="_blank" rel="noopener" class="source-link">FactCheck.org</a>
+        </div>
+      </div>
+
+      <h2>The "I Ended All the Wars" Lies.</h2>
+
+      <div class="lie-counter">
+        <span class="lie-counter-num">LIE 6</span>
+        <span class="lie-counter-label">World Peace Claims</span>
+      </div>
+      <div class="sotu-quote"><p>Trump claimed credit for ending conflicts between Israel and Iran, Egypt and Ethiopia, Thailand and Cambodia, Serbia and Kosovo, Rwanda and the Democratic Republic of Congo, Armenia and Azerbaijan, and India and Pakistan.</p></div>
+      <div class="sotu-reality">
+        <p>There is <strong>no consensus that Trump ended these conflicts</strong>, and in several cases fighting resumed after declarations of peace or ceasefires — including between Thailand and Cambodia and Rwanda and the Democratic Republic of Congo. His impact as a mediator in the cases where peace did hold is heavily disputed. Meanwhile, Trump started his <em>own</em> war — with Iran — in February 2026. The man claiming to have ended seven wars launched a new one the same month he gave this speech.</p>
+        <div class="source-links">
+          <a href="https://www.nbcnews.com/politics/donald-trump/state-of-union-fact-check-trump-speech-2026-rcna259900" target="_blank" rel="noopener" class="source-link">NBC News Fact Check</a>
+        </div>
+      </div>
+
+      <h2>The Economy Lies.</h2>
+
+      <div class="lie-counter">
+        <span class="lie-counter-num">LIE 7</span>
+        <span class="lie-counter-label">The "Roaring Economy"</span>
+      </div>
+      <div class="sotu-quote"><p>"The roaring economy is roaring like never before." / "Our nation is back, bigger, better, richer and stronger than ever before."</p></div>
+      <div class="sotu-reality">
+        <p>The same week Trump said this, the US economy reported <strong>job losses, rising gasoline prices, and increasing uncertainty</strong>. The Dow Jones had dropped 5% over the prior month. The unemployment rate for US-born workers climbed to 4.7% from 4.4% over the previous year. <strong>70% of Americans predicted 2026 would be a year of economic difficulty</strong>. Two-thirds expressed concern about tariff impacts on their finances. The "roaring economy" was roaring straight into people's wallets and not in a good way.</p>
+        <div class="source-links">
+          <a href="https://www.pbs.org/newshour/politics/trumps-roaring-economy-meets-a-rough-start-to-2026-with-job-losses-rising-gas-prices-and-uncertainty" target="_blank" rel="noopener" class="source-link">PBS NewsHour</a>
+          <a href="https://www.pbs.org/newshour/politics/fact-checking-trumps-false-claims-ahead-of-the-state-of-the-union" target="_blank" rel="noopener" class="source-link">PBS — SOTU Fact Check</a>
+          <a href="https://www.americanprogress.org/article/a-year-in-review-how-the-trump-administrations-economic-policies-made-life-less-affordable-for-americans/" target="_blank" rel="noopener" class="source-link">Center for American Progress</a>
+        </div>
+      </div>
+
+      <div class="lie-counter">
+        <span class="lie-counter-num">LIE 8</span>
+        <span class="lie-counter-label">The 2024 "Landslide"</span>
+      </div>
+      <div class="sotu-quote"><p>Trump repeatedly calls his 2024 win a "landslide."</p></div>
+      <div class="sotu-reality">
+        <p>Trump won 312 electoral votes to 226 — every swing state, which is genuinely impressive. But a landslide it is not. By comparison, Reagan won 525 electoral votes in 1984. Nixon won 520 in 1972. LBJ won 486 in 1964. Trump's margin was solid but historically unremarkable. He won. He didn't need to inflate it. But inflating things is what he does.</p>
+        <div class="source-links">
+          <a href="https://www.pbs.org/newshour/politics/fact-checking-trumps-false-claims-ahead-of-the-state-of-the-union" target="_blank" rel="noopener" class="source-link">PBS NewsHour</a>
+        </div>
+      </div>
+
+      <div class="pull-quote">
+        <p>This was the longest State of the Union address in history. It was also, fact-checkers agreed, one of the most dishonest. Quantity and quality going in opposite directions, as usual.</p>
+      </div>
+
+      <p>Eight documented lies. In one speech. That Congress applauded. That Fox News called historic. That millions of people watched and believed.</p>
+
+      <p>This is what normal looks like now. A president who lies about the number of jobs created, lies about crime statistics, lies about who deserves credit for lowering drug prices, lies about ending wars while starting new ones, and lies about the state of the economy while 70% of Americans expect the year to be economically painful.</p>
+
+      <p>And the response from his party? Applause. Standing ovations. Not a single Republican in that chamber stood up and said "that's not true." Not one.</p>
+
+      <p>That's not a party. That's a cult with a podium.</p>
+
+      <div class="post-nav">
+        <a href="/blog/we-will-always-protect-social-security">
+          <span>previous post</span>
+          <span>← We Will ALWAYS Protect Social Security.</span>
+        </a>
+        <a href="/blog/things-trump-just-made-up-this-week" style="text-align:right;">
+          <span>next post</span>
+          <span>Things Trump Just Made Up This Week →</span>
+        </a>
+      </div>
+    </div>
+  </article>
+</main>
+<div id="footer-placeholder"></div>
+<script src="/assets/js/includes.js"></script>
+</body>
+</html>
