@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog — Epitome of Hatred</title>
+  <meta name="description" content="Unfiltered takes on MAGA, Trump, and the GOP's ongoing disaster.">
+  <link rel="canonical" href="https://epitomeofhatred.com/blog">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <style>
+    .page-hero {
+      padding: 6rem 2rem 3rem;
+      max-width: var(--max-w);
+      margin: 0 auto;
+      border-bottom: 1px solid var(--border);
+    }
+    .page-hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 10vw, 8rem);
+      line-height: 0.9;
+      color: var(--text);
+      letter-spacing: 0.02em;
+    }
+    .page-hero .sub {
+      margin-top: 1.5rem;
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      font-style: italic;
+      max-width: 520px;
+    }
+
+    .blog-list {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 3rem 2rem 6rem;
+    }
+
+    .post-list { list-style: none; }
+    .post-item {
+      border-bottom: 1px solid var(--border);
+      padding: 2.5rem 0;
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 2rem;
+      align-items: start;
+      transition: opacity var(--transition);
+    }
+    .post-item:hover { opacity: 0.72; }
+    .post-item:first-child { border-top: 1px solid var(--border); }
+    .post-date {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--text-dim);
+      letter-spacing: 0.08em;
+      padding-top: 0.4rem;
+    }
+    .post-body {}
+    .post-title {
+      font-family: var(--font-display);
+      font-size: 2.1rem;
+      color: var(--text);
+      letter-spacing: 0.02em;
+      line-height: 1;
+      margin-bottom: 0.6rem;
+      display: block;
+      transition: color var(--transition);
+    }
+    .post-title:hover { color: var(--accent2); }
+    .post-excerpt {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+    .post-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 1rem;
+    }
+    .post-tag {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      color: var(--text-dim);
+      border: 1px solid var(--border);
+      padding: 0.15rem 0.5rem;
+      border-radius: 2px;
+    }
+
+    @media (max-width: 600px) {
+      .post-item { grid-template-columns: 1fr; gap: 0.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="header-placeholder"></div>
+
+<main>
+  <div class="page-hero">
+    <span class="section-label">blog</span>
+    <h1>The Rants.</h1>
+    <p class="sub">Unfiltered. Unapologetic. Someone had to say it.</p>
+  </div>
+
+  <div class="blog-list">
+    <ul class="post-list">
+      <li class="post-item">
+        <span class="post-date">Mar 25, 2026</span>
+        <div class="post-body">
+          <a href="/blog/i-almost-ran-for-congress" class="post-title">I Almost Ran for Congress.</a>
+          <p class="post-excerpt">I'm a Democrat. I live in LA. I care deeply about this country. And I decided not to run — here's the honest version of why.</p>
+          <div class="post-tags">
+            <span class="post-tag">politics</span>
+            <span class="post-tag">personal</span>
+          </div>
+        </div>
+      </li>
+      <li class="post-item">
+        <span class="post-date">Mar 25, 2026</span>
+        <div class="post-body">
+          <a href="/blog/i-said-what-i-said" class="post-title">I Said What I Said.</a>
+          <p class="post-excerpt">About that Facebook post. Yes, I meant every word. No, I'm not walking it back.</p>
+          <div class="post-tags">
+            <span class="post-tag">politics</span>
+            <span class="post-tag">personal</span>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</main>
+
+<div id="footer-placeholder"></div>
+<script src="/assets/js/includes.js"></script>
+</body>
+</html>
