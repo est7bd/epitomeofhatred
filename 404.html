@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 — Epitome of Hatred</title>
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <style>
+    .not-found {
+      min-height: 80svh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 4rem 2rem;
+    }
+    .not-found-big {
+      font-family: var(--font-display);
+      font-size: clamp(6rem, 20vw, 16rem);
+      color: transparent;
+      -webkit-text-stroke: 1px var(--border);
+      line-height: 1;
+      letter-spacing: 0.05em;
+    }
+    .not-found h2 {
+      font-family: var(--font-display);
+      font-size: 2.5rem;
+      color: var(--text);
+      margin: 1rem 0 0.5rem;
+    }
+    .not-found p {
+      color: var(--text-muted);
+      font-size: 1rem;
+      margin-bottom: 2rem;
+      font-style: italic;
+    }
+    .not-found a {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      color: var(--accent2);
+    }
+  </style>
+</head>
+<body>
+<div id="header-placeholder"></div>
+<main>
+  <div class="not-found">
+    <span class="not-found-big">404</span>
+    <h2>Nothing here.</h2>
+    <p>Even this page couldn't find what you were looking for.</p>
+    <a href="/">← back to home</a>
+  </div>
+</main>
+<div id="footer-placeholder"></div>
+<script src="/assets/js/includes.js"></script>
+</body>
+</html>
