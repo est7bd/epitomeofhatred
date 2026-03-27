@@ -8,8 +8,7 @@
       <a href="/blog">blog</a>
       <a href="/the-lies">the lies</a>
       <a href="/about">about</a>
-      <!-- No href at all — pure JS, email never in source as plain text -->
-      <span id="contact-link" style="cursor:pointer;">contact</span>
+      <a href="/about#contact">contact</a>
     </div>
   </div>
   <div class="footer-bottom">
@@ -17,11 +16,5 @@
   </div>
 </footer>
 <script>
-window._eoh_em = function() {
-  return String.fromCharCode(102,97,99,116,115,64,101,112,105,116,111,109,101,111,102,104,97,116,114,101,100,46,99,111,109);
-};
 document.getElementById('footer-year').textContent = new Date().getFullYear();
-document.getElementById('contact-link').addEventListener('click', function() {
-  window.location.href = 'mailto:' + window._eoh_em();
-});
 </script>
