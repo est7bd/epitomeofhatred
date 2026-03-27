@@ -34,312 +34,530 @@
     .post-item-deck { font-size: 0.9rem; color: var(--text-dim); line-height: 1.5; }
     @media (max-width: 600px) { .post-item { grid-template-columns: 1fr; gap: 0.5rem; } }
   </style>
+  <style>
+    /* Controls strip */
+    .blog-controls { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.2rem; flex-wrap: wrap; }
+    .search-wrap { position: relative; flex: 1; min-width: 200px; }
+    .search-input { width: 100%; background: var(--bg2); border: 1px solid var(--border); color: var(--text); font-family: var(--font-mono); font-size: 0.82rem; padding: 0.55rem 2.2rem 0.55rem 2rem; outline: none; border-radius: 2px; letter-spacing: 0.04em; transition: border-color 0.2s; box-sizing: border-box; }
+    .search-input:focus { border-color: var(--accent2); }
+    .search-input::placeholder { color: var(--text-dim); }
+    .search-icon { position: absolute; left: 0.6rem; top: 50%; transform: translateY(-50%); color: var(--text-dim); font-size: 1.1rem; pointer-events: none; }
+    .search-clear { position: absolute; right: 0.5rem; top: 50%; transform: translateY(-50%); background: none; border: none; color: var(--text-dim); cursor: pointer; font-size: 0.75rem; padding: 0.2rem; display: none; }
+    .search-clear:hover { color: var(--accent); }
+    .search-clear.visible { display: block; }
+    .sort-wrap { display: flex; gap: 0.4rem; flex-shrink: 0; }
+    .sort-btn { background: none; border: 1px solid var(--border); color: var(--text-dim); font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.4rem 0.8rem; cursor: pointer; border-radius: 2px; transition: all 0.15s; }
+    .sort-btn:hover { border-color: var(--accent2); color: var(--accent2); }
+    .sort-btn.active { border-color: var(--accent2); color: var(--accent2); background: rgba(93,175,220,0.06); }
+    /* Topic filters */
+    .filter-wrap { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
+    .filter-btn { background: none; border: 1px solid var(--border); color: var(--text-dim); font-family: var(--font-mono); font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.3rem 0.7rem; cursor: pointer; border-radius: 2px; transition: all 0.15s; }
+    .filter-btn:hover { border-color: var(--accent-dim); color: var(--accent2); }
+    .filter-btn.active { border-color: var(--accent); color: var(--accent); background: rgba(204,34,34,0.07); }
+    /* Results meta */
+    .results-meta { font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 1rem; }
+    /* No results */
+    .no-results { padding: 3rem 0; text-align: center; color: var(--text-dim); font-family: var(--font-mono); font-size: 0.82rem; }
+    .reset-link { background: none; border: none; color: var(--accent2); cursor: pointer; font-family: var(--font-mono); font-size: 0.82rem; text-decoration: underline; padding: 0; }
+  </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var list        = document.getElementById('post-list');
+      var metaEl      = document.getElementById('results-meta');
+      var noResults   = document.getElementById('no-results');
+      var searchInput = document.getElementById('post-search');
+      var clearBtn    = document.getElementById('search-clear');
+      var resetBtn    = document.getElementById('reset-all');
+      var allItems    = Array.from(list.querySelectorAll('.post-item'));
+      var activeTopic = 'all';
+      var activeSort  = 'newest';
+      var searchVal   = '';
+
+      function applyAll() {
+        var visible = [];
+        allItems.forEach(function(item) {
+          var topicMatch = activeTopic === 'all' || item.dataset.topics.split(' ').indexOf(activeTopic) > -1;
+          var searchMatch = !searchVal || item.dataset.search.indexOf(searchVal) > -1;
+          if (topicMatch && searchMatch) {
+            item.style.display = '';
+            visible.push(item);
+          } else {
+            item.style.display = 'none';
+          }
+        });
+
+        // Re-sort visible items in DOM
+        var sorted = visible.slice().sort(function(a, b) {
+          if (activeSort === 'newest') return b.dataset.date.localeCompare(a.dataset.date);
+          return a.dataset.date.localeCompare(b.dataset.date);
+        });
+        sorted.forEach(function(item) { list.appendChild(item); });
+
+        // Update meta
+        var total = allItems.length;
+        metaEl.textContent = visible.length === total
+          ? 'All ' + total + ' posts'
+          : visible.length + ' of ' + total + ' posts';
+
+        noResults.style.display = visible.length === 0 ? 'block' : 'none';
+      }
+
+      // Sort buttons
+      document.querySelectorAll('.sort-btn').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          document.querySelectorAll('.sort-btn').forEach(function(b) { b.classList.remove('active'); });
+          btn.classList.add('active');
+          activeSort = btn.dataset.sort;
+          applyAll();
+        });
+      });
+
+      // Filter buttons
+      document.querySelectorAll('.filter-btn').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          document.querySelectorAll('.filter-btn').forEach(function(b) { b.classList.remove('active'); });
+          btn.classList.add('active');
+          activeTopic = btn.dataset.topic;
+          applyAll();
+        });
+      });
+
+      // Search
+      searchInput.addEventListener('input', function() {
+        searchVal = this.value.toLowerCase().trim();
+        clearBtn.classList.toggle('visible', searchVal.length > 0);
+        applyAll();
+      });
+
+      clearBtn.addEventListener('click', function() {
+        searchInput.value = '';
+        searchVal = '';
+        clearBtn.classList.remove('visible');
+        searchInput.focus();
+        applyAll();
+      });
+
+      if (resetBtn) {
+        resetBtn.addEventListener('click', function() {
+          searchInput.value = '';
+          searchVal = '';
+          clearBtn.classList.remove('visible');
+          activeTopic = 'all';
+          activeSort = 'newest';
+          document.querySelectorAll('.filter-btn').forEach(function(b) { b.classList.remove('active'); });
+          document.querySelector('.filter-btn[data-topic="all"]').classList.add('active');
+          document.querySelectorAll('.sort-btn').forEach(function(b) { b.classList.remove('active'); });
+          document.querySelector('.sort-btn[data-sort="newest"]').classList.add('active');
+          applyAll();
+        });
+      }
+
+      applyAll();
+    });
+  </script>
 </head>
 <body>
 <div id="header-placeholder"></div>
 <main>
   <div class="blog-hero"><h1>THE<br><span>RANTS.</span></h1></div>
-  <div class="blog-grid">
-    <h2>All 33 Posts — Newest First</h2>
-    <div class="post-list">
-      <a href="/blog/hegseth-bombed-a-dairy-farm" class="post-item">
+    <div class="blog-grid">
+
+    <div class="blog-controls">
+      <div class="search-wrap">
+        <input type="text" id="post-search" class="search-input" placeholder="Search posts..." autocomplete="off" spellcheck="false">
+        <span class="search-icon">⌕</span>
+        <button class="search-clear" id="search-clear" aria-label="Clear search">✕</button>
+      </div>
+      <div class="sort-wrap">
+        <button class="sort-btn active" data-sort="newest">Newest</button>
+        <button class="sort-btn" data-sort="oldest">Oldest</button>
+      </div>
+    </div>
+
+    <div class="filter-wrap">
+      <button class="filter-btn active" data-topic="all">All</button>
+        <button class="filter-btn" data-topic="hegseth">Hegseth</button>
+        <button class="filter-btn" data-topic="doge">DOGE</button>
+        <button class="filter-btn" data-topic="narcissism">narcissism</button>
+        <button class="filter-btn" data-topic="culture">culture</button>
+        <button class="filter-btn" data-topic="iran-war">Iran war</button>
+        <button class="filter-btn" data-topic="classified-docs">classified docs</button>
+        <button class="filter-btn" data-topic="dhs-shutdown">DHS shutdown</button>
+        <button class="filter-btn" data-topic="ice">ICE</button>
+        <button class="filter-btn" data-topic="civil-rights">civil rights</button>
+        <button class="filter-btn" data-topic="immigration">immigration</button>
+        <button class="filter-btn" data-topic="trump">trump</button>
+        <button class="filter-btn" data-topic="california">california</button>
+        <button class="filter-btn" data-topic="iran">iran</button>
+        <button class="filter-btn" data-topic="drugs">drugs</button>
+        <button class="filter-btn" data-topic="lies">lies</button>
+        <button class="filter-btn" data-topic="history-revision">history revision</button>
+        <button class="filter-btn" data-topic="first-amendment">first amendment</button>
+        <button class="filter-btn" data-topic="economy">economy</button>
+        <button class="filter-btn" data-topic="tariffs">tariffs</button>
+        <button class="filter-btn" data-topic="voting-rights">voting rights</button>
+        <button class="filter-btn" data-topic="save-act">SAVE Act</button>
+        <button class="filter-btn" data-topic="gas-prices">gas prices</button>
+        <button class="filter-btn" data-topic="groceries">groceries</button>
+        <button class="filter-btn" data-topic="social-security">social security</button>
+        <button class="filter-btn" data-topic="medicare">medicare</button>
+        <button class="filter-btn" data-topic="state-of-the-union">state of the union</button>
+        <button class="filter-btn" data-topic="suppression">suppression</button>
+        <button class="filter-btn" data-topic="ukraine">Ukraine</button>
+        <button class="filter-btn" data-topic="nobel-prize">Nobel Prize</button>
+        <button class="filter-btn" data-topic="cognitive-decline">cognitive decline</button>
+        <button class="filter-btn" data-topic="lol">lol</button>
+        <button class="filter-btn" data-topic="medicaid">Medicaid</button>
+        <button class="filter-btn" data-topic="healthcare">healthcare</button>
+        <button class="filter-btn" data-topic="obbba">OBBBA</button>
+        <button class="filter-btn" data-topic="alien-enemies-act">Alien Enemies Act</button>
+        <button class="filter-btn" data-topic="due-process">due process</button>
+        <button class="filter-btn" data-topic="deportation">deportation</button>
+        <button class="filter-btn" data-topic="14th-amendment">14th Amendment</button>
+        <button class="filter-btn" data-topic="birthright-citizenship">birthright citizenship</button>
+        <button class="filter-btn" data-topic="courts">courts</button>
+    </div>
+
+    <div class="results-meta" id="results-meta">All 30 posts</div>
+
+    <div class="post-list" id="post-list">
+
+      <a href="/blog/hegseth-bombed-a-dairy-farm" class="post-item"
+         data-date="2026-03-26"
+         data-topics="hegseth"
+         data-search="hegseth bombed a dairy farm and posted the video he called it &quot;bombing narco terrorists on land.&quot; the new york times called it what it actually was: a dairy farm in the amazon jungle. the farmworkers were beaten before the bombs dr... hegseth fact-checked">
         <span class="post-item-date">Mar 26, 2026</span>
         <div class="post-item-content">
-          <div class="post-item-tags"></div>
-          <div class="post-item-title">hegseth-bombed-a-dairy-farm</div>
-          <div class="post-item-deck"></div>
+          <div class="post-item-tags"><span class="post-item-tag">Hegseth</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">Hegseth Bombed a Dairy Farm and Posted the Video</div>
+          <div class="post-item-deck">He called it "bombing Narco Terrorists on land." The New York Times called it what it actually was: a dairy farm in the Amazon jungle. The farmworkers were beaten before the bombs dr...</div>
         </div>
       </a>
-
-      <a href="/blog/tsa-longest-wait-times-in-history" class="post-item">
+      <a href="/blog/tsa-longest-wait-times-in-history" class="post-item"
+         data-date="2026-03-26"
+         data-topics="doge"
+         data-search="longest wait times in tsa history. thanks, doge. 450+ tsa agents quit. dhs unfunded for 40 days. congress left for easter vacation. you're standing in a three-hour security line. this is what &quot;running government like a business&quot; ac... doge fact-checked">
         <span class="post-item-date">Mar 26, 2026</span>
         <div class="post-item-content">
-          <div class="post-item-tags"></div>
-          <div class="post-item-title">tsa-longest-wait-times-in-history</div>
-          <div class="post-item-deck"></div>
+          <div class="post-item-tags"><span class="post-item-tag">DOGE</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">Longest Wait Times in TSA History. Thanks, DOGE.</div>
+          <div class="post-item-deck">450+ TSA agents quit. DHS unfunded for 40 days. Congress left for Easter vacation. You're standing in a three-hour security line. This is what "running government like a business" ac...</div>
         </div>
       </a>
-
-      <a href="/blog/trump-signature-on-the-money" class="post-item">
+      <a href="/blog/trump-signature-on-the-money" class="post-item"
+         data-date="2026-03-26"
+         data-topics="narcissism"
+         data-search="he put his name on the money. gas is nearly $4. groceries are up. a war nobody voted for is in its 27th day. and today — today — the treasury announced that donald trump's signature will appear on every us dollar... fact-checked narcissism">
         <span class="post-item-date">Mar 26, 2026</span>
         <div class="post-item-content">
-          <div class="post-item-tags"></div>
-          <div class="post-item-title">trump-signature-on-the-money</div>
-          <div class="post-item-deck"></div>
+          <div class="post-item-tags"><span class="post-item-tag">fact-checked</span><span class="post-item-tag">narcissism</span></div>
+          <div class="post-item-title">He Put His Name on the Money.</div>
+          <div class="post-item-deck">Gas is nearly $4. Groceries are up. A war nobody voted for is in its 27th day. And today — TODAY — the Treasury announced that Donald Trump's signature will appear on every US dollar...</div>
         </div>
       </a>
-
-      <a href="/blog/kennedy-center-layoffs" class="post-item">
+      <a href="/blog/kennedy-center-layoffs" class="post-item"
+         data-date="2026-03-26"
+         data-topics="culture"
+         data-search="the kennedy center starts laying people off. two-year closure begins july 4. he renamed it after himself, packed the board with loyalists, and now he's shutting it down for two years. layoffs began thursday. this is what happens when a monument to american cu... culture fact-checked">
         <span class="post-item-date">Mar 26, 2026</span>
         <div class="post-item-content">
-          <div class="post-item-tags"></div>
-          <div class="post-item-title">kennedy-center-layoffs</div>
-          <div class="post-item-deck"></div>
+          <div class="post-item-tags"><span class="post-item-tag">culture</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">The Kennedy Center Starts Laying People Off. Two-Year Closure Begins July 4.</div>
+          <div class="post-item-deck">He renamed it after himself, packed the board with loyalists, and now he's shutting it down for two years. Layoffs began Thursday. This is what happens when a monument to American cu...</div>
         </div>
       </a>
-
-      <a href="/blog/iran-talks-going-great-iran-disagrees" class="post-item">
+      <a href="/blog/iran-talks-going-great-iran-disagrees" class="post-item"
+         data-date="2026-03-26"
+         data-topics="iran-war"
+         data-search="trump: iran talks going great. iran: we have no intention of negotiating. day 27 of a war nobody voted for. trump extended his power plant deadline to april 6 and called it diplomacy. iran called it something else entirely. iran war fact-checked">
         <span class="post-item-date">Mar 26, 2026</span>
         <div class="post-item-content">
-          <div class="post-item-tags"></div>
-          <div class="post-item-title">iran-talks-going-great-iran-disagrees</div>
-          <div class="post-item-deck"></div>
+          <div class="post-item-tags"><span class="post-item-tag">Iran war</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">Trump: Iran Talks Going Great. Iran: We Have No Intention of Negotiating.</div>
+          <div class="post-item-deck">Day 27 of a war nobody voted for. Trump extended his power plant deadline to April 6 and called it diplomacy. Iran called it something else entirely.</div>
         </div>
       </a>
-
-      <a href="/blog/jack-smith-memo-trump-kept-classified-docs" class="post-item">
+      <a href="/blog/jack-smith-memo-trump-kept-classified-docs" class="post-item"
+         data-date="2026-03-26"
+         data-topics="classified-docs"
+         data-search="jack smith memo: trump kept classified docs to advance his business interests an internal memo from the former special counsel's office says trump retained classified government documents relevant to his business interests after leaving office. it was transmit... classified docs fact-checked">
         <span class="post-item-date">Mar 26, 2026</span>
         <div class="post-item-content">
-          <div class="post-item-tags"></div>
-          <div class="post-item-title">jack-smith-memo-trump-kept-classified-docs</div>
-          <div class="post-item-deck"></div>
+          <div class="post-item-tags"><span class="post-item-tag">classified docs</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">Jack Smith Memo: Trump Kept Classified Docs to Advance His Business Interests</div>
+          <div class="post-item-deck">An internal memo from the former special counsel's office says Trump retained classified government documents relevant to his business interests after leaving office. It was transmit...</div>
         </div>
       </a>
-
-      <a href="/blog/iran-negotiating-with-itself" class="post-item">
+      <a href="/blog/dhs-republicans-held-tsa-hostage-for-ice" class="post-item"
+         data-date="2026-03-25"
+         data-topics="dhs-shutdown ice"
+         data-search="republicans held tsa hostage for ice. congress cared when their fast lane disappeared. for 40 days, republicans refused to fund tsa, fema, the coast guard, and cisa — because democrats won't write a blank check for rogue immigration agents. ice never stopped getting pa... dhs shutdown ice fact-checked">
         <span class="post-item-date">Mar 25, 2026</span>
         <div class="post-item-content">
-          <div class="post-item-tags"></div>
-          <div class="post-item-title">iran-negotiating-with-itself</div>
-          <div class="post-item-deck"></div>
+          <div class="post-item-tags"><span class="post-item-tag">DHS shutdown</span><span class="post-item-tag">ICE</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">Republicans Held TSA Hostage for ICE. Congress Cared When Their Fast Lane Disappeared.</div>
+          <div class="post-item-deck">For 40 days, Republicans refused to fund TSA, FEMA, the Coast Guard, and CISA — because Democrats won't write a blank check for rogue immigration agents. ICE never stopped getting pa...</div>
         </div>
       </a>
-
-      <a href="/blog/dhs-republicans-held-tsa-hostage-for-ice" class="post-item">
+      <a href="/blog/dhs-shutdown-ice-funding-hostage" class="post-item"
+         data-date="2026-03-25"
+         data-topics="dhs-shutdown ice"
+         data-search="republicans are holding tsa paychecks hostage for ice funding. democrats tried to fund tsa, fema, cisa, and the coast guard five separate times. republicans blocked it five times. then delta suspended congress's skip-the-line airport privilege.... fact-checked dhs shutdown ice">
         <span class="post-item-date">Mar 25, 2026</span>
         <div class="post-item-content">
-          <div class="post-item-tags"></div>
-          <div class="post-item-title">dhs-republicans-held-tsa-hostage-for-ice</div>
-          <div class="post-item-deck"></div>
+          <div class="post-item-tags"><span class="post-item-tag">fact-checked</span><span class="post-item-tag">DHS shutdown</span><span class="post-item-tag">ICE</span></div>
+          <div class="post-item-title">Republicans Are Holding TSA Paychecks Hostage for ICE Funding.</div>
+          <div class="post-item-deck">Democrats tried to fund TSA, FEMA, CISA, and the Coast Guard five separate times. Republicans blocked it five times. Then Delta suspended Congress's skip-the-line airport privilege....</div>
         </div>
       </a>
-
-      <a href="/blog/dhs-shutdown-ice-funding-hostage" class="post-item">
+      <a href="/blog/republicans-held-tsa-hostage-for-ice" class="post-item"
+         data-date="2026-03-25"
+         data-topics="dhs-shutdown ice"
+         data-search="republicans held tsa hostage for ice. congress cared when their airport fast lane disappeared. democrats offered five separate bills to fund tsa, fema, the coast guard, and cisa while ice negotiations continued. republicans blocked every single one. for 40 days, you stood in t... dhs shutdown ice fact-checked">
         <span class="post-item-date">Mar 25, 2026</span>
         <div class="post-item-content">
-          <div class="post-item-tags"></div>
-          <div class="post-item-title">dhs-shutdown-ice-funding-hostage</div>
-          <div class="post-item-deck"></div>
+          <div class="post-item-tags"><span class="post-item-tag">DHS shutdown</span><span class="post-item-tag">ICE</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">Republicans Held TSA Hostage for ICE. Congress Cared When Their Airport Fast Lane Disappeared.</div>
+          <div class="post-item-deck">Democrats offered five separate bills to fund TSA, FEMA, the Coast Guard, and CISA while ICE negotiations continued. Republicans blocked every single one. For 40 days, you stood in t...</div>
         </div>
       </a>
-
-      <a href="/blog/republicans-held-tsa-hostage-for-ice" class="post-item">
+      <a href="/blog/i-said-what-i-said" class="post-item"
+         data-date="2026-03-25"
+         data-topics=""
+         data-search="i said what i said about that facebook post. yes, i meant every word. no, i'm not walking it back. politics personal">
         <span class="post-item-date">Mar 25, 2026</span>
         <div class="post-item-content">
-          <div class="post-item-tags"></div>
-          <div class="post-item-title">republicans-held-tsa-hostage-for-ice</div>
-          <div class="post-item-deck"></div>
+          <div class="post-item-tags"><span class="post-item-tag">politics</span><span class="post-item-tag">personal</span></div>
+          <div class="post-item-title">I Said What I Said</div>
+          <div class="post-item-deck">About that Facebook post. Yes, I meant every word. No, I'm not walking it back.</div>
         </div>
       </a>
-
-      <a href="/blog/i-said-what-i-said" class="post-item">
+      <a href="/blog/i-almost-ran-for-congress" class="post-item"
+         data-date="2026-03-25"
+         data-topics=""
+         data-search="i almost ran for congress. i'm a democrat. i live in la. i care deeply about this country. and i decided not to run — here's the honest version of why. politics personal">
         <span class="post-item-date">Mar 25, 2026</span>
         <div class="post-item-content">
-          <div class="post-item-tags"></div>
-          <div class="post-item-title">i-said-what-i-said</div>
-          <div class="post-item-deck"></div>
+          <div class="post-item-tags"><span class="post-item-tag">politics</span><span class="post-item-tag">personal</span></div>
+          <div class="post-item-title">I Almost Ran for Congress.</div>
+          <div class="post-item-deck">I'm a Democrat. I live in LA. I care deeply about this country. And I decided not to run — here's the honest version of why.</div>
         </div>
       </a>
-
-      <a href="/blog/i-almost-ran-for-congress" class="post-item">
-        <span class="post-item-date">Mar 25, 2026</span>
-        <div class="post-item-content">
-          <div class="post-item-tags"></div>
-          <div class="post-item-title">i-almost-ran-for-congress</div>
-          <div class="post-item-deck"></div>
-        </div>
-      </a>
-
-      <a href="/blog/mail-in-cheating-except-when-i-do-it" class="post-item">
-        <span class="post-item-date">Mar 25, 2026</span>
-        <div class="post-item-content">
-          <div class="post-item-tags"></div>
-          <div class="post-item-title">mail-in-cheating-except-when-i-do-it</div>
-          <div class="post-item-deck"></div>
-        </div>
-      </a>
-
-      <a href="/blog/ice-detained-us-citizens" class="post-item">
+      <a href="/blog/ice-detained-us-citizens" class="post-item"
+         data-date="2026-03-20"
+         data-topics="ice civil-rights immigration"
+         data-search="ice is detaining us citizens. this is not a rumor. a gao report found ice arrested 674 potential us citizens, detained 121 of them, and deported 70 over five years. that was before trump's mass deportation push. now arrests of people... ice civil rights immigration">
         <span class="post-item-date">Mar 20, 2026</span>
         <div class="post-item-content">
-          <div class="post-item-tags"></div>
-          <div class="post-item-title">ice-detained-us-citizens</div>
-          <div class="post-item-deck"></div>
+          <div class="post-item-tags"><span class="post-item-tag">ICE</span><span class="post-item-tag">civil rights</span><span class="post-item-tag">immigration</span></div>
+          <div class="post-item-title">ICE Is Detaining US Citizens. This Is Not a Rumor.</div>
+          <div class="post-item-deck">A GAO report found ICE arrested 674 potential US citizens, detained 121 of them, and deported 70 over five years. That was before Trump's mass deportation push. Now arrests of people...</div>
         </div>
       </a>
-
-      <a href="/blog/things-trump-just-made-up-this-week" class="post-item">
+      <a href="/blog/things-trump-just-made-up-this-week" class="post-item"
+         data-date="2026-03-18"
+         data-topics="trump california iran drugs"
+         data-search="things trump just made up this week 15 million phantom california ballots. drugs entering by sea &quot;down 97%.&quot; the strait of hormuz closing &quot;doesn't really affect&quot; us. iran has us tomahawk missiles. just a normal week of... trump california iran drugs fact-checked">
         <span class="post-item-date">Mar 18, 2026</span>
         <div class="post-item-content">
-          <div class="post-item-tags"></div>
-          <div class="post-item-title">things-trump-just-made-up-this-week</div>
-          <div class="post-item-deck"></div>
+          <div class="post-item-tags"><span class="post-item-tag">trump</span><span class="post-item-tag">california</span><span class="post-item-tag">iran</span><span class="post-item-tag">drugs</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">Things Trump Just Made Up This Week</div>
+          <div class="post-item-deck">15 million phantom California ballots. Drugs entering by sea "down 97%." The Strait of Hormuz closing "doesn't really affect" us. Iran has US Tomahawk missiles. Just a normal week of...</div>
         </div>
       </a>
-
-      <a href="/blog/trump-book-did-not-predict-911" class="post-item">
+      <a href="/blog/trump-book-did-not-predict-911" class="post-item"
+         data-date="2026-03-17"
+         data-topics="iran-war lies history-revision"
+         data-search="he says his book predicted 9/11. his book does not say that. during the iran war — while trying to seem like a foreign policy genius — trump repeated a claim he's been making for over a decade: that his 2000 book warned that osama bin laden wo... iran war lies history revision">
         <span class="post-item-date">Mar 17, 2026</span>
         <div class="post-item-content">
-          <div class="post-item-tags"></div>
-          <div class="post-item-title">trump-book-did-not-predict-911</div>
-          <div class="post-item-deck"></div>
+          <div class="post-item-tags"><span class="post-item-tag">Iran war</span><span class="post-item-tag">lies</span><span class="post-item-tag">history revision</span></div>
+          <div class="post-item-title">He Says His Book Predicted 9/11. His Book Does Not Say That.</div>
+          <div class="post-item-deck">During the Iran war — while trying to seem like a foreign policy genius — Trump repeated a claim he's been making for over a decade: that his 2000 book warned that Osama bin Laden wo...</div>
         </div>
       </a>
-
-      <a href="/blog/iran-war-what-trump-knows-vs-reality" class="post-item">
+      <a href="/blog/iran-war-what-trump-knows-vs-reality" class="post-item"
+         data-date="2026-03-15"
+         data-topics="iran-war trump first-amendment"
+         data-search="trump's iran war: what he knows vs. what's actually happening he's been watching a 2-minute highlight reel of explosions every day and calling it a briefing. he wasn't told when 5 us planes got hit. 59% of americans say the war was the wrong de... iran war trump first amendment fact-checked">
         <span class="post-item-date">Mar 15, 2026</span>
         <div class="post-item-content">
-          <div class="post-item-tags"></div>
-          <div class="post-item-title">iran-war-what-trump-knows-vs-reality</div>
-          <div class="post-item-deck"></div>
+          <div class="post-item-tags"><span class="post-item-tag">iran war</span><span class="post-item-tag">trump</span><span class="post-item-tag">first amendment</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">Trump's Iran War: What He Knows vs. What's Actually Happening</div>
+          <div class="post-item-deck">He's been watching a 2-minute highlight reel of explosions every day and calling it a briefing. He wasn't told when 5 US planes got hit. 59% of Americans say the war was the wrong de...</div>
         </div>
       </a>
-
-      <a href="/blog/doge-killed-92000-jobs-in-one-month" class="post-item">
+      <a href="/blog/doge-killed-92000-jobs-in-one-month" class="post-item"
+         data-date="2026-03-14"
+         data-topics="doge economy"
+         data-search="doge killed 92,000 jobs in february. gas is up 35% in one month. the &quot;greatest economy ever promised&quot; is shedding jobs at a rate not seen in years. private employers are blaming doge directly. gas is nearly $4. and the people who caused all of it... doge economy fact-checked">
         <span class="post-item-date">Mar 14, 2026</span>
         <div class="post-item-content">
-          <div class="post-item-tags"></div>
-          <div class="post-item-title">doge-killed-92000-jobs-in-one-month</div>
-          <div class="post-item-deck"></div>
+          <div class="post-item-tags"><span class="post-item-tag">DOGE</span><span class="post-item-tag">economy</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">DOGE Killed 92,000 Jobs in February. Gas Is Up 35% in One Month.</div>
+          <div class="post-item-deck">The "greatest economy ever promised" is shedding jobs at a rate not seen in years. Private employers are blaming DOGE directly. Gas is nearly $4. And the people who caused all of it...</div>
         </div>
       </a>
-
-      <a href="/blog/hes-lying-about-everything-again" class="post-item">
+      <a href="/blog/hes-lying-about-everything-again" class="post-item"
+         data-date="2026-03-13"
+         data-topics="trump lies tariffs iran"
+         data-search="he's lying. about everything. again. tariffs, mail-in voting, iran, the economy. just another week of industrial-grade bullshit from the oval office — with receipts. trump lies fact-checked tariffs iran">
         <span class="post-item-date">Mar 13, 2026</span>
         <div class="post-item-content">
-          <div class="post-item-tags"></div>
-          <div class="post-item-title">hes-lying-about-everything-again</div>
-          <div class="post-item-deck"></div>
+          <div class="post-item-tags"><span class="post-item-tag">trump</span><span class="post-item-tag">lies</span><span class="post-item-tag">fact-checked</span><span class="post-item-tag">tariffs</span><span class="post-item-tag">iran</span></div>
+          <div class="post-item-title">He's Lying. About Everything. Again.</div>
+          <div class="post-item-deck">Tariffs, mail-in voting, Iran, the economy. Just another week of industrial-grade bullshit from the Oval Office — with receipts.</div>
         </div>
       </a>
-
-      <a href="/blog/leavitt-save-act-married-women" class="post-item">
+      <a href="/blog/leavitt-save-act-married-women" class="post-item"
+         data-date="2026-03-10"
+         data-topics="voting-rights save-act"
+         data-search="leavitt said the save act won't affect married women. then she described how it would. in one press briefing — in the span of about 30 seconds — karoline leavitt said there was &quot;zero validity&quot; to concerns about married women's voting rights under the save act, then imm... voting rights save act fact-checked">
         <span class="post-item-date">Mar 10, 2026</span>
         <div class="post-item-content">
-          <div class="post-item-tags"></div>
-          <div class="post-item-title">leavitt-save-act-married-women</div>
-          <div class="post-item-deck"></div>
+          <div class="post-item-tags"><span class="post-item-tag">voting rights</span><span class="post-item-tag">SAVE Act</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">Leavitt Said the SAVE Act Won't Affect Married Women. Then She Described How It Would.</div>
+          <div class="post-item-deck">In one press briefing — in the span of about 30 seconds — Karoline Leavitt said there was "zero validity" to concerns about married women's voting rights under the SAVE Act, then imm...</div>
         </div>
       </a>
-
-      <a href="/blog/your-wallet-called-it-wants-its-money-back" class="post-item">
+      <a href="/blog/your-wallet-called-it-wants-its-money-back" class="post-item"
+         data-date="2026-03-10"
+         data-topics="economy gas-prices groceries doge"
+         data-search="your wallet called. it wants its money back. gas is almost $4 a gallon. groceries cost more every week. the doge check never came. the tariff check is a fantasy. but sure — &quot;the roaring economy is roaring like never before.&quot; economy gas prices groceries doge fact-checked">
         <span class="post-item-date">Mar 10, 2026</span>
         <div class="post-item-content">
-          <div class="post-item-tags"></div>
-          <div class="post-item-title">your-wallet-called-it-wants-its-money-back</div>
-          <div class="post-item-deck"></div>
+          <div class="post-item-tags"><span class="post-item-tag">economy</span><span class="post-item-tag">gas prices</span><span class="post-item-tag">groceries</span><span class="post-item-tag">doge</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">Your Wallet Called. It Wants Its Money Back.</div>
+          <div class="post-item-deck">Gas is almost $4 a gallon. Groceries cost more every week. The DOGE check never came. The tariff check is a fantasy. But sure — "the roaring economy is roaring like never before."</div>
         </div>
       </a>
-
-      <a href="/blog/we-will-always-protect-social-security" class="post-item">
+      <a href="/blog/we-will-always-protect-social-security" class="post-item"
+         data-date="2026-03-05"
+         data-topics="social-security medicare doge"
+         data-search="we will always protect social security. he's said it over and over and over. then he handed social security to elon musk, gutted its staff to a 60-year low, accelerated medicare's collapse by 12 years, and cut what 64 mill... social security medicare doge fact-checked">
         <span class="post-item-date">Mar 5, 2026</span>
         <div class="post-item-content">
-          <div class="post-item-tags"></div>
-          <div class="post-item-title">we-will-always-protect-social-security</div>
-          <div class="post-item-deck"></div>
+          <div class="post-item-tags"><span class="post-item-tag">social security</span><span class="post-item-tag">medicare</span><span class="post-item-tag">doge</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">We Will ALWAYS Protect Social Security.</div>
+          <div class="post-item-deck">He's said it over and over and over. Then he handed Social Security to Elon Musk, gutted its staff to a 60-year low, accelerated Medicare's collapse by 12 years, and cut what 64 mill...</div>
         </div>
       </a>
-
-      <a href="/blog/the-state-of-the-union-was-fiction" class="post-item">
+      <a href="/blog/the-state-of-the-union-was-fiction" class="post-item"
+         data-date="2026-03-05"
+         data-topics="state-of-the-union trump lies"
+         data-search="the state of the union was a work of fiction. on february 24th, trump delivered the longest state of the union address in history. he also delivered one of the most dishonest. here's the annotated version — every major lie, ever... state of the union trump fact-checked lies">
         <span class="post-item-date">Mar 5, 2026</span>
         <div class="post-item-content">
-          <div class="post-item-tags"></div>
-          <div class="post-item-title">the-state-of-the-union-was-fiction</div>
-          <div class="post-item-deck"></div>
+          <div class="post-item-tags"><span class="post-item-tag">state of the union</span><span class="post-item-tag">trump</span><span class="post-item-tag">fact-checked</span><span class="post-item-tag">lies</span></div>
+          <div class="post-item-title">The State of the Union Was a Work of Fiction.</div>
+          <div class="post-item-deck">On February 24th, Trump delivered the longest State of the Union address in history. He also delivered one of the most dishonest. Here's the annotated version — every major lie, ever...</div>
         </div>
       </a>
-
-      <a href="/blog/save-act-voter-suppression-not-integrity" class="post-item">
+      <a href="/blog/save-act-voter-suppression-not-integrity" class="post-item"
+         data-date="2026-02-12"
+         data-topics="voting-rights save-act suppression"
+         data-search="the save america act is voter suppression. the math is not complicated. house republicans passed a bill requiring a passport or birth certificate to register to vote. 21 million americans can't easily get those documents. 69 million married women have na... voting rights save act suppression">
         <span class="post-item-date">Feb 12, 2026</span>
         <div class="post-item-content">
-          <div class="post-item-tags"></div>
-          <div class="post-item-title">save-act-voter-suppression-not-integrity</div>
-          <div class="post-item-deck"></div>
+          <div class="post-item-tags"><span class="post-item-tag">voting rights</span><span class="post-item-tag">SAVE Act</span><span class="post-item-tag">suppression</span></div>
+          <div class="post-item-title">The SAVE America Act Is Voter Suppression. The Math Is Not Complicated.</div>
+          <div class="post-item-deck">House Republicans passed a bill requiring a passport or birth certificate to register to vote. 21 million Americans can't easily get those documents. 69 million married women have na...</div>
         </div>
       </a>
-
-      <a href="/blog/zelensky-nobel-peace-prize-trump-iran-war" class="post-item">
+      <a href="/blog/zelensky-nobel-peace-prize-trump-iran-war" class="post-item"
+         data-date="2026-01-20"
+         data-topics="ukraine nobel-prize"
+         data-search="zelensky was nominated for the nobel peace prize. trump is waging an unauthorized war. on january 16, the man trump called a &quot;dictator&quot; and tried to cut off military aid to was formally nominated for the 2026 nobel peace prize. the contrast between these two leaders is... fact-checked ukraine nobel prize">
         <span class="post-item-date">Jan 20, 2026</span>
         <div class="post-item-content">
-          <div class="post-item-tags"></div>
-          <div class="post-item-title">zelensky-nobel-peace-prize-trump-iran-war</div>
-          <div class="post-item-deck"></div>
+          <div class="post-item-tags"><span class="post-item-tag">fact-checked</span><span class="post-item-tag">Ukraine</span><span class="post-item-tag">Nobel Prize</span></div>
+          <div class="post-item-title">Zelensky Was Nominated for the Nobel Peace Prize. Trump Is Waging an Unauthorized War.</div>
+          <div class="post-item-deck">On January 16, the man Trump called a "dictator" and tried to cut off military aid to was formally nominated for the 2026 Nobel Peace Prize. The contrast between these two leaders is...</div>
         </div>
       </a>
-
-      <a href="/blog/zelensky-nobel-peace-prize-trump-dictator" class="post-item">
+      <a href="/blog/zelensky-nobel-peace-prize" class="post-item"
+         data-date="2026-01-16"
+         data-topics="ukraine"
+         data-search="the man trump abandoned was just nominated for the nobel peace prize. trump called zelensky a dictator. cut off his weapons. tried to force him into surrendering his country. then a norwegian professor nominated zelensky and the ukrainian people for th... ukraine fact-checked">
         <span class="post-item-date">Jan 16, 2026</span>
         <div class="post-item-content">
-          <div class="post-item-tags"></div>
-          <div class="post-item-title">zelensky-nobel-peace-prize-trump-dictator</div>
-          <div class="post-item-deck"></div>
+          <div class="post-item-tags"><span class="post-item-tag">Ukraine</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">The Man Trump Abandoned Was Just Nominated for the Nobel Peace Prize.</div>
+          <div class="post-item-deck">Trump called Zelensky a dictator. Cut off his weapons. Tried to force him into surrendering his country. Then a Norwegian professor nominated Zelensky and the Ukrainian people for th...</div>
         </div>
       </a>
-
-      <a href="/blog/zelensky-nobel-peace-prize" class="post-item">
-        <span class="post-item-date">Jan 16, 2026</span>
-        <div class="post-item-content">
-          <div class="post-item-tags"></div>
-          <div class="post-item-title">zelensky-nobel-peace-prize</div>
-          <div class="post-item-deck"></div>
-        </div>
-      </a>
-
-      <a href="/blog/tariffs-are-a-tax-and-you-are-paying-it" class="post-item">
+      <a href="/blog/tariffs-are-a-tax-and-you-are-paying-it" class="post-item"
+         data-date="2026-01-03"
+         data-topics="economy tariffs lies"
+         data-search="tariffs are a tax. you're paying it. he calls it \ the trump tariffs are the largest us tax increase since 1993 — costing the average american household $1,500 in 2026 alone. businesses absorbed most of the cost last year. they're do... economy tariffs lies">
         <span class="post-item-date">Jan 3, 2026</span>
         <div class="post-item-content">
-          <div class="post-item-tags"></div>
-          <div class="post-item-title">tariffs-are-a-tax-and-you-are-paying-it</div>
-          <div class="post-item-deck"></div>
+          <div class="post-item-tags"><span class="post-item-tag">economy</span><span class="post-item-tag">tariffs</span><span class="post-item-tag">lies</span></div>
+          <div class="post-item-title">Tariffs Are a Tax. You're Paying It. He Calls It \</div>
+          <div class="post-item-deck">The Trump tariffs are the largest US tax increase since 1993 — costing the average American household $1,500 in 2026 alone. Businesses absorbed most of the cost last year. They're do...</div>
         </div>
       </a>
-
-      <a href="/blog/trump-thinks-a-dementia-test-is-an-iq-test" class="post-item">
+      <a href="/blog/trump-thinks-a-dementia-test-is-an-iq-test" class="post-item"
+         data-date="2025-10-27"
+         data-topics="cognitive-decline lol"
+         data-search="he thinks a dementia test is an iq test. and he's bragging about it. donald trump aced a routine dementia screening, called it an iq test, and challenged his political opponents to take it. one of the tasks is identifying a giraffe. he thinks this mak... fact-checked cognitive decline lol">
         <span class="post-item-date">Oct 27, 2025</span>
         <div class="post-item-content">
-          <div class="post-item-tags"></div>
-          <div class="post-item-title">trump-thinks-a-dementia-test-is-an-iq-test</div>
-          <div class="post-item-deck"></div>
+          <div class="post-item-tags"><span class="post-item-tag">fact-checked</span><span class="post-item-tag">cognitive decline</span><span class="post-item-tag">lol</span></div>
+          <div class="post-item-title">He Thinks a Dementia Test Is an IQ Test. And He's Bragging About It.</div>
+          <div class="post-item-deck">Donald Trump aced a routine dementia screening, called it an IQ test, and challenged his political opponents to take it. One of the tasks is identifying a giraffe. He thinks this mak...</div>
         </div>
       </a>
-
-      <a href="/blog/one-big-beautiful-bill-medicaid-cuts" class="post-item">
+      <a href="/blog/one-big-beautiful-bill-medicaid-cuts" class="post-item"
+         data-date="2025-07-04"
+         data-topics="medicaid healthcare obbba"
+         data-search="he said he'd never cut medicaid. he just cut nearly a trillion dollars from it. on the fourth of july, trump signed the one big beautiful bill — the largest rollback of federal health care in american history. nearly $1 trillion from medicaid. $536 billion in tr... medicaid healthcare obbba">
         <span class="post-item-date">Jul 4, 2025</span>
         <div class="post-item-content">
-          <div class="post-item-tags"></div>
-          <div class="post-item-title">one-big-beautiful-bill-medicaid-cuts</div>
-          <div class="post-item-deck"></div>
+          <div class="post-item-tags"><span class="post-item-tag">Medicaid</span><span class="post-item-tag">healthcare</span><span class="post-item-tag">OBBBA</span></div>
+          <div class="post-item-title">He Said He'd Never Cut Medicaid. He Just Cut Nearly a Trillion Dollars From It.</div>
+          <div class="post-item-deck">On the Fourth of July, Trump signed the One Big Beautiful Bill — the largest rollback of federal health care in American history. Nearly $1 trillion from Medicaid. $536 billion in tr...</div>
         </div>
       </a>
-
-      <a href="/blog/alien-enemies-act-intelligence-said-no" class="post-item">
+      <a href="/blog/alien-enemies-act-intelligence-said-no" class="post-item"
+         data-date="2025-03-15"
+         data-topics="alien-enemies-act immigration due-process"
+         data-search="trump's own intelligence said no. he invoked the alien enemies act anyway. to justify using an 18th-century wartime law to mass-deport venezuelans without court hearings, trump claimed tren de aragua was coordinating attacks on the us at the direction of ve... alien enemies act immigration due process">
         <span class="post-item-date">Mar 15, 2025</span>
         <div class="post-item-content">
-          <div class="post-item-tags"></div>
-          <div class="post-item-title">alien-enemies-act-intelligence-said-no</div>
-          <div class="post-item-deck"></div>
+          <div class="post-item-tags"><span class="post-item-tag">Alien Enemies Act</span><span class="post-item-tag">immigration</span><span class="post-item-tag">due process</span></div>
+          <div class="post-item-title">Trump's Own Intelligence Said No. He Invoked the Alien Enemies Act Anyway.</div>
+          <div class="post-item-deck">To justify using an 18th-century wartime law to mass-deport Venezuelans without court hearings, Trump claimed Tren de Aragua was coordinating attacks on the US at the direction of Ve...</div>
         </div>
       </a>
-
-      <a href="/blog/they-deported-him-to-the-wrong-country" class="post-item">
+      <a href="/blog/they-deported-him-to-the-wrong-country" class="post-item"
+         data-date="2025-03-15"
+         data-topics="ice deportation due-process"
+         data-search="they deported him to the wrong country. then tried to keep him there. kilmar abrego garcia had a federal court order protecting him from being sent to el salvador. ice put him on a plane to el salvador anyway. called it an &quot;administrative error.&quot; then... ice deportation due process">
         <span class="post-item-date">Mar 15, 2025</span>
         <div class="post-item-content">
-          <div class="post-item-tags"></div>
-          <div class="post-item-title">they-deported-him-to-the-wrong-country</div>
-          <div class="post-item-deck"></div>
+          <div class="post-item-tags"><span class="post-item-tag">ICE</span><span class="post-item-tag">deportation</span><span class="post-item-tag">due process</span></div>
+          <div class="post-item-title">They Deported Him to the Wrong Country. Then Tried to Keep Him There.</div>
+          <div class="post-item-deck">Kilmar Abrego Garcia had a federal court order protecting him from being sent to El Salvador. ICE put him on a plane to El Salvador anyway. Called it an "administrative error." Then...</div>
         </div>
       </a>
-
-      <a href="/blog/birthright-citizenship-14th-amendment-trump" class="post-item">
+      <a href="/blog/birthright-citizenship-14th-amendment-trump" class="post-item"
+         data-date="2025-01-20"
+         data-topics="14th-amendment birthright-citizenship courts"
+         data-search="he tried to rewrite the 14th amendment by executive order. every court said no. the 14th amendment has guaranteed birthright citizenship since 1868. the supreme court reaffirmed it in 1898. on day one of his second term, trump signed an executive order ending it... 14th amendment birthright citizenship courts">
         <span class="post-item-date">Jan 20, 2025</span>
         <div class="post-item-content">
-          <div class="post-item-tags"></div>
-          <div class="post-item-title">birthright-citizenship-14th-amendment-trump</div>
-          <div class="post-item-deck"></div>
+          <div class="post-item-tags"><span class="post-item-tag">14th Amendment</span><span class="post-item-tag">birthright citizenship</span><span class="post-item-tag">courts</span></div>
+          <div class="post-item-title">He Tried to Rewrite the 14th Amendment by Executive Order. Every Court Said No.</div>
+          <div class="post-item-deck">The 14th Amendment has guaranteed birthright citizenship since 1868. The Supreme Court reaffirmed it in 1898. On Day One of his second term, Trump signed an executive order ending it...</div>
         </div>
       </a>
-
     </div>
+
+    <div class="no-results" id="no-results" style="display:none;">
+      <p>No posts match. <button class="reset-link" id="reset-all">Clear filters</button></p>
+    </div>
+
   </div>
 </main>
 <div id="footer-placeholder"></div>
