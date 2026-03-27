@@ -134,4 +134,25 @@
     <priority>0.6</priority>
   </url>
 
+
+  <url>
+    <loc>https://epitomeofhatred.com/blog/iran-negotiating-with-itself</loc>
+    <lastmod>2026-03-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://epitomeofhatred.com/blog/doge-killed-92000-jobs-in-one-month</loc>
+    <lastmod>2026-03-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://epitomeofhatred.com/blog/mail-in-cheating-except-when-i-do-it</loc>
+    <lastmod>2026-03-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>
