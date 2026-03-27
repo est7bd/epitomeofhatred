@@ -155,12 +155,158 @@
       applyAll();
     });
   </script>
+  <style>
+    /* ── Breaking & Developing strip ──────────────────── */
+    .breaking-strip {
+      border-bottom: 1px solid var(--border);
+      background: linear-gradient(180deg, rgba(204,34,34,0.04) 0%, transparent 100%);
+    }
+    .breaking-strip-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 2rem 2rem 2.5rem;
+    }
+    .breaking-strip-header {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-bottom: 1.5rem;
+    }
+    .pulse-dot {
+      display: inline-block;
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      animation: pulse 1.8s ease-in-out infinite;
+      flex-shrink: 0;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); box-shadow: 0 0 0 0 rgba(204,34,34,0.5); }
+      50%       { opacity: 0.7; transform: scale(1.15); box-shadow: 0 0 0 6px rgba(204,34,34,0); }
+    }
+    .breaking-strip-label {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      flex: 1;
+    }
+    .breaking-strip-seeall {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      color: var(--text-dim);
+      transition: color 0.2s;
+    }
+    .breaking-strip-seeall:hover { color: var(--accent2); }
+    .breaking-strip-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1rem;
+    }
+    .bstrip-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-top: 2px solid var(--accent);
+      padding: 1.2rem 1.4rem;
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      transition: border-color 0.2s, transform 0.15s;
+    }
+    .bstrip-card:hover {
+      border-color: var(--accent2);
+      transform: translateY(-2px);
+    }
+    .bstrip-badge {
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+    .bstrip-badge::before {
+      content: '';
+      display: inline-block;
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      animation: pulse 1.8s ease-in-out infinite;
+      flex-shrink: 0;
+    }
+    .bstrip-badge.developing { color: #e8a020; }
+    .bstrip-badge.developing::before { background: #e8a020; }
+    .bstrip-title {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      color: var(--text);
+      line-height: 1.1;
+      letter-spacing: 0.01em;
+    }
+    .bstrip-card:hover .bstrip-title { color: var(--accent2); }
+    .bstrip-status {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      color: var(--text-dim);
+      letter-spacing: 0.06em;
+      line-height: 1.4;
+      border-left: 2px solid var(--accent-dim);
+      padding-left: 0.5rem;
+    }
+  </style>
 </head>
 <body>
 <div id="header-placeholder"></div>
 <main>
   <div class="blog-hero"><h1>THE<br><span>RANTS.</span></h1></div>
-                      <div class="blog-grid">
+                    
+  <!-- ══ BREAKING & DEVELOPING — pinned strip ══════════════════════════
+       Update this section manually when stories are added/resolved.
+       Remove a card when a story is fully resolved/no longer developing.
+  ═══════════════════════════════════════════════════════════════════ -->
+  <div class="breaking-strip">
+    <div class="breaking-strip-inner">
+      <div class="breaking-strip-header">
+        <span class="pulse-dot"></span>
+        <span class="breaking-strip-label">Breaking &amp; Developing</span>
+        <a href="/breaking" class="breaking-strip-seeall">see all &rarr;</a>
+      </div>
+      <div class="breaking-strip-cards">
+
+        <a href="/blog/senate-funds-tsa-not-ice-2am" class="bstrip-card">
+          <span class="bstrip-badge">Breaking</span>
+          <div class="bstrip-title">Senate Funded TSA at 2 AM. Left ICE Out. House Still Has to Vote.</div>
+          <div class="bstrip-status">House vote pending — could pass or die before Easter recess</div>
+        </a>
+
+        <a href="/blog/iran-war-escalation-civilian-cost" class="bstrip-card">
+          <span class="bstrip-badge">Breaking</span>
+          <div class="bstrip-title">Iran War Day 27. Pentagon Planning Ground Invasion. Putin Helping Iran.</div>
+          <div class="bstrip-status">Iran counter-proposal expected. Deadline: April 6.</div>
+        </a>
+
+        <a href="/blog/kash-patel-email-hacked-iran" class="bstrip-card">
+          <span class="bstrip-badge developing">Developing</span>
+          <div class="bstrip-title">Iran Hackers Breached FBI Director Patel's Email. DOJ Confirmed It.</div>
+          <div class="bstrip-status">Classified files claim unverified. FBI investigation ongoing.</div>
+        </a>
+
+        <a href="/blog/tsa-funding-wont-fix-lines-overnight" class="bstrip-card">
+          <span class="bstrip-badge developing">Developing</span>
+          <div class="bstrip-title">Funding TSA Won't Fix the Lines Overnight. 480+ Agents Already Quit.</div>
+          <div class="bstrip-status">Back pay timeline unknown. Replacement training: 4–6 months.</div>
+        </a>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="blog-grid">
 
     <div class="blog-controls">
       <div class="search-wrap">
