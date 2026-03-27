@@ -98,6 +98,105 @@
     ]
   }
   </script>
+  <style>
+    /* ── Breaking & Developing — homepage ──────────────── */
+    #breaking-developing {
+      border-bottom: 1px solid var(--border);
+      background: linear-gradient(180deg, rgba(204,34,34,0.05) 0%, transparent 100%);
+    }
+    .breaking-home-header {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      margin-bottom: 1.5rem;
+    }
+    .pulse-dot-home {
+      display: inline-block;
+      width: 9px; height: 9px;
+      border-radius: 50%;
+      background: var(--accent);
+      animation: pulse-home 1.8s ease-in-out infinite;
+      flex-shrink: 0;
+    }
+    @keyframes pulse-home {
+      0%, 100% { opacity: 1; transform: scale(1); box-shadow: 0 0 0 0 rgba(204,34,34,0.5); }
+      50%       { opacity: 0.7; transform: scale(1.2); box-shadow: 0 0 0 7px rgba(204,34,34,0); }
+    }
+    .breaking-home-label {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      flex: 1;
+    }
+    .breaking-home-link {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      color: var(--text-dim);
+      transition: color 0.2s;
+    }
+    .breaking-home-link:hover { color: var(--accent2); }
+    .breaking-home-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1rem;
+    }
+    .bhome-card {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-top: 2px solid var(--accent);
+      padding: 1.2rem 1.4rem;
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      transition: border-color 0.2s, transform 0.15s;
+    }
+    .bhome-card:hover {
+      border-color: var(--accent2);
+      transform: translateY(-2px);
+    }
+    .bhome-badge {
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+    .bhome-badge::before {
+      content: '';
+      display: inline-block;
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      animation: pulse-home 1.8s ease-in-out infinite;
+      flex-shrink: 0;
+    }
+    .bhome-badge.developing { color: #e8a020; }
+    .bhome-badge.developing::before { background: #e8a020; }
+    .bhome-title {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      color: var(--text);
+      line-height: 1.1;
+      letter-spacing: 0.01em;
+    }
+    .bhome-card:hover .bhome-title { color: var(--accent2); }
+    .bhome-status {
+      font-family: var(--font-mono);
+      font-size: 0.63rem;
+      color: var(--text-dim);
+      letter-spacing: 0.05em;
+      line-height: 1.5;
+      border-left: 2px solid var(--accent-dim);
+      padding-left: 0.5rem;
+    }
+  </style>
 </head>
 <body>
 <div id="header-placeholder"></div>
@@ -131,6 +230,43 @@
   </section>
 
   <hr class="divider">
+
+  <section id="breaking-developing">
+    <div class="section">
+      <div class="breaking-home-header">
+        <span class="pulse-dot-home"></span>
+        <span class="breaking-home-label">Breaking &amp; Developing</span>
+        <a href="/breaking" class="breaking-home-link">see all &rarr;</a>
+      </div>
+      <div class="breaking-home-grid">
+
+        <a href="/blog/senate-funds-tsa-not-ice-2am" class="bhome-card">
+          <span class="bhome-badge">Breaking</span>
+          <div class="bhome-title">Senate Passed TSA Funding. House Rejected It. Shutdown Continues.</div>
+          <div class="bhome-status">Johnson CR "dead on arrival." Senate on recess. 510 agents quit.</div>
+        </a>
+
+        <a href="/blog/iran-war-escalation-civilian-cost" class="bhome-card">
+          <span class="bhome-badge">Breaking</span>
+          <div class="bhome-title">Iran War Day 27. Ground Invasion Being Planned. Putin Helping Iran.</div>
+          <div class="bhome-status">Iran counter-proposal expected. 13 US dead. Deadline: April 6.</div>
+        </a>
+
+        <a href="/blog/kash-patel-email-hacked-iran" class="bhome-card">
+          <span class="bhome-badge developing">Developing</span>
+          <div class="bhome-title">Iran Hackers Breached FBI Director Patel's Email. DOJ Confirmed It.</div>
+          <div class="bhome-status">Classified files claim unverified. FBI investigation ongoing.</div>
+        </a>
+
+        <a href="/blog/tsa-funding-wont-fix-lines-overnight" class="bhome-card">
+          <span class="bhome-badge developing">Developing</span>
+          <div class="bhome-title">Funding TSA Won't Fix the Lines Overnight. 510 Agents Already Quit.</div>
+          <div class="bhome-status">Back pay timeline unknown. Training replacements: 4–6 months.</div>
+        </a>
+
+      </div>
+    </div>
+  </section>
 
   <section id="blog-preview" class="dark-section">
     <div class="section">
