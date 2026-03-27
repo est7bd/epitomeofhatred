@@ -254,4 +254,25 @@
     <priority>0.9</priority>
   </url>
 
+  <url>
+    <loc>https://epitomeofhatred.com/blog/trump-meme-coin-foreign-corruption</loc>
+    <lastmod>2026-03-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://epitomeofhatred.com/blog/doge-one-year-what-did-it-save</loc>
+    <lastmod>2026-03-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://epitomeofhatred.com/blog/iran-war-escalation-civilian-cost</loc>
+    <lastmod>2026-03-27</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+
 </urlset>
