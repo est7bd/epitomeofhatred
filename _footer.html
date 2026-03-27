@@ -8,8 +8,8 @@
       <a href="/blog">blog</a>
       <a href="/the-lies">the lies</a>
       <a href="/about">about</a>
-      <!-- Email obfuscated — assembled by JS, never in plain text -->
-      <a href="#" id="contact-link" style="cursor:pointer;">contact</a>
+      <!-- No href at all — pure JS, email never in source as plain text -->
+      <span id="contact-link" style="cursor:pointer;">contact</span>
     </div>
   </div>
   <div class="footer-bottom">
@@ -21,21 +21,7 @@ window._eoh_em = function() {
   return String.fromCharCode(102,97,99,116,115,64,101,112,105,116,111,109,101,111,102,104,97,116,114,101,100,46,99,111,109);
 };
 document.getElementById('footer-year').textContent = new Date().getFullYear();
-
-var cl = document.getElementById('contact-link');
-if (cl) {
-  // Build mailto on hover so it's ready when clicked
-  cl.addEventListener('mouseenter', function() {
-    this.href = 'mailto:' + window._eoh_em();
-  });
-  // Touch devices: build on touchstart then let the click through naturally
-  cl.addEventListener('touchstart', function() {
-    this.href = 'mailto:' + window._eoh_em();
-  }, {passive: true});
-  // Click fallback: build and navigate directly in case mouseenter didn't fire
-  cl.addEventListener('click', function(e) {
-    e.preventDefault();
-    window.location.href = 'mailto:' + window._eoh_em();
-  });
-}
+document.getElementById('contact-link').addEventListener('click', function() {
+  window.location.href = 'mailto:' + window._eoh_em();
+});
 </script>
