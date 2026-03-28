@@ -1,6 +1,0 @@
-# Cloudflare Pages serves .html files as clean URLs natively
-# No redirects needed - blog/post-name.html serves at /blog/post-name
-/blog/lafayettte-square-bible-photo /blog/lafayette-square-bible-photo-op 301
-/blog/lafayettte-square-bible-photo.html /blog/lafayette-square-bible-photo-op 301
-/blog/abandoning-kurds-syria /blog/erdogan-call-abandoned-kurds-syria 301
-/blog/abandoning-kurds-syria.html /blog/erdogan-call-abandoned-kurds-syria 301
