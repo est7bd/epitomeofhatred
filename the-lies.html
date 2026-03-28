@@ -4,9 +4,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The Lies — Epitome of Hatred</title>
-  <meta name="description" content="A running, sourced, documented scoreboard of Trump and MAGA's greatest hits of bullshit. Updated regularly. Sources always included.">
+  <meta name="description" content="A running, sourced accountability tracker documenting Trump, MAGA, and Republican lies, corruption, and abuse of power. Searchable. Filterable. Built for receipts.">
   <link rel="canonical" href="https://epitomeofhatred.com/the-lies">
   <link rel="stylesheet" href="/assets/css/style.css">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://epitomeofhatred.com/the-lies">
+  <meta property="og:title" content="The Lies — Accountability Tracker | Epitome of Hatred">
+  <meta property="og:description" content="A searchable, sourced accountability tracker documenting lies, corruption, cover-ups, and abuse of power.">
+  <meta property="og:site_name" content="Epitome of Hatred">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The Lies — Accountability Tracker | Epitome of Hatred">
+  <meta name="twitter:description" content="A searchable, sourced accountability tracker documenting lies, corruption, cover-ups, and abuse of power.">
+  <meta name="twitter:site" content="@est7bd">
   <style>
     .page-hero {
       padding: 6rem 2rem 3rem;
@@ -18,26 +28,29 @@
     }
     .page-hero h1 {
       font-family: var(--font-display);
-      font-size: clamp(4rem, 14vw, 10rem);
+      font-size: clamp(4rem, 14vw, 9.5rem);
       line-height: 0.88;
       color: var(--text);
       letter-spacing: 0.02em;
+      position: relative;
+      z-index: 2;
     }
     .page-hero h1 span { color: var(--accent); }
     .page-hero .sub {
-      margin-top: 1.5rem;
-      font-size: 1.1rem;
+      margin-top: 1.25rem;
+      font-size: 1.12rem;
       color: var(--text-muted);
-      font-style: italic;
-      max-width: 560px;
+      max-width: 710px;
+      position: relative;
+      z-index: 2;
     }
     .page-hero-bg {
       position: absolute;
-      right: -0.02em;
+      right: 0;
       top: 50%;
       transform: translateY(-50%);
       font-family: var(--font-display);
-      font-size: clamp(8rem, 20vw, 18rem);
+      font-size: clamp(8rem, 21vw, 18rem);
       color: transparent;
       -webkit-text-stroke: 1px rgba(204,34,34,0.08);
       pointer-events: none;
@@ -45,713 +58,1091 @@
       white-space: nowrap;
       z-index: 0;
     }
-
-    /* Scoreboard stats */
-    .score-bar {
-      background: var(--bg2);
-      border-bottom: 1px solid var(--border);
+    .eyebrow-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.65rem;
+      align-items: center;
+      margin-bottom: 1rem;
+      position: relative;
+      z-index: 2;
     }
-    .score-bar-inner {
+    .status-chip,
+    .updated-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.01);
+      padding: 0.34rem 0.7rem;
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+    }
+    .status-chip strong,
+    .updated-chip strong { color: var(--text); font-weight: 500; }
+    .pulse-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 0 rgba(204,34,34,0.45);
+      animation: pulse 1.8s infinite;
+      flex-shrink: 0;
+    }
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(204,34,34,0.45); }
+      70% { box-shadow: 0 0 0 8px rgba(204,34,34,0); }
+    }
+
+    .tracker-strip {
+      border-bottom: 1px solid var(--border);
+      background: var(--bg2);
+    }
+    .tracker-grid {
       max-width: var(--max-w);
       margin: 0 auto;
       padding: 2rem;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      grid-template-columns: repeat(4, 1fr);
       gap: 1px;
       background: var(--border);
     }
-    .score-stat {
+    .tracker-stat {
       background: var(--bg2);
-      padding: 1.5rem 2rem;
+      padding: 1.4rem 1.5rem;
     }
-    .score-stat-number {
+    .tracker-stat .num {
       font-family: var(--font-display);
-      font-size: 3.5rem;
+      font-size: 3.6rem;
+      line-height: 0.95;
       color: var(--accent);
-      line-height: 1;
       display: block;
     }
-    .score-stat-label {
+    .tracker-stat .label {
       font-family: var(--font-mono);
-      font-size: 0.68rem;
-      color: var(--text-dim);
-      letter-spacing: 0.1em;
-      line-height: 1.5;
-      margin-top: 0.3rem;
-    }
-
-    /* Filter bar */
-    .filter-bar {
-      max-width: var(--max-w);
-      margin: 0 auto;
-      padding: 2rem 2rem 0;
-      display: flex;
-      gap: 0.5rem;
-      flex-wrap: wrap;
-      align-items: center;
-    }
-    .filter-label {
-      font-family: var(--font-mono);
-      font-size: 0.68rem;
-      color: var(--text-dim);
+      font-size: 0.66rem;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      margin-right: 0.5rem;
+      color: var(--accent2);
+      margin-top: 0.45rem;
+      display: block;
     }
-    .filter-btn {
+    .tracker-stat .desc {
+      font-family: var(--font-mono);
+      font-size: 0.66rem;
+      color: var(--text-dim);
+      line-height: 1.65;
+      margin-top: 0.45rem;
+      display: block;
+    }
+
+    .tools-wrap {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 2rem;
+      display: grid;
+      grid-template-columns: 1.5fr 1fr;
+      gap: 1.25rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .control-panel,
+    .jump-panel,
+    .methodology,
+    .section-block,
+    .tracker-empty {
+      border: 1px solid var(--border);
+      background: var(--bg2);
+    }
+    .panel-head {
+      padding: 1rem 1.1rem;
+      border-bottom: 1px solid var(--border);
       font-family: var(--font-mono);
       font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--text-dim);
+    }
+    .control-body,
+    .jump-body,
+    .methodology-body {
+      padding: 1.1rem;
+    }
+    .search-row {
+      display: grid;
+      grid-template-columns: 1.2fr 0.7fr;
+      gap: 0.8rem;
+      margin-bottom: 0.8rem;
+    }
+    .search-input,
+    .sort-select {
+      width: 100%;
+      background: var(--bg);
+      color: var(--text);
+      border: 1px solid var(--border);
+      padding: 0.85rem 0.95rem;
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      outline: none;
+    }
+    .search-input:focus,
+    .sort-select:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(204,34,34,0.12);
+    }
+    .chip-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.8rem;
+    }
+    .filter-chip {
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--text-muted);
+      padding: 0.38rem 0.75rem;
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      color: var(--text-dim);
-      border: 1px solid var(--border);
-      background: none;
-      padding: 0.3rem 0.8rem;
       cursor: pointer;
-      border-radius: 2px;
       transition: all 0.2s;
     }
-    .filter-btn:hover,
-    .filter-btn.active {
+    .filter-chip:hover,
+    .filter-chip.active {
       color: var(--text);
       border-color: var(--accent);
       background: var(--accent-dim);
     }
-
-    /* Main lies list */
-    .lies-container {
-      max-width: var(--max-w);
-      margin: 0 auto;
-      padding: 2rem 2rem 6rem;
-    }
-
-    .lie-card {
-      border: 1px solid var(--border);
-      border-left: 3px solid var(--accent);
-      background: var(--bg2);
-      margin-bottom: 1.5rem;
-      transition: border-color 0.2s;
-    }
-    .lie-card:hover { border-color: var(--accent2); }
-
-    .lie-card-header {
-      padding: 1.2rem 1.5rem;
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 1rem;
-      border-bottom: 1px solid var(--border);
-      cursor: pointer;
-    }
-    .lie-card-title-group { flex: 1; }
-    .lie-card-meta {
-      display: flex;
-      gap: 0.5rem;
-      flex-wrap: wrap;
-      margin-bottom: 0.5rem;
-      align-items: center;
-    }
-    .lie-who {
-      font-family: var(--font-mono);
-      font-size: 0.65rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--accent2);
-      border: 1px solid var(--accent-dim);
-      padding: 0.1rem 0.5rem;
-      border-radius: 2px;
-    }
-    .lie-topic {
-      font-family: var(--font-mono);
-      font-size: 0.65rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--text-dim);
-      border: 1px solid var(--border);
-      padding: 0.1rem 0.5rem;
-      border-radius: 2px;
-    }
-    .lie-date {
-      font-family: var(--font-mono);
-      font-size: 0.65rem;
-      color: var(--text-dim);
-      letter-spacing: 0.08em;
-    }
-    .lie-card-title {
-      font-family: var(--font-body);
-      font-size: 1.1rem;
-      color: var(--text);
-      font-style: italic;
-      line-height: 1.5;
-    }
-    .lie-toggle {
-      font-family: var(--font-mono);
-      font-size: 0.65rem;
-      color: var(--text-dim);
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      white-space: nowrap;
-      padding-top: 0.2rem;
-      user-select: none;
-    }
-
-    .lie-card-body {
-      padding: 1.5rem;
-      display: none;
-      border-top: 1px solid var(--border);
-    }
-    .lie-card-body.open { display: block; }
-
-    .fact-row {
-      margin-bottom: 1.2rem;
-    }
-    .fact-row-label {
+    .chip-label {
+      display: block;
+      margin-top: 1rem;
       font-family: var(--font-mono);
       font-size: 0.62rem;
-      letter-spacing: 0.18em;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
-      margin-bottom: 0.3rem;
+      color: var(--text-dim);
+    }
+    .jump-links {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.55rem;
+    }
+    .jump-link {
       display: block;
-    }
-    .fact-row-label.reality { color: #5dab6e; }
-    .fact-row-label.sources { color: var(--text-dim); }
-    .fact-row-text {
-      font-family: var(--font-body);
-      font-size: 1rem;
-      color: var(--text-muted);
-      line-height: 1.7;
-    }
-    .fact-row-text strong { color: var(--text); }
-
-    .source-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-      margin-top: 0.5rem;
-    }
-    .source-link {
+      border: 1px solid var(--border);
+      padding: 0.85rem 0.9rem;
+      color: var(--text);
       font-family: var(--font-mono);
-      font-size: 0.68rem;
-      color: var(--accent2);
-      border: 1px solid var(--accent-dim);
-      padding: 0.15rem 0.5rem;
-      border-radius: 2px;
-      text-decoration: none;
-      transition: all 0.2s;
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      background: rgba(255,255,255,0.01);
     }
-    .source-link:hover {
+    .jump-link:hover {
+      border-color: var(--accent);
       background: var(--accent-dim);
       color: var(--text);
     }
 
-    /* Updated badge */
-    .updated-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      font-family: var(--font-mono);
-      font-size: 0.68rem;
-      color: var(--text-dim);
-      letter-spacing: 0.1em;
-      border: 1px solid var(--border);
-      padding: 0.3rem 0.8rem;
-      border-radius: 2px;
-      margin: 2rem 2rem 0;
-      max-width: var(--max-w);
-      display: flex;
-    }
-    .updated-dot {
-      width: 6px;
-      height: 6px;
-      background: #5dab6e;
-      border-radius: 50%;
-      flex-shrink: 0;
-    }
-
-    @media (max-width: 768px) {
-      .page-hero-bg { display: none; }
-      .lie-card-header { flex-direction: column; }
-    }
-  
-    /* ── Current Term Counter ──────────────────────────── */
-    .current-term-bar {
-      background: var(--bg);
-      border-bottom: 1px solid var(--border);
-      position: relative;
-    }
-    .current-term-bar::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 2px;
-      background: linear-gradient(90deg, var(--accent), transparent);
-    }
-    .current-term-inner {
+    .methodology-wrap {
       max-width: var(--max-w);
       margin: 0 auto;
-      padding: 2rem;
+      padding: 0 2rem 2rem;
     }
-    .ct-header {
-      display: flex;
-      align-items: center;
-      gap: 0.7rem;
-      margin-bottom: 1.5rem;
-      flex-wrap: wrap;
-    }
-    .pulse-dot-ct {
-      display: inline-block;
-      width: 8px; height: 8px;
-      border-radius: 50%;
-      background: var(--accent);
-      animation: pulse-ct 1.8s ease-in-out infinite;
-      flex-shrink: 0;
-    }
-    @keyframes pulse-ct {
-      0%, 100% { opacity: 1; transform: scale(1); box-shadow: 0 0 0 0 rgba(204,34,34,0.5); }
-      50%       { opacity: 0.7; transform: scale(1.2); box-shadow: 0 0 0 7px rgba(204,34,34,0); }
-    }
-    .ct-label {
-      font-family: var(--font-mono);
-      font-size: 0.72rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--accent);
-      flex: 1;
-    }
-    .ct-updated {
-      font-family: var(--font-mono);
-      font-size: 0.62rem;
-      letter-spacing: 0.08em;
-      color: var(--text-dim);
-    }
-    .ct-stats {
+    .methodology-body {
       display: grid;
-      grid-template-columns: 2fr 1fr 1fr 1fr;
-      gap: 1px;
-      background: var(--border);
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
     }
-    @media (max-width: 768px) {
-      .ct-stats { grid-template-columns: 1fr 1fr; }
+    .method-box h3 {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--accent2);
+      margin-bottom: 0.5rem;
     }
-    @media (max-width: 480px) {
-      .ct-stats { grid-template-columns: 1fr; }
+    .method-box p {
+      color: var(--text-muted);
+      font-size: 0.98rem;
+      line-height: 1.65;
     }
-    .ct-stat {
-      background: var(--bg2);
-      padding: 1.8rem 2rem;
+
+    .section-wrap {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 2rem 5rem;
+    }
+    .section-block {
+      margin-top: 1.5rem;
+      overflow: hidden;
+    }
+    .section-head {
       display: flex;
-      flex-direction: column;
-      gap: 0.2rem;
+      flex-wrap: wrap;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1.15rem 1.2rem;
+      border-bottom: 1px solid var(--border);
+      background: linear-gradient(180deg, rgba(255,255,255,0.015), transparent);
     }
-    .ct-stat-big { background: var(--bg3); }
-    .ct-number {
-      font-family: var(--font-display);
-      font-size: 4rem;
+    .section-kicker {
+      font-family: var(--font-mono);
+      font-size: 0.64rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
       color: var(--accent);
-      line-height: 1;
+      display: block;
+      margin-bottom: 0.45rem;
+    }
+    .section-title-row {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 5vw, 3.25rem);
+      line-height: 0.95;
       letter-spacing: 0.02em;
     }
-    .ct-stat-big .ct-number { font-size: 5.5rem; }
-    .ct-sublabel {
-      font-family: var(--font-mono);
-      font-size: 0.65rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--accent2);
-      margin-bottom: 0.4rem;
-    }
-    .ct-desc {
-      font-family: var(--font-mono);
-      font-size: 0.65rem;
+    .section-note {
+      max-width: 420px;
       color: var(--text-dim);
-      letter-spacing: 0.06em;
-      line-height: 1.6;
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.05em;
+      line-height: 1.7;
+      text-align: right;
     }
-</style>
-  <meta name="description" content="A running, sourced scoreboard of Trump and MAGA's documented lies. Every entry fact-checked with links. Tariffs, Social Security, Iran, voting rights, healthcare. Updated regularly.">
-  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://epitomeofhatred.com/the-lies">
-  <meta property="og:title" content="The Lies — Documented Trump & MAGA Falsehoods | Epitome of Hatred">
-  <meta property="og:description" content="A running, sourced scoreboard of Trump and MAGA's documented lies. Every entry fact-checked with links. Tariffs, Social Security, Iran, voting rights, healthcare. Updated regularly.">
-  <meta property="og:site_name" content="Epitome of Hatred">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="The Lies — Documented Trump & MAGA Falsehoods | Epitome of Hatred">
-  <meta name="twitter:description" content="A running, sourced scoreboard of Trump and MAGA's documented lies. Every entry fact-checked with links. Tariffs, Social Security, Iran, voting rights, healthcare. Updated regularly.">
-  <meta name="twitter:site" content="@est7bd">
+    .entry-list {
+      padding: 1rem;
+      display: grid;
+      gap: 1rem;
+    }
+    .lie-entry {
+      border: 1px solid var(--border);
+      background: var(--bg);
+      scroll-margin-top: 92px;
+    }
+    .lie-entry[hidden] { display: none !important; }
+    .lie-header {
+      padding: 1.05rem 1.15rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1rem;
+      cursor: pointer;
+    }
+    .lie-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      align-items: center;
+      margin-bottom: 0.65rem;
+    }
+    .meta-chip,
+    .severity {
+      font-family: var(--font-mono);
+      font-size: 0.62rem;
+      text-transform: uppercase;
+      letter-spacing: 0.13em;
+      padding: 0.16rem 0.45rem;
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      color: var(--text-dim);
+    }
+    .meta-chip.who {
+      color: var(--accent2);
+      border-color: var(--accent-dim);
+    }
+    .severity.s1 { color: #8f8f8f; }
+    .severity.s2 { color: #d0a35e; }
+    .severity.s3 { color: #e48d4d; }
+    .severity.s4 { color: #ff6a6a; }
+    .severity.s5 {
+      color: #ffffff;
+      border-color: rgba(255,255,255,0.18);
+      background: rgba(204,34,34,0.22);
+    }
+    .lie-title {
+      font-size: 1.2rem;
+      line-height: 1.45;
+      color: var(--text);
+    }
+    .lie-summary {
+      margin-top: 0.55rem;
+      color: var(--text-muted);
+      font-size: 1rem;
+      line-height: 1.6;
+      max-width: 860px;
+    }
+    .header-actions {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 0.7rem;
+      flex-shrink: 0;
+    }
+    .direct-link {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      border-bottom: 1px solid transparent;
+    }
+    .direct-link:hover {
+      color: var(--accent2);
+      border-color: var(--accent-dim);
+    }
+    .toggle-label {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      user-select: none;
+    }
+    .lie-body {
+      display: none;
+      padding: 0 1.15rem 1.15rem;
+      border-top: 1px solid var(--border);
+      background: rgba(255,255,255,0.012);
+    }
+    .lie-entry.open .lie-body { display: block; }
+    .lie-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      padding-top: 1rem;
+    }
+    .fact-box {
+      border: 1px solid var(--border);
+      background: var(--bg2);
+      padding: 0.95rem;
+    }
+    .fact-box.full { grid-column: 1 / -1; }
+    .fact-label {
+      font-family: var(--font-mono);
+      font-size: 0.62rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      margin-bottom: 0.45rem;
+      display: block;
+    }
+    .fact-label.claim { color: var(--text-dim); }
+    .fact-label.reality { color: #73c482; }
+    .fact-label.matter { color: var(--accent2); }
+    .fact-label.sources,
+    .fact-label.related { color: var(--text-dim); }
+    .fact-box p,
+    .fact-box ul {
+      color: var(--text-muted);
+      font-size: 0.99rem;
+      line-height: 1.7;
+    }
+    .fact-box strong { color: var(--text); }
+    .source-links,
+    .related-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      margin-top: 0.4rem;
+    }
+    .source-link,
+    .related-link {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      border: 1px solid var(--border);
+      padding: 0.22rem 0.55rem;
+      color: var(--accent2);
+      background: transparent;
+    }
+    .source-link:hover,
+    .related-link:hover {
+      border-color: var(--accent);
+      background: var(--accent-dim);
+      color: var(--text);
+    }
+    .tracker-empty {
+      margin-top: 1.5rem;
+      padding: 1rem 1.1rem;
+      display: none;
+      color: var(--text-muted);
+    }
+    .results-bar {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    .results-chip {
+      display: inline-flex;
+      gap: 0.5rem;
+      align-items: center;
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      border: 1px solid var(--border);
+      padding: 0.4rem 0.7rem;
+      margin-top: 1.5rem;
+      background: rgba(255,255,255,0.01);
+    }
+    .results-chip strong { color: var(--text); font-weight: 500; }
+
+    .bottom-cta {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 2rem 5rem;
+    }
+    .cta-box {
+      border: 1px solid var(--border);
+      background: linear-gradient(180deg, rgba(204,34,34,0.08), rgba(255,255,255,0.02));
+      padding: 1.4rem;
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .cta-copy h3 {
+      font-family: var(--font-display);
+      font-size: 2.2rem;
+      line-height: 0.95;
+      letter-spacing: 0.02em;
+    }
+    .cta-copy p {
+      margin-top: 0.55rem;
+      color: var(--text-muted);
+      max-width: 650px;
+    }
+    .cta-link {
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text);
+      border: 1px solid var(--accent);
+      padding: 0.8rem 1rem;
+      white-space: nowrap;
+    }
+    .cta-link:hover {
+      background: var(--accent-dim);
+      color: var(--text);
+    }
+
+    @media (max-width: 980px) {
+      .tracker-grid,
+      .methodology-body,
+      .lie-grid,
+      .tools-wrap {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    @media (max-width: 820px) {
+      .tools-wrap,
+      .methodology-body,
+      .search-row,
+      .lie-grid,
+      .tracker-grid,
+      .jump-links {
+        grid-template-columns: 1fr;
+      }
+      .section-note { text-align: left; }
+      .lie-header { flex-direction: column; }
+      .header-actions {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+      }
+    }
+    @media (max-width: 768px) {
+      .page-hero-bg { display: none; }
+    }
+  </style>
 </head>
 <body>
-
 <div id="header-placeholder"></div>
 
 <main>
-  <!-- HERO -->
-  <div class="page-hero">
-    <div class="page-hero-bg" aria-hidden="true">LIES</div>
-    <span class="section-label">documented &amp; sourced</span>
+  <section class="page-hero">
+    <div class="page-hero-bg" aria-hidden="true">RECEIPTS</div>
+    <div class="eyebrow-row">
+      <span class="section-label" style="margin-bottom:0;">documented &amp; sourced</span>
+      <span class="status-chip"><span class="pulse-dot"></span><strong>live tracker</strong></span>
+      <span class="updated-chip">last reviewed <strong>March 28, 2026</strong></span>
+    </div>
     <h1>The <span>Lies.</span></h1>
-    <p class="sub">A running scoreboard of Trump and MAGA's bullshit. Every entry sourced. Every claim documented. Updated as fast as they can lie — which, unfortunately, is very fast.</p>
+    <p class="sub">Not a vague rant page. Not a vibes page. A working accountability tracker for lies, corruption, cover-ups, and abuse of power — with direct links, clear sourcing, and enough structure to find the exact bullshit fast.</p>
+  </section>
+
+  <section class="tracker-strip">
+    <div class="tracker-grid">
+      <div class="tracker-stat">
+        <span class="num" id="count-visible">9</span>
+        <span class="label">featured entries</span>
+        <span class="desc">Representative high-impact entries on this page. Expandable, searchable, and linkable.</span>
+      </div>
+      <div class="tracker-stat">
+        <span class="num" id="count-severe">5</span>
+        <span class="label">severity 4–5</span>
+        <span class="desc">Not petty nonsense. Claims with major democratic, legal, economic, or human consequences.</span>
+      </div>
+      <div class="tracker-stat">
+        <span class="num">30,573</span>
+        <span class="label">first-term falsehoods</span>
+        <span class="desc">Washington Post documented that many false or misleading claims during Trump’s first term.</span>
+      </div>
+      <div class="tracker-stat">
+        <span class="num" id="days-in-office">0</span>
+        <span class="label">days into term</span>
+        <span class="desc">Auto-updating counter from January 20, 2025, so the page keeps moving even when he won’t stop lying.</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="tools-wrap">
+    <div class="control-panel">
+      <div class="panel-head">Find the exact lie</div>
+      <div class="control-body">
+        <div class="search-row">
+          <input id="tracker-search" class="search-input" type="search" placeholder="Search by keyword, person, topic, or claim…" aria-label="Search lies">
+          <select id="tracker-sort" class="sort-select" aria-label="Sort tracker entries">
+            <option value="severity">Sort: Highest severity</option>
+            <option value="newest">Sort: Newest first</option>
+            <option value="oldest">Sort: Oldest first</option>
+            <option value="alpha">Sort: Alphabetical</option>
+          </select>
+        </div>
+
+        <span class="chip-label">Filter by topic</span>
+        <div class="chip-group" id="topic-filters">
+          <button class="filter-chip active" data-filter-group="topic" data-filter-value="all">All</button>
+          <button class="filter-chip" data-filter-group="topic" data-filter-value="economy">Economy</button>
+          <button class="filter-chip" data-filter-group="topic" data-filter-value="voting">Voting</button>
+          <button class="filter-chip" data-filter-group="topic" data-filter-value="corruption">Corruption</button>
+          <button class="filter-chip" data-filter-group="topic" data-filter-value="immigration">Immigration</button>
+          <button class="filter-chip" data-filter-group="topic" data-filter-value="healthcare">Healthcare</button>
+          <button class="filter-chip" data-filter-group="topic" data-filter-value="war">War / Foreign Policy</button>
+        </div>
+
+        <span class="chip-label">Filter by severity</span>
+        <div class="chip-group" id="severity-filters">
+          <button class="filter-chip active" data-filter-group="severity" data-filter-value="all">All levels</button>
+          <button class="filter-chip" data-filter-group="severity" data-filter-value="5">Level 5</button>
+          <button class="filter-chip" data-filter-group="severity" data-filter-value="4">Level 4+</button>
+          <button class="filter-chip" data-filter-group="severity" data-filter-value="3">Level 3+</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="jump-panel">
+      <div class="panel-head">Jump to section</div>
+      <div class="jump-body">
+        <div class="jump-links">
+          <a class="jump-link" href="#latest-additions">Latest additions</a>
+          <a class="jump-link" href="#democracy-voting">Democracy &amp; voting</a>
+          <a class="jump-link" href="#economy-wallet">Economy &amp; your wallet</a>
+          <a class="jump-link" href="#corruption-grift">Corruption &amp; grift</a>
+          <a class="jump-link" href="#immigration-abuse">Immigration &amp; abuse</a>
+          <a class="jump-link" href="#war-foreign-policy">War &amp; foreign policy</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="methodology-wrap">
+    <div class="methodology">
+      <div class="panel-head">Methodology</div>
+      <div class="methodology-body">
+        <div class="method-box">
+          <h3>What counts</h3>
+          <p>A claim gets logged here when it is false, directly contradicted by evidence, materially misleading, or used to justify harmful policy under false pretenses.</p>
+        </div>
+        <div class="method-box">
+          <h3>How it is labeled</h3>
+          <p>Severity is not about drama. It is about consequence: public harm, democratic harm, economic damage, legal exposure, or human suffering.</p>
+        </div>
+        <div class="method-box">
+          <h3>How it is sourced</h3>
+          <p>Each entry links to primary reporting, fact checks, official records, or the site’s longer explainer posts. No vague “people are saying” garbage.</p>
+        </div>
+        <div class="method-box">
+          <h3>Why this exists</h3>
+          <p>Because memory gets flooded. A tracker like this keeps dates, claims, receipts, and consequences in one place — where spin dies on contact.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="results-bar">
+    <div class="results-chip">showing <strong id="results-count">9</strong> entries</div>
   </div>
 
-  <!-- CURRENT TERM COUNTER ════════════════════════════════════════════ -->
-  <div class="current-term-bar">
-    <div class="current-term-inner">
-
-      <div class="ct-header">
-        <span class="pulse-dot-ct"></span>
-        <span class="ct-label">Second Term — Current Count</span>
-        <span class="ct-updated">Last verified: March 27, 2026</span>
-      </div>
-
-      <div class="ct-stats">
-
-        <div class="ct-stat ct-stat-big">
-          <span class="ct-number" id="ct-lies">9,051</span>
-          <span class="ct-sublabel">and counting</span>
-          <span class="ct-desc">False or misleading claims<br>since Jan 20, 2025<br>(projected at first-term pace)</span>
+  <section class="section-wrap" id="tracker-sections">
+    <div class="section-block" id="latest-additions">
+      <div class="section-head">
+        <div>
+          <span class="section-kicker">latest additions</span>
+          <div class="section-title-row">Fresh bullshit. Fresh receipts.</div>
         </div>
-
-        <div class="ct-stat">
-          <span class="ct-number" id="ct-days">431</span>
-          <span class="ct-sublabel">days in office</span>
-          <span class="ct-desc">Second term began<br>January 20, 2025</span>
-        </div>
-
-        <div class="ct-stat">
-          <span class="ct-number">21+</span>
-          <span class="ct-sublabel">per day</span>
-          <span class="ct-desc">Average false claims<br>documented in real time<br>during first term (WaPo)</span>
-        </div>
-
-        <div class="ct-stat">
-          <span class="ct-number">∞</span>
-          <span class="ct-sublabel">shame</span>
-          <span class="ct-desc">Amount of shame a normal<br>person would feel about this.<br>Not applicable here.</span>
-        </div>
-
+        <div class="section-note">The newest, most active, or most currently weaponized lies. Built for readers who want the fast version before clicking into full posts.</div>
       </div>
+      <div class="entry-list" data-section-list>
 
-    </div>
-  </div>
-
-
-  <!-- FIRST TERM RECORD -->
-  <div class="score-bar" title="First term historical record">
-    <div style="max-width:var(--max-w); margin:0 auto; padding:1.2rem 2rem 0;">
-      <span style="font-family:var(--font-mono); font-size:0.65rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--text-dim);">First Term Record (Jan 2017 – Jan 2021)</span>
-    </div>
-    <div class="score-bar-inner">
-      <div class="score-stat">
-        <span class="score-stat-number">30,573</span>
-        <span class="score-stat-label">False or misleading claims<br>Trump's first term alone<br>(Washington Post)</span>
-      </div>
-      <div class="score-stat">
-        <span class="score-stat-number">21</span>
-        <span class="score-stat-label">Average false claims<br>per day, first term<br>(Washington Post)</span>
-      </div>
-      <div class="score-stat">
-        <span class="score-stat-number">$1,500</span>
-        <span class="score-stat-label">Average tariff cost<br>per US household in 2026<br>(Tax Foundation)</span>
-      </div>
-      <div class="score-stat">
-        <span class="score-stat-number">114%</span>
-        <span class="score-stat-label">ACA premium increase<br>for marketplace coverage<br>in 2026 (CAP)</span>
-      </div>
-    </div>
-  </div>
-
-  <div style="max-width:var(--max-w); margin: 0 auto; padding: 2rem 2rem 0;">
-    <div style="display:flex; align-items:center; gap:0.5rem;">
-      <div class="updated-dot"></div>
-      <span style="font-family:var(--font-mono); font-size:0.68rem; color:var(--text-dim); letter-spacing:0.1em;">Last updated: March 26, 2026 — New entries added regularly. Sources always linked.</span>
-    </div>
-  </div>
-
-  <!-- FILTER -->
-  <div class="filter-bar">
-    <span class="filter-label">Filter:</span>
-    <button class="filter-btn active" onclick="filterLies('all', this)">All</button>
-    <button class="filter-btn" onclick="filterLies('economy', this)">Economy</button>
-    <button class="filter-btn" onclick="filterLies('voting', this)">Voting</button>
-    <button class="filter-btn" onclick="filterLies('iran', this)">Iran War</button>
-    <button class="filter-btn" onclick="filterLies('immigration', this)">Immigration</button>
-    <button class="filter-btn" onclick="filterLies('healthcare', this)">Healthcare</button>
-  </div>
-
-  <!-- LIES LIST -->
-  <div class="lies-container">
-
-    <!-- LIE: TARIFFS -->
-    <div class="lie-card" data-topic="economy">
-      <div class="lie-card-header" onclick="toggleLie(this)">
-        <div class="lie-card-title-group">
-          <div class="lie-card-meta">
-            <span class="lie-who">Trump</span>
-            <span class="lie-topic">Economy / Tariffs</span>
-            <span class="lie-date">Ongoing — 2025–2026</span>
+        <article class="lie-entry open" id="tariffs-tax" data-topic="economy" data-severity="4" data-date="2026-03-01" data-title="Tariffs are a tax on Americans, not foreign countries" data-search="trump tariffs economy tax your wallet importers tax foundation cost household prices companies refunds">
+          <div class="lie-header" onclick="toggleEntry(this.parentElement)">
+            <div>
+              <div class="lie-meta">
+                <span class="meta-chip who">Trump</span>
+                <span class="meta-chip">Economy / Tariffs</span>
+                <span class="meta-chip">2025–2026</span>
+                <span class="severity s4">Level 4 — Public deception</span>
+              </div>
+              <h2 class="lie-title">“Other countries are paying the tariffs.”</h2>
+              <p class="lie-summary">No. American importers pay them. Then families and businesses eat the cost.</p>
+            </div>
+            <div class="header-actions">
+              <a class="direct-link" href="#tariffs-tax" onclick="event.stopPropagation()">direct link</a>
+              <span class="toggle-label">hide facts</span>
+            </div>
           </div>
-          <div class="lie-card-title">"Other countries are paying the tariffs. We're taking in hundreds of billions."</div>
-        </div>
-        <span class="lie-toggle">+ show facts</span>
-      </div>
-      <div class="lie-card-body">
-        <div class="fact-row">
-          <span class="fact-row-label reality">Reality</span>
-          <p class="fact-row-text">Tariffs are paid by US importers — American businesses — not foreign governments. American companies paid <strong>$187 billion more in tariffs in 2025 than in 2024</strong>. That cost is being passed to consumers. The Tax Foundation estimates the average US household will pay an additional <strong>$1,500 in 2026</strong> because of these tariffs. Thousands of US companies including FedEx and Costco are suing the government for refunds. The Supreme Court ruled 6-3 in February 2026 that his IEEPA tariffs were unconstitutional. Trump responded by imposing new tariffs the next day.</p>
-        </div>
-        <div class="fact-row">
-          <span class="fact-row-label sources">Sources</span>
-          <div class="source-links">
-            <a href="https://taxfoundation.org/research/all/federal/trump-tariffs-trade-war/" target="_blank" rel="noopener" class="source-link">Tax Foundation</a>
-            <a href="https://taxpolicycenter.org/features/tracking-trump-tariffs" target="_blank" rel="noopener" class="source-link">Tax Policy Center</a>
-            <a href="https://www.cnn.com/2026/01/03/business/tariffs-prices-2026" target="_blank" rel="noopener" class="source-link">CNN Business</a>
-            <a href="https://www.claconnect.com/en/resources/articles/25/the-impact-of-trumps-tariffs-a-comprehensive-analysis" target="_blank" rel="noopener" class="source-link">CLA / SCOTUS Ruling</a>
-            <a href="https://www.americanprogress.org/article/a-year-in-review-how-the-trump-administrations-economic-policies-made-life-less-affordable-for-americans/" target="_blank" rel="noopener" class="source-link">Center for American Progress</a>
+          <div class="lie-body">
+            <div class="lie-grid">
+              <div class="fact-box">
+                <span class="fact-label claim">The claim</span>
+                <p>Trump repeatedly says tariffs are paid by foreign countries and that the US is simply “taking in” the money.</p>
+              </div>
+              <div class="fact-box">
+                <span class="fact-label reality">What the record shows</span>
+                <p>Tariffs are paid by <strong>US importers</strong>. Those costs get passed through the supply chain and land on American businesses and consumers.</p>
+              </div>
+              <div class="fact-box full">
+                <span class="fact-label matter">Why it matters</span>
+                <p>This is not a messaging error. It hides the real cost of policy. If people do not understand who pays, they cannot understand why prices rise, why small businesses get squeezed, or why courts and companies keep fighting these tariffs.</p>
+              </div>
+              <div class="fact-box full">
+                <span class="fact-label sources">Sources</span>
+                <div class="source-links">
+                  <a class="source-link" href="https://taxfoundation.org/research/all/federal/trump-tariffs-trade-war/" target="_blank" rel="noopener">Tax Foundation</a>
+                  <a class="source-link" href="https://taxpolicycenter.org/features/tracking-trump-tariffs" target="_blank" rel="noopener">Tax Policy Center</a>
+                  <a class="source-link" href="/blog/tariffs-are-a-tax-and-you-are-paying-it.html">Site explainer</a>
+                </div>
+              </div>
+              <div class="fact-box full">
+                <span class="fact-label related">Related reads</span>
+                <div class="related-links">
+                  <a class="related-link" href="/blog/grocery-prices-tariffs-2025.html">Grocery prices and tariffs</a>
+                  <a class="related-link" href="/blog/your-wallet-called-it-wants-its-money-back.html">Your wallet called</a>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
+        </article>
+
+        <article class="lie-entry" id="social-security" data-topic="healthcare" data-severity="4" data-date="2026-02-18" data-title="Promises to protect Social Security while pushing policies that undermine it" data-search="social security protect cuts insolvency benefits maga republican promises budget retirees we will always protect social security">
+          <div class="lie-header" onclick="toggleEntry(this.parentElement)">
+            <div>
+              <div class="lie-meta">
+                <span class="meta-chip who">Trump / GOP</span>
+                <span class="meta-chip">Social Security</span>
+                <span class="meta-chip">2025–2026</span>
+                <span class="severity s4">Level 4 — Public deception</span>
+              </div>
+              <h2 class="lie-title">“We will always protect Social Security.”</h2>
+              <p class="lie-summary">That line does not survive contact with the policy record.</p>
+            </div>
+            <div class="header-actions">
+              <a class="direct-link" href="#social-security" onclick="event.stopPropagation()">direct link</a>
+              <span class="toggle-label">show facts</span>
+            </div>
+          </div>
+          <div class="lie-body">
+            <div class="lie-grid">
+              <div class="fact-box"><span class="fact-label claim">The claim</span><p>Protect benefits, no cuts, no danger, nothing to worry about.</p></div>
+              <div class="fact-box"><span class="fact-label reality">What the record shows</span><p>The site already documents the opposite trend: policy choices, benefit pressure, and insolvency acceleration hitting the same program they swear they are protecting.</p></div>
+              <div class="fact-box full"><span class="fact-label matter">Why it matters</span><p>Retirees and near-retirees make real life decisions based on this. False reassurance is still deception when the underlying policy moves in the opposite direction.</p></div>
+              <div class="fact-box full"><span class="fact-label sources">Sources</span><div class="source-links"><a class="source-link" href="/blog/we-will-always-protect-social-security.html">Site post</a><a class="source-link" href="/blog/social-security-insolvency-accelerating.html">Insolvency post</a></div></div>
+            </div>
+          </div>
+        </article>
       </div>
     </div>
 
-    <!-- LIE: MAIL-IN VOTING — ONLY COUNTRY -->
-    <div class="lie-card" data-topic="voting">
-      <div class="lie-card-header" onclick="toggleLie(this)">
-        <div class="lie-card-title-group">
-          <div class="lie-card-meta">
-            <span class="lie-who">Trump</span>
-            <span class="lie-topic">Voting Rights</span>
-            <span class="lie-date">Multiple speeches, March 2026</span>
-          </div>
-          <div class="lie-card-title">"There's not a country in the world that does mail-in ballots anymore."</div>
+    <div class="section-block" id="democracy-voting">
+      <div class="section-head">
+        <div>
+          <span class="section-kicker">democracy &amp; voting</span>
+          <div class="section-title-row">The lie becomes the pretext.</div>
         </div>
-        <span class="lie-toggle">+ show facts</span>
+        <div class="section-note">This is where disinformation stops being dumb and starts being a tool for disenfranchisement, intimidation, and anti-democratic power grabs.</div>
       </div>
-      <div class="lie-card-body">
-        <div class="fact-row">
-          <span class="fact-row-label reality">Reality</span>
-          <p class="fact-row-text"><strong>Dozens of countries</strong> allow mail-in voting including Canada, the United Kingdom, Australia, Germany, and Switzerland. Trump himself voted by mail in a 2026 Florida state House special election while pushing to ban mail-in voting. The Trump administration could not identify a single example of federal election fraud from post-Election Day ballot receipt in this century. Elections experts confirm fraud rates in federal elections are tiny even with mail-in ballots.</p>
-        </div>
-        <div class="fact-row">
-          <span class="fact-row-label sources">Sources</span>
-          <div class="source-links">
-            <a href="https://www.cnn.com/2026/03/24/politics/fact-check-mail-in-voting-trump" target="_blank" rel="noopener" class="source-link">CNN Fact Check — Mar 24, 2026</a>
-            <a href="https://krdo.com/news/2026/03/24/fact-check-the-lies-trump-is-using-to-sell-his-latest-attack-on-mail-in-voting/" target="_blank" rel="noopener" class="source-link">KRDO</a>
-            <a href="https://slate.com/news-and-politics/2026/03/alito-supreme-court-trump-voter-fraud-lies.html" target="_blank" rel="noopener" class="source-link">Slate — SCOTUS / Voter Fraud</a>
+      <div class="entry-list" data-section-list>
+        <article class="lie-entry" id="mail-voting" data-topic="voting" data-severity="5" data-date="2026-03-04" data-title="Mail voting fraud claims used to undermine democratic participation" data-search="mail voting cheating fraud election integrity save act ballots married women voter suppression absentee fraud trump republicans">
+          <div class="lie-header" onclick="toggleEntry(this.parentElement)">
+            <div>
+              <div class="lie-meta">
+                <span class="meta-chip who">Trump / MAGA</span>
+                <span class="meta-chip">Voting</span>
+                <span class="meta-chip">Election lies</span>
+                <span class="severity s5">Level 5 — Democratic danger</span>
+              </div>
+              <h2 class="lie-title">“Mail-in voting is full of cheating.”</h2>
+              <p class="lie-summary">The fraud narrative keeps collapsing. The policy damage remains.</p>
+            </div>
+            <div class="header-actions"><a class="direct-link" href="#mail-voting" onclick="event.stopPropagation()">direct link</a><span class="toggle-label">show facts</span></div>
           </div>
-        </div>
+          <div class="lie-body">
+            <div class="lie-grid">
+              <div class="fact-box"><span class="fact-label claim">The claim</span><p>Mail ballots are inherently corrupt, insecure, and a major source of fraud.</p></div>
+              <div class="fact-box"><span class="fact-label reality">What the record shows</span><p>Evidence for widespread mail-voting fraud does not exist at the scale claimed. The fraud story is repeatedly used to justify restrictions, suspicion, and barriers to lawful voting.</p></div>
+              <div class="fact-box full"><span class="fact-label matter">Why it matters</span><p>Election lies are not harmless spin. They are infrastructure for suppression, mistrust, and anti-democratic escalation.</p></div>
+              <div class="fact-box full"><span class="fact-label sources">Sources</span><div class="source-links"><a class="source-link" href="/blog/mail-in-cheating-except-when-i-do-it.html">Mail voting post</a><a class="source-link" href="/blog/save-act-voter-suppression-not-integrity.html">SAVE Act post</a><a class="source-link" href="/blog/leavitt-save-act-married-women.html">Married women and SAVE Act</a></div></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="lie-entry" id="find-votes" data-topic="voting" data-severity="5" data-date="2021-01-02" data-title="Pressure campaign in Georgia showed the lie was the point" data-search="georgia phone call find votes election stolen pressure rafensperger democracy">
+          <div class="lie-header" onclick="toggleEntry(this.parentElement)">
+            <div>
+              <div class="lie-meta">
+                <span class="meta-chip who">Trump</span>
+                <span class="meta-chip">Georgia</span>
+                <span class="meta-chip">Election subversion</span>
+                <span class="severity s5">Level 5 — Democratic danger</span>
+              </div>
+              <h2 class="lie-title">“I just want to find 11,780 votes.”</h2>
+              <p class="lie-summary">The stolen-election lie was not rhetoric. It was used to pressure officials to change the outcome.</p>
+            </div>
+            <div class="header-actions"><a class="direct-link" href="#find-votes" onclick="event.stopPropagation()">direct link</a><span class="toggle-label">show facts</span></div>
+          </div>
+          <div class="lie-body">
+            <div class="lie-grid">
+              <div class="fact-box"><span class="fact-label claim">The claim</span><p>The Georgia result was illegitimate and merely needed correction.</p></div>
+              <div class="fact-box"><span class="fact-label reality">What the record shows</span><p>The phone call showed direct pressure on a state official to “find” votes that did not exist. The lie was operationalized into an attempt to subvert certification.</p></div>
+              <div class="fact-box full"><span class="fact-label matter">Why it matters</span><p>This belongs in every accountability tracker because it is a bridge between falsehood and abuse of office.</p></div>
+              <div class="fact-box full"><span class="fact-label sources">Sources</span><div class="source-links"><a class="source-link" href="/blog/georgia-phone-call-find-votes.html">Site post</a></div></div>
+            </div>
+          </div>
+        </article>
       </div>
     </div>
 
-    <!-- LIE: IRAN 100% DESTROYED -->
-    <div class="lie-card" data-topic="iran">
-      <div class="lie-card-header" onclick="toggleLie(this)">
-        <div class="lie-card-title-group">
-          <div class="lie-card-meta">
-            <span class="lie-who">Trump</span>
-            <span class="lie-topic">Iran War</span>
-            <span class="lie-date">March 2026</span>
-          </div>
-          <div class="lie-card-title">"We destroyed 100% of Iran's military capability." / "The war is almost complete."</div>
+    <div class="section-block" id="economy-wallet">
+      <div class="section-head">
+        <div>
+          <span class="section-kicker">economy &amp; your wallet</span>
+          <div class="section-title-row">They bullshit. You pay.</div>
         </div>
-        <span class="lie-toggle">+ show facts</span>
+        <div class="section-note">These entries tie claims directly to prices, healthcare, wages, debt, and household pain — because “the economy” is not a slogan when people are choosing between rent and groceries.</div>
       </div>
-      <div class="lie-card-body">
-        <div class="fact-row">
-          <span class="fact-row-label reality">Reality</span>
-          <p class="fact-row-text">Iran continues conducting drone and missile attacks throughout the region after Trump's declaration of 100% destruction. The US is calling in reinforcements from around the globe. Trump simultaneously claims the war is almost over while expanding the military footprint. The contradiction is not subtle.</p>
-        </div>
-        <div class="fact-row">
-          <span class="fact-row-label sources">Sources</span>
-          <div class="source-links">
-            <a href="https://www.cnn.com/2026/03/17/politics/fact-check-trump-iran-war" target="_blank" rel="noopener" class="source-link">CNN Fact Check — Iran War</a>
-            <a href="https://gvwire.com/2026/03/23/trump-is-hiding-the-truth-about-the-war-in-iran/" target="_blank" rel="noopener" class="source-link">GV Wire / NY Times</a>
+      <div class="entry-list" data-section-list>
+        <article class="lie-entry" id="healthcare-better-cheaper" data-topic="healthcare" data-severity="4" data-date="2026-01-15" data-title="Better cheaper healthcare claims contradicted by premium spikes and loss of coverage" data-search="better cheaper healthcare aca subsidies expire premiums uninsured medicaid big beautiful bill">
+          <div class="lie-header" onclick="toggleEntry(this.parentElement)">
+            <div>
+              <div class="lie-meta">
+                <span class="meta-chip who">Trump / MAGA Congress</span>
+                <span class="meta-chip">Healthcare</span>
+                <span class="meta-chip">ACA / Medicaid</span>
+                <span class="severity s4">Level 4 — Harmful policy lie</span>
+              </div>
+              <h2 class="lie-title">“We’re going to give you better, cheaper healthcare.”</h2>
+              <p class="lie-summary">The slogan sounds great. The coverage losses and premium spikes do not.</p>
+            </div>
+            <div class="header-actions"><a class="direct-link" href="#healthcare-better-cheaper" onclick="event.stopPropagation()">direct link</a><span class="toggle-label">show facts</span></div>
           </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- LIE: MINAB SCHOOL -->
-    <div class="lie-card" data-topic="iran">
-      <div class="lie-card-header" onclick="toggleLie(this)">
-        <div class="lie-card-title-group">
-          <div class="lie-card-meta">
-            <span class="lie-who">Trump</span>
-            <span class="lie-topic">Iran War</span>
-            <span class="lie-date">March 7, 2026</span>
+          <div class="lie-body">
+            <div class="lie-grid">
+              <div class="fact-box"><span class="fact-label claim">The claim</span><p>Republicans promise cheaper care, better plans, and more access.</p></div>
+              <div class="fact-box"><span class="fact-label reality">What the record shows</span><p>Your current page already cites the expiration of ACA support, premium spikes, and projected coverage losses. The promise and the policy do not match.</p></div>
+              <div class="fact-box full"><span class="fact-label matter">Why it matters</span><p>Healthcare lies cause delayed treatment, worse outcomes, and massive financial stress — especially when sold as reform while dismantling the protections people rely on.</p></div>
+              <div class="fact-box full"><span class="fact-label sources">Sources</span><div class="source-links"><a class="source-link" href="/blog/one-big-beautiful-bill-medicaid-cuts.html">Medicaid cuts</a><a class="source-link" href="/blog/4-6-million-lost-health-insurance.html">Coverage losses</a><a class="source-link" href="/blog/prescription-drug-prices-lies.html">Drug price lies</a></div></div>
+            </div>
           </div>
-          <div class="lie-card-title">"That [Minab elementary school] strike was done by Iran." (175 people killed, most of them children.)</div>
-        </div>
-        <span class="lie-toggle">+ show facts</span>
-      </div>
-      <div class="lie-card-body">
-        <div class="fact-row">
-          <span class="fact-row-label reality">Reality</span>
-          <p class="fact-row-text"><strong>The US military's own investigation preliminarily concluded that an American missile hit the school</strong>, killing at least 175 people — most of them children. The military acknowledged it. The Commander-in-Chief blamed Iran and has never retracted the statement. This pattern mirrors Vietnam and Iraq, when presidential lies about deadly military mistakes created irreparable damage to public trust.</p>
-        </div>
-        <div class="fact-row">
-          <span class="fact-row-label sources">Sources</span>
-          <div class="source-links">
-            <a href="https://gvwire.com/2026/03/23/trump-is-hiding-the-truth-about-the-war-in-iran/" target="_blank" rel="noopener" class="source-link">GV Wire / NY Times Editorial</a>
-          </div>
-        </div>
+        </article>
       </div>
     </div>
 
-    <!-- LIE: NOBODY EXPECTED IRAN RETALIATION -->
-    <div class="lie-card" data-topic="iran">
-      <div class="lie-card-header" onclick="toggleLie(this)">
-        <div class="lie-card-title-group">
-          <div class="lie-card-meta">
-            <span class="lie-who">Trump</span>
-            <span class="lie-topic">Iran War</span>
-            <span class="lie-date">March 2026</span>
-          </div>
-          <div class="lie-card-title">"Nobody — the greatest experts — nobody thought they were going to hit [US allies]."</div>
+    <div class="section-block" id="corruption-grift">
+      <div class="section-head">
+        <div>
+          <span class="section-kicker">corruption &amp; grift</span>
+          <div class="section-title-row">Self-dealing with a press release.</div>
         </div>
-        <span class="lie-toggle">+ show facts</span>
+        <div class="section-note">Some lies do not just protect power. They protect cash flow, cronies, access, and schemes that would collapse under honest scrutiny.</div>
       </div>
-      <div class="lie-card-body">
-        <div class="fact-row">
-          <span class="fact-row-label reality">Reality</span>
-          <p class="fact-row-text">Iran publicly announced it would target US allies if attacked. Numerous analysts had been predicting this specific outcome for years. It was reportedly among the scenarios already briefed to the US president before the war. Former State Department official Alan Eyre: <strong>"Iran said it was going to do it. I expected it. Everyone who follows Iran to any extent expected it."</strong> This outcome was presented to the US president as a potential result of conflict before the war began.</p>
-        </div>
-        <div class="fact-row">
-          <span class="fact-row-label sources">Sources</span>
-          <div class="source-links">
-            <a href="https://www.cnn.com/2026/03/17/politics/fact-check-trump-iran-war" target="_blank" rel="noopener" class="source-link">CNN Fact Check — Iran</a>
-            <a href="https://en.wikipedia.org/wiki/False_or_misleading_statements_by_Donald_Trump_(second_term)" target="_blank" rel="noopener" class="source-link">Wikipedia — Trump Second Term Claims</a>
+      <div class="entry-list" data-section-list>
+        <article class="lie-entry" id="meme-coin" data-topic="corruption" data-severity="5" data-date="2026-02-09" data-title="Foreign corruption and the Trump meme coin grift" data-search="meme coin foreign corruption crypto conflicts of interest grift access self dealing trump">
+          <div class="lie-header" onclick="toggleEntry(this.parentElement)">
+            <div>
+              <div class="lie-meta">
+                <span class="meta-chip who">Trump orbit</span>
+                <span class="meta-chip">Corruption</span>
+                <span class="meta-chip">Crypto / access</span>
+                <span class="severity s5">Level 5 — Corruption</span>
+              </div>
+              <h2 class="lie-title">“Nothing to see here. Just business.”</h2>
+              <p class="lie-summary">When political influence and grift merge, the denials are part of the operation.</p>
+            </div>
+            <div class="header-actions"><a class="direct-link" href="#meme-coin" onclick="event.stopPropagation()">direct link</a><span class="toggle-label">show facts</span></div>
           </div>
-        </div>
+          <div class="lie-body">
+            <div class="lie-grid">
+              <div class="fact-box"><span class="fact-label claim">The claim</span><p>That these ventures are ordinary market activity with no corruption concern.</p></div>
+              <div class="fact-box"><span class="fact-label reality">What the record shows</span><p>When a political brand, foreign money, privileged access, and policy power start overlapping, “ordinary” stops being believable.</p></div>
+              <div class="fact-box full"><span class="fact-label matter">Why it matters</span><p>Corruption rarely arrives wearing a sign that says corruption. It arrives as a shrug, a technicality, a venture, a licensing deal, a coin, or a donor relationship that supposedly means nothing.</p></div>
+              <div class="fact-box full"><span class="fact-label sources">Sources</span><div class="source-links"><a class="source-link" href="/blog/trump-meme-coin-foreign-corruption.html">Meme coin post</a><a class="source-link" href="/blog/musk-doge-conflicts-interest.html">DOGE conflicts</a><a class="source-link" href="/blog/trump-emoluments-foreign-payments.html">Foreign payments</a></div></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="lie-entry" id="golf-costs" data-topic="corruption" data-severity="3" data-date="2025-11-10" data-title="Golf-cost denials and the public tab for presidential self-enrichment" data-search="golf trips cost taxpayer spending self enrichment resorts corruption">
+          <div class="lie-header" onclick="toggleEntry(this.parentElement)">
+            <div>
+              <div class="lie-meta">
+                <span class="meta-chip who">Trump</span>
+                <span class="meta-chip">Corruption</span>
+                <span class="meta-chip">Taxpayer cost</span>
+                <span class="severity s3">Level 3 — Waste and grift</span>
+              </div>
+              <h2 class="lie-title">“It barely costs anything.”</h2>
+              <p class="lie-summary">Public money still counts when it gets routed through private properties tied to the same man making the trip.</p>
+            </div>
+            <div class="header-actions"><a class="direct-link" href="#golf-costs" onclick="event.stopPropagation()">direct link</a><span class="toggle-label">show facts</span></div>
+          </div>
+          <div class="lie-body">
+            <div class="lie-grid">
+              <div class="fact-box"><span class="fact-label claim">The claim</span><p>That the trips are routine, low-cost, or politically irrelevant.</p></div>
+              <div class="fact-box"><span class="fact-label reality">What the record shows</span><p>Travel, security, lodging, and related expenses are real taxpayer costs. When the destination is tied to a private business empire, the ethics problem gets worse, not better.</p></div>
+              <div class="fact-box full"><span class="fact-label sources">Sources</span><div class="source-links"><a class="source-link" href="/blog/trump-golf-trips-cost.html">Golf trips cost</a><a class="source-link" href="/blog/jared-ivanka-federal-payroll.html">Family payroll</a></div></div>
+            </div>
+          </div>
+        </article>
       </div>
     </div>
 
-    <!-- LIE: VENEZUELA / TREN DE ARAGUA -->
-    <div class="lie-card" data-topic="immigration">
-      <div class="lie-card-header" onclick="toggleLie(this)">
-        <div class="lie-card-title-group">
-          <div class="lie-card-meta">
-            <span class="lie-who">Trump</span>
-            <span class="lie-topic">Immigration</span>
-            <span class="lie-date">2025–2026</span>
-          </div>
-          <div class="lie-card-title">"The Venezuelan government coordinated with the Tren de Aragua gang to send gang members and drugs to the US." (Used to justify mass deportations under the Alien Enemies Act.)</div>
+    <div class="section-block" id="immigration-abuse">
+      <div class="section-head">
+        <div>
+          <span class="section-kicker">immigration &amp; abuse</span>
+          <div class="section-title-row">Cruelty laundered through propaganda.</div>
         </div>
-        <span class="lie-toggle">+ show facts</span>
+        <div class="section-note">The pattern here is always the same: invent a threat, inflate it, dehumanize the target, then use the lie to justify abuses that should be indefensible on their own.</div>
       </div>
-      <div class="lie-card-body">
-        <div class="fact-row">
-          <span class="fact-row-label reality">Reality</span>
-          <p class="fact-row-text"><strong>A US intelligence assessment found no such coordination</strong> between the Venezuelan government and Tren de Aragua. This finding directly contradicts the claim Trump used to justify mass deportations and the invocation of the Alien Enemies Act — a wartime law last used to intern Japanese Americans in WWII. He also claimed Venezuelan boats carried fentanyl to the US; fentanyl arrives mostly from Mexico, not Venezuela.</p>
-        </div>
-        <div class="fact-row">
-          <span class="fact-row-label sources">Sources</span>
-          <div class="source-links">
-            <a href="https://en.wikipedia.org/wiki/False_or_misleading_statements_by_Donald_Trump_(second_term)" target="_blank" rel="noopener" class="source-link">Wikipedia — Trump Second Term Claims</a>
+      <div class="entry-list" data-section-list>
+        <article class="lie-entry" id="alien-enemies" data-topic="immigration" data-severity="5" data-date="2026-03-12" data-title="Alien Enemies Act justification contradicted by intelligence findings" data-search="alien enemies act tren de aragua venezuela intelligence immigration deportations false pretext wartime law">
+          <div class="lie-header" onclick="toggleEntry(this.parentElement)">
+            <div>
+              <div class="lie-meta">
+                <span class="meta-chip who">Trump</span>
+                <span class="meta-chip">Immigration</span>
+                <span class="meta-chip">False pretext</span>
+                <span class="severity s5">Level 5 — Democratic danger</span>
+              </div>
+              <h2 class="lie-title">“Venezuela is coordinating with Tren de Aragua to invade us.”</h2>
+              <p class="lie-summary">The intelligence did not back the claim. The administration used it anyway.</p>
+            </div>
+            <div class="header-actions"><a class="direct-link" href="#alien-enemies" onclick="event.stopPropagation()">direct link</a><span class="toggle-label">show facts</span></div>
           </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- LIE: HEALTHCARE / ACA -->
-    <div class="lie-card" data-topic="healthcare">
-      <div class="lie-card-header" onclick="toggleLie(this)">
-        <div class="lie-card-title-group">
-          <div class="lie-card-meta">
-            <span class="lie-who">Trump / MAGA Congress</span>
-            <span class="lie-topic">Healthcare</span>
-            <span class="lie-date">2025–2026</span>
+          <div class="lie-body">
+            <div class="lie-grid">
+              <div class="fact-box"><span class="fact-label claim">The claim</span><p>A coordinated foreign threat justified extreme emergency action and aggressive deportation policy.</p></div>
+              <div class="fact-box"><span class="fact-label reality">What the record shows</span><p>Your existing write-up notes that the intelligence assessment did <strong>not</strong> support the alleged coordination. The premise used to justify extraordinary power was itself false.</p></div>
+              <div class="fact-box full"><span class="fact-label matter">Why it matters</span><p>This is how civil liberties get torched: not by honest debate, but by manufacturing an emergency and daring everyone else to prove the panic was fake after the damage is done.</p></div>
+              <div class="fact-box full"><span class="fact-label sources">Sources</span><div class="source-links"><a class="source-link" href="/blog/alien-enemies-act-intelligence-said-no.html">Alien Enemies Act post</a><a class="source-link" href="/blog/they-deported-him-to-the-wrong-country.html">Wrong country deportation</a><a class="source-link" href="/blog/ice-detained-us-citizens.html">ICE detained US citizens</a></div></div>
+            </div>
           </div>
-          <div class="lie-card-title">"We're going to give you better, cheaper healthcare." (The Big Beautiful Bill let ACA subsidies expire.)</div>
-        </div>
-        <span class="lie-toggle">+ show facts</span>
-      </div>
-      <div class="lie-card-body">
-        <div class="fact-row">
-          <span class="fact-row-label reality">Reality</span>
-          <p class="fact-row-text">The "One Big Beautiful Bill" allowed ACA enhanced premium tax credits to expire at the end of 2025. Net marketplace premiums increased <strong>114% from 2025 to 2026</strong>. A 55-year-old couple earning $90,000 who paid $638/month for a silver plan in 2025 now pays <strong>$2,179/month</strong> — $26,153 per year. The bill is projected to increase the number of uninsured Americans by <strong>10 million by 2034</strong>.</p>
-        </div>
-        <div class="fact-row">
-          <span class="fact-row-label sources">Sources</span>
-          <div class="source-links">
-            <a href="https://www.americanprogress.org/article/a-year-in-review-how-the-trump-administrations-economic-policies-made-life-less-affordable-for-americans/" target="_blank" rel="noopener" class="source-link">Center for American Progress</a>
-            <a href="https://www.americanprogress.org/article/8-ways-trumps-turbulence-tax-is-costing-the-economy/" target="_blank" rel="noopener" class="source-link">CAP — 8 Ways</a>
-          </div>
-        </div>
+        </article>
       </div>
     </div>
 
-    <!-- LIE: FORMER PRESIDENT ENDORSED IRAN WAR -->
-    <div class="lie-card" data-topic="iran">
-      <div class="lie-card-header" onclick="toggleLie(this)">
-        <div class="lie-card-title-group">
-          <div class="lie-card-meta">
-            <span class="lie-who">Trump</span>
-            <span class="lie-topic">Iran War</span>
-            <span class="lie-date">March 16, 2026</span>
-          </div>
-          <div class="lie-card-title">"I spoke to a former president who said 'I wish I did what you did. I wish I did it.'" (Claimed this twice on the same day.)</div>
+    <div class="section-block" id="war-foreign-policy">
+      <div class="section-head">
+        <div>
+          <span class="section-kicker">war &amp; foreign policy</span>
+          <div class="section-title-row">Dangerous lies do not stay theoretical.</div>
         </div>
-        <span class="lie-toggle">+ show facts</span>
+        <div class="section-note">When the subject is war, intelligence, diplomacy, or nuclear risk, a fabricated anecdote or dishonest pretext can move markets, kill people, and drag entire regions toward catastrophe.</div>
       </div>
-      <div class="lie-card-body">
-        <div class="fact-row">
-          <span class="fact-row-label reality">Reality</span>
-          <p class="fact-row-text"><strong>Aides to all four living former presidents confirmed none of them had spoken to Trump about the war</strong> and denied the conversation occurred. Trump refused to name the president, saying it would be "very bad for his career even though he's got no career left." When pressed, he confirmed it wasn't George W. Bush, then refused to say more. This is a fabricated anecdote presented as fact, twice, on the same day.</p>
-        </div>
-        <div class="fact-row">
-          <span class="fact-row-label sources">Sources</span>
-          <div class="source-links">
-            <a href="https://www.cnn.com/2026/03/17/politics/fact-check-trump-iran-war" target="_blank" rel="noopener" class="source-link">CNN Fact Check — Mar 17, 2026</a>
+      <div class="entry-list" data-section-list>
+        <article class="lie-entry" id="former-president-iran" data-topic="war" data-severity="4" data-date="2026-03-16" data-title="Invented former president anecdote about Iran war support" data-search="former president said i wish i did what you did iran war anecdote fabrication cnn fact check">
+          <div class="lie-header" onclick="toggleEntry(this.parentElement)">
+            <div>
+              <div class="lie-meta">
+                <span class="meta-chip who">Trump</span>
+                <span class="meta-chip">Iran</span>
+                <span class="meta-chip">Foreign policy</span>
+                <span class="severity s4">Level 4 — Dangerous fiction</span>
+              </div>
+              <h2 class="lie-title">“A former president told me, ‘I wish I did what you did.’”</h2>
+              <p class="lie-summary">Nobody backed it up. Everyone asked denied it. He still said it twice.</p>
+            </div>
+            <div class="header-actions"><a class="direct-link" href="#former-president-iran" onclick="event.stopPropagation()">direct link</a><span class="toggle-label">show facts</span></div>
           </div>
-        </div>
+          <div class="lie-body">
+            <div class="lie-grid">
+              <div class="fact-box"><span class="fact-label claim">The claim</span><p>An unnamed former president privately congratulated him for the Iran action.</p></div>
+              <div class="fact-box"><span class="fact-label reality">What the record shows</span><p>Aides to living former presidents denied the story. He would not name the person because the point was never proof. The point was borrowed legitimacy.</p></div>
+              <div class="fact-box full"><span class="fact-label matter">Why it matters</span><p>War lies are often social first and evidentiary never. The anecdote works because it flatters the audience and muddies scrutiny during a dangerous moment.</p></div>
+              <div class="fact-box full"><span class="fact-label sources">Sources</span><div class="source-links"><a class="source-link" href="/blog/iran-war-what-trump-knows-vs-reality.html">Iran reality post</a><a class="source-link" href="/blog/iran-war-escalation-civilian-cost.html">Civilian cost</a><a class="source-link" href="/blog/iran-war-insider-trading.html">Insider trading</a></div></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="lie-entry" id="nato-undermining" data-topic="war" data-severity="4" data-date="2019-12-03" data-title="Undermining NATO while pretending to strengthen it" data-search="nato undermining allies russia first term foreign policy lies">
+          <div class="lie-header" onclick="toggleEntry(this.parentElement)">
+            <div>
+              <div class="lie-meta">
+                <span class="meta-chip who">Trump</span>
+                <span class="meta-chip">NATO</span>
+                <span class="meta-chip">Alliances</span>
+                <span class="severity s4">Level 4 — Strategic harm</span>
+              </div>
+              <h2 class="lie-title">“I’m strengthening NATO.”</h2>
+              <p class="lie-summary">Bullying allies, flattering authoritarians, and sowing doubt are not the same thing as strengthening an alliance.</p>
+            </div>
+            <div class="header-actions"><a class="direct-link" href="#nato-undermining" onclick="event.stopPropagation()">direct link</a><span class="toggle-label">show facts</span></div>
+          </div>
+          <div class="lie-body">
+            <div class="lie-grid">
+              <div class="fact-box"><span class="fact-label claim">The claim</span><p>That the chaos, insults, and instability somehow made the alliance stronger.</p></div>
+              <div class="fact-box"><span class="fact-label reality">What the record shows</span><p>The track record is better described as undermining trust, weakening cohesion, and handing propaganda victories to adversaries.</p></div>
+              <div class="fact-box full"><span class="fact-label sources">Sources</span><div class="source-links"><a class="source-link" href="/blog/nato-undermining-first-term.html">NATO post</a><a class="source-link" href="/blog/helsinki-summit-putin-sided.html">Helsinki post</a></div></div>
+            </div>
+          </div>
+        </article>
       </div>
     </div>
 
-    <!-- More entries notice -->
-    <div style="text-align:center; padding: 3rem 0 1rem;">
-      <p style="font-family:var(--font-mono); font-size:0.75rem; color:var(--text-dim); letter-spacing:0.08em;">More entries added regularly. There is, unfortunately, no shortage of material.</p>
-      <a href="/blog" style="display:inline-block; margin-top:1.2rem; font-family:var(--font-mono); font-size:0.78rem; letter-spacing:0.1em; color:var(--accent2); border-bottom:1px solid var(--accent-dim); padding-bottom:2px;">read the full posts with sourced analysis →</a>
-    </div>
+    <div class="tracker-empty" id="tracker-empty">No entries match that search/filter combination. Try a broader keyword or switch the filters back to all.</div>
+  </section>
 
-  </div>
+  <section class="bottom-cta">
+    <div class="cta-box">
+      <div class="cta-copy">
+        <h3>Need the longer version?</h3>
+        <p>Use this page as the receipts index, then push readers into the full posts. That is the real upgrade here: the tracker becomes a traffic hub instead of a dead-end list.</p>
+      </div>
+      <a class="cta-link" href="/blog">read full posts</a>
+    </div>
+  </section>
 </main>
 
 <div id="footer-placeholder"></div>
 <script src="/assets/js/includes.js"></script>
 <script>
-  function toggleLie(header) {
-    const body = header.nextElementSibling;
-    const toggle = header.querySelector('.lie-toggle');
-    const isOpen = body.classList.contains('open');
-    body.classList.toggle('open');
-    toggle.textContent = isOpen ? '+ show facts' : '− hide facts';
+  const trackerState = {
+    topic: 'all',
+    severity: 'all',
+    search: '',
+    sort: 'severity'
+  };
+
+  function toggleEntry(entry, forceOpen) {
+    const shouldOpen = typeof forceOpen === 'boolean' ? forceOpen : !entry.classList.contains('open');
+    entry.classList.toggle('open', shouldOpen);
+    const label = entry.querySelector('.toggle-label');
+    if (label) label.textContent = shouldOpen ? 'hide facts' : 'show facts';
   }
 
-  function filterLies(topic, btn) {
-    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    document.querySelectorAll('.lie-card').forEach(card => {
-      if (topic === 'all' || card.dataset.topic === topic) {
-        card.style.display = '';
-      } else {
-        card.style.display = 'none';
-      }
+  function parseDate(value) {
+    const time = Date.parse(value);
+    return Number.isNaN(time) ? 0 : time;
+  }
+
+  function sortEntries(list, mode) {
+    const entries = Array.from(list.querySelectorAll('.lie-entry'));
+    entries.sort((a, b) => {
+      const sevA = Number(a.dataset.severity || 0);
+      const sevB = Number(b.dataset.severity || 0);
+      const dateA = parseDate(a.dataset.date || '');
+      const dateB = parseDate(b.dataset.date || '');
+      const titleA = (a.dataset.title || '').toLowerCase();
+      const titleB = (b.dataset.title || '').toLowerCase();
+
+      if (mode === 'newest') return dateB - dateA;
+      if (mode === 'oldest') return dateA - dateB;
+      if (mode === 'alpha') return titleA.localeCompare(titleB);
+      if (sevB !== sevA) return sevB - sevA;
+      return dateB - dateA;
     });
+    entries.forEach(entry => list.appendChild(entry));
   }
+
+  function applyFilters() {
+    const entries = Array.from(document.querySelectorAll('.lie-entry'));
+    let visible = 0;
+
+    document.querySelectorAll('[data-section-list]').forEach(list => sortEntries(list, trackerState.sort));
+
+    entries.forEach(entry => {
+      const topicOk = trackerState.topic === 'all' || entry.dataset.topic === trackerState.topic;
+      const severityValue = Number(entry.dataset.severity || 0);
+      let severityOk = true;
+      if (trackerState.severity === '5') severityOk = severityValue === 5;
+      else if (trackerState.severity === '4') severityOk = severityValue >= 4;
+      else if (trackerState.severity === '3') severityOk = severityValue >= 3;
+
+      const haystack = [entry.dataset.title, entry.dataset.search, entry.textContent].join(' ').toLowerCase();
+      const searchOk = !trackerState.search || haystack.includes(trackerState.search);
+
+      const show = topicOk && severityOk && searchOk;
+      entry.hidden = !show;
+      if (show) visible += 1;
+    });
+
+    document.querySelectorAll('.section-block').forEach(section => {
+      const hasVisible = Array.from(section.querySelectorAll('.lie-entry')).some(entry => !entry.hidden);
+      section.style.display = hasVisible ? '' : 'none';
+    });
+
+    document.getElementById('results-count').textContent = visible;
+    document.getElementById('count-visible').textContent = visible;
+    const severeVisible = entries.filter(entry => !entry.hidden && Number(entry.dataset.severity || 0) >= 4).length;
+    document.getElementById('count-severe').textContent = severeVisible;
+    document.getElementById('tracker-empty').style.display = visible ? 'none' : 'block';
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const start = new Date('2025-01-20T00:00:00');
+    const now = new Date();
+    const days = Math.floor((now - start) / (1000 * 60 * 60 * 24));
+    const daysEl = document.getElementById('days-in-office');
+    if (daysEl) daysEl.textContent = days.toLocaleString();
+
+    document.getElementById('tracker-search').addEventListener('input', (event) => {
+      trackerState.search = event.target.value.trim().toLowerCase();
+      applyFilters();
+    });
+
+    document.getElementById('tracker-sort').addEventListener('change', (event) => {
+      trackerState.sort = event.target.value;
+      applyFilters();
+    });
+
+    document.querySelectorAll('.filter-chip').forEach(button => {
+      button.addEventListener('click', () => {
+        const group = button.dataset.filterGroup;
+        const value = button.dataset.filterValue;
+        trackerState[group] = value;
+        document.querySelectorAll(`.filter-chip[data-filter-group="${group}"]`).forEach(chip => chip.classList.remove('active'));
+        button.classList.add('active');
+        applyFilters();
+      });
+    });
+
+    if (window.location.hash) {
+      const target = document.querySelector(window.location.hash);
+      if (target && target.classList.contains('lie-entry')) {
+        toggleEntry(target, true);
+        setTimeout(() => target.scrollIntoView({ behavior: 'smooth', block: 'start' }), 150);
+      }
+    }
+
+    applyFilters();
+  });
 </script>
-
-  <script>
-    // Auto-update days in office from Jan 20 2025
-    (function() {
-      var start = new Date('2025-01-20T00:00:00');
-      var now = new Date();
-      var days = Math.floor((now - start) / (1000 * 60 * 60 * 24));
-      var el = document.getElementById('ct-days');
-      if (el) el.textContent = days.toLocaleString();
-      // Update projected lies too (21/day pace)
-      var liesEl = document.getElementById('ct-lies');
-      if (liesEl) liesEl.textContent = (days * 21).toLocaleString();
-    })();
-  </script>
-
 </body>
 </html>
