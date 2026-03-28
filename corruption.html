@@ -1,879 +1,473 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Corruption — Epitome of Hatred</title>
-<meta content="A searchable corruption tracker documenting self-dealing, grift, pardons, donor influence, ethics abuses, and political profiteering." name="description"/>
+<title>Corruption Tracker — Epitome of Hatred</title>
+<meta content="A searchable corruption tracker documenting self-dealing, grift, pardons, donor influence, emoluments violations, charter flight theft, and political profiteering. Specific facts. Dollar amounts. Names. Dates." name="description"/>
 <link href="https://epitomeofhatred.com/corruption" rel="canonical"/>
 <link href="/assets/css/style.css" rel="stylesheet"/>
 <meta content="index, follow, max-image-preview:large, max-snippet:-1" name="robots"/>
 <meta content="website" property="og:type"/>
 <meta content="https://epitomeofhatred.com/corruption" property="og:url"/>
-<meta content="Corruption — Accountability Tracker | Epitome of Hatred" property="og:title"/>
-<meta content="A searchable tracker for grift, self-dealing, donor influence, pardons for cronies, and abuse of office." property="og:description"/>
+<meta content="Corruption Tracker — Epitome of Hatred" property="og:title"/>
+<meta content="Follow the money. Follow the favors. Self-dealing, donor influence, pardons for cronies, foreign payments, charter flight theft. Real dollar amounts. Real names. Real dates." property="og:description"/>
 <meta content="Epitome of Hatred" property="og:site_name"/>
 <meta content="summary_large_image" name="twitter:card"/>
-<meta content="Corruption — Accountability Tracker | Epitome of Hatred" name="twitter:title"/>
-<meta content="Follow the money. Follow the favors. Follow the damage." name="twitter:description"/>
+<meta content="Corruption Tracker — Epitome of Hatred" name="twitter:title"/>
+<meta content="Follow the money. Follow the favors. Dollar amounts. Names. Dates." name="twitter:description"/>
 <meta content="@est7bd" name="twitter:site"/>
 <style>
-    .page-hero {
-      padding: 6rem 2rem 3rem;
-      max-width: var(--max-w);
-      margin: 0 auto;
-      border-bottom: 1px solid var(--border);
-      position: relative;
-      overflow: hidden;
-    }
-    .page-hero h1 {
-      font-family: var(--font-display);
-      font-size: clamp(4rem, 14vw, 9.5rem);
-      line-height: 0.88;
-      color: var(--text);
-      letter-spacing: 0.02em;
-      position: relative;
-      z-index: 2;
-    }
-    .page-hero h1 span { color: var(--accent); }
-    .page-hero .sub {
-      margin-top: 1.25rem;
-      font-size: 1.12rem;
-      color: var(--text-muted);
-      max-width: 760px;
-      position: relative;
-      z-index: 2;
-    }
-    .page-hero-bg {
-      position: absolute;
-      right: -1rem;
-      top: 50%;
-      transform: translateY(-50%);
-      font-family: var(--font-display);
-      font-size: clamp(8rem, 22vw, 19rem);
-      color: transparent;
-      -webkit-text-stroke: 1px rgba(204,34,34,0.08);
-      pointer-events: none;
-      user-select: none;
-      white-space: nowrap;
-      z-index: 0;
-    }
-    .eyebrow-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.65rem;
-      align-items: center;
-      margin-bottom: 1rem;
-      position: relative;
-      z-index: 2;
-    }
-    .status-chip,
-    .updated-chip {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.45rem;
-      border: 1px solid var(--border);
-      background: rgba(255,255,255,0.01);
-      padding: 0.34rem 0.7rem;
-      font-family: var(--font-mono);
-      font-size: 0.68rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--text-dim);
-    }
-    .status-chip strong,
-    .updated-chip strong { color: var(--text); font-weight: 500; }
-    .pulse-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: var(--accent);
-      box-shadow: 0 0 0 0 rgba(204,34,34,0.45);
-      animation: pulse 1.8s infinite;
-      flex-shrink: 0;
-    }
-    @keyframes pulse {
-      0%, 100% { box-shadow: 0 0 0 0 rgba(204,34,34,0.45); }
-      70% { box-shadow: 0 0 0 8px rgba(204,34,34,0); }
-    }
-    .tracker-strip {
-      border-bottom: 1px solid var(--border);
-      background: var(--bg2);
-    }
-    .tracker-grid {
-      max-width: var(--max-w);
-      margin: 0 auto;
-      padding: 2rem;
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1px;
-      background: var(--border);
-    }
-    .tracker-stat {
-      background: var(--bg2);
-      padding: 1.4rem 1.5rem;
-    }
-    .tracker-stat .num {
-      font-family: var(--font-display);
-      font-size: 3.6rem;
-      line-height: 0.95;
-      color: var(--accent);
-      display: block;
-    }
-    .tracker-stat .label {
-      font-family: var(--font-mono);
-      font-size: 0.66rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--accent2);
-      margin-top: 0.45rem;
-      display: block;
-    }
-    .tracker-stat .desc {
-      font-family: var(--font-mono);
-      font-size: 0.66rem;
-      color: var(--text-dim);
-      line-height: 1.65;
-      margin-top: 0.45rem;
-      display: block;
-    }
-    .tools-wrap {
-      max-width: var(--max-w);
-      margin: 0 auto;
-      padding: 2rem;
-      display: grid;
-      grid-template-columns: 1.45fr 1fr;
-      gap: 1.25rem;
-      border-bottom: 1px solid var(--border);
-    }
-    .control-panel,
-    .jump-panel,
-    .methodology,
-    .section-block,
-    .tracker-empty {
-      border: 1px solid var(--border);
-      background: var(--bg2);
-    }
-    .panel-head {
-      padding: 1rem 1.1rem;
-      border-bottom: 1px solid var(--border);
-      font-family: var(--font-mono);
-      font-size: 0.7rem;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      color: var(--text-dim);
-    }
-    .control-body,
-    .jump-body,
-    .methodology-body {
-      padding: 1.1rem;
-    }
-    .search-row {
-      display: grid;
-      grid-template-columns: 1.15fr 0.75fr;
-      gap: 0.8rem;
-      margin-bottom: 0.8rem;
-    }
-    .search-input,
-    .sort-select {
-      width: 100%;
-      background: var(--bg);
-      color: var(--text);
-      border: 1px solid var(--border);
-      padding: 0.85rem 0.95rem;
-      font-family: var(--font-mono);
-      font-size: 0.78rem;
-      outline: none;
-    }
-    .search-input:focus,
-    .sort-select:focus {
-      border-color: var(--accent);
-      box-shadow: 0 0 0 3px rgba(204,34,34,0.12);
-    }
-    .chip-group {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-top: 0.8rem;
-    }
-    .filter-chip {
-      border: 1px solid var(--border);
-      background: transparent;
-      color: var(--text-muted);
-      padding: 0.38rem 0.75rem;
-      font-family: var(--font-mono);
-      font-size: 0.68rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-    .filter-chip:hover,
-    .filter-chip.active {
-      color: var(--text);
-      border-color: var(--accent);
-      background: var(--accent-dim);
-    }
-    .chip-label {
-      display: block;
-      margin-top: 1rem;
-      font-family: var(--font-mono);
-      font-size: 0.62rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--text-dim);
-    }
-    .jump-links {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 0.55rem;
-    }
-    .jump-link {
-      display: block;
-      border: 1px solid var(--border);
-      padding: 0.85rem 0.9rem;
-      color: var(--text);
-      font-family: var(--font-mono);
-      font-size: 0.72rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      background: rgba(255,255,255,0.01);
-    }
-    .jump-link:hover {
-      border-color: var(--accent);
-      background: var(--accent-dim);
-      color: var(--text);
-    }
-    .methodology-wrap {
-      max-width: var(--max-w);
-      margin: 0 auto;
-      padding: 0 2rem 2rem;
-    }
-    .methodology-body {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1rem;
-    }
-    .method-box h3 {
-      font-family: var(--font-mono);
-      font-size: 0.68rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--accent2);
-      margin-bottom: 0.55rem;
-    }
-    .method-box p {
-      color: var(--text-muted);
-      font-size: 0.96rem;
-      line-height: 1.7;
-    }
-    .tracker-sections {
-      max-width: var(--max-w);
-      margin: 0 auto;
-      padding: 0 2rem 5rem;
-      display: flex;
-      flex-direction: column;
-      gap: 1.35rem;
-    }
-    .section-block { overflow: hidden; }
-    .section-head {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      gap: 1rem;
-      padding: 1.2rem 1.2rem 0.9rem;
-      border-bottom: 1px solid var(--border);
-    }
-    .section-title-wrap h2 {
-      font-family: var(--font-display);
-      font-size: clamp(1.8rem, 4vw, 3rem);
-      line-height: 0.95;
-      letter-spacing: 0.02em;
-      color: var(--text);
-    }
-    .section-title-wrap p {
-      margin-top: 0.45rem;
-      color: var(--text-dim);
-      font-family: var(--font-mono);
-      font-size: 0.68rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-    }
-    .section-count {
-      font-family: var(--font-mono);
-      font-size: 0.68rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--accent2);
-      white-space: nowrap;
-    }
-    .entry-list {
-      display: flex;
-      flex-direction: column;
-    }
-    .entry-card {
-      padding: 1.2rem;
-      border-top: 1px solid var(--border);
-      scroll-margin-top: 90px;
-    }
-    .entry-card:first-child { border-top: none; }
-    .entry-top {
-      display: flex;
-      justify-content: space-between;
-      gap: 1rem;
-      align-items: flex-start;
-      margin-bottom: 0.8rem;
-    }
-    .entry-labels {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-bottom: 0.75rem;
-    }
-    .entry-chip,
-    .severity-chip,
-    .status-pill {
-      display: inline-flex;
-      align-items: center;
-      border: 1px solid var(--border);
-      padding: 0.26rem 0.55rem;
-      font-family: var(--font-mono);
-      font-size: 0.62rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-    }
-    .entry-chip { color: var(--text-muted); }
-    .severity-chip { color: var(--accent2); border-color: rgba(204,34,34,0.4); }
-    .status-pill { color: #a09040; border-color: rgba(215,192,124,0.35); }
-    .entry-title {
-      font-family: var(--font-display);
-      font-size: clamp(1.6rem, 3vw, 2.35rem);
-      line-height: 0.95;
-      letter-spacing: 0.01em;
-      color: var(--text);
-      margin-bottom: 0.55rem;
-    }
-    .entry-anchor {
-      font-family: var(--font-mono);
-      font-size: 0.68rem;
-      color: var(--text-dim);
-      white-space: nowrap;
-    }
-    .entry-anchor:hover { color: var(--accent2); }
-    .entry-meta {
-      font-family: var(--font-mono);
-      font-size: 0.67rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--text-dim);
-      margin-bottom: 1rem;
-    }
-    .entry-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1rem;
-      margin-bottom: 1rem;
-    }
-    .entry-box {
-      border: 1px solid var(--border);
-      background: rgba(255,255,255,0.01);
-      padding: 0.95rem;
-    }
-    .entry-box h3 {
-      font-family: var(--font-mono);
-      font-size: 0.64rem;
-      letter-spacing: 0.13em;
-      text-transform: uppercase;
-      color: var(--accent2);
-      margin-bottom: 0.55rem;
-    }
-    .entry-box p {
-      color: var(--text-muted);
-      font-size: 0.98rem;
-      line-height: 1.68;
-    }
-    .sources-row,
-    .related-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.6rem;
-      margin-top: 0.85rem;
-    }
-    .source-link,
-    .related-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-      border: 1px solid var(--border);
-      padding: 0.5rem 0.7rem;
-      font-family: var(--font-mono);
-      font-size: 0.68rem;
-      letter-spacing: 0.06em;
-      color: var(--text-muted);
-      background: rgba(255,255,255,0.01);
-    }
-    .source-link:hover,
-    .related-link:hover {
-      color: var(--text);
-      border-color: var(--accent);
-      background: var(--accent-dim);
-    }
-    .tracker-empty {
-      max-width: var(--max-w);
-      margin: 1.35rem auto 5rem;
-      padding: 1.3rem;
-      text-align: center;
-      font-family: var(--font-mono);
-      font-size: 0.78rem;
-      color: var(--text-dim);
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      display: none;
-    }
-    @media (max-width: 980px) {
-      .tracker-grid,
-      .methodology-body,
-      .entry-grid { grid-template-columns: repeat(2, 1fr); }
-      .tools-wrap { grid-template-columns: 1fr; }
-    }
-    @media (max-width: 720px) {
-      .search-row,
-      .jump-links,
-      .tracker-grid,
-      .methodology-body,
-      .entry-grid { grid-template-columns: 1fr; }
-      .entry-top,
-      .section-head { flex-direction: column; align-items: flex-start; }
-    }
-  </style>
+  .page-hero { padding: 6rem 2rem 3rem; max-width: var(--max-w); margin: 0 auto; border-bottom: 1px solid var(--border); position: relative; overflow: hidden; }
+  .page-hero h1 { font-family: var(--font-display); font-size: clamp(4rem, 14vw, 9.5rem); line-height: 0.88; color: var(--text); letter-spacing: 0.02em; position: relative; z-index: 2; }
+  .page-hero h1 span { color: var(--accent); }
+  .page-hero .sub { margin-top: 1.25rem; font-size: 1.12rem; color: var(--text-muted); max-width: 680px; position: relative; z-index: 2; line-height: 1.6; }
+  .hero-bg { position: absolute; right: -1rem; top: 50%; transform: translateY(-50%); font-family: var(--font-display); font-size: clamp(8rem, 22vw, 19rem); color: transparent; -webkit-text-stroke: 1px rgba(204,34,34,0.08); pointer-events: none; user-select: none; white-space: nowrap; z-index: 0; }
+  .eyebrow-row { display: flex; flex-wrap: wrap; gap: 0.65rem; align-items: center; margin-bottom: 1rem; position: relative; z-index: 2; }
+  .chip { display: inline-flex; align-items: center; gap: 0.45rem; border: 1px solid var(--border); background: rgba(255,255,255,0.01); padding: 0.34rem 0.7rem; font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-dim); }
+  .chip strong { color: var(--text); font-weight: 500; }
+  .pulse-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 0 rgba(204,34,34,0.45); animation: pulse 1.8s infinite; flex-shrink: 0; }
+  @keyframes pulse { 0%, 100% { box-shadow: 0 0 0 0 rgba(204,34,34,0.45); } 70% { box-shadow: 0 0 0 8px rgba(204,34,34,0); } }
+
+  .damage-strip { background: var(--bg2); border-bottom: 1px solid var(--border); }
+  .damage-grid { max-width: var(--max-w); margin: 0 auto; padding: 2rem; display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--border); }
+  .damage-stat { background: var(--bg2); padding: 1.4rem 1.5rem; }
+  .d-num { font-family: var(--font-display); font-size: 2.4rem; color: var(--accent); line-height: 1; display: block; margin-bottom: 0.25rem; }
+  .d-label { font-family: var(--font-mono); font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-dim); display: block; }
+
+  .controls-wrap { max-width: var(--max-w); margin: 0 auto; padding: 2rem 2rem 1rem; display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; border-bottom: 1px solid var(--border); }
+  .ctrl-group { display: flex; gap: 0.4rem; flex-wrap: wrap; }
+  .ctrl-label { font-family: var(--font-mono); font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-dim); white-space: nowrap; padding-top: 0.4rem; margin-right: 0.3rem; }
+  .ctrl-btn { background: none; border: 1px solid var(--border); color: var(--text-dim); font-family: var(--font-mono); font-size: 0.62rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.3rem 0.7rem; cursor: pointer; transition: all 0.15s; }
+  .ctrl-btn.active, .ctrl-btn:hover { border-color: var(--accent); color: var(--text); background: rgba(204,34,34,0.06); }
+
+  .tracker-main { max-width: var(--max-w); margin: 0 auto; padding: 3rem 2rem 6rem; }
+  .section-header { display: flex; align-items: baseline; gap: 1.5rem; margin-bottom: 2rem; padding-bottom: 1rem; border-bottom: 1px solid var(--border); }
+  .section-title { font-family: var(--font-display); font-size: 3rem; color: var(--text); line-height: 1; letter-spacing: 0.01em; }
+  .section-sub { font-family: var(--font-mono); font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-dim); }
+  .entries-grid { display: flex; flex-direction: column; gap: 0; }
+
+  .entry { border: 1px solid var(--border); background: var(--bg); margin-bottom: 0.5rem; transition: border-color 0.2s; }
+  .entry:hover { border-color: rgba(204,34,34,0.35); }
+  .entry-header { display: grid; grid-template-columns: 1fr auto; gap: 1.5rem; padding: 1.5rem 1.5rem 0; align-items: start; }
+  .entry-meta { display: flex; gap: 0.6rem; flex-wrap: wrap; margin-bottom: 0.6rem; }
+  .entry-cat { font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent2); }
+  .entry-date { font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.1em; color: var(--text-dim); }
+  .entry-title { font-family: var(--font-display); font-size: 1.8rem; color: var(--text); line-height: 1; letter-spacing: 0.01em; margin-bottom: 0.4rem; }
+  .severity { font-family: var(--font-mono); font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.25rem 0.5rem; border: 1px solid currentColor; white-space: nowrap; }
+  .sev1 { color: var(--text-dim); }
+  .sev2 { color: #8a7040; }
+  .sev3 { color: #cc5500; }
+  .sev4 { color: var(--accent); }
+
+  .entry-body { padding: 1rem 1.5rem 1.5rem; }
+  .entry-number { font-family: var(--font-display); font-size: 2.5rem; color: var(--accent); line-height: 1; margin-bottom: 0.4rem; }
+  .entry-number-label { font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-dim); display: block; margin-bottom: 0.8rem; }
+  .entry-facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.8rem; margin: 1rem 0; }
+  .fact-item { background: var(--bg2); padding: 0.8rem 1rem; }
+  .fact-label { font-family: var(--font-mono); font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-dim); display: block; margin-bottom: 0.25rem; }
+  .fact-value { font-size: 0.95rem; color: var(--text); line-height: 1.5; }
+  .entry-desc { font-size: 0.97rem; color: var(--text-muted); line-height: 1.7; margin-bottom: 1rem; }
+  .entry-actions { display: flex; gap: 0.6rem; flex-wrap: wrap; margin-top: 1rem; }
+  .action-link { font-family: var(--font-mono); font-size: 0.65rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent2); border: 1px solid var(--border); padding: 0.3rem 0.7rem; text-decoration: none; transition: all 0.15s; }
+  .action-link:hover { border-color: var(--accent2); background: rgba(255,68,68,0.05); }
+  .action-link.primary { border-color: var(--accent-dim); color: var(--accent2); }
+
+  .section-spacer { height: 3rem; }
+
+  @media (max-width: 700px) {
+    .damage-grid { grid-template-columns: repeat(2, 1fr); }
+    .entry-facts { grid-template-columns: 1fr; }
+    .entry-header { grid-template-columns: 1fr; }
+  }
+</style>
 </head>
 <body>
 <div id="header-placeholder"></div>
 <main>
-<section class="page-hero">
-<div class="page-hero-bg">FOLLOW THE MONEY</div>
-<div class="eyebrow-row">
-<span class="status-chip"><span class="pulse-dot"></span><strong>Live tracker</strong> self-dealing, donor favors, and power for profit</span>
-<span class="updated-chip"><strong>Built for:</strong> receipts, patterns, and repeat offenders</span>
-</div>
-<h1>CORRUPTION<span>.</span></h1>
-<p class="sub">This is where the scam gets organized. Not just lies. Not just spin. The money, the favors, the pardons, the conflicts, the private gain, the political payoff, and the public damage. Search it. Sort it. Link it. Build the case.</p>
-</section>
-<div class="tracker-strip">
-<div class="tracker-grid">
-<div class="tracker-stat"><span class="num">12</span><span class="label">Core cases</span><span class="desc">Starter set built from your strongest corruption-related posts.</span></div>
-<div class="tracker-stat"><span class="num">5</span><span class="label">Buckets</span><span class="desc">Grift. Patronage. Pardons. Foreign money. Public money abuse.</span></div>
-<div class="tracker-stat"><span class="num">4</span><span class="label">Severity bands</span><span class="desc">From unethical as hell to constitutional rot.</span></div>
-<div class="tracker-stat"><span class="num">∞</span><span class="label">Expansion room</span><span class="desc">This page is built to scale as new schemes and investigations land.</span></div>
-</div>
-</div>
-<section class="tools-wrap">
-<div class="control-panel">
-<div class="panel-head">Search, sort, and filter the corruption file</div>
-<div class="control-body">
-<div class="search-row">
-<input class="search-input" id="trackerSearch" placeholder="Search names, scams, agencies, donors, payouts…" type="search"/>
-<select aria-label="Sort entries" class="sort-select" id="trackerSort">
-<option value="severity">Sort: severity</option>
-<option value="newest">Sort: newest first</option>
-<option value="oldest">Sort: oldest first</option>
-<option value="title">Sort: title</option>
-</select>
-</div>
-<span class="chip-label">Filter by scheme</span>
-<div class="chip-group" id="typeFilters">
-<button class="filter-chip active" data-filter="all">All</button>
-<button class="filter-chip" data-filter="self-dealing">Self-dealing</button>
-<button class="filter-chip" data-filter="donor-favor">Donor favor</button>
-<button class="filter-chip" data-filter="pardon-abuse">Pardon abuse</button>
-<button class="filter-chip" data-filter="foreign-money">Foreign money</button>
-<button class="filter-chip" data-filter="public-money">Public money</button>
-</div>
-<span class="chip-label">Filter by offender</span>
-<div class="chip-group" id="actorFilters">
-<button class="filter-chip active" data-actor="all">All</button>
-<button class="filter-chip" data-actor="trump">Trump</button>
-<button class="filter-chip" data-actor="family">Family</button>
-<button class="filter-chip" data-actor="maga">MAGA network</button>
-<button class="filter-chip" data-actor="gop">GOP machine</button>
-</div>
-<span class="chip-label">Filter by severity</span>
-<div class="chip-group" id="severityFilters">
-<button class="filter-chip active" data-severity="all">All</button>
-<button class="filter-chip" data-severity="1">Level 1</button>
-<button class="filter-chip" data-severity="2">Level 2</button>
-<button class="filter-chip" data-severity="3">Level 3</button>
-<button class="filter-chip" data-severity="4">Level 4</button>
-</div>
-</div>
-</div>
-<div class="jump-panel">
-<div class="panel-head">Jump to a section</div>
-<div class="jump-body">
-<div class="jump-links">
-<a class="jump-link" href="#self-dealing">Self-dealing</a>
-<a class="jump-link" href="#foreign-money">Foreign money</a>
-<a class="jump-link" href="#pardon-abuse">Pardon abuse</a>
-<a class="jump-link" href="#public-money">Public money</a>
-<a class="jump-link" href="#patronage">Patronage</a>
-<a class="jump-link" href="/the-lies">Cross-link: the lies</a>
-</div>
-</div>
-</div>
-</section>
-<div class="methodology-wrap">
-<section class="methodology">
-<div class="panel-head">How this page works</div>
-<div class="methodology-body">
-<div class="method-box">
-<h3>What counts</h3>
-<p>Entries belong here when the story centers on private benefit, public abuse, donor influence, conflicts of interest, weaponized pardons, or state power bent toward personal gain.</p>
-</div>
-<div class="method-box">
-<h3>How it is framed</h3>
-<p>Each entry breaks the scheme into four parts: what happened, who benefited, what the public paid, and why it matters. Clean structure beats outrage sludge.</p>
-</div>
-<div class="method-box">
-<h3>What it links to</h3>
-<p>Every card sends readers into your existing reporting, so this page becomes a hub instead of a dead end. Receipts first. Rant second.</p>
-</div>
-<div class="method-box">
-<h3>How to expand it</h3>
-<p>Add new cards as new schemes break, then split major stories into dedicated explainers when a single corruption thread gets too big to fit on one card.</p>
-</div>
-</div>
-</section>
-</div>
-<div class="tracker-sections" id="trackerSections">
-<section class="section-block" data-section="self-dealing" id="self-dealing">
-<div class="section-head">
-<div class="section-title-wrap">
-<h2>SELF-DEALING</h2>
-<p>Using office, brand, and access to enrich the same people holding the power</p>
-</div>
-<div class="section-count">3 entries</div>
-</div>
-<div class="entry-list">
-<article class="entry-card" data-actor="trump maga" data-date="2026-03-20" data-section="self-dealing" data-severity="4" data-title="Trump meme coin foreign corruption" data-type="foreign-money self-dealing" id="meme-coin">
-<div class="entry-top">
-<div>
-<div class="entry-labels">
-<span class="entry-chip">Trump</span>
-<span class="entry-chip">Crypto grift</span>
-<span class="severity-chip">Level 4</span>
-<span class="status-pill">Follow the money</span>
-</div>
-<h3 class="entry-title">MEME COIN AS A FOREIGN INFLUENCE SLOT MACHINE</h3>
-</div>
-<a class="entry-anchor" href="#meme-coin">#meme-coin</a>
-</div>
-<div class="entry-meta">Category: foreign money / self-dealing · linked post: March 2026</div>
-<div class="entry-grid">
-<div class="entry-box"><h3>What happened</h3><p>A political brand became a speculative financial product, opening a lane for opaque money, access signaling, and influence games around a sitting political figure.</p></div>
-<div class="entry-box"><h3>Who benefited</h3><p>The same political ecosystem that profits from attention, loyalty, and proximity to power. The grift is the point, not a side effect.</p></div>
-<div class="entry-box"><h3>Public cost</h3><p>It blurs politics, fundraising, and personal enrichment while making conflict-of-interest questions harder to track in real time.</p></div>
-<div class="entry-box"><h3>Why it matters</h3><p>This is not normal campaigning. It is monetized access culture with weaker guardrails and wider avenues for hidden influence.</p></div>
-</div>
-<div class="related-row">
-<a class="related-link" href="/blog/trump-meme-coin-foreign-corruption">Read the full post</a>
-<a class="related-link" href="/the-lies#trump-brand-grift">Related: brand-as-politics lie</a>
-</div>
-</article>
-<article class="entry-card" data-actor="trump" data-date="2026-03-15" data-section="self-dealing" data-severity="3" data-title="Trump golf trips cost taxpayers" data-type="public-money self-dealing" id="golf-costs">
-<div class="entry-top">
-<div>
-<div class="entry-labels">
-<span class="entry-chip">Trump</span>
-<span class="entry-chip">Taxpayer cost</span>
-<span class="severity-chip">Level 3</span>
-<span class="status-pill">Public money</span>
-</div>
-<h3 class="entry-title">GOLF, SECURITY, AND THE RECURRING TAXPAYER TAB</h3>
-</div>
-<a class="entry-anchor" href="#golf-costs">#golf-costs</a>
-</div>
-<div class="entry-meta">Category: public money / self-dealing · cost story</div>
-<div class="entry-grid">
-<div class="entry-box"><h3>What happened</h3><p>Repeated trips to Trump properties generate recurring government spending for security, logistics, and travel around privately owned locations.</p></div>
-<div class="entry-box"><h3>Who benefited</h3><p>Trump properties gain prestige, traffic, and direct revenue opportunities from the same public role that is supposed to serve the country, not the brand.</p></div>
-<div class="entry-box"><h3>Public cost</h3><p>Taxpayers eat the operational bill while private properties absorb the halo effect and business upside.</p></div>
-<div class="entry-box"><h3>Why it matters</h3><p>Even when technically routed through ordinary logistics, the pattern shows how public office can become a recurring customer for a politician’s private business ecosystem.</p></div>
-</div>
-<div class="related-row"><a class="related-link" href="/blog/trump-golf-trips-cost">Read the full post</a></div>
-</article>
-<article class="entry-card" data-actor="family trump" data-date="2026-02-14" data-section="self-dealing" data-severity="2" data-title="Jared and Ivanka federal payroll" data-type="self-dealing patronage" id="ivanka-jared">
-<div class="entry-top">
-<div>
-<div class="entry-labels">
-<span class="entry-chip">Family</span>
-<span class="entry-chip">Nepotism</span>
-<span class="severity-chip">Level 2</span>
-<span class="status-pill">Patronage</span>
-</div>
-<h3 class="entry-title">FAMILY POWER INSIDE THE STATE</h3>
-</div>
-<a class="entry-anchor" href="#ivanka-jared">#ivanka-jared</a>
-</div>
-<div class="entry-meta">Category: self-dealing / patronage · family role story</div>
-<div class="entry-grid">
-<div class="entry-box"><h3>What happened</h3><p>Key family members operated inside the White House orbit, collapsing the boundary between political loyalty, family interest, and public responsibility.</p></div>
-<div class="entry-box"><h3>Who benefited</h3><p>The ruling family gained stature, leverage, and access that no ordinary adviser could ever duplicate.</p></div>
-<div class="entry-box"><h3>Public cost</h3><p>Accountability gets weaker when family and government roles overlap, because normal lines of discipline and independence disappear.</p></div>
-<div class="entry-box"><h3>Why it matters</h3><p>Patrimonial politics corrodes democratic norms even before it crosses into outright criminality.</p></div>
-</div>
-<div class="related-row"><a class="related-link" href="/blog/jared-ivanka-federal-payroll">Read the full post</a></div>
-</article>
-</div>
-</section>
-<section class="section-block" data-section="foreign-money" id="foreign-money">
-<div class="section-head">
-<div class="section-title-wrap">
-<h2>FOREIGN MONEY</h2>
-<p>Where access, branding, and power intersect with overseas interests</p>
-</div>
-<div class="section-count">2 entries</div>
-</div>
-<div class="entry-list">
-<article class="entry-card" data-actor="trump" data-date="2026-03-10" data-section="foreign-money" data-severity="4" data-title="Trump emoluments foreign payments" data-type="foreign-money self-dealing" id="emoluments">
-<div class="entry-top"><div><div class="entry-labels"><span class="entry-chip">Trump</span><span class="entry-chip">Foreign payments</span><span class="severity-chip">Level 4</span><span class="status-pill">Constitutional rot</span></div><h3 class="entry-title">EMOLUMENTS: FOREIGN GOVERNMENTS, PRIVATE PROFIT, PUBLIC OFFICE</h3></div><a class="entry-anchor" href="#emoluments">#emoluments</a></div>
-<div class="entry-meta">Category: foreign money · constitutional conflict</div>
-<div class="entry-grid">
-<div class="entry-box"><h3>What happened</h3><p>Foreign-linked spending and payments raised direct conflict questions around a president whose private business empire never fully detached from public power.</p></div>
-<div class="entry-box"><h3>Who benefited</h3><p>The business brand tied to the office-holder benefited from the prestige and transaction flow that came with global political status.</p></div>
-<div class="entry-box"><h3>Public cost</h3><p>The public could not easily distinguish diplomacy from self-enrichment, or state action from personal commercial interest.</p></div>
-<div class="entry-box"><h3>Why it matters</h3><p>If foreign governments can curry favor through a private business channel, the corruption risk is built into the structure itself.</p></div>
-</div>
-<div class="related-row"><a class="related-link" href="/blog/trump-emoluments-foreign-payments">Read the full post</a><a class="related-link" href="/blog/trump-emoluments-golan-heights">Related: policy and private gain</a></div>
-</article>
-<article class="entry-card" data-actor="trump maga" data-date="2026-03-05" data-section="foreign-money" data-severity="3" data-title="Trump emoluments Golan Heights" data-type="foreign-money donor-favor" id="golan">
-<div class="entry-top"><div><div class="entry-labels"><span class="entry-chip">Trump</span><span class="entry-chip">Policy optics</span><span class="severity-chip">Level 3</span><span class="status-pill">Conflict pattern</span></div><h3 class="entry-title">WHEN FOREIGN POLICY LOOKS A LOT LIKE BRAND MAINTENANCE</h3></div><a class="entry-anchor" href="#golan">#golan</a></div>
-<div class="entry-meta">Category: foreign money / donor favor</div>
-<div class="entry-grid">
-<div class="entry-box"><h3>What happened</h3><p>Policy gestures and symbolic branding collided with business interest questions, making the distinction between national decision-making and private image management harder to defend.</p></div>
-<div class="entry-box"><h3>Who benefited</h3><p>Political branding and allied power brokers benefit when state decisions can be folded into private identity, merchandise, or commercial narratives.</p></div>
-<div class="entry-box"><h3>Public cost</h3><p>The legitimacy of foreign policy suffers when decisions appear to carry a private promotional aftertaste.</p></div>
-<div class="entry-box"><h3>Why it matters</h3><p>Even absent a signed invoice, the optics of self-benefiting statecraft erode trust and normalize conflict-heavy governance.</p></div>
-</div>
-<div class="related-row"><a class="related-link" href="/blog/trump-emoluments-golan-heights">Read the full post</a></div>
-</article>
-</div>
-</section>
-<section class="section-block" data-section="pardon-abuse" id="pardon-abuse">
-<div class="section-head">
-<div class="section-title-wrap">
-<h2>PARDON ABUSE</h2>
-<p>When accountability gets traded away for loyalty, silence, or extremist alignment</p>
-</div>
-<div class="section-count">3 entries</div>
-</div>
-<div class="entry-list">
-<article class="entry-card" data-actor="trump maga" data-date="2026-03-19" data-section="pardon-abuse" data-severity="4" data-title="Steve Bannon border wall fraud pardon" data-type="pardon-abuse self-dealing" id="bannon">
-<div class="entry-top"><div><div class="entry-labels"><span class="entry-chip">Trump</span><span class="entry-chip">Crony protection</span><span class="severity-chip">Level 4</span><span class="status-pill">Loyalty reward</span></div><h3 class="entry-title">BANNON, BORDER WALL FRAUD, AND THE GET-OUT-OF-ACCOUNTABILITY CARD</h3></div><a class="entry-anchor" href="#bannon">#bannon</a></div>
-<div class="entry-meta">Category: pardon abuse · crony insulation</div>
-<div class="entry-grid">
-<div class="entry-box"><h3>What happened</h3><p>A close ally facing fraud allegations tied to a political cause was shielded by presidential clemency.</p></div>
-<div class="entry-box"><h3>Who benefited</h3><p>The ally, obviously. But also the ecosystem that needs loyal insiders to know that service to the boss can bring legal escape hatches.</p></div>
-<div class="entry-box"><h3>Public cost</h3><p>It turns clemency from mercy into message discipline: stay loyal and maybe the system stops applying to you.</p></div>
-<div class="entry-box"><h3>Why it matters</h3><p>This is how anti-corruption norms rot: not through a single scandal, but through predictable rewards for insiders who never break ranks.</p></div>
-</div>
-<div class="related-row"><a class="related-link" href="/blog/steve-bannon-border-wall-fraud">Read the full post</a></div>
-</article>
-<article class="entry-card" data-actor="trump gop" data-date="2026-02-22" data-section="pardon-abuse" data-severity="3" data-title="Arpaio pardon tent city" data-type="pardon-abuse gop" id="arpaio">
-<div class="entry-top"><div><div class="entry-labels"><span class="entry-chip">Trump</span><span class="entry-chip">Abuse of clemency</span><span class="severity-chip">Level 3</span><span class="status-pill">Impunity signal</span></div><h3 class="entry-title">THE ARPAIO PARDON AS A POLITICAL SIGNAL FLARE</h3></div><a class="entry-anchor" href="#arpaio">#arpaio</a></div>
-<div class="entry-meta">Category: pardon abuse · authoritarian signaling</div>
-<div class="entry-grid">
-<div class="entry-box"><h3>What happened</h3><p>A high-profile pardon protected an ally associated with abusive law-enforcement practices and contempt findings.</p></div>
-<div class="entry-box"><h3>Who benefited</h3><p>The direct beneficiary kept political status, and the broader hard-right movement got a message: cruelty and defiance remain protected if they serve the right agenda.</p></div>
-<div class="entry-box"><h3>Public cost</h3><p>Faith in even-handed justice takes a hit when political allies receive elite treatment for conduct ordinary people would never survive.</p></div>
-<div class="entry-box"><h3>Why it matters</h3><p>Pardons can function as doctrine. This one advertised that rule-breaking in service of power would be tolerated and celebrated.</p></div>
-</div>
-<div class="related-row"><a class="related-link" href="/blog/arpaio-pardon-tent-city">Read the full post</a></div>
-</article>
-<article class="entry-card" data-actor="trump maga" data-date="2026-03-24" data-section="pardon-abuse" data-severity="4" data-title="Proud Boys Oath Keepers pardons" data-type="pardon-abuse gop" id="proud-boys-pardons">
-<div class="entry-top"><div><div class="entry-labels"><span class="entry-chip">MAGA</span><span class="entry-chip">Extremist alignment</span><span class="severity-chip">Level 4</span><span class="status-pill">Movement protection</span></div><h3 class="entry-title">PARDONS AS A GIFT TO THE MOVEMENT’S ENFORCERS</h3></div><a class="entry-anchor" href="#proud-boys-pardons">#proud-boys-pardons</a></div>
-<div class="entry-meta">Category: pardon abuse · extremist ecosystem</div>
-<div class="entry-grid">
-<div class="entry-box"><h3>What happened</h3><p>Clemency for violent movement-aligned actors reinforced the sense that some political violence counts as service, not disgrace.</p></div>
-<div class="entry-box"><h3>Who benefited</h3><p>The convicted actors benefit directly, but so does the broader movement that interprets leniency as endorsement.</p></div>
-<div class="entry-box"><h3>Public cost</h3><p>Democratic deterrence weakens when violence-adjacent politics get folded back into normal partisan reward systems.</p></div>
-<div class="entry-box"><h3>Why it matters</h3><p>Not every corruption story is about a bank transfer. Sometimes it is about spending state power to buy loyalty from the most dangerous factions in the room.</p></div>
-</div>
-<div class="related-row"><a class="related-link" href="/blog/proud-boys-oath-keepers-pardons">Read the full post</a></div>
-</article>
-</div>
-</section>
-<section class="section-block" data-section="public-money" id="public-money">
-<div class="section-head">
-<div class="section-title-wrap"><h2>PUBLIC MONEY</h2><p>Government cash flows, donor-adjacent spending, and taxpayer-backed patronage</p></div>
-<div class="section-count">2 entries</div>
-</div>
-<div class="entry-list">
-<article class="entry-card" data-actor="trump family" data-date="2026-03-11" data-section="public-money" data-severity="4" data-title="Trump stole inauguration funds" data-type="public-money donor-favor" id="inauguration-funds">
-<div class="entry-top"><div><div class="entry-labels"><span class="entry-chip">Trump</span><span class="entry-chip">Inaugural money</span><span class="severity-chip">Level 4</span><span class="status-pill">Money trail</span></div><h3 class="entry-title">WHERE DID THE INAUGURATION MONEY GO?</h3></div><a class="entry-anchor" href="#inauguration-funds">#inauguration-funds</a></div>
-<div class="entry-meta">Category: public money / donor favor · inaugural committee scrutiny</div>
-<div class="entry-grid">
-<div class="entry-box"><h3>What happened</h3><p>Large sums raised for a public-facing political event became the subject of intense scrutiny over spending, vendors, and private benefit.</p></div>
-<div class="entry-box"><h3>Who benefited</h3><p>Insiders, favored vendors, and the political network surrounding the event gained from an unusually murky money pipeline.</p></div>
-<div class="entry-box"><h3>Public cost</h3><p>Events wrapped in patriotic pageantry become camouflage for extraction when there is money everywhere and transparency nowhere.</p></div>
-<div class="entry-box"><h3>Why it matters</h3><p>Follow the cash on ceremonial politics and you often find the same architecture as every other grift: access, opacity, loyalists, and disappearing accountability.</p></div>
-</div>
-<div class="related-row"><a class="related-link" href="/blog/trump-stole-inauguration-funds">Read the full post</a></div>
-</article>
-<article class="entry-card" data-actor="gop trump" data-date="2026-03-08" data-section="public-money" data-severity="2" data-title="Trump cabinet corruption charter flights" data-type="public-money patronage" id="charter-flights">
-<div class="entry-top"><div><div class="entry-labels"><span class="entry-chip">Cabinet</span><span class="entry-chip">Expense abuse</span><span class="severity-chip">Level 2</span><span class="status-pill">Patronage culture</span></div><h3 class="entry-title">CHARTER FLIGHTS, PRIVATE HABITS, PUBLIC TAB</h3></div><a class="entry-anchor" href="#charter-flights">#charter-flights</a></div>
-<div class="entry-meta">Category: public money / patronage · cabinet culture</div>
-<div class="entry-grid">
-<div class="entry-box"><h3>What happened</h3><p>Luxury or unnecessary official travel became a recurring symbol of an administration that treated public resources like a perk package.</p></div>
-<div class="entry-box"><h3>Who benefited</h3><p>Politically connected officials received convenience, status, and insulated privilege on the public dime.</p></div>
-<div class="entry-box"><h3>Public cost</h3><p>The cost is not just financial. It is the normalization of a governing culture in which rules are for the help, not the powerful.</p></div>
-<div class="entry-box"><h3>Why it matters</h3><p>Small-bore ethics abuses matter because they reveal whether an administration sees public office as stewardship or spoils.</p></div>
-</div>
-<div class="related-row"><a class="related-link" href="/blog/trump-cabinet-corruption-charter-flights">Read the full post</a></div>
-</article>
-</div>
-</section>
-<section class="section-block" data-section="patronage" id="patronage">
-<div class="section-head">
-<div class="section-title-wrap"><h2>PATRONAGE &amp; PROTECTION</h2><p>Loyalty networks, movement rewards, and institutions bent toward insiders</p></div>
-<div class="section-count">2 entries</div>
-</div>
-<div class="entry-list">
-<article class="entry-card" data-actor="trump family" data-date="2026-03-02" data-section="patronage" data-severity="3" data-title="Trump foundation fraud" data-type="self-dealing donor-favor" id="foundation-fraud">
-<div class="entry-top"><div><div class="entry-labels"><span class="entry-chip">Trump</span><span class="entry-chip">Foundation abuse</span><span class="severity-chip">Level 3</span><span class="status-pill">Pattern evidence</span></div><h3 class="entry-title">FOUNDATION FRAUD AS THE PREQUEL TO EVERYTHING ELSE</h3></div><a class="entry-anchor" href="#foundation-fraud">#foundation-fraud</a></div>
-<div class="entry-meta">Category: donor favor / self-dealing · pattern story</div>
-<div class="entry-grid">
-<div class="entry-box"><h3>What happened</h3><p>A charitable vehicle was misused in ways that exposed a long-running approach to money and rules: instrumentalize the institution, then dare anyone to stop you.</p></div>
-<div class="entry-box"><h3>Who benefited</h3><p>The Trump network benefited from the flexibility and image laundering that comes when philanthropy is treated as a political and personal convenience account.</p></div>
-<div class="entry-box"><h3>Public cost</h3><p>Every abused nonprofit corrodes trust in the systems that are supposed to separate charity, campaign theatrics, and personal ambition.</p></div>
-<div class="entry-box"><h3>Why it matters</h3><p>This story is foundational because it shows the playbook before the White House: entitlement, opacity, branding, and rules for other people.</p></div>
-</div>
-<div class="related-row"><a class="related-link" href="/blog/trump-foundation-fraud">Read the full post</a></div>
-</article>
-<article class="entry-card" data-actor="trump gop" data-date="2026-02-11" data-section="patronage" data-severity="1" data-title="Trump White House visitor logs transparency" data-type="patronage public-money" id="visitor-logs">
-<div class="entry-top"><div><div class="entry-labels"><span class="entry-chip">Transparency</span><span class="entry-chip">Access control</span><span class="severity-chip">Level 1</span><span class="status-pill">Opacity</span></div><h3 class="entry-title">HIDE THE VISITOR LOGS, HIDE THE NETWORK</h3></div><a class="entry-anchor" href="#visitor-logs">#visitor-logs</a></div>
-<div class="entry-meta">Category: patronage / opacity · access story</div>
-<div class="entry-grid">
-<div class="entry-box"><h3>What happened</h3><p>Visitor log transparency weakened, limiting outside scrutiny of who had access, when, and how often.</p></div>
-<div class="entry-box"><h3>Who benefited</h3><p>The people who benefit most from missing records are usually the ones who never want the pattern visible in the first place.</p></div>
-<div class="entry-box"><h3>Public cost</h3><p>Opacity is its own corrupt advantage. It weakens watchdogs before they can even begin tracing influence.</p></div>
-<div class="entry-box"><h3>Why it matters</h3><p>Not every scandal comes with a smoking gun. Sometimes the story is that the records go dark exactly where accountability would begin.</p></div>
-</div>
-<div class="related-row"><a class="related-link" href="/blog/trump-wh-visitor-logs-transparency">Read the full post</a></div>
-</article>
-</div>
-</section>
-</div>
-<div class="tracker-empty" id="trackerEmpty">No entries match this filter combination. Clear a chip or broaden the search.</div>
+
+  <div class="page-hero">
+    <div class="hero-bg" aria-hidden="true">GRIFT</div>
+    <div class="eyebrow-row">
+      <div class="chip"><span class="pulse-dot"></span> <strong>Live tracker</strong> — updated as schemes develop</div>
+      <div class="chip">Dollar amounts. Names. Dates. All sourced.</div>
+    </div>
+    <h1>Corrup<span>tion.</span></h1>
+    <p class="sub">Self-dealing. Donor favors. Pardons for cronies. Foreign money into the president's pocket. The public cost of treating the United States government like a personal ATM. Every entry here has a dollar amount, a name, and a source. No vague language. No "raises questions." Follow the money.</p>
+  </div>
+
+  <div class="damage-strip">
+    <div class="damage-grid">
+      <div class="damage-stat"><span class="d-num">$144M</span><span class="d-label">Taxpayer money spent on Trump golf trips — first term</span></div>
+      <div class="damage-stat"><span class="d-num">$640M</span><span class="d-label">Made by Jared & Ivanka while serving as White House advisers</span></div>
+      <div class="damage-stat"><span class="d-num">22+</span><span class="d-label">Foreign governments that paid money to Trump properties while he was president</span></div>
+      <div class="damage-stat"><span class="d-num">17</span><span class="d-label">Felony counts the Trump Organization was convicted on — December 2022</span></div>
+    </div>
+  </div>
+
+  <div class="controls-wrap">
+    <span class="ctrl-label">Filter:</span>
+    <div class="ctrl-group">
+      <button class="ctrl-btn active" onclick="filterEntries('all', this)">All</button>
+      <button class="ctrl-btn" onclick="filterEntries('self-dealing', this)">Self-dealing</button>
+      <button class="ctrl-btn" onclick="filterEntries('foreign-money', this)">Foreign money</button>
+      <button class="ctrl-btn" onclick="filterEntries('pardons', this)">Pardons for cronies</button>
+      <button class="ctrl-btn" onclick="filterEntries('cabinet', this)">Cabinet grift</button>
+      <button class="ctrl-btn" onclick="filterEntries('criminal', this)">Criminal convictions</button>
+    </div>
+  </div>
+
+  <div class="tracker-main">
+
+    <!-- SELF-DEALING -->
+    <div class="section-header">
+      <span class="section-title">Self-Dealing</span>
+      <span class="section-sub">Using office to enrich the brand</span>
+    </div>
+    <div class="entries-grid">
+
+      <div class="entry" data-cat="self-dealing foreign-money">
+        <div class="entry-header">
+          <div>
+            <div class="entry-meta"><span class="entry-cat">Self-dealing / Foreign money</span><span class="entry-date">January 17, 2025</span></div>
+            <div class="entry-title">$TRUMP Meme Coin — A Foreign Influence Slot Machine</div>
+          </div>
+          <span class="severity sev4">Level 4</span>
+        </div>
+        <div class="entry-body">
+          <div class="entry-facts">
+            <div class="fact-item"><span class="fact-label">Launched</span><span class="fact-value">3 days before inauguration — Jan 17, 2025</span></div>
+            <div class="fact-item"><span class="fact-label">Peak market cap</span><span class="fact-value">$14 billion within 24 hours of launch</span></div>
+            <div class="fact-item"><span class="fact-label">Trump entities kept</span><span class="fact-value">80% of total coin supply — every buyer enriches Trump directly</span></div>
+            <div class="fact-item"><span class="fact-label">Foreign buyers</span><span class="fact-value">Blockchain analysis confirmed foreign wallets including from countries with active US policy interests</span></div>
+          </div>
+          <p class="entry-desc">A sitting president launched a speculative cryptocurrency three days before taking office, retained 80% of the supply, and promoted it from his official platform. Every dollar a foreign national spent buying $TRUMP went directly into Trump's pocket — a mechanism for foreign money to reach the president that bypasses every campaign finance and emoluments restriction ever written. The coin's value correlates with Trump's presidential behavior, creating a financial incentive structure that runs directly through the Oval Office. $MELANIA launched two days later.</p>
+          <div class="entry-actions">
+            <a href="/blog/trump-meme-coin-foreign-corruption" class="action-link primary">read full post →</a>
+            <a href="https://www.justice.gov/" target="_blank" rel="noopener" class="action-link">DOJ</a>
+            <a href="/the-lies" class="action-link">related lies →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="entry" data-cat="self-dealing">
+        <div class="entry-header">
+          <div>
+            <div class="entry-meta"><span class="entry-cat">Self-dealing / Taxpayer money</span><span class="entry-date">2017–2021 (first term)</span></div>
+            <div class="entry-title">$144 Million in Taxpayer-Funded Golf Trips — to His Own Properties</div>
+          </div>
+          <span class="severity sev3">Level 3</span>
+        </div>
+        <div class="entry-body">
+          <div class="entry-facts">
+            <div class="fact-item"><span class="fact-label">Estimated taxpayer cost</span><span class="fact-value">$144 million+ (conservative estimate; full records resisted via FOIA)</span></div>
+            <div class="fact-item"><span class="fact-label">Golf property visits</span><span class="fact-value">298 visits in first term — 1 in every 5 days in office</span></div>
+            <div class="fact-item"><span class="fact-label">Prior record</span><span class="fact-value">200+ tweets attacking Obama for playing golf 2011–2016</span></div>
+            <div class="fact-item"><span class="fact-label">How it worked</span><span class="fact-value">Secret Service rented rooms at Trump properties. Government paid Trump's businesses at market rate.</span></div>
+          </div>
+          <p class="entry-desc">When a president visits Camp David, the government pays for a government facility. When Trump visited Mar-a-Lago, Bedminster, or Turnberry, the government paid Trump's companies for rooms, services, and accommodations. The Secret Service became a recurring customer of Trump's private clubs. The US Air Force stopped at Trump Turnberry in Scotland for refueling layovers, with crews staying at his hotel. Trump accused Obama of golfing too much in over 200 documented social media posts. He then played golf at his own properties at a rate of one in every five days in office.</p>
+          <div class="entry-actions">
+            <a href="/blog/trump-golf-trips-cost" class="action-link primary">read full post →</a>
+          <a href="https://www.gao.gov/" target="_blank" rel="noopener" class="action-link">GAO →</a>
+          <a href="https://www.opensecrets.org/" target="_blank" rel="noopener" class="action-link">OpenSecrets →</a>
+            <a href="https://citizensforethics.org/" target="_blank" rel="noopener" class="action-link">CREW →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="entry" data-cat="self-dealing">
+        <div class="entry-header">
+          <div>
+            <div class="entry-meta"><span class="entry-cat">Nepotism / Self-dealing</span><span class="entry-date">2017–2021 (first term)</span></div>
+            <div class="entry-title">Jared & Ivanka: $640 Million Made While Serving as White House Advisers</div>
+          </div>
+          <span class="severity sev3">Level 3</span>
+        </div>
+        <div class="entry-body">
+          <div class="entry-facts">
+            <div class="fact-item"><span class="fact-label">Income during government service</span><span class="fact-value">~$640 million (from their own financial disclosures)</span></div>
+            <div class="fact-item"><span class="fact-label">Security clearance</span><span class="fact-value">Granted by Trump over specific objections of career intelligence officials</span></div>
+            <div class="fact-item"><span class="fact-label">Law</span><span class="fact-value">Federal anti-nepotism statute (5 USC § 3110) — OLC determined it didn't apply to the White House Office</span></div>
+            <div class="fact-item"><span class="fact-label">China trademarks</span><span class="fact-value">Ivanka's fashion brand had trademark applications approved by China during her government service</span></div>
+          </div>
+          <p class="entry-desc">Jared Kushner's security clearance application was rejected by career intelligence officials citing foreign influence concerns. Trump overrode it. Kushner then had access to the President's Daily Brief while his family real estate firm negotiated a $1.2 billion refinancing with Qatar-linked investors — at the same time Kushner was the administration's Middle East point person. Security official Tricia Newbold testified to Congress that Kushner was the most significant of 25 people whose clearance denials were overridden. Their financial disclosures showed $640 million in income during their government service.</p>
+          <div class="entry-actions">
+            <a href="/blog/jared-ivanka-federal-payroll" class="action-link primary">read full post →</a>
+          <a href="https://oversight.house.gov/news/press-releases/oversight-committee-releases-documents-showing-white-house-overrode-security" target="_blank" rel="noopener" class="action-link">House Oversight docs →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="entry" data-cat="self-dealing">
+        <div class="entry-header">
+          <div>
+            <div class="entry-meta"><span class="entry-cat">Self-dealing / Inauguration fraud</span><span class="entry-date">2017–2021</span></div>
+            <div class="entry-title">$107M Inauguration Fund: $175K to Trump's Own Hotel, Foreign Donations, FBI Investigation</div>
+          </div>
+          <span class="severity sev3">Level 3</span>
+        </div>
+        <div class="entry-body">
+          <div class="entry-facts">
+            <div class="fact-item"><span class="fact-label">Total raised</span><span class="fact-value">$107 million — record for any inauguration</span></div>
+            <div class="fact-item"><span class="fact-label">Paid to Trump's hotel</span><span class="fact-value">~$175,000 for event space at Trump International Hotel DC — at rates insiders questioned as inflated</span></div>
+            <div class="fact-item"><span class="fact-label">Foreign donations</span><span class="fact-value">Illegal foreign donations from Qatar, Saudi Arabia, Kuwait — some returned after investigation</span></div>
+            <div class="fact-item"><span class="fact-label">Settlement</span><span class="fact-value">$750,000 to NY AG — findings of misused charitable funds</span></div>
+          </div>
+          <p class="entry-desc">The 2017 inauguration committee raised a record $107 million, paid Trump's own hotel for event space at contested rates, and received illegal donations from foreign nationals connected to Middle Eastern governments with active US policy interests. The FBI and SDNY investigated. The New York AG settled for $750,000 with findings that committee funds had been misused. Producer Stephanie Winston Wolkoff — hired by Melania, then publicly scapegoated — produced recordings documenting the inside of the scheme.</p>
+          <div class="entry-actions">
+            <a href="/blog/trump-stole-inauguration-funds" class="action-link primary">read full post →</a>
+          <a href="https://ag.ny.gov/press-release/2021/attorney-general-james-secures-750000-trump-inaugural-committee" target="_blank" rel="noopener" class="action-link">NY AG settlement →</a>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /self-dealing entries -->
+
+    <div class="section-spacer"></div>
+
+    <!-- FOREIGN MONEY -->
+    <div class="section-header">
+      <span class="section-title">Foreign Money</span>
+      <span class="section-sub">The Constitution says no. He did it anyway.</span>
+    </div>
+    <div class="entries-grid">
+
+      <div class="entry" data-cat="foreign-money">
+        <div class="entry-header">
+          <div>
+            <div class="entry-meta"><span class="entry-cat">Emoluments / Constitutional violation</span><span class="entry-date">2017–2021 (first term)</span></div>
+            <div class="entry-title">22+ Foreign Governments Paid Money to Trump Properties While He Was President</div>
+          </div>
+          <span class="severity sev4">Level 4</span>
+        </div>
+        <div class="entry-body">
+          <div class="entry-facts">
+            <div class="fact-item"><span class="fact-label">Foreign governments documented</span><span class="fact-value">22+ paid money to Trump properties while he was in office (CREW)</span></div>
+            <div class="fact-item"><span class="fact-label">Conflict instances</span><span class="fact-value">3,000+ documented by Citizens for Responsibility and Ethics in Washington</span></div>
+            <div class="fact-item"><span class="fact-label">Saudi spending</span><span class="fact-value">Hundreds of thousands at Trump DC hotel — while arms deal negotiations ongoing</span></div>
+            <div class="fact-item"><span class="fact-label">Proposed G7 at Doral</span><span class="fact-value">Proposed in Oct 2019 — every G7 leader would have stayed at Trump's resort. Withdrew after bipartisan backlash.</span></div>
+          </div>
+          <p class="entry-desc">The Foreign Emoluments Clause prohibits federal officeholders from accepting payments from foreign governments without congressional consent. Trump refused to divest from his businesses. Foreign governments then paid his hotels and clubs — Saudi Arabia, Turkey, Kuwait, Malaysia and others — in amounts that created direct financial conflicts with US foreign policy decisions those governments were simultaneously lobbying for. The legal challenges were dismissed on standing grounds after he left office. The constitutional question was never definitively resolved. The payments were real.</p>
+          <div class="entry-actions">
+            <a href="/blog/trump-emoluments-foreign-payments" class="action-link primary">read full post →</a>
+            <a href="https://citizensforethics.org/" target="_blank" rel="noopener" class="action-link">CREW tracker →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="entry" data-cat="foreign-money self-dealing">
+        <div class="entry-header">
+          <div>
+            <div class="entry-meta"><span class="entry-cat">Foreign policy / Self-dealing</span><span class="entry-date">March 25, 2019</span></div>
+            <div class="entry-title">Recognized Israeli Sovereignty Over Golan Heights. Israel Named a Settlement "Trump Heights."</div>
+          </div>
+          <span class="severity sev3">Level 3</span>
+        </div>
+        <div class="entry-body">
+          <div class="entry-facts">
+            <div class="fact-item"><span class="fact-label">What changed</span><span class="fact-value">50 years of US policy reversed — first country to recognize Israeli annexation of Golan</span></div>
+            <div class="fact-item"><span class="fact-label">International response</span><span class="fact-value">EU, Arab League, Russia, UN opposed. UNSC Resolution 497 called annexation "null and void."</span></div>
+            <div class="fact-item"><span class="fact-label">What Israel did</span><span class="fact-value">Named new Golan settlement "Trump Heights" — June 2019</span></div>
+            <div class="fact-item"><span class="fact-label">Russia's response</span><span class="fact-value">Cited US Golan decision as precedent in discussions about Crimea</span></div>
+          </div>
+          <p class="entry-desc">The US Golan proclamation was made with Netanyahu present at the White House — days before Israeli elections that Netanyahu was struggling in. The decision had no strategic necessity (Israel controlled the territory regardless), but it gave Netanyahu a political win and the Trump brand a geographic monument. Russia immediately and accurately noted the US had established a precedent that territorial conquest could be legitimized by a US president with a pen. American credibility in opposing Russian annexation of Crimea was directly undermined.</p>
+          <div class="entry-actions">
+            <a href="/blog/trump-emoluments-golan-heights" class="action-link primary">read full post →</a>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /foreign money -->
+
+    <div class="section-spacer"></div>
+
+    <!-- CABINET GRIFT -->
+    <div class="section-header">
+      <span class="section-title">Cabinet Grift</span>
+      <span class="section-sub">The people he hired treated public money like petty cash</span>
+    </div>
+    <div class="entries-grid">
+
+      <div class="entry" data-cat="cabinet">
+        <div class="entry-header">
+          <div>
+            <div class="entry-meta"><span class="entry-cat">Cabinet spending / Public money</span><span class="entry-date">2017–2019 (first term)</span></div>
+            <div class="entry-title">Charter Flights, Soundproof Booths, and a $43K Table: Cabinet Secretary Spending</div>
+          </div>
+          <span class="severity sev3">Level 3</span>
+        </div>
+        <div class="entry-body">
+          <div class="entry-facts">
+            <div class="fact-item"><span class="fact-label">Tom Price (HHS)</span><span class="fact-value">$400,000+ in charter flights — resigned October 2017. First large-scale cabinet charter scandal.</span></div>
+            <div class="fact-item"><span class="fact-label">Scott Pruitt (EPA)</span><span class="fact-value">$43,000 soundproof phone booth. $120,000 in first-class travel. Rented DC condo from lobbyist's wife for $50/night.</span></div>
+            <div class="fact-item"><span class="fact-label">Steve Mnuchin (Treasury)</span><span class="fact-value">Requested military jet for European honeymoon. Flew to Kentucky for the solar eclipse on government aircraft.</span></div>
+            <div class="fact-item"><span class="fact-label">Betsy DeVos (Education)</span><span class="fact-value">Used a private government-contracted plane for regular travel. Reported $40,000 in unusual travel.</span></div>
+          </div>
+          <p class="entry-desc">The Trump cabinet's treatment of government resources was systematic enough to constitute a pattern, not a series of isolated incidents. Price was the first to go — $400K in charter flights when commercial existed. Pruitt managed to accumulate scandals faster than anyone: 14 federal investigations during his tenure, a soundproof phone booth that violated federal procurement rules, a sweetheart condo deal with a lobbyist whose clients had active business before the EPA. He resigned. He was not prosecuted. Multiple successors continued the pattern at lower visibility.</p>
+          <div class="entry-actions">
+            <a href="/blog/trump-cabinet-corruption-charter-flights" class="action-link primary">read full post →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="entry" data-cat="cabinet self-dealing">
+        <div class="entry-header">
+          <div>
+            <div class="entry-meta"><span class="entry-cat">Campaign fraud / Self-dealing</span><span class="entry-date">2018–2020</span></div>
+            <div class="entry-title">Steve Bannon Raised $25 Million to Build the Wall. He Stole It. Trump Pardoned Him.</div>
+          </div>
+          <span class="severity sev4">Level 4</span>
+        </div>
+        <div class="entry-body">
+          <div class="entry-facts">
+            <div class="fact-item"><span class="fact-label">Raised</span><span class="fact-value">$25 million through "We Build the Wall" crowdfunding campaign</span></div>
+            <div class="fact-item"><span class="fact-label">What happened to it</span><span class="fact-value">Bannon paid himself $1M+ via nonprofit. Co-conspirators also took funds. Wall: minimal.</span></div>
+            <div class="fact-item"><span class="fact-label">Charges</span><span class="fact-value">Federal wire fraud and money laundering — August 2020</span></div>
+            <div class="fact-item"><span class="fact-label">Trump's response</span><span class="fact-value">Pardoned Bannon on January 20, 2021 — his final hours in office, before trial</span></div>
+          </div>
+          <p class="entry-desc">The "We Build the Wall" campaign raised $25 million from Trump supporters who believed they were funding border wall construction. Bannon and his co-conspirators — including Brian Kolfage, who claimed he would "not take a penny" in salary — diverted hundreds of thousands for personal expenses: home renovations, boat payments, personal credit card bills. Bannon took over $1 million. They were arrested in August 2020. Trump pardoned Bannon in his final hours as president, before Bannon could be tried. Bannon was later separately convicted on contempt charges in 2022 and sentenced to four months, which he has not yet served.</p>
+          <div class="entry-actions">
+            <a href="/blog/steve-bannon-border-wall-fraud" class="action-link primary">read full post →</a>
+          <a href="https://www.justice.gov/usao-sdny/pr/stephen-bannon-and-three-others-charged-fraud-we-build-wall-online-fundraising-campaign" target="_blank" rel="noopener" class="action-link">DOJ indictment →</a>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /cabinet -->
+
+    <div class="section-spacer"></div>
+
+    <!-- PARDONS FOR CRONIES -->
+    <div class="section-header">
+      <span class="section-title">Pardons for Cronies</span>
+      <span class="section-sub">The pardon power as personal loyalty reward</span>
+    </div>
+    <div class="entries-grid">
+
+      <div class="entry" data-cat="pardons">
+        <div class="entry-header">
+          <div>
+            <div class="entry-meta"><span class="entry-cat">Pardons / Obstruction of justice</span><span class="entry-date">First & Second Term</span></div>
+            <div class="entry-title">Every Mueller Convict Pardoned. Every January 6 Convict Pardoned. The Pattern Is the Point.</div>
+          </div>
+          <span class="severity sev4">Level 4</span>
+        </div>
+        <div class="entry-body">
+          <div class="entry-facts">
+            <div class="fact-item"><span class="fact-label">Mueller convicts pardoned</span><span class="fact-value">Flynn, Manafort, Stone, Papadopoulos — all found guilty of crimes related to Russia investigation</span></div>
+            <div class="fact-item"><span class="fact-label">Jan 6 pardons</span><span class="fact-value">Day One of second term: blanket pardon for approximately 1,500 Jan 6 defendants including Enrique Tarrio (seditious conspiracy, 22 years) and Stewart Rhodes</span></div>
+            <div class="fact-item"><span class="fact-label">Steve Bannon</span><span class="fact-value">Pardoned before trial for fraud. Later convicted of contempt separately.</span></div>
+            <div class="fact-item"><span class="fact-label">Joe Arpaio</span><span class="fact-value">Pardoned before sentencing for criminal contempt — convicted of defying court order on racial profiling</span></div>
+          </div>
+          <p class="entry-desc">The pattern across both terms: people who committed crimes while working for Trump, or in service of Trump's interests, received pardons. Michael Flynn pleaded guilty twice to lying to the FBI about conversations with Russian officials — pardoned. Paul Manafort was convicted of tax fraud, bank fraud, and failure to register as a foreign agent — pardoned. Roger Stone was convicted of witness tampering and lying to Congress — pardoned. All had cooperated with, or been convicted in connection with, investigations of Trump himself. The pardons functioned as witness payments, not acts of mercy.</p>
+          <div class="entry-actions">
+            <a href="/blog/mueller-russia-pardons-cronies" class="action-link primary">Mueller pardons →</a>
+            <a href="/blog/proud-boys-oath-keepers-pardons" class="action-link primary">Jan 6 pardons →</a>
+            <a href="/blog/arpaio-pardon-tent-city" class="action-link primary">Arpaio pardon →</a>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /pardons -->
+
+    <div class="section-spacer"></div>
+
+    <!-- CRIMINAL CONVICTIONS -->
+    <div class="section-header">
+      <span class="section-title">Criminal Convictions</span>
+      <span class="section-sub">The documented legal record</span>
+    </div>
+    <div class="entries-grid">
+
+      <div class="entry" data-cat="criminal">
+        <div class="entry-header">
+          <div>
+            <div class="entry-meta"><span class="entry-cat">Criminal conviction / Tax fraud</span><span class="entry-date">December 6, 2022</span></div>
+            <div class="entry-title">Trump Organization: Convicted on All 17 Felony Counts. CFO Sentenced to Prison. $1.6M Fine.</div>
+          </div>
+          <span class="severity sev4">Level 4</span>
+        </div>
+        <div class="entry-body">
+          <div class="entry-facts">
+            <div class="fact-item"><span class="fact-label">Verdict</span><span class="fact-value">Guilty on all 17 counts — Manhattan jury, December 6, 2022</span></div>
+            <div class="fact-item"><span class="fact-label">Charges</span><span class="fact-value">Criminal tax fraud, falsifying business records — 15-year scheme of off-the-books executive compensation</span></div>
+            <div class="fact-item"><span class="fact-label">CFO Allen Weisselberg</span><span class="fact-value">Pleaded guilty. Sentenced to 5 months prison. Received $1.76M in untaxed compensation.</span></div>
+            <div class="fact-item"><span class="fact-label">Fine paid</span><span class="fact-value">$1.6M — the legal maximum. A fraction of what the scheme saved in taxes over 15 years.</span></div>
+          </div>
+          <p class="entry-desc">For 15 years, the Trump Organization paid senior executives through off-the-books benefits — housing, cars, private school tuition — allowing them to avoid paying income tax on the compensation while the company deducted it as business expenses. This is straightforward fraud. The jury convicted on every single count. Trump was not personally charged in this case. The $1.6M fine was the legal maximum and was a rounding error relative to the benefit the scheme generated. Weisselberg was later arrested again in 2024 on perjury charges in a separate case.</p>
+          <div class="entry-actions">
+            <a href="/blog/trump-org-criminal-conviction" class="action-link primary">read full post →</a>
+          <a href="https://www.manhattanda.org/d-a-bragg-trump-corporation-guilty-on-all-17-felony-counts/" target="_blank" rel="noopener" class="action-link">Manhattan DA →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="entry" data-cat="criminal">
+        <div class="entry-header">
+          <div>
+            <div class="entry-meta"><span class="entry-cat">Criminal conviction / Fraud</span><span class="entry-date">Dissolved 2019</span></div>
+            <div class="entry-title">Trump Foundation Dissolved by NY AG for Fraud. $2M Judgment. Used Charity Money for Political Purposes.</div>
+          </div>
+          <span class="severity sev4">Level 4</span>
+        </div>
+        <div class="entry-body">
+          <div class="entry-facts">
+            <div class="fact-item"><span class="fact-label">Settlement</span><span class="fact-value">$2 million judgment against Trump personally — admitted to misuse of charitable funds</span></div>
+            <div class="fact-item"><span class="fact-label">What happened</span><span class="fact-value">Foundation funds used for: $10,000 portrait of Trump, $7 campaign contribution, $25,000 to Florida AG (who then dropped Trump University investigation)</span></div>
+            <div class="fact-item"><span class="fact-label">Outcome</span><span class="fact-value">Foundation dissolved under court supervision. NY AG found "pattern of illegal conduct."</span></div>
+            <div class="fact-item"><span class="fact-label">Trump's children</span><span class="fact-value">Required to complete training on nonprofit governance as part of settlement</span></div>
+          </div>
+          <p class="entry-desc">The Trump Foundation was a charity in name only. The New York Attorney General's investigation found it operated as an extension of Trump's personal and political interests: using charitable donations to buy a portrait of himself, making a $25,000 donation to Florida AG Pam Bondi's campaign (she then declined to join a multistate investigation into Trump University), and illegally coordinating with Trump's 2016 presidential campaign. Trump paid $2 million and the foundation was dissolved. His children were required to take nonprofit governance training. Bondi later served in his administration.</p>
+          <div class="entry-actions">
+            <a href="/blog/trump-foundation-fraud" class="action-link primary">read full post →</a>
+          <a href="https://ag.ny.gov/press-release/2019/attorney-general-james-wins-judgment-against-trump-foundation" target="_blank" rel="noopener" class="action-link">NY AG judgment →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="entry" data-cat="criminal">
+        <div class="entry-header">
+          <div>
+            <div class="entry-meta"><span class="entry-cat">Criminal conviction / Personal</span><span class="entry-date">May 30, 2024</span></div>
+            <div class="entry-title">34 Felony Counts. Guilty on Every Single One. The First President Convicted of a Crime.</div>
+          </div>
+          <span class="severity sev4">Level 4</span>
+        </div>
+        <div class="entry-body">
+          <div class="entry-facts">
+            <div class="fact-item"><span class="fact-label">Verdict</span><span class="fact-value">Guilty on all 34 counts — Manhattan jury, May 30, 2024</span></div>
+            <div class="fact-item"><span class="fact-label">Crime</span><span class="fact-value">Falsifying business records to conceal $130,000 hush money payment to Stormy Daniels before the 2016 election</span></div>
+            <div class="fact-item"><span class="fact-label">Sentence</span><span class="fact-value">Unconditional discharge — judge found unprecedented situation of sentencing a president-elect warranted this outcome</span></div>
+            <div class="fact-item"><span class="fact-label">Historical first</span><span class="fact-value">First US president ever convicted of criminal felonies. Then elected to a second term.</span></div>
+          </div>
+          <p class="entry-desc">The jury deliberated for a day and a half and convicted on every count. The falsified records concealed payments made through Michael Cohen, recorded as legal expenses to disguise their true purpose: covering up a sexual encounter with an adult film actress before the 2016 election — an election already in progress when the payment was made. Trump had previously paid $130,000 through Cohen, then reimbursed Cohen through falsified business records. The judge imposed an unconditional discharge. Trump is now serving his second term as president while remaining a convicted felon.</p>
+          <div class="entry-actions">
+            <a href="/blog/trump-hush-money-stormy-daniels" class="action-link primary">read full post →</a>
+          <a href="https://www.nycourts.gov/" target="_blank" rel="noopener" class="action-link">NY Courts →</a>
+            <a href="/the-lies" class="action-link">related lies →</a>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /criminal -->
+
+  </div><!-- /tracker-main -->
 </main>
+
 <div id="footer-placeholder"></div>
 <script src="/assets/js/includes.js"></script>
 <script>
-  (function () {
-    const searchInput = document.getElementById('trackerSearch');
-    const sortSelect = document.getElementById('trackerSort');
-    const cards = Array.from(document.querySelectorAll('.entry-card'));
-    const sections = Array.from(document.querySelectorAll('.section-block'));
-    const emptyState = document.getElementById('trackerEmpty');
-
-    let activeType = 'all';
-    let activeActor = 'all';
-    let activeSeverity = 'all';
-
-    function setActive(group, attr, value) {
-      document.querySelectorAll(group + ' .filter-chip').forEach(btn => {
-        btn.classList.toggle('active', btn.getAttribute(attr) === value);
-      });
+function filterEntries(cat, btn) {
+  document.querySelectorAll('.ctrl-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.entry').forEach(e => {
+    if (cat === 'all' || (e.dataset.cat || '').includes(cat)) {
+      e.style.display = '';
+    } else {
+      e.style.display = 'none';
     }
-
-    function scoreForSort(card, mode) {
-      const severity = Number(card.dataset.severity || '0');
-      const date = card.dataset.date || '';
-      const title = (card.dataset.title || '').toLowerCase();
-      if (mode === 'newest') return date;
-      if (mode === 'oldest') return date;
-      if (mode === 'title') return title;
-      return severity;
-    }
-
-    function applyFilters() {
-      const query = (searchInput.value || '').trim().toLowerCase();
-      let visibleCount = 0;
-
-      cards.forEach(card => {
-        const haystack = [
-          card.dataset.title,
-          card.dataset.type,
-          card.dataset.actor,
-          card.dataset.section,
-          card.textContent
-        ].join(' ').toLowerCase();
-
-        const typeMatch = activeType === 'all' || (card.dataset.type || '').includes(activeType);
-        const actorMatch = activeActor === 'all' || (card.dataset.actor || '').includes(activeActor);
-        const severityMatch = activeSeverity === 'all' || card.dataset.severity === activeSeverity;
-        const queryMatch = !query || haystack.includes(query);
-        const show = typeMatch && actorMatch && severityMatch && queryMatch;
-
-        card.style.display = show ? '' : 'none';
-        if (show) visibleCount += 1;
-      });
-
-      sections.forEach(section => {
-        const visibleInSection = section.querySelectorAll('.entry-card:not([style*="display: none"])').length;
-        section.style.display = visibleInSection ? '' : 'none';
-        const count = section.querySelector('.section-count');
-        if (count) count.textContent = visibleInSection + (visibleInSection === 1 ? ' entry' : ' entries');
-      });
-
-      emptyState.style.display = visibleCount ? 'none' : 'block';
-    }
-
-    function applySort() {
-      const mode = sortSelect.value;
-      sections.forEach(section => {
-        const list = section.querySelector('.entry-list');
-        const sectionCards = Array.from(list.querySelectorAll('.entry-card'));
-        sectionCards.sort((a, b) => {
-          const av = scoreForSort(a, mode);
-          const bv = scoreForSort(b, mode);
-          if (mode === 'title') return String(av).localeCompare(String(bv));
-          if (mode === 'oldest') return String(av).localeCompare(String(bv));
-          if (mode === 'newest') return String(bv).localeCompare(String(av));
-          return Number(bv) - Number(av) || String(b.dataset.date).localeCompare(String(a.dataset.date));
-        }).forEach(card => list.appendChild(card));
-      });
-      applyFilters();
-    }
-
-    document.querySelectorAll('#typeFilters .filter-chip').forEach(btn => {
-      btn.addEventListener('click', () => {
-        activeType = btn.dataset.filter;
-        setActive('#typeFilters', 'data-filter', activeType);
-        applyFilters();
-      });
-    });
-
-    document.querySelectorAll('#actorFilters .filter-chip').forEach(btn => {
-      btn.addEventListener('click', () => {
-        activeActor = btn.dataset.actor;
-        setActive('#actorFilters', 'data-actor', activeActor);
-        applyFilters();
-      });
-    });
-
-    document.querySelectorAll('#severityFilters .filter-chip').forEach(btn => {
-      btn.addEventListener('click', () => {
-        activeSeverity = btn.dataset.severity;
-        setActive('#severityFilters', 'data-severity', activeSeverity);
-        applyFilters();
-      });
-    });
-
-    searchInput.addEventListener('input', applyFilters);
-    sortSelect.addEventListener('change', applySort);
-    applySort();
-  }());
+  });
+}
 </script>
 </body>
 </html>

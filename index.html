@@ -56,7 +56,23 @@
     .hero-name { animation-delay: 0.2s; }
     .hero-tagline { animation-delay: 0.35s; }
     .hero-scroll { animation-delay: 0.5s; }
-    @media (max-width: 768px) { .manifesto-grid { grid-template-columns: 1fr; } .manifesto-number { display: none; } .hero-bg-text { display: none; } .hub-preview-grid { grid-template-columns: 1fr; } }
+
+    .damage-counter-strip { background: var(--bg2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); overflow: hidden; }
+    .damage-counter-inner { max-width: var(--max-w); margin: 0 auto; padding: 0 2rem; display: grid; grid-template-columns: repeat(5, 1fr); }
+    .damage-counter-item { padding: 1.8rem 1rem 1.8rem 0; border-right: 1px solid var(--border); }
+    .damage-counter-item:last-child { border-right: none; }
+    .dc-num { font-family: var(--font-display); font-size: 2.8rem; color: var(--accent); line-height: 1; display: block; margin-bottom: 0.2rem; letter-spacing: 0.01em; }
+    .dc-label { font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-dim); display: block; line-height: 1.4; }
+    @media (max-width: 900px) { .damage-counter-inner { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 600px) { .damage-counter-inner { grid-template-columns: repeat(2, 1fr); } .damage-counter-item { padding: 1.2rem 0.8rem 1.2rem 0; } }
+
+    .damage-counter-strip { background: var(--bg2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .damage-counter-inner { max-width: var(--max-w); margin: 0 auto; padding: 0 2rem; display: grid; grid-template-columns: repeat(5, 1fr); }
+    .damage-counter-item { padding: 1.8rem 1.5rem 1.8rem 0; border-right: 1px solid var(--border); }
+    .damage-counter-item:last-child { border-right: none; }
+    .dc-num { font-family: var(--font-display); font-size: 3rem; color: var(--accent); line-height: 1; display: block; margin-bottom: 0.3rem; }
+    .dc-label { font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-dim); display: block; line-height: 1.5; }
+    @media (max-width: 768px) { .manifesto-grid { grid-template-columns: 1fr; } .manifesto-number { display: none; } .hero-bg-text { display: none; } .hub-preview-grid { grid-template-columns: 1fr; } .damage-counter-inner { grid-template-columns: repeat(2, 1fr); } .damage-counter-item { border-right: none; border-bottom: 1px solid var(--border); padding: 1.2rem 0; } .damage-counter-item:last-child { border-bottom: none; } }
   </style>
 <!-- Primary SEO -->
 <meta content="Epitome of Hatred — Unfiltered, sourced fact-checks on Trump, MAGA, and the GOP's ongoing war on truth. No filter. No apologies. Updated daily." name="description"/>
@@ -220,7 +236,7 @@
 <section id="about">
 <div class="section">
 <span class="section-label">what this is</span>
-<h2 class="section-title">I'm done being polite about it.</h2>
+<h2 class="section-title">I'm done being polite about it. The receipts are in. The damage is documented. The record speaks.</h2>
 <div class="manifesto-grid">
 <div aria-hidden="true" class="manifesto-number">01</div>
 <div class="manifesto-text">
@@ -265,27 +281,54 @@
 </div>
 </section>
 <hr class="divider"/>
+
+  <!-- DAMAGE COUNTER -->
+  <div class="damage-counter-strip">
+    <div class="damage-counter-inner">
+      <div class="damage-counter-item">
+        <span class="dc-num">30,573</span>
+        <span class="dc-label">False or misleading claims — Trump's first term alone</span>
+      </div>
+      <div class="damage-counter-item">
+        <span class="dc-num">$7.8T</span>
+        <span class="dc-label">Added to the national debt — first term</span>
+      </div>
+      <div class="damage-counter-item">
+        <span class="dc-num">5,569</span>
+        <span class="dc-label">Children separated from parents — zero tolerance</span>
+      </div>
+      <div class="damage-counter-item">
+        <span class="dc-num">34</span>
+        <span class="dc-label">Felony counts — Trump personally convicted, 2024</span>
+      </div>
+      <div class="damage-counter-item">
+        <span class="dc-num">161</span>
+        <span class="dc-label">Sourced, documented posts on this site</span>
+      </div>
+    </div>
+  </div>
+
 <section id="accountability-hub">
 <div class="section">
 <span class="section-label">accountability hub</span>
-<h2 class="section-title">Build the case. Show the record.</h2>
+<h2 class="section-title">Beyond the blog.</h2>
 <div class="hub-preview-grid">
 <a class="hub-preview-card" href="/the-lies">
 <span class="hub-preview-kicker">Tracker</span>
 <span class="hub-preview-title">The Lies</span>
-<span class="hub-preview-copy">False claims, propaganda, repeat bullshit, and clean rebuttals with sources attached.</span>
+<span class="hub-preview-copy">30,573 lies in the first term. Searchable. Filterable. Severity-rated. Sources attached.</span>
 <span class="hub-preview-link">open tracker →</span>
 </a>
 <a class="hub-preview-card" href="/corruption">
 <span class="hub-preview-kicker">Tracker</span>
 <span class="hub-preview-title">Corruption</span>
-<span class="hub-preview-copy">Self-dealing, donor influence, ethics failures, profiteering, and the public cost of it.</span>
+<span class="hub-preview-copy">$144M golf trips. $640M Jared &amp; Ivanka. 17 felony convictions. Dollar amounts, names, dates.</span>
 <span class="hub-preview-link">follow the money →</span>
 </a>
 <a class="hub-preview-card" href="/receipts">
 <span class="hub-preview-kicker">Source Library</span>
 <span class="hub-preview-title">Receipts</span>
-<span class="hub-preview-copy">Court records, filings, archives, clips, money trails, and the sourcing workflow behind the site.</span>
+<span class="hub-preview-copy">Primary records, court filings, FEC data, transcripts, and the sourcing workflow behind every post.</span>
 <span class="hub-preview-link">show the record →</span>
 </a>
 </div>
