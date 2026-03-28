@@ -40,6 +40,14 @@
     .blog-card-link { display: inline-block; margin-top: 1.2rem; font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent2); letter-spacing: 0.08em; }
     .view-all { display: inline-block; margin-top: 2.5rem; font-family: var(--font-mono); font-size: 0.78rem; letter-spacing: 0.1em; color: var(--text-muted); border-bottom: 1px solid var(--border); padding-bottom: 2px; transition: color var(--transition), border-color var(--transition); }
     .view-all:hover { color: var(--accent2); border-color: var(--accent2); }
+
+    .hub-preview-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; margin-top: 2.5rem; }
+    .hub-preview-card { border: 1px solid var(--border); background: var(--bg2); padding: 1.6rem; display: block; transition: transform var(--transition), border-color var(--transition); }
+    .hub-preview-card:hover { transform: translateY(-2px); border-color: var(--accent); }
+    .hub-preview-kicker { font-family: var(--font-mono); font-size: 0.65rem; color: var(--accent2); letter-spacing: 0.12em; text-transform: uppercase; display: block; }
+    .hub-preview-title { font-family: var(--font-display); font-size: 2.15rem; color: var(--text); line-height: 0.95; margin-top: 0.65rem; display: block; }
+    .hub-preview-copy { font-size: 0.97rem; color: var(--text-muted); line-height: 1.65; margin-top: 0.8rem; display: block; }
+    .hub-preview-link { font-family: var(--font-mono); font-size: 0.72rem; color: var(--accent2); letter-spacing: 0.08em; text-transform: uppercase; margin-top: 1rem; display: inline-block; }
     .dark-section { background: var(--bg2); }
     .fade-up { opacity: 0; transform: translateY(24px); animation: fadeUp 0.7s ease forwards; }
     @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
@@ -47,7 +55,7 @@
     .hero-name { animation-delay: 0.2s; }
     .hero-tagline { animation-delay: 0.35s; }
     .hero-scroll { animation-delay: 0.5s; }
-    @media (max-width: 768px) { .manifesto-grid { grid-template-columns: 1fr; } .manifesto-number { display: none; } .hero-bg-text { display: none; } }
+    @media (max-width: 768px) { .manifesto-grid { grid-template-columns: 1fr; } .manifesto-number { display: none; } .hero-bg-text { display: none; } .hub-preview-grid { grid-template-columns: 1fr; } }
   </style>
   <!-- Primary SEO -->
   <meta name="description" content="Epitome of Hatred — Unfiltered, sourced fact-checks on Trump, MAGA, and the GOP's ongoing war on truth. No filter. No apologies. Updated daily.">
@@ -268,6 +276,37 @@
     </div>
   </section>
 
+
+  <hr class="divider">
+
+  <section id="accountability-hub">
+    <div class="section">
+      <span class="section-label">accountability hub</span>
+      <h2 class="section-title">Build the case. Show the record.</h2>
+      <div class="hub-preview-grid">
+        <a href="/the-lies" class="hub-preview-card">
+          <span class="hub-preview-kicker">Tracker</span>
+          <span class="hub-preview-title">The Lies</span>
+          <span class="hub-preview-copy">False claims, propaganda, repeat bullshit, and clean rebuttals with sources attached.</span>
+          <span class="hub-preview-link">open tracker &rarr;</span>
+        </a>
+        <a href="/corruption" class="hub-preview-card">
+          <span class="hub-preview-kicker">Tracker</span>
+          <span class="hub-preview-title">Corruption</span>
+          <span class="hub-preview-copy">Self-dealing, donor influence, ethics failures, profiteering, and the public cost of it.</span>
+          <span class="hub-preview-link">follow the money &rarr;</span>
+        </a>
+        <a href="/receipts" class="hub-preview-card">
+          <span class="hub-preview-kicker">Source Library</span>
+          <span class="hub-preview-title">Receipts</span>
+          <span class="hub-preview-copy">Court records, filings, archives, clips, money trails, and the sourcing workflow behind the site.</span>
+          <span class="hub-preview-link">show the record &rarr;</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+
   <section id="blog-preview" class="dark-section">
     <div class="section">
       <span class="section-label">latest posts</span>
@@ -299,7 +338,7 @@
         </div>
 
       </div>
-      <a href="/blog"<a href="/blog" class="view-all-posts">all 166 posts →</a>
+      <a href="/blog" class="view-all">all 166 posts &rarr;</a>
     </div>
   </section>
 </main>
