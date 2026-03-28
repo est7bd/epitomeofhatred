@@ -58,21 +58,21 @@
     .hero-scroll { animation-delay: 0.5s; }
 
     .damage-counter-strip { background: var(--bg2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); overflow: hidden; }
-    .damage-counter-inner { max-width: var(--max-w); margin: 0 auto; padding: 0 2rem; display: grid; grid-template-columns: repeat(6, 1fr); }
-    .damage-counter-item { padding: 1.8rem 1rem 1.8rem 0; border-right: 1px solid var(--border); }
+    .damage-counter-inner { max-width: var(--max-w); margin: 0 auto; padding: 0 2rem; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); }
+    .damage-counter-item { padding: 1.85rem 1.35rem 1.85rem 0; border-right: 1px solid var(--border); min-width: 0; }
     .damage-counter-item:last-child { border-right: none; }
-    .dc-num { font-family: var(--font-display); font-size: 2.8rem; color: var(--accent); line-height: 1; display: block; margin-bottom: 0.2rem; letter-spacing: 0.01em; }
-    .dc-label { font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-dim); display: block; line-height: 1.4; }
-    @media (max-width: 900px) { .damage-counter-inner { grid-template-columns: repeat(3, 1fr); } }
-    @media (max-width: 600px) { .damage-counter-inner { grid-template-columns: repeat(2, 1fr); } .damage-counter-item { padding: 1.2rem 0.8rem 1.2rem 0; } }
+    .dc-num { font-family: var(--font-display); font-size: clamp(2.5rem, 4vw, 3.4rem); color: var(--accent); line-height: 0.95; display: block; margin-bottom: 0.3rem; letter-spacing: 0.01em; }
+    .dc-label { font-family: var(--font-mono); font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-dim); display: block; line-height: 1.5; max-width: 18ch; }
+    @media (max-width: 1000px) { .damage-counter-inner { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+    @media (max-width: 640px) { .damage-counter-inner { grid-template-columns: repeat(2, minmax(0, 1fr)); } .damage-counter-item { padding: 1.2rem 0.85rem 1.2rem 0; } .dc-label { max-width: none; } }
 
     .damage-counter-strip { background: var(--bg2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-    .damage-counter-inner { max-width: var(--max-w); margin: 0 auto; padding: 0 2rem; display: grid; grid-template-columns: repeat(6, 1fr); }
-    .damage-counter-item { padding: 1.8rem 1.5rem 1.8rem 0; border-right: 1px solid var(--border); }
+    .damage-counter-inner { max-width: var(--max-w); margin: 0 auto; padding: 0 2rem; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); }
+    .damage-counter-item { padding: 1.85rem 1.35rem 1.85rem 0; border-right: 1px solid var(--border); min-width: 0; }
     .damage-counter-item:last-child { border-right: none; }
-    .dc-num { font-family: var(--font-display); font-size: 3rem; color: var(--accent); line-height: 1; display: block; margin-bottom: 0.3rem; }
-    .dc-label { font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-dim); display: block; line-height: 1.5; }
-    @media (max-width: 768px) { .manifesto-grid { grid-template-columns: 1fr; } .manifesto-number { display: none; } .hero-bg-text { display: none; } .hub-preview-grid { grid-template-columns: 1fr; } .damage-counter-inner { grid-template-columns: repeat(2, 1fr); } .damage-counter-item { border-right: none; border-bottom: 1px solid var(--border); padding: 1.2rem 0; } .damage-counter-item:last-child { border-bottom: none; } }
+    .dc-num { font-family: var(--font-display); font-size: clamp(2.5rem, 4vw, 3.4rem); color: var(--accent); line-height: 0.95; display: block; margin-bottom: 0.3rem; }
+    .dc-label { font-family: var(--font-mono); font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-dim); display: block; line-height: 1.5; max-width: 18ch; }
+    @media (max-width: 768px) { .manifesto-grid { grid-template-columns: 1fr; } .manifesto-number { display: none; } .hero-bg-text { display: none; } .hub-preview-grid { grid-template-columns: 1fr; } .damage-counter-inner { grid-template-columns: repeat(2, minmax(0, 1fr)); } .damage-counter-item { border-right: none; border-bottom: 1px solid var(--border); padding: 1.2rem 0; } .damage-counter-item:last-child { border-bottom: none; } .dc-label { max-width: none; } }
   </style>
 <!-- Primary SEO -->
 <meta content="Epitome of Hatred — Unfiltered, sourced fact-checks on Trump, MAGA, and the GOP's ongoing war on truth. No filter. No apologies. Updated daily." name="description"/>
@@ -321,7 +321,7 @@
 <a class="hub-preview-card" href="/the-lies">
 <span class="hub-preview-kicker">Tracker</span>
 <span class="hub-preview-title">The Lies</span>
-<span class="hub-preview-copy">30,573 lies in the first term. 8 current-term entries tracked so far. Searchable. Filterable. Severity-rated. Sources attached.</span>
+<span class="hub-preview-copy">30,573 lies in the first term. Searchable. Filterable. Severity-rated. Sources attached.</span>
 <span class="hub-preview-link">open tracker →</span>
 </a>
 <a class="hub-preview-card" href="/corruption">
