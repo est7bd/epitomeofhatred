@@ -1,0 +1,1891 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Rants — Epitome of Hatred</title>
+<meta content="Every post sourced. Every lie documented. Trump, MAGA, DOGE, the Iran war, voting rights, ICE, dementia tests, Nobel Prizes, and more. No filter. No apologies." name="description"/>
+<link href="https://epitomeofhatred.com/blog" rel="canonical"/>
+<meta content="website" property="og:type"/>
+<meta content="https://epitomeofhatred.com/blog" property="og:url"/>
+<meta content="The Rants — Epitome of Hatred" property="og:title"/>
+<meta content="Every post sourced. Every lie documented. No filter. No apologies." property="og:description"/>
+<meta content="Epitome of Hatred" property="og:site_name"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="The Rants — Epitome of Hatred" name="twitter:title"/>
+<meta content="Every post sourced. Every lie documented. No filter. No apologies." name="twitter:description"/>
+<meta content="@est7bd" name="twitter:site"/>
+<meta content="index, follow, max-image-preview:large" name="robots"/>
+<link href="/assets/css/style.css" rel="stylesheet"/>
+<style>
+    .blog-hero { max-width: var(--max-w); margin: 0 auto; padding: 6rem 2rem 3rem; border-bottom: 1px solid var(--border); }
+    .blog-hero h1 { font-family: var(--font-display); font-size: clamp(4rem, 12vw, 10rem); line-height: 0.88; letter-spacing: 0.01em; color: var(--text); }
+    .blog-hero h1 span { color: var(--accent); }
+    .blog-grid { max-width: var(--max-w); margin: 0 auto; padding: 4rem 2rem 6rem; }
+    .blog-grid h2 { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 2rem; }
+    .post-list { display: flex; flex-direction: column; }
+    .post-item { display: grid; grid-template-columns: 120px 1fr; gap: 2rem; padding: 2rem 0; border-bottom: 1px solid var(--border); text-decoration: none; transition: background 0.2s; }
+    .post-item:hover { background: var(--bg2); margin: 0 -2rem; padding: 2rem; }
+    .post-item-date { font-family: var(--font-mono); font-size: 0.7rem; color: var(--text-dim); letter-spacing: 0.1em; padding-top: 0.3rem; white-space: nowrap; }
+    .post-item-tags { display: flex; gap: 0.5rem; margin-bottom: 0.5rem; flex-wrap: wrap; }
+    .post-item-tag { font-family: var(--font-mono); font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent2); border: 1px solid var(--accent-dim); padding: 0.15rem 0.5rem; border-radius: 2px; }
+    .post-item-title { font-family: var(--font-display); font-size: clamp(1.4rem, 3vw, 2rem); color: var(--text); line-height: 1; letter-spacing: 0.01em; margin-bottom: 0.6rem; }
+    .post-item:hover .post-item-title { color: var(--accent2); }
+    .post-item-deck { font-size: 0.9rem; color: var(--text-dim); line-height: 1.5; }
+    @media (max-width: 600px) { .post-item { grid-template-columns: 1fr; gap: 0.5rem; } }
+  </style>
+<style>
+    /* Controls strip */
+    .blog-controls { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.2rem; flex-wrap: wrap; }
+    .search-wrap { position: relative; flex: 1; min-width: 200px; }
+    .search-input { width: 100%; background: var(--bg2); border: 1px solid var(--border); color: var(--text); font-family: var(--font-mono); font-size: 0.82rem; padding: 0.55rem 2.2rem 0.55rem 2rem; outline: none; border-radius: 2px; letter-spacing: 0.04em; transition: border-color 0.2s; box-sizing: border-box; }
+    .search-input:focus { border-color: var(--accent2); }
+    .search-input::placeholder { color: var(--text-dim); }
+    .search-icon { position: absolute; left: 0.6rem; top: 50%; transform: translateY(-50%); color: var(--text-dim); font-size: 1.1rem; pointer-events: none; }
+    .search-clear { position: absolute; right: 0.5rem; top: 50%; transform: translateY(-50%); background: none; border: none; color: var(--text-dim); cursor: pointer; font-size: 0.75rem; padding: 0.2rem; display: none; }
+    .search-clear:hover { color: var(--accent); }
+    .search-clear.visible { display: block; }
+    .sort-wrap { display: flex; gap: 0.4rem; flex-shrink: 0; }
+    .sort-btn { background: none; border: 1px solid var(--border); color: var(--text-dim); font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.4rem 0.8rem; cursor: pointer; border-radius: 2px; transition: all 0.15s; }
+    .sort-btn:hover { border-color: var(--accent2); color: var(--accent2); }
+    .sort-btn.active { border-color: var(--accent2); color: var(--accent2); background: rgba(93,175,220,0.06); }
+    /* Topic filters */
+    .filter-wrap { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
+    .filter-btn { background: none; border: 1px solid var(--border); color: var(--text-dim); font-family: var(--font-mono); font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.3rem 0.7rem; cursor: pointer; border-radius: 2px; transition: all 0.15s; }
+    .filter-btn:hover { border-color: var(--accent-dim); color: var(--accent2); }
+    .filter-btn.active { border-color: var(--accent); color: var(--accent); background: rgba(204,34,34,0.07); }
+    /* Results meta */
+    .results-meta { font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 1rem; }
+    /* No results */
+    .no-results { padding: 3rem 0; text-align: center; color: var(--text-dim); font-family: var(--font-mono); font-size: 0.82rem; }
+    .reset-link { background: none; border: none; color: var(--accent2); cursor: pointer; font-family: var(--font-mono); font-size: 0.82rem; text-decoration: underline; padding: 0; }
+  </style>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var list        = document.getElementById('post-list');
+      var metaEl      = document.getElementById('results-meta');
+      var noResults   = document.getElementById('no-results');
+      var searchInput = document.getElementById('post-search');
+      var clearBtn    = document.getElementById('search-clear');
+      var resetBtn    = document.getElementById('reset-all');
+      var allItems    = Array.from(list.querySelectorAll('.post-item'));
+      var activeTopic = 'all';
+      var activeSort  = 'newest';
+      var searchVal   = '';
+
+      function applyAll() {
+        var visible = [];
+        allItems.forEach(function(item) {
+          var topicMatch = activeTopic === 'all' || item.dataset.topics.split(' ').indexOf(activeTopic) > -1;
+          var searchMatch = !searchVal || item.dataset.search.indexOf(searchVal) > -1;
+          if (topicMatch && searchMatch) {
+            item.style.display = '';
+            visible.push(item);
+          } else {
+            item.style.display = 'none';
+          }
+        });
+
+        // Re-sort visible items in DOM
+        var sorted = visible.slice().sort(function(a, b) {
+          if (activeSort === 'newest') return b.dataset.date.localeCompare(a.dataset.date);
+          return a.dataset.date.localeCompare(b.dataset.date);
+        });
+        sorted.forEach(function(item) { list.appendChild(item); });
+
+        // Update meta
+        var total = allItems.length;
+        metaEl.textContent = visible.length === total
+          ? 'All ' + total + ' posts'
+          : visible.length + ' of ' + total + ' posts';
+
+        noResults.style.display = visible.length === 0 ? 'block' : 'none';
+      }
+
+      // Sort buttons
+      document.querySelectorAll('.sort-btn').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          document.querySelectorAll('.sort-btn').forEach(function(b) { b.classList.remove('active'); });
+          btn.classList.add('active');
+          activeSort = btn.dataset.sort;
+          applyAll();
+        });
+      });
+
+      // Filter buttons
+      document.querySelectorAll('.filter-btn').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          document.querySelectorAll('.filter-btn').forEach(function(b) { b.classList.remove('active'); });
+          btn.classList.add('active');
+          activeTopic = btn.dataset.topic;
+          applyAll();
+        });
+      });
+
+      // Search
+      searchInput.addEventListener('input', function() {
+        searchVal = this.value.toLowerCase().trim();
+        clearBtn.classList.toggle('visible', searchVal.length > 0);
+        applyAll();
+      });
+
+      clearBtn.addEventListener('click', function() {
+        searchInput.value = '';
+        searchVal = '';
+        clearBtn.classList.remove('visible');
+        searchInput.focus();
+        applyAll();
+      });
+
+      if (resetBtn) {
+        resetBtn.addEventListener('click', function() {
+          searchInput.value = '';
+          searchVal = '';
+          clearBtn.classList.remove('visible');
+          activeTopic = 'all';
+          activeSort = 'newest';
+          document.querySelectorAll('.filter-btn').forEach(function(b) { b.classList.remove('active'); });
+          document.querySelector('.filter-btn[data-topic="all"]').classList.add('active');
+          document.querySelectorAll('.sort-btn').forEach(function(b) { b.classList.remove('active'); });
+          document.querySelector('.sort-btn[data-sort="newest"]').classList.add('active');
+          applyAll();
+        });
+      }
+
+      applyAll();
+    });
+  </script>
+<style>
+    /* ── Breaking & Developing strip ──────────────────── */
+    .breaking-strip {
+      border-bottom: 1px solid var(--border);
+      background: linear-gradient(180deg, rgba(204,34,34,0.04) 0%, transparent 100%);
+    }
+    .breaking-strip-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 2rem 2rem 2.5rem;
+    }
+    .breaking-strip-header {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-bottom: 1.5rem;
+    }
+    .pulse-dot {
+      display: inline-block;
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      animation: pulse 1.8s ease-in-out infinite;
+      flex-shrink: 0;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); box-shadow: 0 0 0 0 rgba(204,34,34,0.5); }
+      50%       { opacity: 0.7; transform: scale(1.15); box-shadow: 0 0 0 6px rgba(204,34,34,0); }
+    }
+    .breaking-strip-label {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      flex: 1;
+    }
+    .breaking-strip-seeall {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      color: var(--text-dim);
+      transition: color 0.2s;
+    }
+    .breaking-strip-seeall:hover { color: var(--accent2); }
+    .breaking-strip-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1rem;
+    }
+    .bstrip-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-top: 2px solid var(--accent);
+      padding: 1.2rem 1.4rem;
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      transition: border-color 0.2s, transform 0.15s;
+    }
+    .bstrip-card:hover {
+      border-color: var(--accent2);
+      transform: translateY(-2px);
+    }
+    .bstrip-badge {
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+    .bstrip-badge::before {
+      content: '';
+      display: inline-block;
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      animation: pulse 1.8s ease-in-out infinite;
+      flex-shrink: 0;
+    }
+    .bstrip-badge.developing { color: #e8a020; }
+    .bstrip-badge.developing::before { background: #e8a020; }
+    .bstrip-title {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      color: var(--text);
+      line-height: 1.1;
+      letter-spacing: 0.01em;
+    }
+    .bstrip-card:hover .bstrip-title { color: var(--accent2); }
+    .bstrip-status {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      color: var(--text-dim);
+      letter-spacing: 0.06em;
+      line-height: 1.4;
+      border-left: 2px solid var(--accent-dim);
+      padding-left: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+<div id="header-placeholder"></div>
+<main>
+<div class="blog-hero"><h1>THE<br/><span>RANTS.</span></h1></div>
+<!-- ══ BREAKING & DEVELOPING — pinned strip ══════════════════════════
+       Update this section manually when stories are added/resolved.
+       Remove a card when a story is fully resolved/no longer developing.
+  ═══════════════════════════════════════════════════════════════════ -->
+<div class="breaking-strip">
+<div class="breaking-strip-inner">
+<div class="breaking-strip-header">
+<span class="pulse-dot"></span>
+<span class="breaking-strip-label">Breaking &amp; Developing</span>
+<a class="breaking-strip-seeall" href="/breaking">see all →</a>
+</div>
+<div class="breaking-strip-cards">
+<a class="bstrip-card" href="/blog/senate-funds-tsa-not-ice-2am">
+<span class="bstrip-badge">Breaking</span>
+<div class="bstrip-title">Senate Passed TSA Funding. House Rejected It. Shutdown Continues.</div>
+<div class="bstrip-status">Johnson CR proposal "dead on arrival." Senate on recess. 510 agents quit. No path forward.</div>
+</a>
+<a class="bstrip-card" href="/blog/iran-war-escalation-civilian-cost">
+<span class="bstrip-badge">Breaking</span>
+<div class="bstrip-title">Iran War Day 27. Pentagon Planning Ground Invasion. Putin Helping Iran.</div>
+<div class="bstrip-status">Iran counter-proposal expected. Deadline: April 6.</div>
+</a>
+<a class="bstrip-card" href="/blog/kash-patel-email-hacked-iran">
+<span class="bstrip-badge developing">Developing</span>
+<div class="bstrip-title">Iran Hackers Breached FBI Director Patel's Email. DOJ Confirmed It.</div>
+<div class="bstrip-status">Classified files claim unverified. FBI investigation ongoing.</div>
+</a>
+<a class="bstrip-card" href="/blog/tsa-funding-wont-fix-lines-overnight">
+<span class="bstrip-badge developing">Developing</span>
+<div class="bstrip-title">Funding TSA Won't Fix the Lines Overnight. 480+ Agents Already Quit.</div>
+<div class="bstrip-status">Back pay timeline unknown. Replacement training: 4–6 months.</div>
+</a>
+</div>
+</div>
+</div>
+    <div class="blog-grid">
+    <div class="blog-controls">
+      <div class="search-wrap">
+        <input type="text" id="post-search" class="search-input" placeholder="Search 161 posts..." autocomplete="off" spellcheck="false">
+        <span class="search-icon">&#8981;</span>
+        <button class="search-clear" id="search-clear" aria-label="Clear search">&times;</button>
+      </div>
+      <div class="sort-wrap">
+        <button class="sort-btn active" data-sort="newest">Newest</button>
+        <button class="sort-btn" data-sort="oldest">Oldest</button>
+      </div>
+    </div>
+    <div class="filter-wrap">
+        <button class="filter-btn active" data-topic="all">All</button>
+        <button class="filter-btn" data-topic="healthcare">healthcare</button>
+        <button class="filter-btn" data-topic="aca">ACA</button>
+        <button class="filter-btn" data-topic="accountability">accountability</button>
+        <button class="filter-btn" data-topic="congress">Congress</button>
+        <button class="filter-btn" data-topic="doge">DOGE</button>
+        <button class="filter-btn" data-topic="economy">economy</button>
+        <button class="filter-btn" data-topic="higher-education">higher education</button>
+        <button class="filter-btn" data-topic="medicine">medicine</button>
+        <button class="filter-btn" data-topic="doj">DOJ</button>
+        <button class="filter-btn" data-topic="rule-of-law">rule of law</button>
+        <button class="filter-btn" data-topic="corruption">corruption</button>
+        <button class="filter-btn" data-topic="education">education</button>
+        <button class="filter-btn" data-topic="student-loans">student loans</button>
+        <button class="filter-btn" data-topic="energy">energy</button>
+        <button class="filter-btn" data-topic="affordability">affordability</button>
+        <button class="filter-btn" data-topic="grocery-prices">grocery prices</button>
+        <button class="filter-btn" data-topic="tariffs">tariffs</button>
+        <button class="filter-btn" data-topic="hegseth">Hegseth</button>
+        <button class="filter-btn" data-topic="pentagon">Pentagon</button>
+        <button class="filter-btn" data-topic="racism">racism</button>
+        <button class="filter-btn" data-topic="housing">housing</button>
+        <button class="filter-btn" data-topic="poverty">poverty</button>
+        <button class="filter-btn" data-topic="iran-war">Iran war</button>
+        <button class="filter-btn" data-topic="food-supply">food supply</button>
+        <button class="filter-btn" data-topic="war-powers">war powers</button>
+        <button class="filter-btn" data-topic="cybersecurity">cybersecurity</button>
+        <button class="filter-btn" data-topic="medicaid">Medicaid</button>
+        <button class="filter-btn" data-topic="rural-hospitals">rural hospitals</button>
+        <button class="filter-btn" data-topic="maternal-mortality">maternal mortality</button>
+        <button class="filter-btn" data-topic="protest">protest</button>
+        <button class="filter-btn" data-topic="project-2025">Project 2025</button>
+        <button class="filter-btn" data-topic="heritage-foundation">Heritage Foundation</button>
+        <button class="filter-btn" data-topic="second-term">second term</button>
+        <button class="filter-btn" data-topic="rfk-jr">RFK Jr.</button>
+        <button class="filter-btn" data-topic="hhs">HHS</button>
+        <button class="filter-btn" data-topic="public-health">public health</button>
+        <button class="filter-btn" data-topic="dhs-shutdown">DHS shutdown</button>
+        <button class="filter-btn" data-topic="ice">ICE</button>
+        <button class="filter-btn" data-topic="social-security">Social Security</button>
+        <button class="filter-btn" data-topic="obbba">OBBBA</button>
+        <button class="filter-btn" data-topic="harvard">Harvard</button>
+        <button class="filter-btn" data-topic="universities">universities</button>
+        <button class="filter-btn" data-topic="academic-freedom">academic freedom</button>
+        <button class="filter-btn" data-topic="tsa">TSA</button>
+        <button class="filter-btn" data-topic="veterans">veterans</button>
+        <button class="filter-btn" data-topic="va">VA</button>
+        <button class="filter-btn" data-topic="classified-docs">classified docs</button>
+        <button class="filter-btn" data-topic="culture">culture</button>
+        <button class="filter-btn" data-topic="election-lies">election lies</button>
+        <button class="filter-btn" data-topic="narcissism">narcissism</button>
+        <button class="filter-btn" data-topic="hypocrisy">hypocrisy</button>
+        <button class="filter-btn" data-topic="civil-rights">civil rights</button>
+        <button class="filter-btn" data-topic="immigration">immigration</button>
+        <button class="filter-btn" data-topic="lies">lies</button>
+        <button class="filter-btn" data-topic="history-revision">history revision</button>
+        <button class="filter-btn" data-topic="voting-rights">voting rights</button>
+        <button class="filter-btn" data-topic="save-act">SAVE Act</button>
+        <button class="filter-btn" data-topic="courts">courts</button>
+        <button class="filter-btn" data-topic="constitutional-crisis">constitutional crisis</button>
+        <button class="filter-btn" data-topic="sotu">SOTU</button>
+        <button class="filter-btn" data-topic="suppression">suppression</button>
+        <button class="filter-btn" data-topic="ukraine">Ukraine</button>
+        <button class="filter-btn" data-topic="lol">lol</button>
+        <button class="filter-btn" data-topic="alien-enemies-act">Alien Enemies Act</button>
+        <button class="filter-btn" data-topic="due-process">due process</button>
+        <button class="filter-btn" data-topic="deportation">deportation</button>
+        <button class="filter-btn" data-topic="birthright-citizenship">birthright citizenship</button>
+        <button class="filter-btn" data-topic="14th-amendment">14th Amendment</button>
+        <button class="filter-btn" data-topic="constitution">Constitution</button>
+        <button class="filter-btn" data-topic="schools">schools</button>
+        <button class="filter-btn" data-topic="churches">churches</button>
+        <button class="filter-btn" data-topic="january-6">January 6</button>
+        <button class="filter-btn" data-topic="pardons">pardons</button>
+        <button class="filter-btn" data-topic="seditious-conspiracy">seditious conspiracy</button>
+        <button class="filter-btn" data-topic="meme-coin">meme coin</button>
+        <button class="filter-btn" data-topic="foreign-payments">foreign payments</button>
+        <button class="filter-btn" data-topic="supreme-court">Supreme Court</button>
+        <button class="filter-btn" data-topic="democracy">democracy</button>
+        <button class="filter-btn" data-topic="hush-money">hush money</button>
+        <button class="filter-btn" data-topic="conviction">conviction</button>
+        <button class="filter-btn" data-topic="34-felonies">34 felonies</button>
+        <button class="filter-btn" data-topic="sexual-abuse">sexual abuse</button>
+        <button class="filter-btn" data-topic="defamation">defamation</button>
+        <button class="filter-btn" data-topic="civil-verdict">civil verdict</button>
+        <button class="filter-btn" data-topic="trump-organization">Trump Organization</button>
+        <button class="filter-btn" data-topic="tax-fraud">tax fraud</button>
+        <button class="filter-btn" data-topic="convicted">convicted</button>
+        <button class="filter-btn" data-topic="abortion">abortion</button>
+        <button class="filter-btn" data-topic="dobbs">Dobbs</button>
+        <button class="filter-btn" data-topic="insurrection">insurrection</button>
+        <button class="filter-btn" data-topic="election-fraud">election fraud</button>
+        <button class="filter-btn" data-topic="georgia">Georgia</button>
+        <button class="filter-btn" data-topic="pressure-campaign">pressure campaign</button>
+        <button class="filter-btn" data-topic="election-security">election security</button>
+        <button class="filter-btn" data-topic="krebs">Krebs</button>
+        <button class="filter-btn" data-topic="retaliation">retaliation</button>
+        <button class="filter-btn" data-topic="proud-boys">Proud Boys</button>
+        <button class="filter-btn" data-topic="white-supremacy">white supremacy</button>
+        <button class="filter-btn" data-topic="debate">debate</button>
+        <button class="filter-btn" data-topic="bannon">Bannon</button>
+        <button class="filter-btn" data-topic="fraud">fraud</button>
+        <button class="filter-btn" data-topic="border-wall">border wall</button>
+        <button class="filter-btn" data-topic="racial-justice">racial justice</button>
+        <button class="filter-btn" data-topic="abuse-of-power">abuse of power</button>
+        <button class="filter-btn" data-topic="blm">BLM</button>
+        <button class="filter-btn" data-topic="iran">Iran</button>
+        <button class="filter-btn" data-topic="soleimani">Soleimani</button>
+        <button class="filter-btn" data-topic="covid">COVID</button>
+        <button class="filter-btn" data-topic="misinformation">misinformation</button>
+        <button class="filter-btn" data-topic="hydroxychloroquine">hydroxychloroquine</button>
+        <button class="filter-btn" data-topic="400000-dead">400,000 dead</button>
+        <button class="filter-btn" data-topic="pandemic">pandemic</button>
+        <button class="filter-btn" data-topic="impeachment">impeachment</button>
+        <button class="filter-btn" data-topic="census">census</button>
+        <button class="filter-btn" data-topic="voter-suppression">voter suppression</button>
+        <button class="filter-btn" data-topic="gerrymandering">gerrymandering</button>
+        <button class="filter-btn" data-topic="mueller">Mueller</button>
+        <button class="filter-btn" data-topic="obstruction">obstruction</button>
+        <button class="filter-btn" data-topic="russia">Russia</button>
+        <button class="filter-btn" data-topic="golan-heights">Golan Heights</button>
+        <button class="filter-btn" data-topic="israel">Israel</button>
+        <button class="filter-btn" data-topic="international-law">international law</button>
+        <button class="filter-btn" data-topic="government-shutdown">government shutdown</button>
+        <button class="filter-btn" data-topic="national-emergency">national emergency</button>
+        <button class="filter-btn" data-topic="asylum">asylum</button>
+        <button class="filter-btn" data-topic="remain-in-mexico">Remain in Mexico</button>
+        <button class="filter-btn" data-topic="1500-attacks">1,500+ attacks</button>
+        <button class="filter-btn" data-topic="judiciary">judiciary</button>
+        <button class="filter-btn" data-topic="shutdown">shutdown</button>
+        <button class="filter-btn" data-topic="economic-damage">economic damage</button>
+        <button class="filter-btn" data-topic="putin">Putin</button>
+        <button class="filter-btn" data-topic="intelligence">intelligence</button>
+        <button class="filter-btn" data-topic="nuclear-deal">nuclear deal</button>
+        <button class="filter-btn" data-topic="jcpoa">JCPOA</button>
+        <button class="filter-btn" data-topic="tax-cuts">tax cuts</button>
+        <button class="filter-btn" data-topic="deficit">deficit</button>
+        <button class="filter-btn" data-topic="net-neutrality">net neutrality</button>
+        <button class="filter-btn" data-topic="internet">internet</button>
+        <button class="filter-btn" data-topic="fcc">FCC</button>
+        <button class="filter-btn" data-topic="opioid-crisis">opioid crisis</button>
+        <button class="filter-btn" data-topic="empty-promise">empty promise</button>
+        <button class="filter-btn" data-topic="daca">DACA</button>
+        <button class="filter-btn" data-topic="dreamers">Dreamers</button>
+        <button class="filter-btn" data-topic="arpaio">Arpaio</button>
+        <button class="filter-btn" data-topic="pardon">pardon</button>
+        <button class="filter-btn" data-topic="racial-profiling">racial profiling</button>
+        <button class="filter-btn" data-topic="charlottesville">Charlottesville</button>
+        <button class="filter-btn" data-topic="domestic-terrorism">domestic terrorism</button>
+        <button class="filter-btn" data-topic="aca-repeal">ACA repeal</button>
+        <button class="filter-btn" data-topic="mccain">McCain</button>
+        <button class="filter-btn" data-topic="ahca">AHCA</button>
+        <button class="filter-btn" data-topic="lgbtq">LGBTQ</button>
+        <button class="filter-btn" data-topic="military">military</button>
+        <button class="filter-btn" data-topic="discrimination">discrimination</button>
+        <button class="filter-btn" data-topic="national-security">national security</button>
+        <button class="filter-btn" data-topic="comey">Comey</button>
+        <button class="filter-btn" data-topic="russia-investigation">Russia investigation</button>
+        <button class="filter-btn" data-topic="muslim-ban">Muslim ban</button>
+        <button class="filter-btn" data-topic="day-one">Day One</button>
+        <button class="filter-btn" data-topic="alternative-facts">alternative facts</button>
+        <button class="filter-btn" data-topic="access-hollywood">Access Hollywood</button>
+        <button class="filter-btn" data-topic="sexual-misconduct">sexual misconduct</button>
+        <button class="filter-btn" data-topic="impunity">impunity</button>
+        <button class="filter-btn" data-topic="uninsured">uninsured</button>
+        <button class="filter-btn" data-topic="sabotage">sabotage</button>
+        <button class="filter-btn" data-topic="cfpb">CFPB</button>
+        <button class="filter-btn" data-topic="consumer-protection">consumer protection</button>
+        <button class="filter-btn" data-topic="banking">banking</button>
+        <button class="filter-btn" data-topic="science">science</button>
+        <button class="filter-btn" data-topic="nasa">NASA</button>
+        <button class="filter-btn" data-topic="environment">environment</button>
+        <button class="filter-btn" data-topic="climate">climate</button>
+        <button class="filter-btn" data-topic="epa-rollbacks">EPA rollbacks</button>
+        <button class="filter-btn" data-topic="syria">Syria</button>
+        <button class="filter-btn" data-topic="kurds">Kurds</button>
+        <button class="filter-btn" data-topic="isis">ISIS</button>
+        <button class="filter-btn" data-topic="family-separation">family separation</button>
+        <button class="filter-btn" data-topic="children">children</button>
+        <button class="filter-btn" data-topic="federal-reserve">Federal Reserve</button>
+        <button class="filter-btn" data-topic="independence">independence</button>
+        <button class="filter-btn" data-topic="inspectors-general">inspectors general</button>
+        <button class="filter-btn" data-topic="oversight">oversight</button>
+        <button class="filter-btn" data-topic="trade-war">trade war</button>
+        <button class="filter-btn" data-topic="china">China</button>
+        <button class="filter-btn" data-topic="farmers">farmers</button>
+        <button class="filter-btn" data-topic="confirmation">confirmation</button>
+        <button class="filter-btn" data-topic="nepotism">nepotism</button>
+        <button class="filter-btn" data-topic="jared-kushner">Jared Kushner</button>
+        <button class="filter-btn" data-topic="conflicts-of-interest">conflicts of interest</button>
+        <button class="filter-btn" data-topic="khashoggi">Khashoggi</button>
+        <button class="filter-btn" data-topic="saudi-arabia">Saudi Arabia</button>
+        <button class="filter-btn" data-topic="murder">murder</button>
+        <button class="filter-btn" data-topic="detention">detention</button>
+        <button class="filter-btn" data-topic="flynn">Flynn</button>
+        <button class="filter-btn" data-topic="fallen-soldiers">fallen soldiers</button>
+        <button class="filter-btn" data-topic="musk">Musk</button>
+        <button class="filter-btn" data-topic="nato">NATO</button>
+        <button class="filter-btn" data-topic="article-5">Article 5</button>
+        <button class="filter-btn" data-topic="north-korea">North Korea</button>
+        <button class="filter-btn" data-topic="kim-jong-un">Kim Jong Un</button>
+        <button class="filter-btn" data-topic="nra">NRA</button>
+        <button class="filter-btn" data-topic="gun-violence">gun violence</button>
+        <button class="filter-btn" data-topic="mass-shootings">mass shootings</button>
+        <button class="filter-btn" data-topic="workers">workers</button>
+        <button class="filter-btn" data-topic="osha">OSHA</button>
+        <button class="filter-btn" data-topic="workplace-safety">workplace safety</button>
+        <button class="filter-btn" data-topic="portland">Portland</button>
+        <button class="filter-btn" data-topic="protesters">protesters</button>
+        <button class="filter-btn" data-topic="federal-overreach">federal overreach</button>
+        <button class="filter-btn" data-topic="usps">USPS</button>
+        <button class="filter-btn" data-topic="dejoy">DeJoy</button>
+        <button class="filter-btn" data-topic="election-interference">election interference</button>
+        <button class="filter-btn" data-topic="prescription-drugs">prescription drugs</button>
+        <button class="filter-btn" data-topic="healthcare-costs">healthcare costs</button>
+        <button class="filter-btn" data-topic="press-freedom">press freedom</button>
+        <button class="filter-btn" data-topic="first-amendment">First Amendment</button>
+        <button class="filter-btn" data-topic="superspreader">superspreader</button>
+        <button class="filter-btn" data-topic="white-house">White House</button>
+        <button class="filter-btn" data-topic="signal-chat">Signal chat</button>
+        <button class="filter-btn" data-topic="snap">SNAP</button>
+        <button class="filter-btn" data-topic="food-security">food security</button>
+        <button class="filter-btn" data-topic="food-assistance">food assistance</button>
+        <button class="filter-btn" data-topic="working-poor">working poor</button>
+        <button class="filter-btn" data-topic="stephen-miller">Stephen Miller</button>
+        <button class="filter-btn" data-topic="white-nationalism">white nationalism</button>
+        <button class="filter-btn" data-topic="betsy-devos">Betsy DeVos</button>
+        <button class="filter-btn" data-topic="for-profit-colleges">for-profit colleges</button>
+        <button class="filter-btn" data-topic="for-profit-schools">for-profit schools</button>
+        <button class="filter-btn" data-topic="roe-v-wade">Roe v Wade</button>
+        <button class="filter-btn" data-topic="gold-star">Gold Star</button>
+        <button class="filter-btn" data-topic="cruelty">cruelty</button>
+        <button class="filter-btn" data-topic="cabinet">cabinet</button>
+        <button class="filter-btn" data-topic="taxpayer-waste">taxpayer waste</button>
+        <button class="filter-btn" data-topic="contempt">contempt</button>
+        <button class="filter-btn" data-topic="national-debt">national debt</button>
+        <button class="filter-btn" data-topic="fiscal-policy">fiscal policy</button>
+        <button class="filter-btn" data-topic="drug-prices">drug prices</button>
+        <button class="filter-btn" data-topic="pharma">pharma</button>
+        <button class="filter-btn" data-topic="broken-promise">broken promise</button>
+        <button class="filter-btn" data-topic="2020-election">2020 election</button>
+        <button class="filter-btn" data-topic="big-lie">Big Lie</button>
+        <button class="filter-btn" data-topic="emoluments">emoluments</button>
+        <button class="filter-btn" data-topic="bankruptcies">bankruptcies</button>
+        <button class="filter-btn" data-topic="charity-fraud">charity fraud</button>
+        <button class="filter-btn" data-topic="trump-foundation">Trump Foundation</button>
+        <button class="filter-btn" data-topic="golf">golf</button>
+        <button class="filter-btn" data-topic="greenland">Greenland</button>
+        <button class="filter-btn" data-topic="canada">Canada</button>
+        <button class="filter-btn" data-topic="territorial-threats">territorial threats</button>
+        <button class="filter-btn" data-topic="infrastructure">infrastructure</button>
+        <button class="filter-btn" data-topic="puerto-rico">Puerto Rico</button>
+        <button class="filter-btn" data-topic="hurricane-maria">Hurricane Maria</button>
+        <button class="filter-btn" data-topic="disaster-response">disaster response</button>
+        <button class="filter-btn" data-topic="housing-discrimination">housing discrimination</button>
+        <button class="filter-btn" data-topic="race">race</button>
+        <button class="filter-btn" data-topic="affh">AFFH</button>
+        <button class="filter-btn" data-topic="ongoing-harm">ongoing harm</button>
+        <button class="filter-btn" data-topic="inauguration">inauguration</button>
+        <button class="filter-btn" data-topic="investigation">investigation</button>
+        <button class="filter-btn" data-topic="tax-returns">tax returns</button>
+        <button class="filter-btn" data-topic="transparency">transparency</button>
+        <button class="filter-btn" data-topic="records">records</button>
+        <button class="filter-btn" data-topic="usaid">USAID</button>
+        <button class="filter-btn" data-topic="pepfar">PEPFAR</button>
+        <button class="filter-btn" data-topic="global-health">global health</button>
+        <button class="filter-btn" data-topic="election-integrity">election integrity</button>
+        <button class="filter-btn" data-topic="voter-data">voter data</button>
+        <button class="filter-btn" data-topic="turnover">turnover</button>
+        <button class="filter-btn" data-topic="chaos">chaos</button>
+        <button class="filter-btn" data-topic="california">California</button>
+        <button class="filter-btn" data-topic="wildfires">wildfires</button>
+        <button class="filter-btn" data-topic="wages">wages</button>
+        <button class="filter-btn" data-topic="labor">labor</button>
+    </div>
+    <div class="results-meta" id="results-meta">All 161 posts</div>
+    <div class="post-list" id="post-list">
+
+      <a href="/blog/aca-junk-plans-second-term" class="post-item" data-date="2026-03-27" data-topics="healthcare aca" data-search="aca-junk-plans-second-term  healthcare aca junk plans fact-checked">
+        <span class="post-item-date">Mar 27, 2026</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">healthcare</span><span class="post-item-tag">ACA</span><span class="post-item-tag">junk plans</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">aca-junk-plans-second-term</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/cherfilus-mccormick-ethics-guilty" class="post-item" data-date="2026-03-27" data-topics="accountability congress" data-search="cherfilus-mccormick-ethics-guilty  accountability congress fact-checked">
+        <span class="post-item-date">Mar 27, 2026</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">accountability</span><span class="post-item-tag">Congress</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">cherfilus-mccormick-ethics-guilty</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/doge-one-year-what-did-it-save" class="post-item" data-date="2026-03-27" data-topics="doge economy" data-search="doge-one-year-what-did-it-save  doge economy fact-checked">
+        <span class="post-item-date">Mar 27, 2026</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">DOGE</span><span class="post-item-tag">economy</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">doge-one-year-what-did-it-save</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/doj-medical-school-investigations" class="post-item" data-date="2026-03-27" data-topics="higher-education medicine" data-search="doj-medical-school-investigations  higher education medicine fact-checked">
+        <span class="post-item-date">Mar 27, 2026</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">higher education</span><span class="post-item-tag">medicine</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">doj-medical-school-investigations</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/doj-weaponization-second-term" class="post-item" data-date="2026-03-27" data-topics="doj rule-of-law corruption" data-search="doj-weaponization-second-term  doj rule of law corruption fact-checked">
+        <span class="post-item-date">Mar 27, 2026</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">DOJ</span><span class="post-item-tag">rule of law</span><span class="post-item-tag">corruption</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">doj-weaponization-second-term</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/education-department-dissolution" class="post-item" data-date="2026-03-27" data-topics="education student-loans" data-search="education-department-dissolution  education student loans fact-checked">
+        <span class="post-item-date">Mar 27, 2026</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">education</span><span class="post-item-tag">student loans</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">education-department-dissolution</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/energy-bills-second-term-spike" class="post-item" data-date="2026-03-27" data-topics="energy affordability" data-search="energy-bills-second-term-spike  energy broken promises affordability fact-checked">
+        <span class="post-item-date">Mar 27, 2026</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">energy</span><span class="post-item-tag">broken promises</span><span class="post-item-tag">affordability</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">energy-bills-second-term-spike</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/grocery-prices-tariffs-2025" class="post-item" data-date="2026-03-27" data-topics="grocery-prices tariffs" data-search="grocery-prices-tariffs-2025  grocery prices tariffs broken promises fact-checked">
+        <span class="post-item-date">Mar 27, 2026</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">grocery prices</span><span class="post-item-tag">tariffs</span><span class="post-item-tag">broken promises</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">grocery-prices-tariffs-2025</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/hegseth-blocks-black-female-officer-promotions" class="post-item" data-date="2026-03-27" data-topics="hegseth pentagon racism" data-search="hegseth-blocks-black-female-officer-promotions  hegseth pentagon racism fact-checked">
+        <span class="post-item-date">Mar 27, 2026</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">Hegseth</span><span class="post-item-tag">Pentagon</span><span class="post-item-tag">racism</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">hegseth-blocks-black-female-officer-promotions</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/housing-assistance-43-percent-cut" class="post-item" data-date="2026-03-27" data-topics="housing poverty" data-search="housing-assistance-43-percent-cut  housing poverty fact-checked">
+        <span class="post-item-date">Mar 27, 2026</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">housing</span><span class="post-item-tag">poverty</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">housing-assistance-43-percent-cut</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/iran-war-economic-cost-americans" class="post-item" data-date="2026-03-27" data-topics="iran-war economy" data-search="iran-war-economic-cost-americans  iran war economy fact-checked">
+        <span class="post-item-date">Mar 27, 2026</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">Iran war</span><span class="post-item-tag">economy</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">iran-war-economic-cost-americans</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/iran-war-escalation-civilian-cost" class="post-item" data-date="2026-03-27" data-topics="iran-war" data-search="iran-war-escalation-civilian-cost  iran war breaking fact-checked">
+        <span class="post-item-date">Mar 27, 2026</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">Iran war</span><span class="post-item-tag">breaking</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">iran-war-escalation-civilian-cost</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/iran-war-global-food-supply-crisis" class="post-item" data-date="2026-03-27" data-topics="iran-war food-supply" data-search="iran-war-global-food-supply-crisis  iran war food supply fact-checked">
+        <span class="post-item-date">Mar 27, 2026</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">Iran war</span><span class="post-item-tag">food supply</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">iran-war-global-food-supply-crisis</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/iran-war-no-congressional-authorization" class="post-item" data-date="2026-03-27" data-topics="iran-war war-powers congress" data-search="iran-war-no-congressional-authorization  iran war war powers congress fact-checked">
+        <span class="post-item-date">Mar 27, 2026</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">Iran war</span><span class="post-item-tag">war powers</span><span class="post-item-tag">Congress</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">iran-war-no-congressional-authorization</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/kash-patel-email-hacked-iran" class="post-item" data-date="2026-03-27" data-topics="iran-war cybersecurity" data-search="kash-patel-email-hacked-iran  iran war cybersecurity fact-checked">
+        <span class="post-item-date">Mar 27, 2026</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">Iran war</span><span class="post-item-tag">cybersecurity</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">kash-patel-email-hacked-iran</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/natal-rural-hospital-closures" class="post-item" data-date="2026-03-27" data-topics="medicaid rural-hospitals maternal-mortality" data-search="natal-rural-hospital-closures  medicaid rural hospitals maternal mortality fact-checked">
+        <span class="post-item-date">Mar 27, 2026</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">Medicaid</span><span class="post-item-tag">rural hospitals</span><span class="post-item-tag">maternal mortality</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">natal-rural-hospital-closures</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/no-kings-march-28-2026" class="post-item" data-date="2026-03-27" data-topics="protest accountability" data-search="no-kings-march-28-2026  protest accountability no kings">
+        <span class="post-item-date">Mar 27, 2026</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">protest</span><span class="post-item-tag">accountability</span><span class="post-item-tag">No Kings</span></div>
+          <div class="post-item-title">no-kings-march-28-2026</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/project-2025-connection" class="post-item" data-date="2026-03-27" data-topics="project-2025 heritage-foundation second-term" data-search="project-2025-connection  project 2025 heritage foundation second term fact-checked">
+        <span class="post-item-date">Mar 27, 2026</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">Project 2025</span><span class="post-item-tag">Heritage Foundation</span><span class="post-item-tag">second term</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">project-2025-connection</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/rfk-hhs-cdc-gutting" class="post-item" data-date="2026-03-27" data-topics="rfk-jr hhs public-health" data-search="rfk-hhs-cdc-gutting  rfk jr. hhs public health fact-checked">
+        <span class="post-item-date">Mar 27, 2026</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">RFK Jr.</span><span class="post-item-tag">HHS</span><span class="post-item-tag">public health</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">rfk-hhs-cdc-gutting</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/senate-funds-tsa-not-ice-2am" class="post-item" data-date="2026-03-27" data-topics="dhs-shutdown ice" data-search="senate-funds-tsa-not-ice-2am  breaking dhs shutdown ice fact-checked">
+        <span class="post-item-date">Mar 27, 2026</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">breaking</span><span class="post-item-tag">DHS shutdown</span><span class="post-item-tag">ICE</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">senate-funds-tsa-not-ice-2am</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/social-security-insolvency-accelerating" class="post-item" data-date="2026-03-27" data-topics="social-security obbba" data-search="social-security-insolvency-accelerating  social security obbba broken promises fact-checked">
+        <span class="post-item-date">Mar 27, 2026</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">Social Security</span><span class="post-item-tag">OBBBA</span><span class="post-item-tag">broken promises</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">social-security-insolvency-accelerating</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/trump-cabinet-afraid-prosecution" class="post-item" data-date="2026-03-27" data-topics="doj corruption rule-of-law" data-search="trump-cabinet-afraid-prosecution  doj corruption rule of law fact-checked">
+        <span class="post-item-date">Mar 27, 2026</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">DOJ</span><span class="post-item-tag">corruption</span><span class="post-item-tag">rule of law</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">trump-cabinet-afraid-prosecution</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/trump-universities-harvard-funding" class="post-item" data-date="2026-03-27" data-topics="harvard universities academic-freedom" data-search="trump-universities-harvard-funding  harvard universities academic freedom fact-checked">
+        <span class="post-item-date">Mar 27, 2026</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">Harvard</span><span class="post-item-tag">universities</span><span class="post-item-tag">academic freedom</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">trump-universities-harvard-funding</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/tsa-funding-wont-fix-lines-overnight" class="post-item" data-date="2026-03-27" data-topics="dhs-shutdown tsa" data-search="tsa-funding-wont-fix-lines-overnight  dhs shutdown tsa fact-checked">
+        <span class="post-item-date">Mar 27, 2026</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">DHS shutdown</span><span class="post-item-tag">TSA</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">tsa-funding-wont-fix-lines-overnight</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/va-cuts-veterans-healthcare" class="post-item" data-date="2026-03-27" data-topics="veterans va doge" data-search="va-cuts-veterans-healthcare  veterans va doge fact-checked">
+        <span class="post-item-date">Mar 27, 2026</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">veterans</span><span class="post-item-tag">VA</span><span class="post-item-tag">DOGE</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">va-cuts-veterans-healthcare</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/hegseth-bombed-a-dairy-farm" class="post-item" data-date="2026-03-26" data-topics="hegseth" data-search="hegseth bombed a dairy farm and posted the video. called it  bombing narco terrorists.  nyt found it was a dairy farm. soldiers beat the farmworkers before the bombs fell. hegseth fact-checked">
+        <span class="post-item-date">Mar 26, 2026</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">Hegseth</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">Hegseth Bombed a Dairy Farm and Posted the Video.</div>
+          <div class="post-item-deck">Called it "bombing Narco Terrorists." NYT found it was a dairy farm. Soldiers beat the farmworkers before the bombs fell.</div>
+        </div>
+      </a>
+      <a href="/blog/iran-talks-going-great-iran-disagrees" class="post-item" data-date="2026-03-26" data-topics="iran-war" data-search="trump says talks  going very well.  iran says  we have no intention of negotiating.  day 27. deadline extended to april 6. iran denied talks. un says threats may be a war crime. iran war fact-checked">
+        <span class="post-item-date">Mar 26, 2026</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">Iran war</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">Trump Says Talks "Going Very Well." Iran Says "We Have No Intention of Negotiating."</div>
+          <div class="post-item-deck">Day 27. Deadline extended to April 6. Iran denied talks. UN says threats may be a war crime.</div>
+        </div>
+      </a>
+      <a href="/blog/jack-smith-memo-trump-kept-classified-docs" class="post-item" data-date="2026-03-26" data-topics="classified-docs" data-search="jack smith memo: trump kept classified docs for his business. internal memo says trump retained classified documents relevant to his business interests after leaving office. transmitted to congress. fact-checked classified docs">
+        <span class="post-item-date">Mar 26, 2026</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">fact-checked</span><span class="post-item-tag">classified docs</span></div>
+          <div class="post-item-title">Jack Smith Memo: Trump Kept Classified Docs for His Business.</div>
+          <div class="post-item-deck">Internal memo says Trump retained classified documents relevant to his business interests after leaving office. Transmitted to Congress.</div>
+        </div>
+      </a>
+      <a href="/blog/kennedy-center-layoffs" class="post-item" data-date="2026-03-26" data-topics="culture" data-search="the kennedy center starts laying people off. july 4 closure incoming. renamed it after himself, packed the board with loyalists, closing it for two years on the fourth of july. fact-checked culture">
+        <span class="post-item-date">Mar 26, 2026</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">fact-checked</span><span class="post-item-tag">culture</span></div>
+          <div class="post-item-title">The Kennedy Center Starts Laying People Off. July 4 Closure Incoming.</div>
+          <div class="post-item-deck">Renamed it after himself, packed the board with loyalists, closing it for two years on the Fourth of July.</div>
+        </div>
+      </a>
+      <a href="/blog/lindell-served-at-cpac" class="post-item" data-date="2026-03-26" data-topics="election-lies accountability" data-search="lindell-served-at-cpac  election lies accountability fact-checked">
+        <span class="post-item-date">Mar 26, 2026</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">election lies</span><span class="post-item-tag">accountability</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">lindell-served-at-cpac</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/trump-signature-on-the-money" class="post-item" data-date="2026-03-26" data-topics="narcissism" data-search="he put his name on the money. trump s signature going on every us dollar bill. first in history. the kennedy center. the warships. the drug program. now the money. fact-checked narcissism">
+        <span class="post-item-date">Mar 26, 2026</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">fact-checked</span><span class="post-item-tag">narcissism</span></div>
+          <div class="post-item-title">He Put His Name on the Money.</div>
+          <div class="post-item-deck">Trump's signature going on every US dollar bill. First in history. The Kennedy Center. The warships. The drug program. Now the money.</div>
+        </div>
+      </a>
+      <a href="/blog/tsa-longest-wait-times-in-history" class="post-item" data-date="2026-03-26" data-topics="doge" data-search="longest wait times in tsa history. thanks, doge. 450+ tsa agents quit. dhs unfunded 40+ days. congress left for easter. three-hour security lines. doge fact-checked">
+        <span class="post-item-date">Mar 26, 2026</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">DOGE</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">Longest Wait Times in TSA History. Thanks, DOGE.</div>
+          <div class="post-item-deck">450+ TSA agents quit. DHS unfunded 40+ days. Congress left for Easter. Three-hour security lines.</div>
+        </div>
+      </a>
+      <a href="/blog/dhs-shutdown-ice-funding-hostage" class="post-item" data-date="2026-03-25" data-topics="dhs-shutdown ice" data-search="republicans are holding tsa paychecks hostage for ice funding. congress noticed when their airport fast lane got taken away. democrats tried to fund tsa 5 separate times. republicans blocked it 5 times. then delta pulled congress s skip-the-line privilege. suddenly there s urgency. dhs shutdown ice fact-checked">
+        <span class="post-item-date">Mar 25, 2026</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">DHS shutdown</span><span class="post-item-tag">ICE</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">Republicans Are Holding TSA Paychecks Hostage for ICE Funding. Congress Noticed When Their Airport Fast Lane Got Taken Away.</div>
+          <div class="post-item-deck">Democrats tried to fund TSA 5 separate times. Republicans blocked it 5 times. Then Delta pulled Congress's skip-the-line privilege. Suddenly there's urgency.</div>
+        </div>
+      </a>
+      <a href="/blog/i-almost-ran-for-congress" class="post-item" data-date="2026-03-25" data-topics="" data-search="i almost ran for congress. the honest version of why i didn t — and what maga obstruction has to do with it. politics personal">
+        <span class="post-item-date">Mar 25, 2026</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">politics</span><span class="post-item-tag">personal</span></div>
+          <div class="post-item-title">I Almost Ran for Congress.</div>
+          <div class="post-item-deck">The honest version of why I didn't — and what MAGA obstruction has to do with it.</div>
+        </div>
+      </a>
+      <a href="/blog/i-said-what-i-said" class="post-item" data-date="2026-03-25" data-topics="" data-search="i said what i said. about that facebook post. yes, i meant every word. agree to disagree is for pizza toppings, not human rights. politics personal">
+        <span class="post-item-date">Mar 25, 2026</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">politics</span><span class="post-item-tag">personal</span></div>
+          <div class="post-item-title">I Said What I Said.</div>
+          <div class="post-item-deck">About that Facebook post. Yes, I meant every word. Agree to disagree is for pizza toppings, not human rights.</div>
+        </div>
+      </a>
+      <a href="/blog/iran-negotiating-with-itself" class="post-item" data-date="2026-03-25" data-topics="iran-war" data-search="iran says the us is  negotiating with itself.  iran s military asked if the us has started  negotiating with himself.  61% of americans disapprove. oil worse than 1973 and 1979 combined. iran war fact-checked">
+        <span class="post-item-date">Mar 25, 2026</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">Iran war</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">Iran Says the US Is "Negotiating With Itself."</div>
+          <div class="post-item-deck">Iran's military asked if the US has started "negotiating with himself." 61% of Americans disapprove. Oil worse than 1973 and 1979 combined.</div>
+        </div>
+      </a>
+      <a href="/blog/iran-war-insider-trading" class="post-item" data-date="2026-03-25" data-topics="corruption iran-war" data-search="iran-war-insider-trading  corruption iran war fact-checked">
+        <span class="post-item-date">Mar 25, 2026</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">corruption</span><span class="post-item-tag">Iran war</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">iran-war-insider-trading</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/mail-in-cheating-except-when-i-do-it" class="post-item" data-date="2026-03-25" data-topics="hypocrisy" data-search=" mail-in cheating.  — he said, mailing in his ballot. public records caught trump voting by mail from mar-a-lago while in-person voting was next door. nine days later:  cheating.  his defense:  i m president.  hypocrisy fact-checked">
+        <span class="post-item-date">Mar 25, 2026</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">hypocrisy</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">"Mail-In Cheating." — He Said, Mailing In His Ballot.</div>
+          <div class="post-item-deck">Public records caught Trump voting by mail from Mar-a-Lago while in-person voting was next door. Nine days later: "cheating." His defense: "I'm president."</div>
+        </div>
+      </a>
+      <a href="/blog/ice-detained-us-citizens" class="post-item" data-date="2026-03-20" data-topics="ice civil-rights immigration" data-search="ice-detained-us-citizens  ice civil rights immigration">
+        <span class="post-item-date">Mar 20, 2026</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">ICE</span><span class="post-item-tag">civil rights</span><span class="post-item-tag">immigration</span></div>
+          <div class="post-item-title">ice-detained-us-citizens</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/things-trump-just-made-up-this-week" class="post-item" data-date="2026-03-18" data-topics="lies" data-search="things trump just made up this week. 15 million phantom ballots. drugs down 97%. hormuz  doesn t affect us.  iran has tomahawks. all false. lies fact-checked">
+        <span class="post-item-date">Mar 18, 2026</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">lies</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">Things Trump Just Made Up This Week.</div>
+          <div class="post-item-deck">15 million phantom ballots. Drugs down 97%. Hormuz "doesn't affect us." Iran has Tomahawks. All false.</div>
+        </div>
+      </a>
+      <a href="/blog/trump-book-did-not-predict-911" class="post-item" data-date="2026-03-17" data-topics="iran-war lies history-revision" data-search="trump-book-did-not-predict-911  iran war lies history revision">
+        <span class="post-item-date">Mar 17, 2026</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">Iran war</span><span class="post-item-tag">lies</span><span class="post-item-tag">history revision</span></div>
+          <div class="post-item-title">trump-book-did-not-predict-911</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/iran-war-what-trump-knows-vs-reality" class="post-item" data-date="2026-03-15" data-topics="iran-war" data-search="trump s iran war: what he knows vs. what s actually happening. watching a 2-min highlight reel. wasn t told 5 us planes got hit. 59% say the war was wrong. iran war fact-checked">
+        <span class="post-item-date">Mar 15, 2026</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">Iran war</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">Trump's Iran War: What He Knows vs. What's Actually Happening.</div>
+          <div class="post-item-deck">Watching a 2-min highlight reel. Wasn't told 5 US planes got hit. 59% say the war was wrong.</div>
+        </div>
+      </a>
+      <a href="/blog/doge-killed-92000-jobs-in-one-month" class="post-item" data-date="2026-03-14" data-topics="doge economy" data-search="doge killed 92,000 jobs in february. gas is up 35% in one month. 63,583 private-sector layoffs directly blamed on doge. black unemployment at 7.7%. gas at $3.96. cabinet calls it a success. doge economy fact-checked">
+        <span class="post-item-date">Mar 14, 2026</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">DOGE</span><span class="post-item-tag">economy</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">DOGE Killed 92,000 Jobs in February. Gas Is Up 35% in One Month.</div>
+          <div class="post-item-deck">63,583 private-sector layoffs directly blamed on DOGE. Black unemployment at 7.7%. Gas at $3.96. Cabinet calls it a success.</div>
+        </div>
+      </a>
+      <a href="/blog/hes-lying-about-everything-again" class="post-item" data-date="2026-03-13" data-topics="lies" data-search="he s lying. about everything. again. tariff lies, voting fabrications, iran war falsehoods, and the white house strategy of saying  president trump is right  about false claims. lies fact-checked">
+        <span class="post-item-date">Mar 13, 2026</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">lies</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">He's Lying. About Everything. Again.</div>
+          <div class="post-item-deck">Tariff lies, voting fabrications, Iran war falsehoods, and the White House strategy of saying "President Trump is right" about false claims.</div>
+        </div>
+      </a>
+      <a href="/blog/leavitt-save-act-married-women" class="post-item" data-date="2026-03-10" data-topics="voting-rights save-act" data-search="leavitt said the save act won t affect married women. then she described how it would.  zero validity.  then:  they just have to go through their state processes.  same breath. 69 million women affected. voting rights save act fact-checked">
+        <span class="post-item-date">Mar 10, 2026</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">voting rights</span><span class="post-item-tag">SAVE Act</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">Leavitt Said the SAVE Act Won't Affect Married Women. Then She Described How It Would.</div>
+          <div class="post-item-deck">"Zero validity." Then: "They just have to go through their state processes." Same breath. 69 million women affected.</div>
+        </div>
+      </a>
+      <a href="/blog/your-wallet-called-it-wants-its-money-back" class="post-item" data-date="2026-03-10" data-topics="economy tariffs" data-search="your wallet called. it wants its money back. gas nearly $4. groceries up. doge check never came. tariff dividend is a fantasy. economy tariffs fact-checked">
+        <span class="post-item-date">Mar 10, 2026</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">economy</span><span class="post-item-tag">tariffs</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">Your Wallet Called. It Wants Its Money Back.</div>
+          <div class="post-item-deck">Gas nearly $4. Groceries up. DOGE check never came. Tariff dividend is a fantasy.</div>
+        </div>
+      </a>
+      <a href="/blog/trump-defying-courts-constitutional-crisis" class="post-item" data-date="2026-03-09" data-topics="courts rule-of-law constitutional-crisis" data-search="trump-defying-courts-constitutional-crisis  courts rule of law fact-checked constitutional crisis">
+        <span class="post-item-date">Mar 9, 2026</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">courts</span><span class="post-item-tag">rule of law</span><span class="post-item-tag">fact-checked</span><span class="post-item-tag">constitutional crisis</span></div>
+          <div class="post-item-title">trump-defying-courts-constitutional-crisis</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/the-state-of-the-union-was-fiction" class="post-item" data-date="2026-03-05" data-topics="sotu" data-search="the state of the union was a work of fiction. 8 documented lies. inflated numbers. fabricated crime stats. wars he didn t end. sotu fact-checked">
+        <span class="post-item-date">Mar 5, 2026</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">SOTU</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">The State of the Union Was a Work of Fiction.</div>
+          <div class="post-item-deck">8 documented lies. Inflated numbers. Fabricated crime stats. Wars he didn't end.</div>
+        </div>
+      </a>
+      <a href="/blog/we-will-always-protect-social-security" class="post-item" data-date="2026-03-05" data-topics="social-security doge" data-search=" we will always protect social security.  the biggest lie he s told yet. ssa gutted. medicare broke 12 years early. 64 million seniors getting less. he said always. social security doge fact-checked">
+        <span class="post-item-date">Mar 5, 2026</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">Social Security</span><span class="post-item-tag">DOGE</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">"We Will ALWAYS Protect Social Security." The Biggest Lie He's Told Yet.</div>
+          <div class="post-item-deck">SSA gutted. Medicare broke 12 years early. 64 million seniors getting less. He said ALWAYS.</div>
+        </div>
+      </a>
+      <a href="/blog/save-act-voter-suppression-not-integrity" class="post-item" data-date="2026-02-12" data-topics="voting-rights save-act suppression" data-search="save-act-voter-suppression-not-integrity  voting rights save act suppression">
+        <span class="post-item-date">Feb 12, 2026</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">voting rights</span><span class="post-item-tag">SAVE Act</span><span class="post-item-tag">suppression</span></div>
+          <div class="post-item-title">save-act-voter-suppression-not-integrity</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/zelensky-nobel-peace-prize-trump-dictator" class="post-item" data-date="2026-01-16" data-topics="ukraine" data-search="zelensky-nobel-peace-prize-trump-dictator  ukraine fact-checked">
+        <span class="post-item-date">Jan 16, 2026</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">Ukraine</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">zelensky-nobel-peace-prize-trump-dictator</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/tariffs-are-a-tax-and-you-are-paying-it" class="post-item" data-date="2026-01-03" data-topics="economy tariffs lies" data-search="tariffs-are-a-tax-and-you-are-paying-it  economy tariffs lies">
+        <span class="post-item-date">Jan 3, 2026</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">economy</span><span class="post-item-tag">tariffs</span><span class="post-item-tag">lies</span></div>
+          <div class="post-item-title">tariffs-are-a-tax-and-you-are-paying-it</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/trump-thinks-a-dementia-test-is-an-iq-test" class="post-item" data-date="2025-10-27" data-topics="lol" data-search="he thinks a dementia test is an iq test. and he s bragging about it. aced a dementia screening, called it an iq test, challenged aoc. one task: identify a giraffe. the test creator: not an iq test. fact-checked lol">
+        <span class="post-item-date">Oct 27, 2025</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">fact-checked</span><span class="post-item-tag">lol</span></div>
+          <div class="post-item-title">He Thinks a Dementia Test Is an IQ Test. And He's Bragging About It.</div>
+          <div class="post-item-deck">Aced a dementia screening, called it an IQ test, challenged AOC. One task: identify a giraffe. The test creator: not an IQ test.</div>
+        </div>
+      </a>
+      <a href="/blog/one-big-beautiful-bill-medicaid-cuts" class="post-item" data-date="2025-07-04" data-topics="medicaid healthcare obbba" data-search="one-big-beautiful-bill-medicaid-cuts  medicaid healthcare obbba">
+        <span class="post-item-date">Jul 4, 2025</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">Medicaid</span><span class="post-item-tag">healthcare</span><span class="post-item-tag">OBBBA</span></div>
+          <div class="post-item-title">one-big-beautiful-bill-medicaid-cuts</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/alien-enemies-act-intelligence-said-no" class="post-item" data-date="2025-03-15" data-topics="alien-enemies-act immigration due-process" data-search="alien-enemies-act-intelligence-said-no  alien enemies act immigration due process">
+        <span class="post-item-date">Mar 15, 2025</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">Alien Enemies Act</span><span class="post-item-tag">immigration</span><span class="post-item-tag">due process</span></div>
+          <div class="post-item-title">alien-enemies-act-intelligence-said-no</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/they-deported-him-to-the-wrong-country" class="post-item" data-date="2025-03-15" data-topics="ice deportation due-process" data-search="they-deported-him-to-the-wrong-country  ice deportation due process">
+        <span class="post-item-date">Mar 15, 2025</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">ICE</span><span class="post-item-tag">deportation</span><span class="post-item-tag">due process</span></div>
+          <div class="post-item-title">they-deported-him-to-the-wrong-country</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/birthright-citizenship-14th-amendment-trump" class="post-item" data-date="2025-01-20" data-topics="birthright-citizenship 14th-amendment constitution" data-search="birthright-citizenship-14th-amendment-trump  birthright citizenship 14th amendment constitution fact-checked">
+        <span class="post-item-date">Jan 20, 2025</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">birthright citizenship</span><span class="post-item-tag">14th Amendment</span><span class="post-item-tag">Constitution</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">birthright-citizenship-14th-amendment-trump</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/ice-enforcement-schools-churches" class="post-item" data-date="2025-01-20" data-topics="ice schools churches" data-search="ice-enforcement-schools-churches  ice schools churches fact-checked">
+        <span class="post-item-date">Jan 20, 2025</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">ICE</span><span class="post-item-tag">schools</span><span class="post-item-tag">churches</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">ice-enforcement-schools-churches</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/proud-boys-oath-keepers-pardons" class="post-item" data-date="2025-01-20" data-topics="january-6 pardons seditious-conspiracy" data-search="proud-boys-oath-keepers-pardons  january 6 pardons seditious conspiracy fact-checked">
+        <span class="post-item-date">Jan 20, 2025</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">January 6</span><span class="post-item-tag">pardons</span><span class="post-item-tag">seditious conspiracy</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">proud-boys-oath-keepers-pardons</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/trump-meme-coin-foreign-corruption" class="post-item" data-date="2025-01-17" data-topics="meme-coin corruption foreign-payments" data-search="trump-meme-coin-foreign-corruption  meme coin corruption foreign payments fact-checked">
+        <span class="post-item-date">Jan 17, 2025</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">meme coin</span><span class="post-item-tag">corruption</span><span class="post-item-tag">foreign payments</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">trump-meme-coin-foreign-corruption</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/supreme-court-presidential-immunity-king" class="post-item" data-date="2024-07-01" data-topics="supreme-court rule-of-law democracy" data-search="supreme-court-presidential-immunity-king  supreme court rule of law democracy fact-checked">
+        <span class="post-item-date">Jul 1, 2024</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">Supreme Court</span><span class="post-item-tag">rule of law</span><span class="post-item-tag">democracy</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">supreme-court-presidential-immunity-king</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/trump-hush-money-stormy-daniels" class="post-item" data-date="2024-05-30" data-topics="hush-money conviction 34-felonies" data-search="trump-hush-money-stormy-daniels  hush money conviction 34 felonies fact-checked">
+        <span class="post-item-date">May 30, 2024</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">hush money</span><span class="post-item-tag">conviction</span><span class="post-item-tag">34 felonies</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">trump-hush-money-stormy-daniels</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/e-jean-carroll-rape-verdict" class="post-item" data-date="2023-05-09" data-topics="sexual-abuse defamation civil-verdict" data-search="e-jean-carroll-rape-verdict  sexual abuse defamation civil verdict fact-checked">
+        <span class="post-item-date">May 9, 2023</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">sexual abuse</span><span class="post-item-tag">defamation</span><span class="post-item-tag">civil verdict</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">e-jean-carroll-rape-verdict</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/trump-org-criminal-conviction" class="post-item" data-date="2022-12-06" data-topics="trump-organization tax-fraud convicted" data-search="trump-org-criminal-conviction  trump organization tax fraud convicted fact-checked">
+        <span class="post-item-date">Dec 6, 2022</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">Trump Organization</span><span class="post-item-tag">tax fraud</span><span class="post-item-tag">convicted</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">trump-org-criminal-conviction</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/trump-abortion-dobbs-credit" class="post-item" data-date="2022-06-24" data-topics="abortion dobbs supreme-court" data-search="trump-abortion-dobbs-credit  abortion dobbs supreme court fact-checked">
+        <span class="post-item-date">Jun 24, 2022</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">abortion</span><span class="post-item-tag">Dobbs</span><span class="post-item-tag">Supreme Court</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">trump-abortion-dobbs-credit</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/january-6-planned-insurrection" class="post-item" data-date="2021-01-06" data-topics="january-6 insurrection election-fraud" data-search="january-6-planned-insurrection  january 6 insurrection election fraud fact-checked">
+        <span class="post-item-date">Jan 6, 2021</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">January 6</span><span class="post-item-tag">insurrection</span><span class="post-item-tag">election fraud</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">january-6-planned-insurrection</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/georgia-phone-call-find-votes" class="post-item" data-date="2021-01-02" data-topics="georgia election-fraud pressure-campaign" data-search="georgia-phone-call-find-votes  georgia election fraud pressure campaign fact-checked">
+        <span class="post-item-date">Jan 2, 2021</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">Georgia</span><span class="post-item-tag">election fraud</span><span class="post-item-tag">pressure campaign</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">georgia-phone-call-find-votes</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/cisa-krebs-fired-secure-election" class="post-item" data-date="2020-11-17" data-topics="election-security krebs retaliation" data-search="cisa-krebs-fired-secure-election  election security krebs retaliation fact-checked">
+        <span class="post-item-date">Nov 17, 2020</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">election security</span><span class="post-item-tag">Krebs</span><span class="post-item-tag">retaliation</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">cisa-krebs-fired-secure-election</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/proud-boys-stand-back-stand-by" class="post-item" data-date="2020-09-29" data-topics="proud-boys white-supremacy debate" data-search="proud-boys-stand-back-stand-by  proud boys white supremacy debate fact-checked">
+        <span class="post-item-date">Sep 29, 2020</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">Proud Boys</span><span class="post-item-tag">white supremacy</span><span class="post-item-tag">debate</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">proud-boys-stand-back-stand-by</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/steve-bannon-border-wall-fraud" class="post-item" data-date="2020-08-20" data-topics="bannon fraud border-wall" data-search="steve-bannon-border-wall-fraud  bannon fraud border wall fact-checked">
+        <span class="post-item-date">Aug 20, 2020</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">Bannon</span><span class="post-item-tag">fraud</span><span class="post-item-tag">border wall</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">steve-bannon-border-wall-fraud</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/lafayette-square-bible-photo" class="post-item" data-date="2020-06-01" data-topics="racial-justice abuse-of-power blm" data-search="lafayette-square-bible-photo  racial justice abuse of power blm fact-checked">
+        <span class="post-item-date">Jun 1, 2020</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">racial justice</span><span class="post-item-tag">abuse of power</span><span class="post-item-tag">BLM</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">lafayette-square-bible-photo</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/soleimani-assassination-war-powers" class="post-item" data-date="2020-01-03" data-topics="iran war-powers soleimani" data-search="soleimani-assassination-war-powers  iran war powers soleimani fact-checked">
+        <span class="post-item-date">Jan 3, 2020</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">Iran</span><span class="post-item-tag">war powers</span><span class="post-item-tag">Soleimani</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">soleimani-assassination-war-powers</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/covid-hydroxychloroquine-bleach" class="post-item" data-date="2020-01-01" data-topics="covid misinformation hydroxychloroquine" data-search="covid-hydroxychloroquine-bleach  covid misinformation hydroxychloroquine fact-checked">
+        <span class="post-item-date">Jan 1, 2020</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">COVID</span><span class="post-item-tag">misinformation</span><span class="post-item-tag">hydroxychloroquine</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">covid-hydroxychloroquine-bleach</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/covid-mismanagement-woodward" class="post-item" data-date="2020-01-01" data-topics="covid 400000-dead pandemic" data-search="covid-mismanagement-woodward  covid 400,000 dead pandemic fact-checked">
+        <span class="post-item-date">Jan 1, 2020</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">COVID</span><span class="post-item-tag">400,000 dead</span><span class="post-item-tag">pandemic</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">covid-mismanagement-woodward</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/ukraine-extortion-first-impeachment" class="post-item" data-date="2019-07-25" data-topics="ukraine impeachment abuse-of-power" data-search="ukraine-extortion-first-impeachment  ukraine impeachment abuse of power fact-checked">
+        <span class="post-item-date">Jul 25, 2019</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">Ukraine</span><span class="post-item-tag">impeachment</span><span class="post-item-tag">abuse of power</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">ukraine-extortion-first-impeachment</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/census-citizenship-question" class="post-item" data-date="2019-06-27" data-topics="census voter-suppression gerrymandering" data-search="census-citizenship-question  census voter suppression gerrymandering fact-checked">
+        <span class="post-item-date">Jun 27, 2019</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">census</span><span class="post-item-tag">voter suppression</span><span class="post-item-tag">gerrymandering</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">census-citizenship-question</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/mueller-report-findings" class="post-item" data-date="2019-04-18" data-topics="mueller obstruction russia" data-search="mueller-report-findings  mueller obstruction russia fact-checked">
+        <span class="post-item-date">Apr 18, 2019</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">Mueller</span><span class="post-item-tag">obstruction</span><span class="post-item-tag">Russia</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">mueller-report-findings</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/trump-emoluments-golan-heights" class="post-item" data-date="2019-03-25" data-topics="golan-heights israel international-law" data-search="trump-emoluments-golan-heights  golan heights israel international law fact-checked">
+        <span class="post-item-date">Mar 25, 2019</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">Golan Heights</span><span class="post-item-tag">Israel</span><span class="post-item-tag">international law</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">trump-emoluments-golan-heights</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/border-wall-emergency-declaration" class="post-item" data-date="2019-02-15" data-topics="border-wall government-shutdown national-emergency" data-search="border-wall-emergency-declaration  border wall government shutdown national emergency fact-checked">
+        <span class="post-item-date">Feb 15, 2019</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">border wall</span><span class="post-item-tag">government shutdown</span><span class="post-item-tag">national emergency</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">border-wall-emergency-declaration</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/remain-in-mexico-asylum-policy" class="post-item" data-date="2019-01-01" data-topics="asylum remain-in-mexico 1500-attacks" data-search="remain-in-mexico-asylum-policy  asylum remain in mexico 1,500+ attacks fact-checked">
+        <span class="post-item-date">Jan 1, 2019</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">asylum</span><span class="post-item-tag">Remain in Mexico</span><span class="post-item-tag">1,500+ attacks</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">remain-in-mexico-asylum-policy</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/trump-attacks-judges" class="post-item" data-date="2019-01-01" data-topics="judiciary rule-of-law" data-search="trump-attacks-judges  judiciary rule of law fact-checked">
+        <span class="post-item-date">Jan 1, 2019</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">judiciary</span><span class="post-item-tag">rule of law</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">trump-attacks-judges</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/trump-shutdown-2018-35-days" class="post-item" data-date="2018-12-22" data-topics="shutdown border-wall economic-damage" data-search="trump-shutdown-2018-35-days  shutdown border wall economic damage fact-checked">
+        <span class="post-item-date">Dec 22, 2018</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">shutdown</span><span class="post-item-tag">border wall</span><span class="post-item-tag">economic damage</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">trump-shutdown-2018-35-days</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/helsinki-summit-putin-sided" class="post-item" data-date="2018-07-16" data-topics="russia putin intelligence" data-search="helsinki-summit-putin-sided  russia putin intelligence fact-checked">
+        <span class="post-item-date">Jul 16, 2018</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">Russia</span><span class="post-item-tag">Putin</span><span class="post-item-tag">intelligence</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">helsinki-summit-putin-sided</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/iran-nuclear-deal-withdrawal" class="post-item" data-date="2018-05-08" data-topics="iran nuclear-deal jcpoa" data-search="iran-nuclear-deal-withdrawal  iran nuclear deal jcpoa fact-checked">
+        <span class="post-item-date">May 8, 2018</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">Iran</span><span class="post-item-tag">nuclear deal</span><span class="post-item-tag">JCPOA</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">iran-nuclear-deal-withdrawal</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/trump-shithole-countries" class="post-item" data-date="2018-01-11" data-topics="racism immigration" data-search="trump-shithole-countries  racism immigration on the record fact-checked">
+        <span class="post-item-date">Jan 11, 2018</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">racism</span><span class="post-item-tag">immigration</span><span class="post-item-tag">on the record</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">trump-shithole-countries</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/tax-cuts-deficit-explosion" class="post-item" data-date="2017-12-22" data-topics="tax-cuts deficit economy" data-search="tax-cuts-deficit-explosion  tax cuts deficit economy fact-checked">
+        <span class="post-item-date">Dec 22, 2017</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">tax cuts</span><span class="post-item-tag">deficit</span><span class="post-item-tag">economy</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">tax-cuts-deficit-explosion</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/net-neutrality-killed" class="post-item" data-date="2017-12-14" data-topics="net-neutrality internet fcc" data-search="net-neutrality-killed  net neutrality internet fcc fact-checked">
+        <span class="post-item-date">Dec 14, 2017</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">net neutrality</span><span class="post-item-tag">internet</span><span class="post-item-tag">FCC</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">net-neutrality-killed</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/opioid-crisis-declared-emergency-did-nothing" class="post-item" data-date="2017-10-26" data-topics="opioid-crisis public-health empty-promise" data-search="opioid-crisis-declared-emergency-did-nothing  opioid crisis public health empty promise fact-checked">
+        <span class="post-item-date">Oct 26, 2017</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">opioid crisis</span><span class="post-item-tag">public health</span><span class="post-item-tag">empty promise</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">opioid-crisis-declared-emergency-did-nothing</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/daca-termination-dreamers" class="post-item" data-date="2017-09-05" data-topics="daca dreamers immigration" data-search="daca-termination-dreamers  daca dreamers immigration fact-checked">
+        <span class="post-item-date">Sep 5, 2017</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">DACA</span><span class="post-item-tag">Dreamers</span><span class="post-item-tag">immigration</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">daca-termination-dreamers</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/arpaio-pardon-tent-city" class="post-item" data-date="2017-08-25" data-topics="arpaio pardon racial-profiling" data-search="arpaio-pardon-tent-city  arpaio pardon racial profiling fact-checked">
+        <span class="post-item-date">Aug 25, 2017</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">Arpaio</span><span class="post-item-tag">pardon</span><span class="post-item-tag">racial profiling</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">arpaio-pardon-tent-city</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/charlottesville-very-fine-people" class="post-item" data-date="2017-08-12" data-topics="white-supremacy charlottesville domestic-terrorism" data-search="charlottesville-very-fine-people  white supremacy charlottesville domestic terrorism fact-checked">
+        <span class="post-item-date">Aug 12, 2017</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">white supremacy</span><span class="post-item-tag">Charlottesville</span><span class="post-item-tag">domestic terrorism</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">charlottesville-very-fine-people</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/obamacare-repeal-mccain-thumbs-down" class="post-item" data-date="2017-07-28" data-topics="aca-repeal mccain healthcare" data-search="obamacare-repeal-mccain-thumbs-down  aca repeal mccain healthcare fact-checked">
+        <span class="post-item-date">Jul 28, 2017</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">ACA repeal</span><span class="post-item-tag">McCain</span><span class="post-item-tag">healthcare</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">obamacare-repeal-mccain-thumbs-down</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/trumpcare-ahca-failure" class="post-item" data-date="2017-07-28" data-topics="ahca healthcare mccain" data-search="trumpcare-ahca-failure  ahca healthcare mccain fact-checked">
+        <span class="post-item-date">Jul 28, 2017</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">AHCA</span><span class="post-item-tag">healthcare</span><span class="post-item-tag">McCain</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">trumpcare-ahca-failure</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/trans-military-ban" class="post-item" data-date="2017-07-26" data-topics="lgbtq military discrimination" data-search="trans-military-ban  lgbtq military discrimination fact-checked">
+        <span class="post-item-date">Jul 26, 2017</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">LGBTQ</span><span class="post-item-tag">military</span><span class="post-item-tag">discrimination</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">trans-military-ban</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/trump-classified-intel-russia-lavrov" class="post-item" data-date="2017-05-10" data-topics="russia intelligence national-security" data-search="trump-classified-intel-russia-lavrov  russia intelligence national security fact-checked">
+        <span class="post-item-date">May 10, 2017</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">Russia</span><span class="post-item-tag">intelligence</span><span class="post-item-tag">national security</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">trump-classified-intel-russia-lavrov</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/firing-james-comey" class="post-item" data-date="2017-05-09" data-topics="comey obstruction russia-investigation" data-search="firing-james-comey  comey obstruction russia investigation fact-checked">
+        <span class="post-item-date">May 9, 2017</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">Comey</span><span class="post-item-tag">obstruction</span><span class="post-item-tag">Russia investigation</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">firing-james-comey</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/muslim-ban-executive-order" class="post-item" data-date="2017-01-27" data-topics="muslim-ban immigration discrimination" data-search="muslim-ban-executive-order  muslim ban immigration discrimination fact-checked">
+        <span class="post-item-date">Jan 27, 2017</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">Muslim ban</span><span class="post-item-tag">immigration</span><span class="post-item-tag">discrimination</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">muslim-ban-executive-order</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/trump-inauguration-crowd-lies" class="post-item" data-date="2017-01-21" data-topics="lies day-one alternative-facts" data-search="trump-inauguration-crowd-lies  lies day one alternative facts fact-checked">
+        <span class="post-item-date">Jan 21, 2017</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">lies</span><span class="post-item-tag">Day One</span><span class="post-item-tag">alternative facts</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">trump-inauguration-crowd-lies</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/access-hollywood-tape" class="post-item" data-date="2016-10-07" data-topics="access-hollywood sexual-misconduct" data-search="access-hollywood-tape  access hollywood sexual misconduct on tape fact-checked">
+        <span class="post-item-date">Oct 7, 2016</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">Access Hollywood</span><span class="post-item-tag">sexual misconduct</span><span class="post-item-tag">on tape</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">access-hollywood-tape</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/trump-could-shoot-someone-5th-avenue" class="post-item" data-date="2016-01-23" data-topics="impunity accountability" data-search="trump-could-shoot-someone-5th-avenue  impunity accountability on the record fact-checked">
+        <span class="post-item-date">Jan 23, 2016</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">impunity</span><span class="post-item-tag">accountability</span><span class="post-item-tag">on the record</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">trump-could-shoot-someone-5th-avenue</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/4-6-million-lost-health-insurance" class="post-item" data-date="1970-01-01" data-topics="healthcare uninsured" data-search="4-6-million-lost-health-insurance  healthcare uninsured broken promises fact-checked">
+        <span class="post-item-date">2017–2019</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">healthcare</span><span class="post-item-tag">uninsured</span><span class="post-item-tag">broken promises</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">4-6-million-lost-health-insurance</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/aca-sabotage-first-term" class="post-item" data-date="1970-01-01" data-topics="aca healthcare sabotage" data-search="aca-sabotage-first-term  aca healthcare sabotage fact-checked">
+        <span class="post-item-date">2017–2021</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">ACA</span><span class="post-item-tag">healthcare</span><span class="post-item-tag">sabotage</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">aca-sabotage-first-term</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/consumer-financial-protection-gutted" class="post-item" data-date="1970-01-01" data-topics="cfpb consumer-protection banking" data-search="consumer-financial-protection-gutted  cfpb consumer protection banking fact-checked">
+        <span class="post-item-date">November 2017</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">CFPB</span><span class="post-item-tag">consumer protection</span><span class="post-item-tag">banking</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">consumer-financial-protection-gutted</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/doge-gutted-science-research" class="post-item" data-date="1970-01-01" data-topics="doge science nasa" data-search="doge-gutted-science-research  doge science nasa fact-checked">
+        <span class="post-item-date">November 2025</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">DOGE</span><span class="post-item-tag">science</span><span class="post-item-tag">NASA</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">doge-gutted-science-research</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/environment-paris-epa-rollbacks" class="post-item" data-date="1970-01-01" data-topics="environment climate epa-rollbacks" data-search="environment-paris-epa-rollbacks  environment climate epa rollbacks fact-checked">
+        <span class="post-item-date">2017–2021</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">environment</span><span class="post-item-tag">climate</span><span class="post-item-tag">EPA rollbacks</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">environment-paris-epa-rollbacks</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/erdogan-call-abandoned-kurds-syria" class="post-item" data-date="1970-01-01" data-topics="syria kurds isis" data-search="erdogan-call-abandoned-kurds-syria  syria kurds isis fact-checked">
+        <span class="post-item-date">October 2019</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">Syria</span><span class="post-item-tag">Kurds</span><span class="post-item-tag">ISIS</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">erdogan-call-abandoned-kurds-syria</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/family-separation-zero-tolerance" class="post-item" data-date="1970-01-01" data-topics="family-separation children immigration" data-search="family-separation-zero-tolerance  family separation children immigration fact-checked">
+        <span class="post-item-date">April 2018</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">family separation</span><span class="post-item-tag">children</span><span class="post-item-tag">immigration</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">family-separation-zero-tolerance</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/federal-reserve-independence-attacked" class="post-item" data-date="1970-01-01" data-topics="federal-reserve independence supreme-court" data-search="federal-reserve-independence-attacked  federal reserve independence supreme court fact-checked">
+        <span class="post-item-date">September 2025</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">Federal Reserve</span><span class="post-item-tag">independence</span><span class="post-item-tag">Supreme Court</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">federal-reserve-independence-attacked</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/firing-inspectors-general" class="post-item" data-date="1970-01-01" data-topics="inspectors-general oversight rule-of-law" data-search="firing-inspectors-general  inspectors general oversight rule of law fact-checked">
+        <span class="post-item-date">Spring 2020</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">inspectors general</span><span class="post-item-tag">oversight</span><span class="post-item-tag">rule of law</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">firing-inspectors-general</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/first-term-trade-war-china" class="post-item" data-date="1970-01-01" data-topics="trade-war china farmers" data-search="first-term-trade-war-china  trade war china farmers fact-checked">
+        <span class="post-item-date">2018–2020</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">trade war</span><span class="post-item-tag">China</span><span class="post-item-tag">farmers</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">first-term-trade-war-china</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/hegseth-alcohol-women-pentagon" class="post-item" data-date="1970-01-01" data-topics="hegseth pentagon confirmation" data-search="hegseth-alcohol-women-pentagon  hegseth pentagon confirmation fact-checked">
+        <span class="post-item-date">January 2025</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">Hegseth</span><span class="post-item-tag">Pentagon</span><span class="post-item-tag">confirmation</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">hegseth-alcohol-women-pentagon</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/jared-ivanka-federal-payroll" class="post-item" data-date="1970-01-01" data-topics="nepotism jared-kushner conflicts-of-interest" data-search="jared-ivanka-federal-payroll  nepotism jared kushner conflicts of interest fact-checked">
+        <span class="post-item-date">2017–2021</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">nepotism</span><span class="post-item-tag">Jared Kushner</span><span class="post-item-tag">conflicts of interest</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">jared-ivanka-federal-payroll</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/khashoggi-murder-saudi-response" class="post-item" data-date="1970-01-01" data-topics="khashoggi saudi-arabia murder" data-search="khashoggi-murder-saudi-response  khashoggi saudi arabia murder fact-checked">
+        <span class="post-item-date">October 2018</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">Khashoggi</span><span class="post-item-tag">Saudi Arabia</span><span class="post-item-tag">murder</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">khashoggi-murder-saudi-response</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/kids-in-cages-detention-conditions" class="post-item" data-date="1970-01-01" data-topics="detention children immigration" data-search="kids-in-cages-detention-conditions  detention children immigration fact-checked">
+        <span class="post-item-date">2018–2019</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">detention</span><span class="post-item-tag">children</span><span class="post-item-tag">immigration</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">kids-in-cages-detention-conditions</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/michael-flynn-24-days-nsa" class="post-item" data-date="1970-01-01" data-topics="flynn russia obstruction" data-search="michael-flynn-24-days-nsa  flynn russia obstruction fact-checked">
+        <span class="post-item-date">January–February 2017</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">Flynn</span><span class="post-item-tag">Russia</span><span class="post-item-tag">obstruction</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">michael-flynn-24-days-nsa</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/military-families-hurt-trump" class="post-item" data-date="1970-01-01" data-topics="military veterans fallen-soldiers" data-search="military-families-hurt-trump  military veterans fallen soldiers fact-checked">
+        <span class="post-item-date">November 2018</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">military</span><span class="post-item-tag">veterans</span><span class="post-item-tag">fallen soldiers</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">military-families-hurt-trump</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/mueller-russia-pardons-cronies" class="post-item" data-date="1970-01-01" data-topics="pardons russia-investigation mueller" data-search="mueller-russia-pardons-cronies  pardons russia investigation mueller fact-checked">
+        <span class="post-item-date">January 2021</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">pardons</span><span class="post-item-tag">Russia investigation</span><span class="post-item-tag">Mueller</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">mueller-russia-pardons-cronies</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/musk-doge-conflicts-interest" class="post-item" data-date="1970-01-01" data-topics="musk doge conflicts-of-interest" data-search="musk-doge-conflicts-interest  musk doge conflicts of interest fact-checked">
+        <span class="post-item-date">January–November 2025</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">Musk</span><span class="post-item-tag">DOGE</span><span class="post-item-tag">conflicts of interest</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">musk-doge-conflicts-interest</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/nato-undermining-first-term" class="post-item" data-date="1970-01-01" data-topics="nato article-5 national-security" data-search="nato-undermining-first-term  nato article 5 national security fact-checked">
+        <span class="post-item-date">2017–2021</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">NATO</span><span class="post-item-tag">Article 5</span><span class="post-item-tag">national security</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">nato-undermining-first-term</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/north-korea-summits-kim" class="post-item" data-date="1970-01-01" data-topics="north-korea kim-jong-un national-security" data-search="north-korea-summits-kim  north korea kim jong un national security fact-checked">
+        <span class="post-item-date">2018–2019</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">North Korea</span><span class="post-item-tag">Kim Jong Un</span><span class="post-item-tag">national security</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">north-korea-summits-kim</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/nra-gun-control-zero-action" class="post-item" data-date="1970-01-01" data-topics="nra gun-violence mass-shootings" data-search="nra-gun-control-zero-action  nra gun violence mass shootings fact-checked">
+        <span class="post-item-date">2017–2021</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">NRA</span><span class="post-item-tag">gun violence</span><span class="post-item-tag">mass shootings</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">nra-gun-control-zero-action</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/osha-worker-safety-gutted" class="post-item" data-date="1970-01-01" data-topics="workers osha workplace-safety" data-search="osha-worker-safety-gutted  workers osha workplace safety fact-checked">
+        <span class="post-item-date">2017–2021</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">workers</span><span class="post-item-tag">OSHA</span><span class="post-item-tag">workplace safety</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">osha-worker-safety-gutted</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/portland-federal-agents-protesters" class="post-item" data-date="1970-01-01" data-topics="portland protesters federal-overreach" data-search="portland-federal-agents-protesters  portland protesters federal overreach fact-checked">
+        <span class="post-item-date">July 2020</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">Portland</span><span class="post-item-tag">protesters</span><span class="post-item-tag">federal overreach</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">portland-federal-agents-protesters</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/postal-service-sabotage-dejoy" class="post-item" data-date="1970-01-01" data-topics="usps dejoy election-interference" data-search="postal-service-sabotage-dejoy  usps dejoy election interference fact-checked">
+        <span class="post-item-date">May 2020</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">USPS</span><span class="post-item-tag">DeJoy</span><span class="post-item-tag">election interference</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">postal-service-sabotage-dejoy</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/prescription-drug-prices-lies" class="post-item" data-date="1970-01-01" data-topics="prescription-drugs healthcare-costs lies" data-search="prescription-drug-prices-lies  prescription drugs healthcare costs lies fact-checked">
+        <span class="post-item-date">February 2020</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">prescription drugs</span><span class="post-item-tag">healthcare costs</span><span class="post-item-tag">lies</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">prescription-drug-prices-lies</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/press-freedom-enemy-of-people" class="post-item" data-date="1970-01-01" data-topics="press-freedom first-amendment" data-search="press-freedom-enemy-of-people  press freedom first amendment fact-checked">
+        <span class="post-item-date">2017–2021</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">press freedom</span><span class="post-item-tag">First Amendment</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">press-freedom-enemy-of-people</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/rose-garden-superspreader-covid" class="post-item" data-date="1970-01-01" data-topics="covid superspreader white-house" data-search="rose-garden-superspreader-covid  covid superspreader white house fact-checked">
+        <span class="post-item-date">September–October 2020</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">COVID</span><span class="post-item-tag">superspreader</span><span class="post-item-tag">White House</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">rose-garden-superspreader-covid</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/second-impeachment-incitement-insurrection" class="post-item" data-date="1970-01-01" data-topics="impeachment january-6 insurrection" data-search="second-impeachment-incitement-insurrection  impeachment january 6 insurrection fact-checked">
+        <span class="post-item-date">January 13</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">impeachment</span><span class="post-item-tag">January 6</span><span class="post-item-tag">insurrection</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">second-impeachment-incitement-insurrection</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/signal-chat-hegseth-war-plans" class="post-item" data-date="1970-01-01" data-topics="hegseth signal-chat national-security" data-search="signal-chat-hegseth-war-plans  hegseth signal chat national security fact-checked">
+        <span class="post-item-date">March 2025</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">Hegseth</span><span class="post-item-tag">Signal chat</span><span class="post-item-tag">national security</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">signal-chat-hegseth-war-plans</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/snap-cuts-food-assistance" class="post-item" data-date="1970-01-01" data-topics="snap food-security poverty" data-search="snap-cuts-food-assistance  snap food security poverty fact-checked">
+        <span class="post-item-date">2017–2020</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">SNAP</span><span class="post-item-tag">food security</span><span class="post-item-tag">poverty</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">snap-cuts-food-assistance</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/snap-food-stamps-cuts-first-term" class="post-item" data-date="1970-01-01" data-topics="snap food-assistance working-poor" data-search="snap-food-stamps-cuts-first-term  snap food assistance working poor fact-checked">
+        <span class="post-item-date">December 2019</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">SNAP</span><span class="post-item-tag">food assistance</span><span class="post-item-tag">working poor</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">snap-food-stamps-cuts-first-term</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/stephen-miller-white-nationalist-emails" class="post-item" data-date="1970-01-01" data-topics="stephen-miller white-nationalism immigration" data-search="stephen-miller-white-nationalist-emails  stephen miller white nationalism immigration fact-checked">
+        <span class="post-item-date">November 2019</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">Stephen Miller</span><span class="post-item-tag">white nationalism</span><span class="post-item-tag">immigration</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">stephen-miller-white-nationalist-emails</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/student-loan-borrower-protections" class="post-item" data-date="1970-01-01" data-topics="betsy-devos student-loans for-profit-colleges" data-search="student-loan-borrower-protections  betsy devos student loans for-profit colleges fact-checked">
+        <span class="post-item-date">2017–2021</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">Betsy DeVos</span><span class="post-item-tag">student loans</span><span class="post-item-tag">for-profit colleges</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">student-loan-borrower-protections</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/student-loan-scam-schools-protected" class="post-item" data-date="1970-01-01" data-topics="education student-loans for-profit-schools" data-search="student-loan-scam-schools-protected  education student loans for-profit schools fact-checked">
+        <span class="post-item-date">2017–2021</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">education</span><span class="post-item-tag">student loans</span><span class="post-item-tag">for-profit schools</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">student-loan-scam-schools-protected</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/supreme-court-stolen-seat-mcconnell" class="post-item" data-date="1970-01-01" data-topics="supreme-court roe-v-wade hypocrisy" data-search="supreme-court-stolen-seat-mcconnell  supreme court roe v wade hypocrisy fact-checked">
+        <span class="post-item-date">2016–2022</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">Supreme Court</span><span class="post-item-tag">Roe v Wade</span><span class="post-item-tag">hypocrisy</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">supreme-court-stolen-seat-mcconnell</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/trump-30573-lies" class="post-item" data-date="1970-01-01" data-topics="lies" data-search="trump-30573-lies  lies fact-checked washington post">
+        <span class="post-item-date">2017–2021</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">lies</span><span class="post-item-tag">fact-checked</span><span class="post-item-tag">Washington Post</span></div>
+          <div class="post-item-title">trump-30573-lies</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/trump-attacks-mccain-gold-star" class="post-item" data-date="1970-01-01" data-topics="mccain gold-star cruelty" data-search="trump-attacks-mccain-gold-star  mccain gold star cruelty fact-checked">
+        <span class="post-item-date">2015–2018</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">McCain</span><span class="post-item-tag">Gold Star</span><span class="post-item-tag">cruelty</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">trump-attacks-mccain-gold-star</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/trump-cabinet-corruption-charter-flights" class="post-item" data-date="1970-01-01" data-topics="corruption cabinet taxpayer-waste" data-search="trump-cabinet-corruption-charter-flights  corruption cabinet taxpayer waste fact-checked">
+        <span class="post-item-date">2017–2021</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">corruption</span><span class="post-item-tag">cabinet</span><span class="post-item-tag">taxpayer waste</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">trump-cabinet-corruption-charter-flights</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/trump-called-military-losers-suckers" class="post-item" data-date="1970-01-01" data-topics="military veterans contempt" data-search="trump-called-military-losers-suckers  military veterans contempt fact-checked">
+        <span class="post-item-date">November 2018</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">military</span><span class="post-item-tag">veterans</span><span class="post-item-tag">contempt</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">trump-called-military-losers-suckers</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/trump-debt-added-7-trillion" class="post-item" data-date="1970-01-01" data-topics="national-debt fiscal-policy hypocrisy" data-search="trump-debt-added-7-trillion  national debt fiscal policy hypocrisy fact-checked">
+        <span class="post-item-date">2017–2021</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">national debt</span><span class="post-item-tag">fiscal policy</span><span class="post-item-tag">hypocrisy</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">trump-debt-added-7-trillion</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/trump-drug-prices-promise-broken" class="post-item" data-date="1970-01-01" data-topics="drug-prices pharma broken-promise" data-search="trump-drug-prices-promise-broken  drug prices pharma broken promise fact-checked">
+        <span class="post-item-date">2017–2021</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">drug prices</span><span class="post-item-tag">pharma</span><span class="post-item-tag">broken promise</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">trump-drug-prices-promise-broken</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/trump-election-lies-2020" class="post-item" data-date="1970-01-01" data-topics="election-lies 2020-election big-lie" data-search="trump-election-lies-2020  election lies 2020 election big lie fact-checked">
+        <span class="post-item-date">November 2020 – January 2021</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">election lies</span><span class="post-item-tag">2020 election</span><span class="post-item-tag">Big Lie</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">trump-election-lies-2020</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/trump-emoluments-foreign-payments" class="post-item" data-date="1970-01-01" data-topics="emoluments constitution corruption" data-search="trump-emoluments-foreign-payments  emoluments constitution corruption fact-checked">
+        <span class="post-item-date">2017–2021</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">emoluments</span><span class="post-item-tag">Constitution</span><span class="post-item-tag">corruption</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">trump-emoluments-foreign-payments</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/trump-farms-bankruptcies-trade-war" class="post-item" data-date="1970-01-01" data-topics="farmers trade-war bankruptcies" data-search="trump-farms-bankruptcies-trade-war  farmers trade war bankruptcies fact-checked">
+        <span class="post-item-date">2018–2020</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">farmers</span><span class="post-item-tag">trade war</span><span class="post-item-tag">bankruptcies</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">trump-farms-bankruptcies-trade-war</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/trump-foundation-fraud" class="post-item" data-date="1970-01-01" data-topics="charity-fraud trump-foundation corruption" data-search="trump-foundation-fraud  charity fraud trump foundation corruption fact-checked">
+        <span class="post-item-date">November 2019</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">charity fraud</span><span class="post-item-tag">Trump Foundation</span><span class="post-item-tag">corruption</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">trump-foundation-fraud</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/trump-golf-trips-cost" class="post-item" data-date="1970-01-01" data-topics="hypocrisy taxpayer-waste golf" data-search="trump-golf-trips-cost  hypocrisy taxpayer waste golf fact-checked">
+        <span class="post-item-date">2017–2021</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">hypocrisy</span><span class="post-item-tag">taxpayer waste</span><span class="post-item-tag">golf</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">trump-golf-trips-cost</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/trump-greenland-panama-canada" class="post-item" data-date="1970-01-01" data-topics="greenland canada territorial-threats" data-search="trump-greenland-panama-canada  greenland canada territorial threats fact-checked">
+        <span class="post-item-date">January 2025</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">Greenland</span><span class="post-item-tag">Canada</span><span class="post-item-tag">territorial threats</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">trump-greenland-panama-canada</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/trump-promised-balance-budget-added-8-trillion" class="post-item" data-date="1970-01-01" data-topics="national-debt deficit" data-search="trump-promised-balance-budget-added-8-trillion  national debt deficit broken promises fact-checked">
+        <span class="post-item-date">2017–2021</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">national debt</span><span class="post-item-tag">deficit</span><span class="post-item-tag">broken promises</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">trump-promised-balance-budget-added-8-trillion</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/trump-promised-infrastructure-week" class="post-item" data-date="1970-01-01" data-topics="infrastructure economy" data-search="trump-promised-infrastructure-week  infrastructure broken promises economy fact-checked">
+        <span class="post-item-date">2017–2021</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">infrastructure</span><span class="post-item-tag">broken promises</span><span class="post-item-tag">economy</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">trump-promised-infrastructure-week</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/trump-puerto-rico-hurricane-maria" class="post-item" data-date="1970-01-01" data-topics="puerto-rico hurricane-maria disaster-response" data-search="trump-puerto-rico-hurricane-maria  puerto rico hurricane maria disaster response fact-checked">
+        <span class="post-item-date">September 2017</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">Puerto Rico</span><span class="post-item-tag">Hurricane Maria</span><span class="post-item-tag">disaster response</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">trump-puerto-rico-hurricane-maria</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/trump-racial-housing-discrimination" class="post-item" data-date="1970-01-01" data-topics="housing-discrimination race affh" data-search="trump-racial-housing-discrimination  housing discrimination race affh fact-checked">
+        <span class="post-item-date">July 2020</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">housing discrimination</span><span class="post-item-tag">race</span><span class="post-item-tag">AFFH</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">trump-racial-housing-discrimination</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/trump-separated-families-no-reunification" class="post-item" data-date="1970-01-01" data-topics="family-separation children ongoing-harm" data-search="trump-separated-families-no-reunification  family separation children ongoing harm fact-checked">
+        <span class="post-item-date">ongoing since 2018</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">family separation</span><span class="post-item-tag">children</span><span class="post-item-tag">ongoing harm</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">trump-separated-families-no-reunification</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/trump-stole-inauguration-funds" class="post-item" data-date="1970-01-01" data-topics="inauguration corruption investigation" data-search="trump-stole-inauguration-funds  inauguration corruption investigation fact-checked">
+        <span class="post-item-date">2017–2019</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">inauguration</span><span class="post-item-tag">corruption</span><span class="post-item-tag">investigation</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">trump-stole-inauguration-funds</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/trump-tax-returns-hidden" class="post-item" data-date="1970-01-01" data-topics="tax-returns transparency accountability" data-search="trump-tax-returns-hidden  tax returns transparency accountability fact-checked">
+        <span class="post-item-date">2016–2022</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">tax returns</span><span class="post-item-tag">transparency</span><span class="post-item-tag">accountability</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">trump-tax-returns-hidden</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/trump-wh-visitor-logs-transparency" class="post-item" data-date="1970-01-01" data-topics="transparency records accountability" data-search="trump-wh-visitor-logs-transparency  transparency records accountability fact-checked">
+        <span class="post-item-date">2017–2021</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">transparency</span><span class="post-item-tag">records</span><span class="post-item-tag">accountability</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">trump-wh-visitor-logs-transparency</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/uninsured-rose-2-3-million-first-term" class="post-item" data-date="1970-01-01" data-topics="healthcare uninsured aca" data-search="uninsured-rose-2-3-million-first-term  healthcare uninsured aca fact-checked">
+        <span class="post-item-date">2017–2020</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">healthcare</span><span class="post-item-tag">uninsured</span><span class="post-item-tag">ACA</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">uninsured-rose-2-3-million-first-term</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/usaid-elimination-pepfar" class="post-item" data-date="1970-01-01" data-topics="usaid pepfar global-health" data-search="usaid-elimination-pepfar  usaid pepfar global health fact-checked">
+        <span class="post-item-date">January 2025</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">USAID</span><span class="post-item-tag">PEPFAR</span><span class="post-item-tag">global health</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">usaid-elimination-pepfar</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/voting-rights-suppression-first-term" class="post-item" data-date="1970-01-01" data-topics="voter-suppression election-integrity voter-data" data-search="voting-rights-suppression-first-term  voter suppression election integrity voter data fact-checked">
+        <span class="post-item-date">May 2017</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">voter suppression</span><span class="post-item-tag">election integrity</span><span class="post-item-tag">voter data</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">voting-rights-suppression-first-term</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/white-house-staff-turnover" class="post-item" data-date="1970-01-01" data-topics="white-house turnover chaos" data-search="white-house-staff-turnover  white house turnover chaos fact-checked">
+        <span class="post-item-date">2017–2021</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">White House</span><span class="post-item-tag">turnover</span><span class="post-item-tag">chaos</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">white-house-staff-turnover</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/wildfire-response-rake-forests" class="post-item" data-date="1970-01-01" data-topics="california wildfires disaster-response" data-search="wildfire-response-rake-forests  california wildfires disaster response fact-checked">
+        <span class="post-item-date">November 2018</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">California</span><span class="post-item-tag">wildfires</span><span class="post-item-tag">disaster response</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">wildfire-response-rake-forests</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+      <a href="/blog/worker-rights-rollbacks" class="post-item" data-date="1970-01-01" data-topics="workers wages labor" data-search="worker-rights-rollbacks  workers wages labor fact-checked">
+        <span class="post-item-date">2017–2020</span>
+        <div class="post-item-content">
+          <div class="post-item-tags"><span class="post-item-tag">workers</span><span class="post-item-tag">wages</span><span class="post-item-tag">labor</span><span class="post-item-tag">fact-checked</span></div>
+          <div class="post-item-title">worker-rights-rollbacks</div>
+          <div class="post-item-deck"></div>
+        </div>
+      </a>
+    </div>
+    <div class="no-results" id="no-results" style="display:none;">
+      <p>No posts match. <button class="reset-link" id="reset-all">Clear filters</button></p>
+    </div>
+  </div>
+</main>
+<div id="footer-placeholder"></div>
+<script src="/assets/js/includes.js"></script>
+</body>
+</html>
