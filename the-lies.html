@@ -1,23 +1,24 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Lies — Epitome of Hatred</title>
-  <meta name="description" content="A running, sourced accountability tracker documenting Trump, MAGA, and Republican lies, corruption, and abuse of power. Searchable. Filterable. Built for receipts.">
-  <link rel="canonical" href="https://epitomeofhatred.com/the-lies">
-  <link rel="stylesheet" href="/assets/css/style.css">
-  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://epitomeofhatred.com/the-lies">
-  <meta property="og:title" content="The Lies — Accountability Tracker | Epitome of Hatred">
-  <meta property="og:description" content="A searchable, sourced accountability tracker documenting lies, corruption, cover-ups, and abuse of power.">
-  <meta property="og:site_name" content="Epitome of Hatred">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="The Lies — Accountability Tracker | Epitome of Hatred">
-  <meta name="twitter:description" content="A searchable, sourced accountability tracker documenting lies, corruption, cover-ups, and abuse of power.">
-  <meta name="twitter:site" content="@est7bd">
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Lies — Epitome of Hatred</title>
+<meta content="A running, sourced accountability tracker documenting Trump, MAGA, and Republican lies, corruption, and abuse of power. Searchable. Filterable. Built for receipts." name="description"/>
+<link href="https://epitomeofhatred.com/the-lies" rel="canonical"/>
+<link href="/assets/css/style.css" rel="stylesheet"/>
+<meta content="index, follow, max-image-preview:large, max-snippet:-1" name="robots"/>
+<meta content="website" property="og:type"/>
+<meta content="https://epitomeofhatred.com/the-lies" property="og:url"/>
+<meta content="The Lies — Accountability Tracker | Epitome of Hatred" property="og:title"/>
+<meta content="A searchable, sourced accountability tracker documenting lies, corruption, cover-ups, and abuse of power." property="og:description"/>
+<meta content="Epitome of Hatred" property="og:site_name"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="The Lies — Accountability Tracker | Epitome of Hatred" name="twitter:title"/>
+<meta content="A searchable, sourced accountability tracker documenting lies, corruption, cover-ups, and abuse of power." name="twitter:description"/>
+<meta content="@est7bd" name="twitter:site"/>
+<style>
     .page-hero {
       padding: 6rem 2rem 3rem;
       max-width: var(--max-w);
@@ -565,471 +566,449 @@
 </head>
 <body>
 <div id="header-placeholder"></div>
-
 <main>
-  <section class="page-hero">
-    <div class="page-hero-bg" aria-hidden="true">RECEIPTS</div>
-    <div class="eyebrow-row">
-      <span class="section-label" style="margin-bottom:0;">documented &amp; sourced</span>
-      <span class="status-chip"><span class="pulse-dot"></span><strong>live tracker</strong></span>
-      <span class="updated-chip">last reviewed <strong>March 28, 2026</strong></span>
-    </div>
-    <h1>The <span>Lies.</span></h1>
-    <p class="sub">Not a vague rant page. Not a vibes page. A working accountability tracker for lies, corruption, cover-ups, and abuse of power — with direct links, clear sourcing, and enough structure to find the exact bullshit fast.</p>
-  </section>
-
-  <section class="tracker-strip">
-    <div class="tracker-grid">
-      <div class="tracker-stat">
-        <span class="num" id="count-visible">9</span>
-        <span class="label">featured entries</span>
-        <span class="desc">Representative high-impact entries on this page. Expandable, searchable, and linkable.</span>
-      </div>
-      <div class="tracker-stat">
-        <span class="num" id="count-severe">5</span>
-        <span class="label">severity 4–5</span>
-        <span class="desc">Not petty nonsense. Claims with major democratic, legal, economic, or human consequences.</span>
-      </div>
-      <div class="tracker-stat">
-        <span class="num">30,573</span>
-        <span class="label">first-term falsehoods</span>
-        <span class="desc">Washington Post documented that many false or misleading claims during Trump’s first term.</span>
-      </div>
-      <div class="tracker-stat">
-        <span class="num" id="days-in-office">0</span>
-        <span class="label">days into term</span>
-        <span class="desc">Auto-updating counter from January 20, 2025, so the page keeps moving even when he won’t stop lying.</span>
-      </div>
-    </div>
-  </section>
-
-  <section class="tools-wrap">
-    <div class="control-panel">
-      <div class="panel-head">Find the exact lie</div>
-      <div class="control-body">
-        <div class="search-row">
-          <input id="tracker-search" class="search-input" type="search" placeholder="Search by keyword, person, topic, or claim…" aria-label="Search lies">
-          <select id="tracker-sort" class="sort-select" aria-label="Sort tracker entries">
-            <option value="severity">Sort: Highest severity</option>
-            <option value="newest">Sort: Newest first</option>
-            <option value="oldest">Sort: Oldest first</option>
-            <option value="alpha">Sort: Alphabetical</option>
-          </select>
-        </div>
-
-        <span class="chip-label">Filter by topic</span>
-        <div class="chip-group" id="topic-filters">
-          <button class="filter-chip active" data-filter-group="topic" data-filter-value="all">All</button>
-          <button class="filter-chip" data-filter-group="topic" data-filter-value="economy">Economy</button>
-          <button class="filter-chip" data-filter-group="topic" data-filter-value="voting">Voting</button>
-          <button class="filter-chip" data-filter-group="topic" data-filter-value="corruption">Corruption</button>
-          <button class="filter-chip" data-filter-group="topic" data-filter-value="immigration">Immigration</button>
-          <button class="filter-chip" data-filter-group="topic" data-filter-value="healthcare">Healthcare</button>
-          <button class="filter-chip" data-filter-group="topic" data-filter-value="war">War / Foreign Policy</button>
-        </div>
-
-        <span class="chip-label">Filter by severity</span>
-        <div class="chip-group" id="severity-filters">
-          <button class="filter-chip active" data-filter-group="severity" data-filter-value="all">All levels</button>
-          <button class="filter-chip" data-filter-group="severity" data-filter-value="5">Level 5</button>
-          <button class="filter-chip" data-filter-group="severity" data-filter-value="4">Level 4+</button>
-          <button class="filter-chip" data-filter-group="severity" data-filter-value="3">Level 3+</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="jump-panel">
-      <div class="panel-head">Jump to section</div>
-      <div class="jump-body">
-        <div class="jump-links">
-          <a class="jump-link" href="#latest-additions">Latest additions</a>
-          <a class="jump-link" href="#democracy-voting">Democracy &amp; voting</a>
-          <a class="jump-link" href="#economy-wallet">Economy &amp; your wallet</a>
-          <a class="jump-link" href="#corruption-grift">Corruption &amp; grift</a>
-          <a class="jump-link" href="#immigration-abuse">Immigration &amp; abuse</a>
-          <a class="jump-link" href="#war-foreign-policy">War &amp; foreign policy</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="methodology-wrap">
-    <div class="methodology">
-      <div class="panel-head">Methodology</div>
-      <div class="methodology-body">
-        <div class="method-box">
-          <h3>What counts</h3>
-          <p>A claim gets logged here when it is false, directly contradicted by evidence, materially misleading, or used to justify harmful policy under false pretenses.</p>
-        </div>
-        <div class="method-box">
-          <h3>How it is labeled</h3>
-          <p>Severity is not about drama. It is about consequence: public harm, democratic harm, economic damage, legal exposure, or human suffering.</p>
-        </div>
-        <div class="method-box">
-          <h3>How it is sourced</h3>
-          <p>Each entry links to primary reporting, fact checks, official records, or the site’s longer explainer posts. No vague “people are saying” garbage.</p>
-        </div>
-        <div class="method-box">
-          <h3>Why this exists</h3>
-          <p>Because memory gets flooded. A tracker like this keeps dates, claims, receipts, and consequences in one place — where spin dies on contact.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <div class="results-bar">
-    <div class="results-chip">showing <strong id="results-count">9</strong> entries</div>
-  </div>
-
-  <section class="section-wrap" id="tracker-sections">
-    <div class="section-block" id="latest-additions">
-      <div class="section-head">
-        <div>
-          <span class="section-kicker">latest additions</span>
-          <div class="section-title-row">Fresh bullshit. Fresh receipts.</div>
-        </div>
-        <div class="section-note">The newest, most active, or most currently weaponized lies. Built for readers who want the fast version before clicking into full posts.</div>
-      </div>
-      <div class="entry-list" data-section-list>
-
-        <article class="lie-entry open" id="tariffs-tax" data-topic="economy" data-severity="4" data-date="2026-03-01" data-title="Tariffs are a tax on Americans, not foreign countries" data-search="trump tariffs economy tax your wallet importers tax foundation cost household prices companies refunds">
-          <div class="lie-header" onclick="toggleEntry(this.parentElement)">
-            <div>
-              <div class="lie-meta">
-                <span class="meta-chip who">Trump</span>
-                <span class="meta-chip">Economy / Tariffs</span>
-                <span class="meta-chip">2025–2026</span>
-                <span class="severity s4">Level 4 — Public deception</span>
-              </div>
-              <h2 class="lie-title">“Other countries are paying the tariffs.”</h2>
-              <p class="lie-summary">No. American importers pay them. Then families and businesses eat the cost.</p>
-            </div>
-            <div class="header-actions">
-              <a class="direct-link" href="#tariffs-tax" onclick="event.stopPropagation()">direct link</a>
-              <span class="toggle-label">hide facts</span>
-            </div>
-          </div>
-          <div class="lie-body">
-            <div class="lie-grid">
-              <div class="fact-box">
-                <span class="fact-label claim">The claim</span>
-                <p>Trump repeatedly says tariffs are paid by foreign countries and that the US is simply “taking in” the money.</p>
-              </div>
-              <div class="fact-box">
-                <span class="fact-label reality">What the record shows</span>
-                <p>Tariffs are paid by <strong>US importers</strong>. Those costs get passed through the supply chain and land on American businesses and consumers.</p>
-              </div>
-              <div class="fact-box full">
-                <span class="fact-label matter">Why it matters</span>
-                <p>This is not a messaging error. It hides the real cost of policy. If people do not understand who pays, they cannot understand why prices rise, why small businesses get squeezed, or why courts and companies keep fighting these tariffs.</p>
-              </div>
-              <div class="fact-box full">
-                <span class="fact-label sources">Sources</span>
-                <div class="source-links">
-                  <a class="source-link" href="https://taxfoundation.org/research/all/federal/trump-tariffs-trade-war/" target="_blank" rel="noopener">Tax Foundation</a>
-                  <a class="source-link" href="https://taxpolicycenter.org/features/tracking-trump-tariffs" target="_blank" rel="noopener">Tax Policy Center</a>
-                  <a class="source-link" href="/blog/tariffs-are-a-tax-and-you-are-paying-it.html">Site explainer</a>
-                </div>
-              </div>
-              <div class="fact-box full">
-                <span class="fact-label related">Related reads</span>
-                <div class="related-links">
-                  <a class="related-link" href="/blog/grocery-prices-tariffs-2025.html">Grocery prices and tariffs</a>
-                  <a class="related-link" href="/blog/your-wallet-called-it-wants-its-money-back.html">Your wallet called</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </article>
-
-        <article class="lie-entry" id="social-security" data-topic="healthcare" data-severity="4" data-date="2026-02-18" data-title="Promises to protect Social Security while pushing policies that undermine it" data-search="social security protect cuts insolvency benefits maga republican promises budget retirees we will always protect social security">
-          <div class="lie-header" onclick="toggleEntry(this.parentElement)">
-            <div>
-              <div class="lie-meta">
-                <span class="meta-chip who">Trump / GOP</span>
-                <span class="meta-chip">Social Security</span>
-                <span class="meta-chip">2025–2026</span>
-                <span class="severity s4">Level 4 — Public deception</span>
-              </div>
-              <h2 class="lie-title">“We will always protect Social Security.”</h2>
-              <p class="lie-summary">That line does not survive contact with the policy record.</p>
-            </div>
-            <div class="header-actions">
-              <a class="direct-link" href="#social-security" onclick="event.stopPropagation()">direct link</a>
-              <span class="toggle-label">show facts</span>
-            </div>
-          </div>
-          <div class="lie-body">
-            <div class="lie-grid">
-              <div class="fact-box"><span class="fact-label claim">The claim</span><p>Protect benefits, no cuts, no danger, nothing to worry about.</p></div>
-              <div class="fact-box"><span class="fact-label reality">What the record shows</span><p>The site already documents the opposite trend: policy choices, benefit pressure, and insolvency acceleration hitting the same program they swear they are protecting.</p></div>
-              <div class="fact-box full"><span class="fact-label matter">Why it matters</span><p>Retirees and near-retirees make real life decisions based on this. False reassurance is still deception when the underlying policy moves in the opposite direction.</p></div>
-              <div class="fact-box full"><span class="fact-label sources">Sources</span><div class="source-links"><a class="source-link" href="/blog/we-will-always-protect-social-security.html">Site post</a><a class="source-link" href="/blog/social-security-insolvency-accelerating.html">Insolvency post</a></div></div>
-            </div>
-          </div>
-        </article>
-      </div>
-    </div>
-
-    <div class="section-block" id="democracy-voting">
-      <div class="section-head">
-        <div>
-          <span class="section-kicker">democracy &amp; voting</span>
-          <div class="section-title-row">The lie becomes the pretext.</div>
-        </div>
-        <div class="section-note">This is where disinformation stops being dumb and starts being a tool for disenfranchisement, intimidation, and anti-democratic power grabs.</div>
-      </div>
-      <div class="entry-list" data-section-list>
-        <article class="lie-entry" id="mail-voting" data-topic="voting" data-severity="5" data-date="2026-03-04" data-title="Mail voting fraud claims used to undermine democratic participation" data-search="mail voting cheating fraud election integrity save act ballots married women voter suppression absentee fraud trump republicans">
-          <div class="lie-header" onclick="toggleEntry(this.parentElement)">
-            <div>
-              <div class="lie-meta">
-                <span class="meta-chip who">Trump / MAGA</span>
-                <span class="meta-chip">Voting</span>
-                <span class="meta-chip">Election lies</span>
-                <span class="severity s5">Level 5 — Democratic danger</span>
-              </div>
-              <h2 class="lie-title">“Mail-in voting is full of cheating.”</h2>
-              <p class="lie-summary">The fraud narrative keeps collapsing. The policy damage remains.</p>
-            </div>
-            <div class="header-actions"><a class="direct-link" href="#mail-voting" onclick="event.stopPropagation()">direct link</a><span class="toggle-label">show facts</span></div>
-          </div>
-          <div class="lie-body">
-            <div class="lie-grid">
-              <div class="fact-box"><span class="fact-label claim">The claim</span><p>Mail ballots are inherently corrupt, insecure, and a major source of fraud.</p></div>
-              <div class="fact-box"><span class="fact-label reality">What the record shows</span><p>Evidence for widespread mail-voting fraud does not exist at the scale claimed. The fraud story is repeatedly used to justify restrictions, suspicion, and barriers to lawful voting.</p></div>
-              <div class="fact-box full"><span class="fact-label matter">Why it matters</span><p>Election lies are not harmless spin. They are infrastructure for suppression, mistrust, and anti-democratic escalation.</p></div>
-              <div class="fact-box full"><span class="fact-label sources">Sources</span><div class="source-links"><a class="source-link" href="/blog/mail-in-cheating-except-when-i-do-it.html">Mail voting post</a><a class="source-link" href="/blog/save-act-voter-suppression-not-integrity.html">SAVE Act post</a><a class="source-link" href="/blog/leavitt-save-act-married-women.html">Married women and SAVE Act</a></div></div>
-            </div>
-          </div>
-        </article>
-
-        <article class="lie-entry" id="find-votes" data-topic="voting" data-severity="5" data-date="2021-01-02" data-title="Pressure campaign in Georgia showed the lie was the point" data-search="georgia phone call find votes election stolen pressure rafensperger democracy">
-          <div class="lie-header" onclick="toggleEntry(this.parentElement)">
-            <div>
-              <div class="lie-meta">
-                <span class="meta-chip who">Trump</span>
-                <span class="meta-chip">Georgia</span>
-                <span class="meta-chip">Election subversion</span>
-                <span class="severity s5">Level 5 — Democratic danger</span>
-              </div>
-              <h2 class="lie-title">“I just want to find 11,780 votes.”</h2>
-              <p class="lie-summary">The stolen-election lie was not rhetoric. It was used to pressure officials to change the outcome.</p>
-            </div>
-            <div class="header-actions"><a class="direct-link" href="#find-votes" onclick="event.stopPropagation()">direct link</a><span class="toggle-label">show facts</span></div>
-          </div>
-          <div class="lie-body">
-            <div class="lie-grid">
-              <div class="fact-box"><span class="fact-label claim">The claim</span><p>The Georgia result was illegitimate and merely needed correction.</p></div>
-              <div class="fact-box"><span class="fact-label reality">What the record shows</span><p>The phone call showed direct pressure on a state official to “find” votes that did not exist. The lie was operationalized into an attempt to subvert certification.</p></div>
-              <div class="fact-box full"><span class="fact-label matter">Why it matters</span><p>This belongs in every accountability tracker because it is a bridge between falsehood and abuse of office.</p></div>
-              <div class="fact-box full"><span class="fact-label sources">Sources</span><div class="source-links"><a class="source-link" href="/blog/georgia-phone-call-find-votes.html">Site post</a></div></div>
-            </div>
-          </div>
-        </article>
-      </div>
-    </div>
-
-    <div class="section-block" id="economy-wallet">
-      <div class="section-head">
-        <div>
-          <span class="section-kicker">economy &amp; your wallet</span>
-          <div class="section-title-row">They bullshit. You pay.</div>
-        </div>
-        <div class="section-note">These entries tie claims directly to prices, healthcare, wages, debt, and household pain — because “the economy” is not a slogan when people are choosing between rent and groceries.</div>
-      </div>
-      <div class="entry-list" data-section-list>
-        <article class="lie-entry" id="healthcare-better-cheaper" data-topic="healthcare" data-severity="4" data-date="2026-01-15" data-title="Better cheaper healthcare claims contradicted by premium spikes and loss of coverage" data-search="better cheaper healthcare aca subsidies expire premiums uninsured medicaid big beautiful bill">
-          <div class="lie-header" onclick="toggleEntry(this.parentElement)">
-            <div>
-              <div class="lie-meta">
-                <span class="meta-chip who">Trump / MAGA Congress</span>
-                <span class="meta-chip">Healthcare</span>
-                <span class="meta-chip">ACA / Medicaid</span>
-                <span class="severity s4">Level 4 — Harmful policy lie</span>
-              </div>
-              <h2 class="lie-title">“We’re going to give you better, cheaper healthcare.”</h2>
-              <p class="lie-summary">The slogan sounds great. The coverage losses and premium spikes do not.</p>
-            </div>
-            <div class="header-actions"><a class="direct-link" href="#healthcare-better-cheaper" onclick="event.stopPropagation()">direct link</a><span class="toggle-label">show facts</span></div>
-          </div>
-          <div class="lie-body">
-            <div class="lie-grid">
-              <div class="fact-box"><span class="fact-label claim">The claim</span><p>Republicans promise cheaper care, better plans, and more access.</p></div>
-              <div class="fact-box"><span class="fact-label reality">What the record shows</span><p>Your current page already cites the expiration of ACA support, premium spikes, and projected coverage losses. The promise and the policy do not match.</p></div>
-              <div class="fact-box full"><span class="fact-label matter">Why it matters</span><p>Healthcare lies cause delayed treatment, worse outcomes, and massive financial stress — especially when sold as reform while dismantling the protections people rely on.</p></div>
-              <div class="fact-box full"><span class="fact-label sources">Sources</span><div class="source-links"><a class="source-link" href="/blog/one-big-beautiful-bill-medicaid-cuts.html">Medicaid cuts</a><a class="source-link" href="/blog/4-6-million-lost-health-insurance.html">Coverage losses</a><a class="source-link" href="/blog/prescription-drug-prices-lies.html">Drug price lies</a></div></div>
-            </div>
-          </div>
-        </article>
-      </div>
-    </div>
-
-    <div class="section-block" id="corruption-grift">
-      <div class="section-head">
-        <div>
-          <span class="section-kicker">corruption &amp; grift</span>
-          <div class="section-title-row">Self-dealing with a press release.</div>
-        </div>
-        <div class="section-note">Some lies do not just protect power. They protect cash flow, cronies, access, and schemes that would collapse under honest scrutiny.</div>
-      </div>
-      <div class="entry-list" data-section-list>
-        <article class="lie-entry" id="meme-coin" data-topic="corruption" data-severity="5" data-date="2026-02-09" data-title="Foreign corruption and the Trump meme coin grift" data-search="meme coin foreign corruption crypto conflicts of interest grift access self dealing trump">
-          <div class="lie-header" onclick="toggleEntry(this.parentElement)">
-            <div>
-              <div class="lie-meta">
-                <span class="meta-chip who">Trump orbit</span>
-                <span class="meta-chip">Corruption</span>
-                <span class="meta-chip">Crypto / access</span>
-                <span class="severity s5">Level 5 — Corruption</span>
-              </div>
-              <h2 class="lie-title">“Nothing to see here. Just business.”</h2>
-              <p class="lie-summary">When political influence and grift merge, the denials are part of the operation.</p>
-            </div>
-            <div class="header-actions"><a class="direct-link" href="#meme-coin" onclick="event.stopPropagation()">direct link</a><span class="toggle-label">show facts</span></div>
-          </div>
-          <div class="lie-body">
-            <div class="lie-grid">
-              <div class="fact-box"><span class="fact-label claim">The claim</span><p>That these ventures are ordinary market activity with no corruption concern.</p></div>
-              <div class="fact-box"><span class="fact-label reality">What the record shows</span><p>When a political brand, foreign money, privileged access, and policy power start overlapping, “ordinary” stops being believable.</p></div>
-              <div class="fact-box full"><span class="fact-label matter">Why it matters</span><p>Corruption rarely arrives wearing a sign that says corruption. It arrives as a shrug, a technicality, a venture, a licensing deal, a coin, or a donor relationship that supposedly means nothing.</p></div>
-              <div class="fact-box full"><span class="fact-label sources">Sources</span><div class="source-links"><a class="source-link" href="/blog/trump-meme-coin-foreign-corruption.html">Meme coin post</a><a class="source-link" href="/blog/musk-doge-conflicts-interest.html">DOGE conflicts</a><a class="source-link" href="/blog/trump-emoluments-foreign-payments.html">Foreign payments</a></div></div>
-            </div>
-          </div>
-        </article>
-
-        <article class="lie-entry" id="golf-costs" data-topic="corruption" data-severity="3" data-date="2025-11-10" data-title="Golf-cost denials and the public tab for presidential self-enrichment" data-search="golf trips cost taxpayer spending self enrichment resorts corruption">
-          <div class="lie-header" onclick="toggleEntry(this.parentElement)">
-            <div>
-              <div class="lie-meta">
-                <span class="meta-chip who">Trump</span>
-                <span class="meta-chip">Corruption</span>
-                <span class="meta-chip">Taxpayer cost</span>
-                <span class="severity s3">Level 3 — Waste and grift</span>
-              </div>
-              <h2 class="lie-title">“It barely costs anything.”</h2>
-              <p class="lie-summary">Public money still counts when it gets routed through private properties tied to the same man making the trip.</p>
-            </div>
-            <div class="header-actions"><a class="direct-link" href="#golf-costs" onclick="event.stopPropagation()">direct link</a><span class="toggle-label">show facts</span></div>
-          </div>
-          <div class="lie-body">
-            <div class="lie-grid">
-              <div class="fact-box"><span class="fact-label claim">The claim</span><p>That the trips are routine, low-cost, or politically irrelevant.</p></div>
-              <div class="fact-box"><span class="fact-label reality">What the record shows</span><p>Travel, security, lodging, and related expenses are real taxpayer costs. When the destination is tied to a private business empire, the ethics problem gets worse, not better.</p></div>
-              <div class="fact-box full"><span class="fact-label sources">Sources</span><div class="source-links"><a class="source-link" href="/blog/trump-golf-trips-cost.html">Golf trips cost</a><a class="source-link" href="/blog/jared-ivanka-federal-payroll.html">Family payroll</a></div></div>
-            </div>
-          </div>
-        </article>
-      </div>
-    </div>
-
-    <div class="section-block" id="immigration-abuse">
-      <div class="section-head">
-        <div>
-          <span class="section-kicker">immigration &amp; abuse</span>
-          <div class="section-title-row">Cruelty laundered through propaganda.</div>
-        </div>
-        <div class="section-note">The pattern here is always the same: invent a threat, inflate it, dehumanize the target, then use the lie to justify abuses that should be indefensible on their own.</div>
-      </div>
-      <div class="entry-list" data-section-list>
-        <article class="lie-entry" id="alien-enemies" data-topic="immigration" data-severity="5" data-date="2026-03-12" data-title="Alien Enemies Act justification contradicted by intelligence findings" data-search="alien enemies act tren de aragua venezuela intelligence immigration deportations false pretext wartime law">
-          <div class="lie-header" onclick="toggleEntry(this.parentElement)">
-            <div>
-              <div class="lie-meta">
-                <span class="meta-chip who">Trump</span>
-                <span class="meta-chip">Immigration</span>
-                <span class="meta-chip">False pretext</span>
-                <span class="severity s5">Level 5 — Democratic danger</span>
-              </div>
-              <h2 class="lie-title">“Venezuela is coordinating with Tren de Aragua to invade us.”</h2>
-              <p class="lie-summary">The intelligence did not back the claim. The administration used it anyway.</p>
-            </div>
-            <div class="header-actions"><a class="direct-link" href="#alien-enemies" onclick="event.stopPropagation()">direct link</a><span class="toggle-label">show facts</span></div>
-          </div>
-          <div class="lie-body">
-            <div class="lie-grid">
-              <div class="fact-box"><span class="fact-label claim">The claim</span><p>A coordinated foreign threat justified extreme emergency action and aggressive deportation policy.</p></div>
-              <div class="fact-box"><span class="fact-label reality">What the record shows</span><p>Your existing write-up notes that the intelligence assessment did <strong>not</strong> support the alleged coordination. The premise used to justify extraordinary power was itself false.</p></div>
-              <div class="fact-box full"><span class="fact-label matter">Why it matters</span><p>This is how civil liberties get torched: not by honest debate, but by manufacturing an emergency and daring everyone else to prove the panic was fake after the damage is done.</p></div>
-              <div class="fact-box full"><span class="fact-label sources">Sources</span><div class="source-links"><a class="source-link" href="/blog/alien-enemies-act-intelligence-said-no.html">Alien Enemies Act post</a><a class="source-link" href="/blog/they-deported-him-to-the-wrong-country.html">Wrong country deportation</a><a class="source-link" href="/blog/ice-detained-us-citizens.html">ICE detained US citizens</a></div></div>
-            </div>
-          </div>
-        </article>
-      </div>
-    </div>
-
-    <div class="section-block" id="war-foreign-policy">
-      <div class="section-head">
-        <div>
-          <span class="section-kicker">war &amp; foreign policy</span>
-          <div class="section-title-row">Dangerous lies do not stay theoretical.</div>
-        </div>
-        <div class="section-note">When the subject is war, intelligence, diplomacy, or nuclear risk, a fabricated anecdote or dishonest pretext can move markets, kill people, and drag entire regions toward catastrophe.</div>
-      </div>
-      <div class="entry-list" data-section-list>
-        <article class="lie-entry" id="former-president-iran" data-topic="war" data-severity="4" data-date="2026-03-16" data-title="Invented former president anecdote about Iran war support" data-search="former president said i wish i did what you did iran war anecdote fabrication cnn fact check">
-          <div class="lie-header" onclick="toggleEntry(this.parentElement)">
-            <div>
-              <div class="lie-meta">
-                <span class="meta-chip who">Trump</span>
-                <span class="meta-chip">Iran</span>
-                <span class="meta-chip">Foreign policy</span>
-                <span class="severity s4">Level 4 — Dangerous fiction</span>
-              </div>
-              <h2 class="lie-title">“A former president told me, ‘I wish I did what you did.’”</h2>
-              <p class="lie-summary">Nobody backed it up. Everyone asked denied it. He still said it twice.</p>
-            </div>
-            <div class="header-actions"><a class="direct-link" href="#former-president-iran" onclick="event.stopPropagation()">direct link</a><span class="toggle-label">show facts</span></div>
-          </div>
-          <div class="lie-body">
-            <div class="lie-grid">
-              <div class="fact-box"><span class="fact-label claim">The claim</span><p>An unnamed former president privately congratulated him for the Iran action.</p></div>
-              <div class="fact-box"><span class="fact-label reality">What the record shows</span><p>Aides to living former presidents denied the story. He would not name the person because the point was never proof. The point was borrowed legitimacy.</p></div>
-              <div class="fact-box full"><span class="fact-label matter">Why it matters</span><p>War lies are often social first and evidentiary never. The anecdote works because it flatters the audience and muddies scrutiny during a dangerous moment.</p></div>
-              <div class="fact-box full"><span class="fact-label sources">Sources</span><div class="source-links"><a class="source-link" href="/blog/iran-war-what-trump-knows-vs-reality.html">Iran reality post</a><a class="source-link" href="/blog/iran-war-escalation-civilian-cost.html">Civilian cost</a><a class="source-link" href="/blog/iran-war-insider-trading.html">Insider trading</a></div></div>
-            </div>
-          </div>
-        </article>
-
-        <article class="lie-entry" id="nato-undermining" data-topic="war" data-severity="4" data-date="2019-12-03" data-title="Undermining NATO while pretending to strengthen it" data-search="nato undermining allies russia first term foreign policy lies">
-          <div class="lie-header" onclick="toggleEntry(this.parentElement)">
-            <div>
-              <div class="lie-meta">
-                <span class="meta-chip who">Trump</span>
-                <span class="meta-chip">NATO</span>
-                <span class="meta-chip">Alliances</span>
-                <span class="severity s4">Level 4 — Strategic harm</span>
-              </div>
-              <h2 class="lie-title">“I’m strengthening NATO.”</h2>
-              <p class="lie-summary">Bullying allies, flattering authoritarians, and sowing doubt are not the same thing as strengthening an alliance.</p>
-            </div>
-            <div class="header-actions"><a class="direct-link" href="#nato-undermining" onclick="event.stopPropagation()">direct link</a><span class="toggle-label">show facts</span></div>
-          </div>
-          <div class="lie-body">
-            <div class="lie-grid">
-              <div class="fact-box"><span class="fact-label claim">The claim</span><p>That the chaos, insults, and instability somehow made the alliance stronger.</p></div>
-              <div class="fact-box"><span class="fact-label reality">What the record shows</span><p>The track record is better described as undermining trust, weakening cohesion, and handing propaganda victories to adversaries.</p></div>
-              <div class="fact-box full"><span class="fact-label sources">Sources</span><div class="source-links"><a class="source-link" href="/blog/nato-undermining-first-term.html">NATO post</a><a class="source-link" href="/blog/helsinki-summit-putin-sided.html">Helsinki post</a></div></div>
-            </div>
-          </div>
-        </article>
-      </div>
-    </div>
-
-    <div class="tracker-empty" id="tracker-empty">No entries match that search/filter combination. Try a broader keyword or switch the filters back to all.</div>
-  </section>
-
-  <section class="bottom-cta">
-    <div class="cta-box">
-      <div class="cta-copy">
-        <h3>Need the longer version?</h3>
-        <p>Use this page as the receipts index, then push readers into the full posts. That is the real upgrade here: the tracker becomes a traffic hub instead of a dead-end list.</p>
-      </div>
-      <a class="cta-link" href="/blog">read full posts</a>
-    </div>
-  </section>
+<section class="page-hero">
+<div aria-hidden="true" class="page-hero-bg">RECEIPTS</div>
+<div class="eyebrow-row">
+<span class="section-label" style="margin-bottom:0;">documented &amp; sourced</span>
+<span class="status-chip"><span class="pulse-dot"></span><strong>live tracker</strong></span>
+<span class="updated-chip">last reviewed <strong>March 28, 2026</strong></span>
+</div>
+<h1>The <span>Lies.</span></h1>
+<p class="sub">Not a vague rant page. Not a vibes page. A working accountability tracker for lies, corruption, cover-ups, and abuse of power — with direct links, clear sourcing, and enough structure to find the exact bullshit fast.</p>
+</section>
+<section class="tracker-strip">
+<div class="tracker-grid">
+<div class="tracker-stat">
+<span class="num" id="count-visible">9</span>
+<span class="label">featured entries</span>
+<span class="desc">Representative high-impact entries on this page. Expandable, searchable, and linkable.</span>
+</div>
+<div class="tracker-stat">
+<span class="num" id="count-severe">5</span>
+<span class="label">severity 4–5</span>
+<span class="desc">Not petty nonsense. Claims with major democratic, legal, economic, or human consequences.</span>
+</div>
+<div class="tracker-stat">
+<span class="num">30,573</span>
+<span class="label">first-term falsehoods</span>
+<span class="desc">Washington Post documented that many false or misleading claims during Trump’s first term.</span>
+</div>
+<div class="tracker-stat">
+<span class="num" id="days-in-office">0</span>
+<span class="label">days into term</span>
+<span class="desc">Auto-updating counter from January 20, 2025, so the page keeps moving even when he won’t stop lying.</span>
+</div>
+</div>
+</section>
+<section class="tools-wrap">
+<div class="control-panel">
+<div class="panel-head">Find the exact lie</div>
+<div class="control-body">
+<div class="search-row">
+<input aria-label="Search lies" class="search-input" id="tracker-search" placeholder="Search by keyword, person, topic, or claim…" type="search"/>
+<select aria-label="Sort tracker entries" class="sort-select" id="tracker-sort">
+<option value="severity">Sort: Highest severity</option>
+<option value="newest">Sort: Newest first</option>
+<option value="oldest">Sort: Oldest first</option>
+<option value="alpha">Sort: Alphabetical</option>
+</select>
+</div>
+<span class="chip-label">Filter by topic</span>
+<div class="chip-group" id="topic-filters">
+<button class="filter-chip active" data-filter-group="topic" data-filter-value="all">All</button>
+<button class="filter-chip" data-filter-group="topic" data-filter-value="economy">Economy</button>
+<button class="filter-chip" data-filter-group="topic" data-filter-value="voting">Voting</button>
+<button class="filter-chip" data-filter-group="topic" data-filter-value="corruption">Corruption</button>
+<button class="filter-chip" data-filter-group="topic" data-filter-value="immigration">Immigration</button>
+<button class="filter-chip" data-filter-group="topic" data-filter-value="healthcare">Healthcare</button>
+<button class="filter-chip" data-filter-group="topic" data-filter-value="war">War / Foreign Policy</button>
+</div>
+<span class="chip-label">Filter by severity</span>
+<div class="chip-group" id="severity-filters">
+<button class="filter-chip active" data-filter-group="severity" data-filter-value="all">All levels</button>
+<button class="filter-chip" data-filter-group="severity" data-filter-value="5">Level 5</button>
+<button class="filter-chip" data-filter-group="severity" data-filter-value="4">Level 4+</button>
+<button class="filter-chip" data-filter-group="severity" data-filter-value="3">Level 3+</button>
+</div>
+</div>
+</div>
+<div class="jump-panel">
+<div class="panel-head">Jump to section</div>
+<div class="jump-body">
+<div class="jump-links">
+<a class="jump-link" href="#latest-additions">Latest additions</a>
+<a class="jump-link" href="#democracy-voting">Democracy &amp; voting</a>
+<a class="jump-link" href="#economy-wallet">Economy &amp; your wallet</a>
+<a class="jump-link" href="#corruption-grift">Corruption &amp; grift</a>
+<a class="jump-link" href="#immigration-abuse">Immigration &amp; abuse</a>
+<a class="jump-link" href="#war-foreign-policy">War &amp; foreign policy</a>
+</div>
+</div>
+</div>
+</section>
+<section class="methodology-wrap">
+<div class="methodology">
+<div class="panel-head">Methodology</div>
+<div class="methodology-body">
+<div class="method-box">
+<h3>What counts</h3>
+<p>A claim gets logged here when it is false, directly contradicted by evidence, materially misleading, or used to justify harmful policy under false pretenses.</p>
+</div>
+<div class="method-box">
+<h3>How it is labeled</h3>
+<p>Severity is not about drama. It is about consequence: public harm, democratic harm, economic damage, legal exposure, or human suffering.</p>
+</div>
+<div class="method-box">
+<h3>How it is sourced</h3>
+<p>Each entry links to primary reporting, fact checks, official records, or the site’s longer explainer posts. No vague “people are saying” garbage.</p>
+</div>
+<div class="method-box">
+<h3>Why this exists</h3>
+<p>Because memory gets flooded. A tracker like this keeps dates, claims, receipts, and consequences in one place — where spin dies on contact.</p>
+</div>
+</div>
+</div>
+</section>
+<div class="results-bar">
+<div class="results-chip">showing <strong id="results-count">9</strong> entries</div>
+</div>
+<section class="section-wrap" id="tracker-sections">
+<div class="section-block" id="latest-additions">
+<div class="section-head">
+<div>
+<span class="section-kicker">latest additions</span>
+<div class="section-title-row">Fresh bullshit. Fresh receipts.</div>
+</div>
+<div class="section-note">The newest, most active, or most currently weaponized lies. Built for readers who want the fast version before clicking into full posts.</div>
+</div>
+<div class="entry-list" data-section-list="">
+<article class="lie-entry open" data-date="2026-03-01" data-search="trump tariffs economy tax your wallet importers tax foundation cost household prices companies refunds" data-severity="4" data-title="Tariffs are a tax on Americans, not foreign countries" data-topic="economy" id="tariffs-tax">
+<div class="lie-header" onclick="toggleEntry(this.parentElement)">
+<div>
+<div class="lie-meta">
+<span class="meta-chip who">Trump</span>
+<span class="meta-chip">Economy / Tariffs</span>
+<span class="meta-chip">2025–2026</span>
+<span class="severity s4">Level 4 — Public deception</span>
+</div>
+<h2 class="lie-title">“Other countries are paying the tariffs.”</h2>
+<p class="lie-summary">No. American importers pay them. Then families and businesses eat the cost.</p>
+</div>
+<div class="header-actions">
+<a class="direct-link" href="#tariffs-tax" onclick="event.stopPropagation()">direct link</a>
+<span class="toggle-label">hide facts</span>
+</div>
+</div>
+<div class="lie-body">
+<div class="lie-grid">
+<div class="fact-box">
+<span class="fact-label claim">The claim</span>
+<p>Trump repeatedly says tariffs are paid by foreign countries and that the US is simply “taking in” the money.</p>
+</div>
+<div class="fact-box">
+<span class="fact-label reality">What the record shows</span>
+<p>Tariffs are paid by <strong>US importers</strong>. Those costs get passed through the supply chain and land on American businesses and consumers.</p>
+</div>
+<div class="fact-box full">
+<span class="fact-label matter">Why it matters</span>
+<p>This is not a messaging error. It hides the real cost of policy. If people do not understand who pays, they cannot understand why prices rise, why small businesses get squeezed, or why courts and companies keep fighting these tariffs.</p>
+</div>
+<div class="fact-box full">
+<span class="fact-label sources">Sources</span>
+<div class="source-links">
+<a class="source-link" href="https://taxfoundation.org/research/all/federal/trump-tariffs-trade-war/" rel="noopener" target="_blank">Tax Foundation</a>
+<a class="source-link" href="https://taxpolicycenter.org/features/tracking-trump-tariffs" rel="noopener" target="_blank">Tax Policy Center</a>
+<a class="source-link" href="/blog/tariffs-are-a-tax-and-you-are-paying-it.html">Site explainer</a>
+</div>
+</div>
+<div class="fact-box full">
+<span class="fact-label related">Related reads</span>
+<div class="related-links">
+<a class="related-link" href="/blog/grocery-prices-tariffs-2025.html">Grocery prices and tariffs</a>
+<a class="related-link" href="/blog/your-wallet-called-it-wants-its-money-back.html">Your wallet called</a>
+</div>
+</div>
+</div>
+</div>
+</article>
+<article class="lie-entry" data-date="2026-02-18" data-search="social security protect cuts insolvency benefits maga republican promises budget retirees we will always protect social security" data-severity="4" data-title="Promises to protect Social Security while pushing policies that undermine it" data-topic="healthcare" id="social-security">
+<div class="lie-header" onclick="toggleEntry(this.parentElement)">
+<div>
+<div class="lie-meta">
+<span class="meta-chip who">Trump / GOP</span>
+<span class="meta-chip">Social Security</span>
+<span class="meta-chip">2025–2026</span>
+<span class="severity s4">Level 4 — Public deception</span>
+</div>
+<h2 class="lie-title">“We will always protect Social Security.”</h2>
+<p class="lie-summary">That line does not survive contact with the policy record.</p>
+</div>
+<div class="header-actions">
+<a class="direct-link" href="#social-security" onclick="event.stopPropagation()">direct link</a>
+<span class="toggle-label">show facts</span>
+</div>
+</div>
+<div class="lie-body">
+<div class="lie-grid">
+<div class="fact-box"><span class="fact-label claim">The claim</span><p>Protect benefits, no cuts, no danger, nothing to worry about.</p></div>
+<div class="fact-box"><span class="fact-label reality">What the record shows</span><p>The site already documents the opposite trend: policy choices, benefit pressure, and insolvency acceleration hitting the same program they swear they are protecting.</p></div>
+<div class="fact-box full"><span class="fact-label matter">Why it matters</span><p>Retirees and near-retirees make real life decisions based on this. False reassurance is still deception when the underlying policy moves in the opposite direction.</p></div>
+<div class="fact-box full"><span class="fact-label sources">Sources</span><div class="source-links"><a class="source-link" href="/blog/we-will-always-protect-social-security.html">Site post</a><a class="source-link" href="/blog/social-security-insolvency-accelerating.html">Insolvency post</a></div></div>
+</div>
+</div>
+</article>
+</div>
+</div>
+<div class="section-block" id="democracy-voting">
+<div class="section-head">
+<div>
+<span class="section-kicker">democracy &amp; voting</span>
+<div class="section-title-row">The lie becomes the pretext.</div>
+</div>
+<div class="section-note">This is where disinformation stops being dumb and starts being a tool for disenfranchisement, intimidation, and anti-democratic power grabs.</div>
+</div>
+<div class="entry-list" data-section-list="">
+<article class="lie-entry" data-date="2026-03-04" data-search="mail voting cheating fraud election integrity save act ballots married women voter suppression absentee fraud trump republicans" data-severity="5" data-title="Mail voting fraud claims used to undermine democratic participation" data-topic="voting" id="mail-voting">
+<div class="lie-header" onclick="toggleEntry(this.parentElement)">
+<div>
+<div class="lie-meta">
+<span class="meta-chip who">Trump / MAGA</span>
+<span class="meta-chip">Voting</span>
+<span class="meta-chip">Election lies</span>
+<span class="severity s5">Level 5 — Democratic danger</span>
+</div>
+<h2 class="lie-title">“Mail-in voting is full of cheating.”</h2>
+<p class="lie-summary">The fraud narrative keeps collapsing. The policy damage remains.</p>
+</div>
+<div class="header-actions"><a class="direct-link" href="#mail-voting" onclick="event.stopPropagation()">direct link</a><span class="toggle-label">show facts</span></div>
+</div>
+<div class="lie-body">
+<div class="lie-grid">
+<div class="fact-box"><span class="fact-label claim">The claim</span><p>Mail ballots are inherently corrupt, insecure, and a major source of fraud.</p></div>
+<div class="fact-box"><span class="fact-label reality">What the record shows</span><p>Evidence for widespread mail-voting fraud does not exist at the scale claimed. The fraud story is repeatedly used to justify restrictions, suspicion, and barriers to lawful voting.</p></div>
+<div class="fact-box full"><span class="fact-label matter">Why it matters</span><p>Election lies are not harmless spin. They are infrastructure for suppression, mistrust, and anti-democratic escalation.</p></div>
+<div class="fact-box full"><span class="fact-label sources">Sources</span><div class="source-links"><a class="source-link" href="/blog/mail-in-cheating-except-when-i-do-it.html">Mail voting post</a><a class="source-link" href="/blog/save-act-voter-suppression-not-integrity.html">SAVE Act post</a><a class="source-link" href="/blog/leavitt-save-act-married-women.html">Married women and SAVE Act</a></div></div>
+</div>
+</div>
+</article>
+<article class="lie-entry" data-date="2021-01-02" data-search="georgia phone call find votes election stolen pressure rafensperger democracy" data-severity="5" data-title="Pressure campaign in Georgia showed the lie was the point" data-topic="voting" id="find-votes">
+<div class="lie-header" onclick="toggleEntry(this.parentElement)">
+<div>
+<div class="lie-meta">
+<span class="meta-chip who">Trump</span>
+<span class="meta-chip">Georgia</span>
+<span class="meta-chip">Election subversion</span>
+<span class="severity s5">Level 5 — Democratic danger</span>
+</div>
+<h2 class="lie-title">“I just want to find 11,780 votes.”</h2>
+<p class="lie-summary">The stolen-election lie was not rhetoric. It was used to pressure officials to change the outcome.</p>
+</div>
+<div class="header-actions"><a class="direct-link" href="#find-votes" onclick="event.stopPropagation()">direct link</a><span class="toggle-label">show facts</span></div>
+</div>
+<div class="lie-body">
+<div class="lie-grid">
+<div class="fact-box"><span class="fact-label claim">The claim</span><p>The Georgia result was illegitimate and merely needed correction.</p></div>
+<div class="fact-box"><span class="fact-label reality">What the record shows</span><p>The phone call showed direct pressure on a state official to “find” votes that did not exist. The lie was operationalized into an attempt to subvert certification.</p></div>
+<div class="fact-box full"><span class="fact-label matter">Why it matters</span><p>This belongs in every accountability tracker because it is a bridge between falsehood and abuse of office.</p></div>
+<div class="fact-box full"><span class="fact-label sources">Sources</span><div class="source-links"><a class="source-link" href="/blog/georgia-phone-call-find-votes.html">Site post</a></div></div>
+</div>
+</div>
+</article>
+</div>
+</div>
+<div class="section-block" id="economy-wallet">
+<div class="section-head">
+<div>
+<span class="section-kicker">economy &amp; your wallet</span>
+<div class="section-title-row">They bullshit. You pay.</div>
+</div>
+<div class="section-note">These entries tie claims directly to prices, healthcare, wages, debt, and household pain — because “the economy” is not a slogan when people are choosing between rent and groceries.</div>
+</div>
+<div class="entry-list" data-section-list="">
+<article class="lie-entry" data-date="2026-01-15" data-search="better cheaper healthcare aca subsidies expire premiums uninsured medicaid big beautiful bill" data-severity="4" data-title="Better cheaper healthcare claims contradicted by premium spikes and loss of coverage" data-topic="healthcare" id="healthcare-better-cheaper">
+<div class="lie-header" onclick="toggleEntry(this.parentElement)">
+<div>
+<div class="lie-meta">
+<span class="meta-chip who">Trump / MAGA Congress</span>
+<span class="meta-chip">Healthcare</span>
+<span class="meta-chip">ACA / Medicaid</span>
+<span class="severity s4">Level 4 — Harmful policy lie</span>
+</div>
+<h2 class="lie-title">“We’re going to give you better, cheaper healthcare.”</h2>
+<p class="lie-summary">The slogan sounds great. The coverage losses and premium spikes do not.</p>
+</div>
+<div class="header-actions"><a class="direct-link" href="#healthcare-better-cheaper" onclick="event.stopPropagation()">direct link</a><span class="toggle-label">show facts</span></div>
+</div>
+<div class="lie-body">
+<div class="lie-grid">
+<div class="fact-box"><span class="fact-label claim">The claim</span><p>Republicans promise cheaper care, better plans, and more access.</p></div>
+<div class="fact-box"><span class="fact-label reality">What the record shows</span><p>Your current page already cites the expiration of ACA support, premium spikes, and projected coverage losses. The promise and the policy do not match.</p></div>
+<div class="fact-box full"><span class="fact-label matter">Why it matters</span><p>Healthcare lies cause delayed treatment, worse outcomes, and massive financial stress — especially when sold as reform while dismantling the protections people rely on.</p></div>
+<div class="fact-box full"><span class="fact-label sources">Sources</span><div class="source-links"><a class="source-link" href="/blog/one-big-beautiful-bill-medicaid-cuts.html">Medicaid cuts</a><a class="source-link" href="/blog/4-6-million-lost-health-insurance.html">Coverage losses</a><a class="source-link" href="/blog/prescription-drug-prices-lies.html">Drug price lies</a></div></div>
+</div>
+</div>
+</article>
+</div>
+</div>
+<div class="section-block" id="corruption-grift">
+<div class="section-head">
+<div>
+<span class="section-kicker">corruption &amp; grift</span>
+<div class="section-title-row">Self-dealing with a press release.</div>
+</div>
+<div class="section-note">Some lies do not just protect power. They protect cash flow, cronies, access, and schemes that would collapse under honest scrutiny.</div>
+</div>
+<div class="entry-list" data-section-list="">
+<article class="lie-entry" data-date="2026-02-09" data-search="meme coin foreign corruption crypto conflicts of interest grift access self dealing trump" data-severity="5" data-title="Foreign corruption and the Trump meme coin grift" data-topic="corruption" id="meme-coin">
+<div class="lie-header" onclick="toggleEntry(this.parentElement)">
+<div>
+<div class="lie-meta">
+<span class="meta-chip who">Trump orbit</span>
+<span class="meta-chip">Corruption</span>
+<span class="meta-chip">Crypto / access</span>
+<span class="severity s5">Level 5 — Corruption</span>
+</div>
+<h2 class="lie-title">“Nothing to see here. Just business.”</h2>
+<p class="lie-summary">When political influence and grift merge, the denials are part of the operation.</p>
+</div>
+<div class="header-actions"><a class="direct-link" href="#meme-coin" onclick="event.stopPropagation()">direct link</a><span class="toggle-label">show facts</span></div>
+</div>
+<div class="lie-body">
+<div class="lie-grid">
+<div class="fact-box"><span class="fact-label claim">The claim</span><p>That these ventures are ordinary market activity with no corruption concern.</p></div>
+<div class="fact-box"><span class="fact-label reality">What the record shows</span><p>When a political brand, foreign money, privileged access, and policy power start overlapping, “ordinary” stops being believable.</p></div>
+<div class="fact-box full"><span class="fact-label matter">Why it matters</span><p>Corruption rarely arrives wearing a sign that says corruption. It arrives as a shrug, a technicality, a venture, a licensing deal, a coin, or a donor relationship that supposedly means nothing.</p></div>
+<div class="fact-box full"><span class="fact-label sources">Sources</span><div class="source-links"><a class="source-link" href="/blog/trump-meme-coin-foreign-corruption.html">Meme coin post</a><a class="source-link" href="/blog/musk-doge-conflicts-interest.html">DOGE conflicts</a><a class="source-link" href="/blog/trump-emoluments-foreign-payments.html">Foreign payments</a></div></div>
+</div>
+</div>
+</article>
+<article class="lie-entry" data-date="2025-11-10" data-search="golf trips cost taxpayer spending self enrichment resorts corruption" data-severity="3" data-title="Golf-cost denials and the public tab for presidential self-enrichment" data-topic="corruption" id="golf-costs">
+<div class="lie-header" onclick="toggleEntry(this.parentElement)">
+<div>
+<div class="lie-meta">
+<span class="meta-chip who">Trump</span>
+<span class="meta-chip">Corruption</span>
+<span class="meta-chip">Taxpayer cost</span>
+<span class="severity s3">Level 3 — Waste and grift</span>
+</div>
+<h2 class="lie-title">“It barely costs anything.”</h2>
+<p class="lie-summary">Public money still counts when it gets routed through private properties tied to the same man making the trip.</p>
+</div>
+<div class="header-actions"><a class="direct-link" href="#golf-costs" onclick="event.stopPropagation()">direct link</a><span class="toggle-label">show facts</span></div>
+</div>
+<div class="lie-body">
+<div class="lie-grid">
+<div class="fact-box"><span class="fact-label claim">The claim</span><p>That the trips are routine, low-cost, or politically irrelevant.</p></div>
+<div class="fact-box"><span class="fact-label reality">What the record shows</span><p>Travel, security, lodging, and related expenses are real taxpayer costs. When the destination is tied to a private business empire, the ethics problem gets worse, not better.</p></div>
+<div class="fact-box full"><span class="fact-label sources">Sources</span><div class="source-links"><a class="source-link" href="/blog/trump-golf-trips-cost.html">Golf trips cost</a><a class="source-link" href="/blog/jared-ivanka-federal-payroll.html">Family payroll</a></div></div>
+</div>
+</div>
+</article>
+</div>
+</div>
+<div class="section-block" id="immigration-abuse">
+<div class="section-head">
+<div>
+<span class="section-kicker">immigration &amp; abuse</span>
+<div class="section-title-row">Cruelty laundered through propaganda.</div>
+</div>
+<div class="section-note">The pattern here is always the same: invent a threat, inflate it, dehumanize the target, then use the lie to justify abuses that should be indefensible on their own.</div>
+</div>
+<div class="entry-list" data-section-list="">
+<article class="lie-entry" data-date="2026-03-12" data-search="alien enemies act tren de aragua venezuela intelligence immigration deportations false pretext wartime law" data-severity="5" data-title="Alien Enemies Act justification contradicted by intelligence findings" data-topic="immigration" id="alien-enemies">
+<div class="lie-header" onclick="toggleEntry(this.parentElement)">
+<div>
+<div class="lie-meta">
+<span class="meta-chip who">Trump</span>
+<span class="meta-chip">Immigration</span>
+<span class="meta-chip">False pretext</span>
+<span class="severity s5">Level 5 — Democratic danger</span>
+</div>
+<h2 class="lie-title">“Venezuela is coordinating with Tren de Aragua to invade us.”</h2>
+<p class="lie-summary">The intelligence did not back the claim. The administration used it anyway.</p>
+</div>
+<div class="header-actions"><a class="direct-link" href="#alien-enemies" onclick="event.stopPropagation()">direct link</a><span class="toggle-label">show facts</span></div>
+</div>
+<div class="lie-body">
+<div class="lie-grid">
+<div class="fact-box"><span class="fact-label claim">The claim</span><p>A coordinated foreign threat justified extreme emergency action and aggressive deportation policy.</p></div>
+<div class="fact-box"><span class="fact-label reality">What the record shows</span><p>Your existing write-up notes that the intelligence assessment did <strong>not</strong> support the alleged coordination. The premise used to justify extraordinary power was itself false.</p></div>
+<div class="fact-box full"><span class="fact-label matter">Why it matters</span><p>This is how civil liberties get torched: not by honest debate, but by manufacturing an emergency and daring everyone else to prove the panic was fake after the damage is done.</p></div>
+<div class="fact-box full"><span class="fact-label sources">Sources</span><div class="source-links"><a class="source-link" href="/blog/alien-enemies-act-intelligence-said-no.html">Alien Enemies Act post</a><a class="source-link" href="/blog/they-deported-him-to-the-wrong-country.html">Wrong country deportation</a><a class="source-link" href="/blog/ice-detained-us-citizens.html">ICE detained US citizens</a></div></div>
+</div>
+</div>
+</article>
+</div>
+</div>
+<div class="section-block" id="war-foreign-policy">
+<div class="section-head">
+<div>
+<span class="section-kicker">war &amp; foreign policy</span>
+<div class="section-title-row">Dangerous lies do not stay theoretical.</div>
+</div>
+<div class="section-note">When the subject is war, intelligence, diplomacy, or nuclear risk, a fabricated anecdote or dishonest pretext can move markets, kill people, and drag entire regions toward catastrophe.</div>
+</div>
+<div class="entry-list" data-section-list="">
+<article class="lie-entry" data-date="2026-03-16" data-search="former president said i wish i did what you did iran war anecdote fabrication cnn fact check" data-severity="4" data-title="Invented former president anecdote about Iran war support" data-topic="war" id="former-president-iran">
+<div class="lie-header" onclick="toggleEntry(this.parentElement)">
+<div>
+<div class="lie-meta">
+<span class="meta-chip who">Trump</span>
+<span class="meta-chip">Iran</span>
+<span class="meta-chip">Foreign policy</span>
+<span class="severity s4">Level 4 — Dangerous fiction</span>
+</div>
+<h2 class="lie-title">“A former president told me, ‘I wish I did what you did.’”</h2>
+<p class="lie-summary">Nobody backed it up. Everyone asked denied it. He still said it twice.</p>
+</div>
+<div class="header-actions"><a class="direct-link" href="#former-president-iran" onclick="event.stopPropagation()">direct link</a><span class="toggle-label">show facts</span></div>
+</div>
+<div class="lie-body">
+<div class="lie-grid">
+<div class="fact-box"><span class="fact-label claim">The claim</span><p>An unnamed former president privately congratulated him for the Iran action.</p></div>
+<div class="fact-box"><span class="fact-label reality">What the record shows</span><p>Aides to living former presidents denied the story. He would not name the person because the point was never proof. The point was borrowed legitimacy.</p></div>
+<div class="fact-box full"><span class="fact-label matter">Why it matters</span><p>War lies are often social first and evidentiary never. The anecdote works because it flatters the audience and muddies scrutiny during a dangerous moment.</p></div>
+<div class="fact-box full"><span class="fact-label sources">Sources</span><div class="source-links"><a class="source-link" href="/blog/iran-war-what-trump-knows-vs-reality.html">Iran reality post</a><a class="source-link" href="/blog/iran-war-escalation-civilian-cost.html">Civilian cost</a><a class="source-link" href="/blog/iran-war-insider-trading.html">Insider trading</a></div></div>
+</div>
+</div>
+</article>
+<article class="lie-entry" data-date="2019-12-03" data-search="nato undermining allies russia first term foreign policy lies" data-severity="4" data-title="Undermining NATO while pretending to strengthen it" data-topic="war" id="nato-undermining">
+<div class="lie-header" onclick="toggleEntry(this.parentElement)">
+<div>
+<div class="lie-meta">
+<span class="meta-chip who">Trump</span>
+<span class="meta-chip">NATO</span>
+<span class="meta-chip">Alliances</span>
+<span class="severity s4">Level 4 — Strategic harm</span>
+</div>
+<h2 class="lie-title">“I’m strengthening NATO.”</h2>
+<p class="lie-summary">Bullying allies, flattering authoritarians, and sowing doubt are not the same thing as strengthening an alliance.</p>
+</div>
+<div class="header-actions"><a class="direct-link" href="#nato-undermining" onclick="event.stopPropagation()">direct link</a><span class="toggle-label">show facts</span></div>
+</div>
+<div class="lie-body">
+<div class="lie-grid">
+<div class="fact-box"><span class="fact-label claim">The claim</span><p>That the chaos, insults, and instability somehow made the alliance stronger.</p></div>
+<div class="fact-box"><span class="fact-label reality">What the record shows</span><p>The track record is better described as undermining trust, weakening cohesion, and handing propaganda victories to adversaries.</p></div>
+<div class="fact-box full"><span class="fact-label sources">Sources</span><div class="source-links"><a class="source-link" href="/blog/nato-undermining-first-term.html">NATO post</a><a class="source-link" href="/blog/helsinki-summit-putin-sided.html">Helsinki post</a></div></div>
+</div>
+</div>
+</article>
+</div>
+</div>
+<div class="tracker-empty" id="tracker-empty">No entries match that search/filter combination. Try a broader keyword or switch the filters back to all.</div>
+</section>
+<section class="bottom-cta">
+<div class="cta-box">
+<div class="cta-copy">
+<h3>Need the longer version?</h3>
+<p>Use this page as the receipts index, then push readers into the full posts. That is the real upgrade here: the tracker becomes a traffic hub instead of a dead-end list.</p>
+</div>
+<a class="cta-link" href="/blog">read full posts</a>
+</div>
+</section>
 </main>
-
 <div id="footer-placeholder"></div>
 <script src="/assets/js/includes.js"></script>
 <script>

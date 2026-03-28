@@ -1,23 +1,24 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Corruption — Epitome of Hatred</title>
-  <meta name="description" content="A searchable corruption tracker documenting self-dealing, grift, pardons, donor influence, ethics abuses, and political profiteering.">
-  <link rel="canonical" href="https://epitomeofhatred.com/corruption">
-  <link rel="stylesheet" href="/assets/css/style.css">
-  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://epitomeofhatred.com/corruption">
-  <meta property="og:title" content="Corruption — Accountability Tracker | Epitome of Hatred">
-  <meta property="og:description" content="A searchable tracker for grift, self-dealing, donor influence, pardons for cronies, and abuse of office.">
-  <meta property="og:site_name" content="Epitome of Hatred">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Corruption — Accountability Tracker | Epitome of Hatred">
-  <meta name="twitter:description" content="Follow the money. Follow the favors. Follow the damage.">
-  <meta name="twitter:site" content="@est7bd">
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Corruption — Epitome of Hatred</title>
+<meta content="A searchable corruption tracker documenting self-dealing, grift, pardons, donor influence, ethics abuses, and political profiteering." name="description"/>
+<link href="https://epitomeofhatred.com/corruption" rel="canonical"/>
+<link href="/assets/css/style.css" rel="stylesheet"/>
+<meta content="index, follow, max-image-preview:large, max-snippet:-1" name="robots"/>
+<meta content="website" property="og:type"/>
+<meta content="https://epitomeofhatred.com/corruption" property="og:url"/>
+<meta content="Corruption — Accountability Tracker | Epitome of Hatred" property="og:title"/>
+<meta content="A searchable tracker for grift, self-dealing, donor influence, pardons for cronies, and abuse of office." property="og:description"/>
+<meta content="Epitome of Hatred" property="og:site_name"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Corruption — Accountability Tracker | Epitome of Hatred" name="twitter:title"/>
+<meta content="Follow the money. Follow the favors. Follow the damage." name="twitter:description"/>
+<meta content="@est7bd" name="twitter:site"/>
+<style>
     .page-hero {
       padding: 6rem 2rem 3rem;
       max-width: var(--max-w);
@@ -450,337 +451,320 @@
 <body>
 <div id="header-placeholder"></div>
 <main>
-  <section class="page-hero">
-    <div class="page-hero-bg">FOLLOW THE MONEY</div>
-    <div class="eyebrow-row">
-      <span class="status-chip"><span class="pulse-dot"></span><strong>Live tracker</strong> self-dealing, donor favors, and power for profit</span>
-      <span class="updated-chip"><strong>Built for:</strong> receipts, patterns, and repeat offenders</span>
-    </div>
-    <h1>CORRUPTION<span>.</span></h1>
-    <p class="sub">This is where the scam gets organized. Not just lies. Not just spin. The money, the favors, the pardons, the conflicts, the private gain, the political payoff, and the public damage. Search it. Sort it. Link it. Build the case.</p>
-  </section>
-
-  <div class="tracker-strip">
-    <div class="tracker-grid">
-      <div class="tracker-stat"><span class="num">12</span><span class="label">Core cases</span><span class="desc">Starter set built from your strongest corruption-related posts.</span></div>
-      <div class="tracker-stat"><span class="num">5</span><span class="label">Buckets</span><span class="desc">Grift. Patronage. Pardons. Foreign money. Public money abuse.</span></div>
-      <div class="tracker-stat"><span class="num">4</span><span class="label">Severity bands</span><span class="desc">From unethical as hell to constitutional rot.</span></div>
-      <div class="tracker-stat"><span class="num">∞</span><span class="label">Expansion room</span><span class="desc">This page is built to scale as new schemes and investigations land.</span></div>
-    </div>
-  </div>
-
-  <section class="tools-wrap">
-    <div class="control-panel">
-      <div class="panel-head">Search, sort, and filter the corruption file</div>
-      <div class="control-body">
-        <div class="search-row">
-          <input id="trackerSearch" class="search-input" type="search" placeholder="Search names, scams, agencies, donors, payouts…">
-          <select id="trackerSort" class="sort-select" aria-label="Sort entries">
-            <option value="severity">Sort: severity</option>
-            <option value="newest">Sort: newest first</option>
-            <option value="oldest">Sort: oldest first</option>
-            <option value="title">Sort: title</option>
-          </select>
-        </div>
-        <span class="chip-label">Filter by scheme</span>
-        <div class="chip-group" id="typeFilters">
-          <button class="filter-chip active" data-filter="all">All</button>
-          <button class="filter-chip" data-filter="self-dealing">Self-dealing</button>
-          <button class="filter-chip" data-filter="donor-favor">Donor favor</button>
-          <button class="filter-chip" data-filter="pardon-abuse">Pardon abuse</button>
-          <button class="filter-chip" data-filter="foreign-money">Foreign money</button>
-          <button class="filter-chip" data-filter="public-money">Public money</button>
-        </div>
-        <span class="chip-label">Filter by offender</span>
-        <div class="chip-group" id="actorFilters">
-          <button class="filter-chip active" data-actor="all">All</button>
-          <button class="filter-chip" data-actor="trump">Trump</button>
-          <button class="filter-chip" data-actor="family">Family</button>
-          <button class="filter-chip" data-actor="maga">MAGA network</button>
-          <button class="filter-chip" data-actor="gop">GOP machine</button>
-        </div>
-        <span class="chip-label">Filter by severity</span>
-        <div class="chip-group" id="severityFilters">
-          <button class="filter-chip active" data-severity="all">All</button>
-          <button class="filter-chip" data-severity="1">Level 1</button>
-          <button class="filter-chip" data-severity="2">Level 2</button>
-          <button class="filter-chip" data-severity="3">Level 3</button>
-          <button class="filter-chip" data-severity="4">Level 4</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="jump-panel">
-      <div class="panel-head">Jump to a section</div>
-      <div class="jump-body">
-        <div class="jump-links">
-          <a class="jump-link" href="#self-dealing">Self-dealing</a>
-          <a class="jump-link" href="#foreign-money">Foreign money</a>
-          <a class="jump-link" href="#pardon-abuse">Pardon abuse</a>
-          <a class="jump-link" href="#public-money">Public money</a>
-          <a class="jump-link" href="#patronage">Patronage</a>
-          <a class="jump-link" href="/the-lies">Cross-link: the lies</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <div class="methodology-wrap">
-    <section class="methodology">
-      <div class="panel-head">How this page works</div>
-      <div class="methodology-body">
-        <div class="method-box">
-          <h3>What counts</h3>
-          <p>Entries belong here when the story centers on private benefit, public abuse, donor influence, conflicts of interest, weaponized pardons, or state power bent toward personal gain.</p>
-        </div>
-        <div class="method-box">
-          <h3>How it is framed</h3>
-          <p>Each entry breaks the scheme into four parts: what happened, who benefited, what the public paid, and why it matters. Clean structure beats outrage sludge.</p>
-        </div>
-        <div class="method-box">
-          <h3>What it links to</h3>
-          <p>Every card sends readers into your existing reporting, so this page becomes a hub instead of a dead end. Receipts first. Rant second.</p>
-        </div>
-        <div class="method-box">
-          <h3>How to expand it</h3>
-          <p>Add new cards as new schemes break, then split major stories into dedicated explainers when a single corruption thread gets too big to fit on one card.</p>
-        </div>
-      </div>
-    </section>
-  </div>
-
-  <div class="tracker-sections" id="trackerSections">
-    <section class="section-block" id="self-dealing" data-section="self-dealing">
-      <div class="section-head">
-        <div class="section-title-wrap">
-          <h2>SELF-DEALING</h2>
-          <p>Using office, brand, and access to enrich the same people holding the power</p>
-        </div>
-        <div class="section-count">3 entries</div>
-      </div>
-      <div class="entry-list">
-        <article class="entry-card" id="meme-coin" data-title="Trump meme coin foreign corruption" data-date="2026-03-20" data-severity="4" data-type="foreign-money self-dealing" data-actor="trump maga" data-section="self-dealing">
-          <div class="entry-top">
-            <div>
-              <div class="entry-labels">
-                <span class="entry-chip">Trump</span>
-                <span class="entry-chip">Crypto grift</span>
-                <span class="severity-chip">Level 4</span>
-                <span class="status-pill">Follow the money</span>
-              </div>
-              <h3 class="entry-title">MEME COIN AS A FOREIGN INFLUENCE SLOT MACHINE</h3>
-            </div>
-            <a class="entry-anchor" href="#meme-coin">#meme-coin</a>
-          </div>
-          <div class="entry-meta">Category: foreign money / self-dealing · linked post: March 2026</div>
-          <div class="entry-grid">
-            <div class="entry-box"><h3>What happened</h3><p>A political brand became a speculative financial product, opening a lane for opaque money, access signaling, and influence games around a sitting political figure.</p></div>
-            <div class="entry-box"><h3>Who benefited</h3><p>The same political ecosystem that profits from attention, loyalty, and proximity to power. The grift is the point, not a side effect.</p></div>
-            <div class="entry-box"><h3>Public cost</h3><p>It blurs politics, fundraising, and personal enrichment while making conflict-of-interest questions harder to track in real time.</p></div>
-            <div class="entry-box"><h3>Why it matters</h3><p>This is not normal campaigning. It is monetized access culture with weaker guardrails and wider avenues for hidden influence.</p></div>
-          </div>
-          <div class="related-row">
-            <a class="related-link" href="/blog/trump-meme-coin-foreign-corruption">Read the full post</a>
-            <a class="related-link" href="/the-lies#trump-brand-grift">Related: brand-as-politics lie</a>
-          </div>
-        </article>
-
-        <article class="entry-card" id="golf-costs" data-title="Trump golf trips cost taxpayers" data-date="2026-03-15" data-severity="3" data-type="public-money self-dealing" data-actor="trump" data-section="self-dealing">
-          <div class="entry-top">
-            <div>
-              <div class="entry-labels">
-                <span class="entry-chip">Trump</span>
-                <span class="entry-chip">Taxpayer cost</span>
-                <span class="severity-chip">Level 3</span>
-                <span class="status-pill">Public money</span>
-              </div>
-              <h3 class="entry-title">GOLF, SECURITY, AND THE RECURRING TAXPAYER TAB</h3>
-            </div>
-            <a class="entry-anchor" href="#golf-costs">#golf-costs</a>
-          </div>
-          <div class="entry-meta">Category: public money / self-dealing · cost story</div>
-          <div class="entry-grid">
-            <div class="entry-box"><h3>What happened</h3><p>Repeated trips to Trump properties generate recurring government spending for security, logistics, and travel around privately owned locations.</p></div>
-            <div class="entry-box"><h3>Who benefited</h3><p>Trump properties gain prestige, traffic, and direct revenue opportunities from the same public role that is supposed to serve the country, not the brand.</p></div>
-            <div class="entry-box"><h3>Public cost</h3><p>Taxpayers eat the operational bill while private properties absorb the halo effect and business upside.</p></div>
-            <div class="entry-box"><h3>Why it matters</h3><p>Even when technically routed through ordinary logistics, the pattern shows how public office can become a recurring customer for a politician’s private business ecosystem.</p></div>
-          </div>
-          <div class="related-row"><a class="related-link" href="/blog/trump-golf-trips-cost">Read the full post</a></div>
-        </article>
-
-        <article class="entry-card" id="ivanka-jared" data-title="Jared and Ivanka federal payroll" data-date="2026-02-14" data-severity="2" data-type="self-dealing patronage" data-actor="family trump" data-section="self-dealing">
-          <div class="entry-top">
-            <div>
-              <div class="entry-labels">
-                <span class="entry-chip">Family</span>
-                <span class="entry-chip">Nepotism</span>
-                <span class="severity-chip">Level 2</span>
-                <span class="status-pill">Patronage</span>
-              </div>
-              <h3 class="entry-title">FAMILY POWER INSIDE THE STATE</h3>
-            </div>
-            <a class="entry-anchor" href="#ivanka-jared">#ivanka-jared</a>
-          </div>
-          <div class="entry-meta">Category: self-dealing / patronage · family role story</div>
-          <div class="entry-grid">
-            <div class="entry-box"><h3>What happened</h3><p>Key family members operated inside the White House orbit, collapsing the boundary between political loyalty, family interest, and public responsibility.</p></div>
-            <div class="entry-box"><h3>Who benefited</h3><p>The ruling family gained stature, leverage, and access that no ordinary adviser could ever duplicate.</p></div>
-            <div class="entry-box"><h3>Public cost</h3><p>Accountability gets weaker when family and government roles overlap, because normal lines of discipline and independence disappear.</p></div>
-            <div class="entry-box"><h3>Why it matters</h3><p>Patrimonial politics corrodes democratic norms even before it crosses into outright criminality.</p></div>
-          </div>
-          <div class="related-row"><a class="related-link" href="/blog/jared-ivanka-federal-payroll">Read the full post</a></div>
-        </article>
-      </div>
-    </section>
-
-    <section class="section-block" id="foreign-money" data-section="foreign-money">
-      <div class="section-head">
-        <div class="section-title-wrap">
-          <h2>FOREIGN MONEY</h2>
-          <p>Where access, branding, and power intersect with overseas interests</p>
-        </div>
-        <div class="section-count">2 entries</div>
-      </div>
-      <div class="entry-list">
-        <article class="entry-card" id="emoluments" data-title="Trump emoluments foreign payments" data-date="2026-03-10" data-severity="4" data-type="foreign-money self-dealing" data-actor="trump" data-section="foreign-money">
-          <div class="entry-top"><div><div class="entry-labels"><span class="entry-chip">Trump</span><span class="entry-chip">Foreign payments</span><span class="severity-chip">Level 4</span><span class="status-pill">Constitutional rot</span></div><h3 class="entry-title">EMOLUMENTS: FOREIGN GOVERNMENTS, PRIVATE PROFIT, PUBLIC OFFICE</h3></div><a class="entry-anchor" href="#emoluments">#emoluments</a></div>
-          <div class="entry-meta">Category: foreign money · constitutional conflict</div>
-          <div class="entry-grid">
-            <div class="entry-box"><h3>What happened</h3><p>Foreign-linked spending and payments raised direct conflict questions around a president whose private business empire never fully detached from public power.</p></div>
-            <div class="entry-box"><h3>Who benefited</h3><p>The business brand tied to the office-holder benefited from the prestige and transaction flow that came with global political status.</p></div>
-            <div class="entry-box"><h3>Public cost</h3><p>The public could not easily distinguish diplomacy from self-enrichment, or state action from personal commercial interest.</p></div>
-            <div class="entry-box"><h3>Why it matters</h3><p>If foreign governments can curry favor through a private business channel, the corruption risk is built into the structure itself.</p></div>
-          </div>
-          <div class="related-row"><a class="related-link" href="/blog/trump-emoluments-foreign-payments">Read the full post</a><a class="related-link" href="/blog/trump-emoluments-golan-heights">Related: policy and private gain</a></div>
-        </article>
-
-        <article class="entry-card" id="golan" data-title="Trump emoluments Golan Heights" data-date="2026-03-05" data-severity="3" data-type="foreign-money donor-favor" data-actor="trump maga" data-section="foreign-money">
-          <div class="entry-top"><div><div class="entry-labels"><span class="entry-chip">Trump</span><span class="entry-chip">Policy optics</span><span class="severity-chip">Level 3</span><span class="status-pill">Conflict pattern</span></div><h3 class="entry-title">WHEN FOREIGN POLICY LOOKS A LOT LIKE BRAND MAINTENANCE</h3></div><a class="entry-anchor" href="#golan">#golan</a></div>
-          <div class="entry-meta">Category: foreign money / donor favor</div>
-          <div class="entry-grid">
-            <div class="entry-box"><h3>What happened</h3><p>Policy gestures and symbolic branding collided with business interest questions, making the distinction between national decision-making and private image management harder to defend.</p></div>
-            <div class="entry-box"><h3>Who benefited</h3><p>Political branding and allied power brokers benefit when state decisions can be folded into private identity, merchandise, or commercial narratives.</p></div>
-            <div class="entry-box"><h3>Public cost</h3><p>The legitimacy of foreign policy suffers when decisions appear to carry a private promotional aftertaste.</p></div>
-            <div class="entry-box"><h3>Why it matters</h3><p>Even absent a signed invoice, the optics of self-benefiting statecraft erode trust and normalize conflict-heavy governance.</p></div>
-          </div>
-          <div class="related-row"><a class="related-link" href="/blog/trump-emoluments-golan-heights">Read the full post</a></div>
-        </article>
-      </div>
-    </section>
-
-    <section class="section-block" id="pardon-abuse" data-section="pardon-abuse">
-      <div class="section-head">
-        <div class="section-title-wrap">
-          <h2>PARDON ABUSE</h2>
-          <p>When accountability gets traded away for loyalty, silence, or extremist alignment</p>
-        </div>
-        <div class="section-count">3 entries</div>
-      </div>
-      <div class="entry-list">
-        <article class="entry-card" id="bannon" data-title="Steve Bannon border wall fraud pardon" data-date="2026-03-19" data-severity="4" data-type="pardon-abuse self-dealing" data-actor="trump maga" data-section="pardon-abuse">
-          <div class="entry-top"><div><div class="entry-labels"><span class="entry-chip">Trump</span><span class="entry-chip">Crony protection</span><span class="severity-chip">Level 4</span><span class="status-pill">Loyalty reward</span></div><h3 class="entry-title">BANNON, BORDER WALL FRAUD, AND THE GET-OUT-OF-ACCOUNTABILITY CARD</h3></div><a class="entry-anchor" href="#bannon">#bannon</a></div>
-          <div class="entry-meta">Category: pardon abuse · crony insulation</div>
-          <div class="entry-grid">
-            <div class="entry-box"><h3>What happened</h3><p>A close ally facing fraud allegations tied to a political cause was shielded by presidential clemency.</p></div>
-            <div class="entry-box"><h3>Who benefited</h3><p>The ally, obviously. But also the ecosystem that needs loyal insiders to know that service to the boss can bring legal escape hatches.</p></div>
-            <div class="entry-box"><h3>Public cost</h3><p>It turns clemency from mercy into message discipline: stay loyal and maybe the system stops applying to you.</p></div>
-            <div class="entry-box"><h3>Why it matters</h3><p>This is how anti-corruption norms rot: not through a single scandal, but through predictable rewards for insiders who never break ranks.</p></div>
-          </div>
-          <div class="related-row"><a class="related-link" href="/blog/steve-bannon-border-wall-fraud">Read the full post</a></div>
-        </article>
-
-        <article class="entry-card" id="arpaio" data-title="Arpaio pardon tent city" data-date="2026-02-22" data-severity="3" data-type="pardon-abuse gop" data-actor="trump gop" data-section="pardon-abuse">
-          <div class="entry-top"><div><div class="entry-labels"><span class="entry-chip">Trump</span><span class="entry-chip">Abuse of clemency</span><span class="severity-chip">Level 3</span><span class="status-pill">Impunity signal</span></div><h3 class="entry-title">THE ARPAIO PARDON AS A POLITICAL SIGNAL FLARE</h3></div><a class="entry-anchor" href="#arpaio">#arpaio</a></div>
-          <div class="entry-meta">Category: pardon abuse · authoritarian signaling</div>
-          <div class="entry-grid">
-            <div class="entry-box"><h3>What happened</h3><p>A high-profile pardon protected an ally associated with abusive law-enforcement practices and contempt findings.</p></div>
-            <div class="entry-box"><h3>Who benefited</h3><p>The direct beneficiary kept political status, and the broader hard-right movement got a message: cruelty and defiance remain protected if they serve the right agenda.</p></div>
-            <div class="entry-box"><h3>Public cost</h3><p>Faith in even-handed justice takes a hit when political allies receive elite treatment for conduct ordinary people would never survive.</p></div>
-            <div class="entry-box"><h3>Why it matters</h3><p>Pardons can function as doctrine. This one advertised that rule-breaking in service of power would be tolerated and celebrated.</p></div>
-          </div>
-          <div class="related-row"><a class="related-link" href="/blog/arpaio-pardon-tent-city">Read the full post</a></div>
-        </article>
-
-        <article class="entry-card" id="proud-boys-pardons" data-title="Proud Boys Oath Keepers pardons" data-date="2026-03-24" data-severity="4" data-type="pardon-abuse gop" data-actor="trump maga" data-section="pardon-abuse">
-          <div class="entry-top"><div><div class="entry-labels"><span class="entry-chip">MAGA</span><span class="entry-chip">Extremist alignment</span><span class="severity-chip">Level 4</span><span class="status-pill">Movement protection</span></div><h3 class="entry-title">PARDONS AS A GIFT TO THE MOVEMENT’S ENFORCERS</h3></div><a class="entry-anchor" href="#proud-boys-pardons">#proud-boys-pardons</a></div>
-          <div class="entry-meta">Category: pardon abuse · extremist ecosystem</div>
-          <div class="entry-grid">
-            <div class="entry-box"><h3>What happened</h3><p>Clemency for violent movement-aligned actors reinforced the sense that some political violence counts as service, not disgrace.</p></div>
-            <div class="entry-box"><h3>Who benefited</h3><p>The convicted actors benefit directly, but so does the broader movement that interprets leniency as endorsement.</p></div>
-            <div class="entry-box"><h3>Public cost</h3><p>Democratic deterrence weakens when violence-adjacent politics get folded back into normal partisan reward systems.</p></div>
-            <div class="entry-box"><h3>Why it matters</h3><p>Not every corruption story is about a bank transfer. Sometimes it is about spending state power to buy loyalty from the most dangerous factions in the room.</p></div>
-          </div>
-          <div class="related-row"><a class="related-link" href="/blog/proud-boys-oath-keepers-pardons">Read the full post</a></div>
-        </article>
-      </div>
-    </section>
-
-    <section class="section-block" id="public-money" data-section="public-money">
-      <div class="section-head">
-        <div class="section-title-wrap"><h2>PUBLIC MONEY</h2><p>Government cash flows, donor-adjacent spending, and taxpayer-backed patronage</p></div>
-        <div class="section-count">2 entries</div>
-      </div>
-      <div class="entry-list">
-        <article class="entry-card" id="inauguration-funds" data-title="Trump stole inauguration funds" data-date="2026-03-11" data-severity="4" data-type="public-money donor-favor" data-actor="trump family" data-section="public-money">
-          <div class="entry-top"><div><div class="entry-labels"><span class="entry-chip">Trump</span><span class="entry-chip">Inaugural money</span><span class="severity-chip">Level 4</span><span class="status-pill">Money trail</span></div><h3 class="entry-title">WHERE DID THE INAUGURATION MONEY GO?</h3></div><a class="entry-anchor" href="#inauguration-funds">#inauguration-funds</a></div>
-          <div class="entry-meta">Category: public money / donor favor · inaugural committee scrutiny</div>
-          <div class="entry-grid">
-            <div class="entry-box"><h3>What happened</h3><p>Large sums raised for a public-facing political event became the subject of intense scrutiny over spending, vendors, and private benefit.</p></div>
-            <div class="entry-box"><h3>Who benefited</h3><p>Insiders, favored vendors, and the political network surrounding the event gained from an unusually murky money pipeline.</p></div>
-            <div class="entry-box"><h3>Public cost</h3><p>Events wrapped in patriotic pageantry become camouflage for extraction when there is money everywhere and transparency nowhere.</p></div>
-            <div class="entry-box"><h3>Why it matters</h3><p>Follow the cash on ceremonial politics and you often find the same architecture as every other grift: access, opacity, loyalists, and disappearing accountability.</p></div>
-          </div>
-          <div class="related-row"><a class="related-link" href="/blog/trump-stole-inauguration-funds">Read the full post</a></div>
-        </article>
-
-        <article class="entry-card" id="charter-flights" data-title="Trump cabinet corruption charter flights" data-date="2026-03-08" data-severity="2" data-type="public-money patronage" data-actor="gop trump" data-section="public-money">
-          <div class="entry-top"><div><div class="entry-labels"><span class="entry-chip">Cabinet</span><span class="entry-chip">Expense abuse</span><span class="severity-chip">Level 2</span><span class="status-pill">Patronage culture</span></div><h3 class="entry-title">CHARTER FLIGHTS, PRIVATE HABITS, PUBLIC TAB</h3></div><a class="entry-anchor" href="#charter-flights">#charter-flights</a></div>
-          <div class="entry-meta">Category: public money / patronage · cabinet culture</div>
-          <div class="entry-grid">
-            <div class="entry-box"><h3>What happened</h3><p>Luxury or unnecessary official travel became a recurring symbol of an administration that treated public resources like a perk package.</p></div>
-            <div class="entry-box"><h3>Who benefited</h3><p>Politically connected officials received convenience, status, and insulated privilege on the public dime.</p></div>
-            <div class="entry-box"><h3>Public cost</h3><p>The cost is not just financial. It is the normalization of a governing culture in which rules are for the help, not the powerful.</p></div>
-            <div class="entry-box"><h3>Why it matters</h3><p>Small-bore ethics abuses matter because they reveal whether an administration sees public office as stewardship or spoils.</p></div>
-          </div>
-          <div class="related-row"><a class="related-link" href="/blog/trump-cabinet-corruption-charter-flights">Read the full post</a></div>
-        </article>
-      </div>
-    </section>
-
-    <section class="section-block" id="patronage" data-section="patronage">
-      <div class="section-head">
-        <div class="section-title-wrap"><h2>PATRONAGE &amp; PROTECTION</h2><p>Loyalty networks, movement rewards, and institutions bent toward insiders</p></div>
-        <div class="section-count">2 entries</div>
-      </div>
-      <div class="entry-list">
-        <article class="entry-card" id="foundation-fraud" data-title="Trump foundation fraud" data-date="2026-03-02" data-severity="3" data-type="self-dealing donor-favor" data-actor="trump family" data-section="patronage">
-          <div class="entry-top"><div><div class="entry-labels"><span class="entry-chip">Trump</span><span class="entry-chip">Foundation abuse</span><span class="severity-chip">Level 3</span><span class="status-pill">Pattern evidence</span></div><h3 class="entry-title">FOUNDATION FRAUD AS THE PREQUEL TO EVERYTHING ELSE</h3></div><a class="entry-anchor" href="#foundation-fraud">#foundation-fraud</a></div>
-          <div class="entry-meta">Category: donor favor / self-dealing · pattern story</div>
-          <div class="entry-grid">
-            <div class="entry-box"><h3>What happened</h3><p>A charitable vehicle was misused in ways that exposed a long-running approach to money and rules: instrumentalize the institution, then dare anyone to stop you.</p></div>
-            <div class="entry-box"><h3>Who benefited</h3><p>The Trump network benefited from the flexibility and image laundering that comes when philanthropy is treated as a political and personal convenience account.</p></div>
-            <div class="entry-box"><h3>Public cost</h3><p>Every abused nonprofit corrodes trust in the systems that are supposed to separate charity, campaign theatrics, and personal ambition.</p></div>
-            <div class="entry-box"><h3>Why it matters</h3><p>This story is foundational because it shows the playbook before the White House: entitlement, opacity, branding, and rules for other people.</p></div>
-          </div>
-          <div class="related-row"><a class="related-link" href="/blog/trump-foundation-fraud">Read the full post</a></div>
-        </article>
-
-        <article class="entry-card" id="visitor-logs" data-title="Trump White House visitor logs transparency" data-date="2026-02-11" data-severity="1" data-type="patronage public-money" data-actor="trump gop" data-section="patronage">
-          <div class="entry-top"><div><div class="entry-labels"><span class="entry-chip">Transparency</span><span class="entry-chip">Access control</span><span class="severity-chip">Level 1</span><span class="status-pill">Opacity</span></div><h3 class="entry-title">HIDE THE VISITOR LOGS, HIDE THE NETWORK</h3></div><a class="entry-anchor" href="#visitor-logs">#visitor-logs</a></div>
-          <div class="entry-meta">Category: patronage / opacity · access story</div>
-          <div class="entry-grid">
-            <div class="entry-box"><h3>What happened</h3><p>Visitor log transparency weakened, limiting outside scrutiny of who had access, when, and how often.</p></div>
-            <div class="entry-box"><h3>Who benefited</h3><p>The people who benefit most from missing records are usually the ones who never want the pattern visible in the first place.</p></div>
-            <div class="entry-box"><h3>Public cost</h3><p>Opacity is its own corrupt advantage. It weakens watchdogs before they can even begin tracing influence.</p></div>
-            <div class="entry-box"><h3>Why it matters</h3><p>Not every scandal comes with a smoking gun. Sometimes the story is that the records go dark exactly where accountability would begin.</p></div>
-          </div>
-          <div class="related-row"><a class="related-link" href="/blog/trump-wh-visitor-logs-transparency">Read the full post</a></div>
-        </article>
-      </div>
-    </section>
-  </div>
-
-  <div class="tracker-empty" id="trackerEmpty">No entries match this filter combination. Clear a chip or broaden the search.</div>
+<section class="page-hero">
+<div class="page-hero-bg">FOLLOW THE MONEY</div>
+<div class="eyebrow-row">
+<span class="status-chip"><span class="pulse-dot"></span><strong>Live tracker</strong> self-dealing, donor favors, and power for profit</span>
+<span class="updated-chip"><strong>Built for:</strong> receipts, patterns, and repeat offenders</span>
+</div>
+<h1>CORRUPTION<span>.</span></h1>
+<p class="sub">This is where the scam gets organized. Not just lies. Not just spin. The money, the favors, the pardons, the conflicts, the private gain, the political payoff, and the public damage. Search it. Sort it. Link it. Build the case.</p>
+</section>
+<div class="tracker-strip">
+<div class="tracker-grid">
+<div class="tracker-stat"><span class="num">12</span><span class="label">Core cases</span><span class="desc">Starter set built from your strongest corruption-related posts.</span></div>
+<div class="tracker-stat"><span class="num">5</span><span class="label">Buckets</span><span class="desc">Grift. Patronage. Pardons. Foreign money. Public money abuse.</span></div>
+<div class="tracker-stat"><span class="num">4</span><span class="label">Severity bands</span><span class="desc">From unethical as hell to constitutional rot.</span></div>
+<div class="tracker-stat"><span class="num">∞</span><span class="label">Expansion room</span><span class="desc">This page is built to scale as new schemes and investigations land.</span></div>
+</div>
+</div>
+<section class="tools-wrap">
+<div class="control-panel">
+<div class="panel-head">Search, sort, and filter the corruption file</div>
+<div class="control-body">
+<div class="search-row">
+<input class="search-input" id="trackerSearch" placeholder="Search names, scams, agencies, donors, payouts…" type="search"/>
+<select aria-label="Sort entries" class="sort-select" id="trackerSort">
+<option value="severity">Sort: severity</option>
+<option value="newest">Sort: newest first</option>
+<option value="oldest">Sort: oldest first</option>
+<option value="title">Sort: title</option>
+</select>
+</div>
+<span class="chip-label">Filter by scheme</span>
+<div class="chip-group" id="typeFilters">
+<button class="filter-chip active" data-filter="all">All</button>
+<button class="filter-chip" data-filter="self-dealing">Self-dealing</button>
+<button class="filter-chip" data-filter="donor-favor">Donor favor</button>
+<button class="filter-chip" data-filter="pardon-abuse">Pardon abuse</button>
+<button class="filter-chip" data-filter="foreign-money">Foreign money</button>
+<button class="filter-chip" data-filter="public-money">Public money</button>
+</div>
+<span class="chip-label">Filter by offender</span>
+<div class="chip-group" id="actorFilters">
+<button class="filter-chip active" data-actor="all">All</button>
+<button class="filter-chip" data-actor="trump">Trump</button>
+<button class="filter-chip" data-actor="family">Family</button>
+<button class="filter-chip" data-actor="maga">MAGA network</button>
+<button class="filter-chip" data-actor="gop">GOP machine</button>
+</div>
+<span class="chip-label">Filter by severity</span>
+<div class="chip-group" id="severityFilters">
+<button class="filter-chip active" data-severity="all">All</button>
+<button class="filter-chip" data-severity="1">Level 1</button>
+<button class="filter-chip" data-severity="2">Level 2</button>
+<button class="filter-chip" data-severity="3">Level 3</button>
+<button class="filter-chip" data-severity="4">Level 4</button>
+</div>
+</div>
+</div>
+<div class="jump-panel">
+<div class="panel-head">Jump to a section</div>
+<div class="jump-body">
+<div class="jump-links">
+<a class="jump-link" href="#self-dealing">Self-dealing</a>
+<a class="jump-link" href="#foreign-money">Foreign money</a>
+<a class="jump-link" href="#pardon-abuse">Pardon abuse</a>
+<a class="jump-link" href="#public-money">Public money</a>
+<a class="jump-link" href="#patronage">Patronage</a>
+<a class="jump-link" href="/the-lies">Cross-link: the lies</a>
+</div>
+</div>
+</div>
+</section>
+<div class="methodology-wrap">
+<section class="methodology">
+<div class="panel-head">How this page works</div>
+<div class="methodology-body">
+<div class="method-box">
+<h3>What counts</h3>
+<p>Entries belong here when the story centers on private benefit, public abuse, donor influence, conflicts of interest, weaponized pardons, or state power bent toward personal gain.</p>
+</div>
+<div class="method-box">
+<h3>How it is framed</h3>
+<p>Each entry breaks the scheme into four parts: what happened, who benefited, what the public paid, and why it matters. Clean structure beats outrage sludge.</p>
+</div>
+<div class="method-box">
+<h3>What it links to</h3>
+<p>Every card sends readers into your existing reporting, so this page becomes a hub instead of a dead end. Receipts first. Rant second.</p>
+</div>
+<div class="method-box">
+<h3>How to expand it</h3>
+<p>Add new cards as new schemes break, then split major stories into dedicated explainers when a single corruption thread gets too big to fit on one card.</p>
+</div>
+</div>
+</section>
+</div>
+<div class="tracker-sections" id="trackerSections">
+<section class="section-block" data-section="self-dealing" id="self-dealing">
+<div class="section-head">
+<div class="section-title-wrap">
+<h2>SELF-DEALING</h2>
+<p>Using office, brand, and access to enrich the same people holding the power</p>
+</div>
+<div class="section-count">3 entries</div>
+</div>
+<div class="entry-list">
+<article class="entry-card" data-actor="trump maga" data-date="2026-03-20" data-section="self-dealing" data-severity="4" data-title="Trump meme coin foreign corruption" data-type="foreign-money self-dealing" id="meme-coin">
+<div class="entry-top">
+<div>
+<div class="entry-labels">
+<span class="entry-chip">Trump</span>
+<span class="entry-chip">Crypto grift</span>
+<span class="severity-chip">Level 4</span>
+<span class="status-pill">Follow the money</span>
+</div>
+<h3 class="entry-title">MEME COIN AS A FOREIGN INFLUENCE SLOT MACHINE</h3>
+</div>
+<a class="entry-anchor" href="#meme-coin">#meme-coin</a>
+</div>
+<div class="entry-meta">Category: foreign money / self-dealing · linked post: March 2026</div>
+<div class="entry-grid">
+<div class="entry-box"><h3>What happened</h3><p>A political brand became a speculative financial product, opening a lane for opaque money, access signaling, and influence games around a sitting political figure.</p></div>
+<div class="entry-box"><h3>Who benefited</h3><p>The same political ecosystem that profits from attention, loyalty, and proximity to power. The grift is the point, not a side effect.</p></div>
+<div class="entry-box"><h3>Public cost</h3><p>It blurs politics, fundraising, and personal enrichment while making conflict-of-interest questions harder to track in real time.</p></div>
+<div class="entry-box"><h3>Why it matters</h3><p>This is not normal campaigning. It is monetized access culture with weaker guardrails and wider avenues for hidden influence.</p></div>
+</div>
+<div class="related-row">
+<a class="related-link" href="/blog/trump-meme-coin-foreign-corruption">Read the full post</a>
+<a class="related-link" href="/the-lies#trump-brand-grift">Related: brand-as-politics lie</a>
+</div>
+</article>
+<article class="entry-card" data-actor="trump" data-date="2026-03-15" data-section="self-dealing" data-severity="3" data-title="Trump golf trips cost taxpayers" data-type="public-money self-dealing" id="golf-costs">
+<div class="entry-top">
+<div>
+<div class="entry-labels">
+<span class="entry-chip">Trump</span>
+<span class="entry-chip">Taxpayer cost</span>
+<span class="severity-chip">Level 3</span>
+<span class="status-pill">Public money</span>
+</div>
+<h3 class="entry-title">GOLF, SECURITY, AND THE RECURRING TAXPAYER TAB</h3>
+</div>
+<a class="entry-anchor" href="#golf-costs">#golf-costs</a>
+</div>
+<div class="entry-meta">Category: public money / self-dealing · cost story</div>
+<div class="entry-grid">
+<div class="entry-box"><h3>What happened</h3><p>Repeated trips to Trump properties generate recurring government spending for security, logistics, and travel around privately owned locations.</p></div>
+<div class="entry-box"><h3>Who benefited</h3><p>Trump properties gain prestige, traffic, and direct revenue opportunities from the same public role that is supposed to serve the country, not the brand.</p></div>
+<div class="entry-box"><h3>Public cost</h3><p>Taxpayers eat the operational bill while private properties absorb the halo effect and business upside.</p></div>
+<div class="entry-box"><h3>Why it matters</h3><p>Even when technically routed through ordinary logistics, the pattern shows how public office can become a recurring customer for a politician’s private business ecosystem.</p></div>
+</div>
+<div class="related-row"><a class="related-link" href="/blog/trump-golf-trips-cost">Read the full post</a></div>
+</article>
+<article class="entry-card" data-actor="family trump" data-date="2026-02-14" data-section="self-dealing" data-severity="2" data-title="Jared and Ivanka federal payroll" data-type="self-dealing patronage" id="ivanka-jared">
+<div class="entry-top">
+<div>
+<div class="entry-labels">
+<span class="entry-chip">Family</span>
+<span class="entry-chip">Nepotism</span>
+<span class="severity-chip">Level 2</span>
+<span class="status-pill">Patronage</span>
+</div>
+<h3 class="entry-title">FAMILY POWER INSIDE THE STATE</h3>
+</div>
+<a class="entry-anchor" href="#ivanka-jared">#ivanka-jared</a>
+</div>
+<div class="entry-meta">Category: self-dealing / patronage · family role story</div>
+<div class="entry-grid">
+<div class="entry-box"><h3>What happened</h3><p>Key family members operated inside the White House orbit, collapsing the boundary between political loyalty, family interest, and public responsibility.</p></div>
+<div class="entry-box"><h3>Who benefited</h3><p>The ruling family gained stature, leverage, and access that no ordinary adviser could ever duplicate.</p></div>
+<div class="entry-box"><h3>Public cost</h3><p>Accountability gets weaker when family and government roles overlap, because normal lines of discipline and independence disappear.</p></div>
+<div class="entry-box"><h3>Why it matters</h3><p>Patrimonial politics corrodes democratic norms even before it crosses into outright criminality.</p></div>
+</div>
+<div class="related-row"><a class="related-link" href="/blog/jared-ivanka-federal-payroll">Read the full post</a></div>
+</article>
+</div>
+</section>
+<section class="section-block" data-section="foreign-money" id="foreign-money">
+<div class="section-head">
+<div class="section-title-wrap">
+<h2>FOREIGN MONEY</h2>
+<p>Where access, branding, and power intersect with overseas interests</p>
+</div>
+<div class="section-count">2 entries</div>
+</div>
+<div class="entry-list">
+<article class="entry-card" data-actor="trump" data-date="2026-03-10" data-section="foreign-money" data-severity="4" data-title="Trump emoluments foreign payments" data-type="foreign-money self-dealing" id="emoluments">
+<div class="entry-top"><div><div class="entry-labels"><span class="entry-chip">Trump</span><span class="entry-chip">Foreign payments</span><span class="severity-chip">Level 4</span><span class="status-pill">Constitutional rot</span></div><h3 class="entry-title">EMOLUMENTS: FOREIGN GOVERNMENTS, PRIVATE PROFIT, PUBLIC OFFICE</h3></div><a class="entry-anchor" href="#emoluments">#emoluments</a></div>
+<div class="entry-meta">Category: foreign money · constitutional conflict</div>
+<div class="entry-grid">
+<div class="entry-box"><h3>What happened</h3><p>Foreign-linked spending and payments raised direct conflict questions around a president whose private business empire never fully detached from public power.</p></div>
+<div class="entry-box"><h3>Who benefited</h3><p>The business brand tied to the office-holder benefited from the prestige and transaction flow that came with global political status.</p></div>
+<div class="entry-box"><h3>Public cost</h3><p>The public could not easily distinguish diplomacy from self-enrichment, or state action from personal commercial interest.</p></div>
+<div class="entry-box"><h3>Why it matters</h3><p>If foreign governments can curry favor through a private business channel, the corruption risk is built into the structure itself.</p></div>
+</div>
+<div class="related-row"><a class="related-link" href="/blog/trump-emoluments-foreign-payments">Read the full post</a><a class="related-link" href="/blog/trump-emoluments-golan-heights">Related: policy and private gain</a></div>
+</article>
+<article class="entry-card" data-actor="trump maga" data-date="2026-03-05" data-section="foreign-money" data-severity="3" data-title="Trump emoluments Golan Heights" data-type="foreign-money donor-favor" id="golan">
+<div class="entry-top"><div><div class="entry-labels"><span class="entry-chip">Trump</span><span class="entry-chip">Policy optics</span><span class="severity-chip">Level 3</span><span class="status-pill">Conflict pattern</span></div><h3 class="entry-title">WHEN FOREIGN POLICY LOOKS A LOT LIKE BRAND MAINTENANCE</h3></div><a class="entry-anchor" href="#golan">#golan</a></div>
+<div class="entry-meta">Category: foreign money / donor favor</div>
+<div class="entry-grid">
+<div class="entry-box"><h3>What happened</h3><p>Policy gestures and symbolic branding collided with business interest questions, making the distinction between national decision-making and private image management harder to defend.</p></div>
+<div class="entry-box"><h3>Who benefited</h3><p>Political branding and allied power brokers benefit when state decisions can be folded into private identity, merchandise, or commercial narratives.</p></div>
+<div class="entry-box"><h3>Public cost</h3><p>The legitimacy of foreign policy suffers when decisions appear to carry a private promotional aftertaste.</p></div>
+<div class="entry-box"><h3>Why it matters</h3><p>Even absent a signed invoice, the optics of self-benefiting statecraft erode trust and normalize conflict-heavy governance.</p></div>
+</div>
+<div class="related-row"><a class="related-link" href="/blog/trump-emoluments-golan-heights">Read the full post</a></div>
+</article>
+</div>
+</section>
+<section class="section-block" data-section="pardon-abuse" id="pardon-abuse">
+<div class="section-head">
+<div class="section-title-wrap">
+<h2>PARDON ABUSE</h2>
+<p>When accountability gets traded away for loyalty, silence, or extremist alignment</p>
+</div>
+<div class="section-count">3 entries</div>
+</div>
+<div class="entry-list">
+<article class="entry-card" data-actor="trump maga" data-date="2026-03-19" data-section="pardon-abuse" data-severity="4" data-title="Steve Bannon border wall fraud pardon" data-type="pardon-abuse self-dealing" id="bannon">
+<div class="entry-top"><div><div class="entry-labels"><span class="entry-chip">Trump</span><span class="entry-chip">Crony protection</span><span class="severity-chip">Level 4</span><span class="status-pill">Loyalty reward</span></div><h3 class="entry-title">BANNON, BORDER WALL FRAUD, AND THE GET-OUT-OF-ACCOUNTABILITY CARD</h3></div><a class="entry-anchor" href="#bannon">#bannon</a></div>
+<div class="entry-meta">Category: pardon abuse · crony insulation</div>
+<div class="entry-grid">
+<div class="entry-box"><h3>What happened</h3><p>A close ally facing fraud allegations tied to a political cause was shielded by presidential clemency.</p></div>
+<div class="entry-box"><h3>Who benefited</h3><p>The ally, obviously. But also the ecosystem that needs loyal insiders to know that service to the boss can bring legal escape hatches.</p></div>
+<div class="entry-box"><h3>Public cost</h3><p>It turns clemency from mercy into message discipline: stay loyal and maybe the system stops applying to you.</p></div>
+<div class="entry-box"><h3>Why it matters</h3><p>This is how anti-corruption norms rot: not through a single scandal, but through predictable rewards for insiders who never break ranks.</p></div>
+</div>
+<div class="related-row"><a class="related-link" href="/blog/steve-bannon-border-wall-fraud">Read the full post</a></div>
+</article>
+<article class="entry-card" data-actor="trump gop" data-date="2026-02-22" data-section="pardon-abuse" data-severity="3" data-title="Arpaio pardon tent city" data-type="pardon-abuse gop" id="arpaio">
+<div class="entry-top"><div><div class="entry-labels"><span class="entry-chip">Trump</span><span class="entry-chip">Abuse of clemency</span><span class="severity-chip">Level 3</span><span class="status-pill">Impunity signal</span></div><h3 class="entry-title">THE ARPAIO PARDON AS A POLITICAL SIGNAL FLARE</h3></div><a class="entry-anchor" href="#arpaio">#arpaio</a></div>
+<div class="entry-meta">Category: pardon abuse · authoritarian signaling</div>
+<div class="entry-grid">
+<div class="entry-box"><h3>What happened</h3><p>A high-profile pardon protected an ally associated with abusive law-enforcement practices and contempt findings.</p></div>
+<div class="entry-box"><h3>Who benefited</h3><p>The direct beneficiary kept political status, and the broader hard-right movement got a message: cruelty and defiance remain protected if they serve the right agenda.</p></div>
+<div class="entry-box"><h3>Public cost</h3><p>Faith in even-handed justice takes a hit when political allies receive elite treatment for conduct ordinary people would never survive.</p></div>
+<div class="entry-box"><h3>Why it matters</h3><p>Pardons can function as doctrine. This one advertised that rule-breaking in service of power would be tolerated and celebrated.</p></div>
+</div>
+<div class="related-row"><a class="related-link" href="/blog/arpaio-pardon-tent-city">Read the full post</a></div>
+</article>
+<article class="entry-card" data-actor="trump maga" data-date="2026-03-24" data-section="pardon-abuse" data-severity="4" data-title="Proud Boys Oath Keepers pardons" data-type="pardon-abuse gop" id="proud-boys-pardons">
+<div class="entry-top"><div><div class="entry-labels"><span class="entry-chip">MAGA</span><span class="entry-chip">Extremist alignment</span><span class="severity-chip">Level 4</span><span class="status-pill">Movement protection</span></div><h3 class="entry-title">PARDONS AS A GIFT TO THE MOVEMENT’S ENFORCERS</h3></div><a class="entry-anchor" href="#proud-boys-pardons">#proud-boys-pardons</a></div>
+<div class="entry-meta">Category: pardon abuse · extremist ecosystem</div>
+<div class="entry-grid">
+<div class="entry-box"><h3>What happened</h3><p>Clemency for violent movement-aligned actors reinforced the sense that some political violence counts as service, not disgrace.</p></div>
+<div class="entry-box"><h3>Who benefited</h3><p>The convicted actors benefit directly, but so does the broader movement that interprets leniency as endorsement.</p></div>
+<div class="entry-box"><h3>Public cost</h3><p>Democratic deterrence weakens when violence-adjacent politics get folded back into normal partisan reward systems.</p></div>
+<div class="entry-box"><h3>Why it matters</h3><p>Not every corruption story is about a bank transfer. Sometimes it is about spending state power to buy loyalty from the most dangerous factions in the room.</p></div>
+</div>
+<div class="related-row"><a class="related-link" href="/blog/proud-boys-oath-keepers-pardons">Read the full post</a></div>
+</article>
+</div>
+</section>
+<section class="section-block" data-section="public-money" id="public-money">
+<div class="section-head">
+<div class="section-title-wrap"><h2>PUBLIC MONEY</h2><p>Government cash flows, donor-adjacent spending, and taxpayer-backed patronage</p></div>
+<div class="section-count">2 entries</div>
+</div>
+<div class="entry-list">
+<article class="entry-card" data-actor="trump family" data-date="2026-03-11" data-section="public-money" data-severity="4" data-title="Trump stole inauguration funds" data-type="public-money donor-favor" id="inauguration-funds">
+<div class="entry-top"><div><div class="entry-labels"><span class="entry-chip">Trump</span><span class="entry-chip">Inaugural money</span><span class="severity-chip">Level 4</span><span class="status-pill">Money trail</span></div><h3 class="entry-title">WHERE DID THE INAUGURATION MONEY GO?</h3></div><a class="entry-anchor" href="#inauguration-funds">#inauguration-funds</a></div>
+<div class="entry-meta">Category: public money / donor favor · inaugural committee scrutiny</div>
+<div class="entry-grid">
+<div class="entry-box"><h3>What happened</h3><p>Large sums raised for a public-facing political event became the subject of intense scrutiny over spending, vendors, and private benefit.</p></div>
+<div class="entry-box"><h3>Who benefited</h3><p>Insiders, favored vendors, and the political network surrounding the event gained from an unusually murky money pipeline.</p></div>
+<div class="entry-box"><h3>Public cost</h3><p>Events wrapped in patriotic pageantry become camouflage for extraction when there is money everywhere and transparency nowhere.</p></div>
+<div class="entry-box"><h3>Why it matters</h3><p>Follow the cash on ceremonial politics and you often find the same architecture as every other grift: access, opacity, loyalists, and disappearing accountability.</p></div>
+</div>
+<div class="related-row"><a class="related-link" href="/blog/trump-stole-inauguration-funds">Read the full post</a></div>
+</article>
+<article class="entry-card" data-actor="gop trump" data-date="2026-03-08" data-section="public-money" data-severity="2" data-title="Trump cabinet corruption charter flights" data-type="public-money patronage" id="charter-flights">
+<div class="entry-top"><div><div class="entry-labels"><span class="entry-chip">Cabinet</span><span class="entry-chip">Expense abuse</span><span class="severity-chip">Level 2</span><span class="status-pill">Patronage culture</span></div><h3 class="entry-title">CHARTER FLIGHTS, PRIVATE HABITS, PUBLIC TAB</h3></div><a class="entry-anchor" href="#charter-flights">#charter-flights</a></div>
+<div class="entry-meta">Category: public money / patronage · cabinet culture</div>
+<div class="entry-grid">
+<div class="entry-box"><h3>What happened</h3><p>Luxury or unnecessary official travel became a recurring symbol of an administration that treated public resources like a perk package.</p></div>
+<div class="entry-box"><h3>Who benefited</h3><p>Politically connected officials received convenience, status, and insulated privilege on the public dime.</p></div>
+<div class="entry-box"><h3>Public cost</h3><p>The cost is not just financial. It is the normalization of a governing culture in which rules are for the help, not the powerful.</p></div>
+<div class="entry-box"><h3>Why it matters</h3><p>Small-bore ethics abuses matter because they reveal whether an administration sees public office as stewardship or spoils.</p></div>
+</div>
+<div class="related-row"><a class="related-link" href="/blog/trump-cabinet-corruption-charter-flights">Read the full post</a></div>
+</article>
+</div>
+</section>
+<section class="section-block" data-section="patronage" id="patronage">
+<div class="section-head">
+<div class="section-title-wrap"><h2>PATRONAGE &amp; PROTECTION</h2><p>Loyalty networks, movement rewards, and institutions bent toward insiders</p></div>
+<div class="section-count">2 entries</div>
+</div>
+<div class="entry-list">
+<article class="entry-card" data-actor="trump family" data-date="2026-03-02" data-section="patronage" data-severity="3" data-title="Trump foundation fraud" data-type="self-dealing donor-favor" id="foundation-fraud">
+<div class="entry-top"><div><div class="entry-labels"><span class="entry-chip">Trump</span><span class="entry-chip">Foundation abuse</span><span class="severity-chip">Level 3</span><span class="status-pill">Pattern evidence</span></div><h3 class="entry-title">FOUNDATION FRAUD AS THE PREQUEL TO EVERYTHING ELSE</h3></div><a class="entry-anchor" href="#foundation-fraud">#foundation-fraud</a></div>
+<div class="entry-meta">Category: donor favor / self-dealing · pattern story</div>
+<div class="entry-grid">
+<div class="entry-box"><h3>What happened</h3><p>A charitable vehicle was misused in ways that exposed a long-running approach to money and rules: instrumentalize the institution, then dare anyone to stop you.</p></div>
+<div class="entry-box"><h3>Who benefited</h3><p>The Trump network benefited from the flexibility and image laundering that comes when philanthropy is treated as a political and personal convenience account.</p></div>
+<div class="entry-box"><h3>Public cost</h3><p>Every abused nonprofit corrodes trust in the systems that are supposed to separate charity, campaign theatrics, and personal ambition.</p></div>
+<div class="entry-box"><h3>Why it matters</h3><p>This story is foundational because it shows the playbook before the White House: entitlement, opacity, branding, and rules for other people.</p></div>
+</div>
+<div class="related-row"><a class="related-link" href="/blog/trump-foundation-fraud">Read the full post</a></div>
+</article>
+<article class="entry-card" data-actor="trump gop" data-date="2026-02-11" data-section="patronage" data-severity="1" data-title="Trump White House visitor logs transparency" data-type="patronage public-money" id="visitor-logs">
+<div class="entry-top"><div><div class="entry-labels"><span class="entry-chip">Transparency</span><span class="entry-chip">Access control</span><span class="severity-chip">Level 1</span><span class="status-pill">Opacity</span></div><h3 class="entry-title">HIDE THE VISITOR LOGS, HIDE THE NETWORK</h3></div><a class="entry-anchor" href="#visitor-logs">#visitor-logs</a></div>
+<div class="entry-meta">Category: patronage / opacity · access story</div>
+<div class="entry-grid">
+<div class="entry-box"><h3>What happened</h3><p>Visitor log transparency weakened, limiting outside scrutiny of who had access, when, and how often.</p></div>
+<div class="entry-box"><h3>Who benefited</h3><p>The people who benefit most from missing records are usually the ones who never want the pattern visible in the first place.</p></div>
+<div class="entry-box"><h3>Public cost</h3><p>Opacity is its own corrupt advantage. It weakens watchdogs before they can even begin tracing influence.</p></div>
+<div class="entry-box"><h3>Why it matters</h3><p>Not every scandal comes with a smoking gun. Sometimes the story is that the records go dark exactly where accountability would begin.</p></div>
+</div>
+<div class="related-row"><a class="related-link" href="/blog/trump-wh-visitor-logs-transparency">Read the full post</a></div>
+</article>
+</div>
+</section>
+</div>
+<div class="tracker-empty" id="trackerEmpty">No entries match this filter combination. Clear a chip or broaden the search.</div>
 </main>
 <div id="footer-placeholder"></div>
 <script src="/assets/js/includes.js"></script>
