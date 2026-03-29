@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
@@ -72,7 +73,58 @@
     .dc-num { font-family: var(--font-display); font-size: clamp(2.5rem, 4vw, 3.4rem); color: var(--accent); line-height: 0.95; display: block; margin-bottom: 0.3rem; }
     .dc-label { font-family: var(--font-mono); font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-dim); display: block; line-height: 1.5; max-width: 18ch; }
     @media (max-width: 768px) { .manifesto-grid { grid-template-columns: 1fr; } .manifesto-number { display: none; } .hero-bg-text { display: none; } .hub-preview-grid { grid-template-columns: 1fr; } .damage-counter-inner { grid-template-columns: repeat(2, minmax(0, 1fr)); } .damage-counter-item { border-right: none; border-bottom: 1px solid var(--border); padding: 1.2rem 1rem; } .damage-counter-item:last-child { border-bottom: none; } .dc-label { max-width: none; } }
-    
+  </style>
+<!-- Primary SEO -->
+
+<meta content="Trump lies fact check, MAGA fact check, Trump Social Security cuts, DOGE dividend check, Iran war Trump lies, Trump Epstein files, Republican lies 2026, political fact check" name="keywords"/>
+<meta content="Darrell Nelson" name="author"/>
+<meta content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" name="robots"/>
+<!-- Open Graph -->
+<meta content="website" property="og:type"/>
+<meta content="https://epitomeofhatred.com/" property="og:url"/>
+<meta content="Epitome of Hatred — No Filter. No Apologies." property="og:title"/>
+<meta content="Unfiltered, sourced fact-checks on Trump, MAGA, and the GOP's ongoing war on truth. Every lie documented. Every claim sourced. Updated daily." property="og:description"/>
+<meta content="Epitome of Hatred" property="og:site_name"/>
+<meta content="en_US" property="og:locale"/>
+<meta content="https://epitomeofhatred.com/assets/img/og-default.jpg" property="og:image"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+<!-- Twitter Card -->
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Epitome of Hatred — No Filter. No Apologies." name="twitter:title"/>
+<meta content="Unfiltered, sourced fact-checks on Trump, MAGA, and the GOP. Every lie documented. Updated daily." name="twitter:description"/>
+<meta content="@est7bd" name="twitter:site"/>
+<meta content="@est7bd" name="twitter:creator"/>
+<!-- Schema.org WebSite + Person -->
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://epitomeofhatred.com/#website",
+        "url": "https://epitomeofhatred.com",
+        "name": "Epitome of Hatred",
+        "description": "Unfiltered, sourced fact-checks on Trump, MAGA, and the GOP's ongoing war on truth.",
+        "publisher": {
+          "@id": "https://epitomeofhatred.com/#person"
+        }
+      },
+      {
+        "@type": "Person",
+        "@id": "https://epitomeofhatred.com/#person",
+        "name": "Darrell Nelson",
+        "url": "https://epitomeofhatred.com/about",
+        "sameAs": [
+          "https://twitter.com/est7bd",
+          "https://7bd.org"
+        ]
+      }
+    ]
+  }
+  </script>
+<style>
+    /* ── Breaking & Developing — homepage ──────────────── */
     #breaking-developing {
       border-bottom: 1px solid var(--border);
       background: linear-gradient(180deg, rgba(204,34,34,0.05) 0%, transparent 100%);
@@ -123,16 +175,52 @@
       padding: 1.2rem 1.4rem;
       text-decoration: none;
       display: flex;
-      flex-direction: column; gap: 0.5rem; transition: border-color 0.2s, transform 0.15s;
+      flex-direction: column;
+      gap: 0.5rem;
+      transition: border-color 0.2s, transform 0.15s;
     }
-    .bhome-card:hover { border-color: var(--accent2); transform: translateY(-2px); }
-    .bhome-badge { font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); display: flex; align-items: center; gap: 0.35rem; }
-    .bhome-badge::before { content: ''; display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); animation: pulse-home 1.8s ease-in-out infinite; flex-shrink: 0; }
+    .bhome-card:hover {
+      border-color: var(--accent2);
+      transform: translateY(-2px);
+    }
+    .bhome-badge {
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+    .bhome-badge::before {
+      content: '';
+      display: inline-block;
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      animation: pulse-home 1.8s ease-in-out infinite;
+      flex-shrink: 0;
+    }
     .bhome-badge.developing { color: #e8a020; }
     .bhome-badge.developing::before { background: #e8a020; }
-    .bhome-title { font-family: var(--font-display); font-size: 1.1rem; color: var(--text); line-height: 1.1; letter-spacing: 0.01em; }
+    .bhome-title {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      color: var(--text);
+      line-height: 1.1;
+      letter-spacing: 0.01em;
+    }
     .bhome-card:hover .bhome-title { color: var(--accent2); }
-    .bhome-status { font-family: var(--font-mono); font-size: 0.63rem; color: var(--text-dim); letter-spacing: 0.05em; line-height: 1.5; border-left: 2px solid var(--accent-dim); padding-left: 0.5rem; }
+    .bhome-status {
+      font-family: var(--font-mono);
+      font-size: 0.63rem;
+      color: var(--text-dim);
+      letter-spacing: 0.05em;
+      line-height: 1.5;
+      border-left: 2px solid var(--accent-dim);
+      padding-left: 0.5rem;
+    }
   </style>
 </head>
 <body>
@@ -202,6 +290,7 @@
 </section>
 <hr class="divider"/>
 
+  <!-- DAMAGE COUNTER -->
   <div class="damage-counter-strip">
     <div class="damage-counter-inner">
       <div class="damage-counter-item">
