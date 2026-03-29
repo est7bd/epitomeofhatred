@@ -81,7 +81,7 @@ function postItemHTML(p) {
 
 const allPostItems = posts.map(postItemHTML).join('\n\n');
 
-// ── 4. Update blog/index.html ────────────────────────────────────────────────
+// ── 4. Update blog/index.html (This part works well) ────────────────────────
 let blogIndex = fs.readFileSync(BLOG_HTML, 'utf8');
 const listStart = blogIndex.indexOf('<div class="post-list" id="post-list">');
 const listEnd   = blogIndex.indexOf('</div>', listStart) + 6;
@@ -99,25 +99,30 @@ if (listStart !== -1) {
   console.log(`✅ blog/index.html updated — ${posts.length} posts`);
 }
 
-// ── 5. Update root/index.html (The Critical Fix) ────────────────────────────
+// ── 5. Update root/index.html (THE FAIL-SAFE REWRITE) ───────────────────────
 let rootHTML = fs.readFileSync(ROOT_HTML, 'utf8');
 
-// 5a. Fix the "Damage Counter" strip (Big red number)
-// Looks for the dc-num span followed by "Sourced, documented posts"
-rootHTML = rootHTML.replace(
-  /(<span class="dc-num">)[\s\S]*?(<\/span>\s*\n\s*<span class="dc-label">Sourced, documented posts)/,
-  `$1${posts.length}$2`
-);
+// 5a. Fix Damage Counter (dc-num)
+const dcLabel = 'Sourced, documented posts</span>';
+if (rootHTML.includes(dcLabel)) {
+    const dcParts = rootHTML.split(dcLabel);
+    // Target the dc-num span immediately preceding the label
+    dcParts[0] = dcParts[0].replace(/<span class="dc-num">.*?<\/span>(\s*)$/, `<span class="dc-num">${posts.length}</span>$1`);
+    rootHTML = dcParts.join(dcLabel);
+}
 
-// 5b. Fix the "View All" link at the bottom
-// Replaces the entire span content to prevent nesting
-rootHTML = rootHTML.replace(
-  /(all <span data-post-count>)[\s\S]*?(<\/span> posts →)/g,
-  `$1${posts.length}$2`
-);
+// 5b. Fix "View All" link (data-post-count)
+const countAttr = 'data-post-count>';
+if (rootHTML.includes(countAttr)) {
+    const countParts = rootHTML.split(countAttr);
+    // countParts[1] starts with the old messy content and "</span> posts →"
+    // We replace everything until the first </span> encountered
+    countParts[1] = countParts[1].replace(/.*?<\/span>/, `${posts.length}</span>`);
+    rootHTML = countParts.join(countAttr);
+}
 
 fs.writeFileSync(ROOT_HTML, rootHTML);
-console.log(`✅ root/index.html updated — counter set to ${posts.length}`);
+console.log(`✅ root/index.html updated — count is now ${posts.length}`);
 
 // ── 6. Update sitemap.xml ─────────────────────────────────────────────────────
 const SITEMAP = path.join(__dirname, 'sitemap.xml');
