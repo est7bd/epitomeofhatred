@@ -1,15 +1,14 @@
 #!/usr/bin/env node
 /**
  * build-index.js — epitomeofhatred.com
- * 
- * Run this from the repo root whenever you add new blog posts:
- *   node build-index.js
+ * * Run this from the repo root whenever you add new blog posts:
+ * node build-index.js
  *
  * What it does:
- *   1. Reads every HTML file in /blog (except index.html)
- *   2. Extracts: title, description, date, tags, deck (first <p class="deck">)
- *   3. Regenerates blog/index.html with all posts sorted newest-first
- *   4. Updates the post count in root/index.html automatically
+ * 1. Reads every HTML file in /blog (except index.html)
+ * 2. Extracts: title, description, date, tags, deck (first <p class="deck">)
+ * 3. Regenerates blog/index.html with all posts sorted newest-first
+ * 4. Updates the post count in root/index.html automatically
  *
  * You never need to manually edit blog/index.html again.
  * Just drop a new HTML file in /blog and run this script.
@@ -71,11 +70,9 @@ function extractMeta(filename) {
   // Parse date for sorting
   let sortDate = dataDate || '';
   if (!sortDate && dateSpan) {
-    // Try to parse "Mar 2025", "March 2025", "Oct 6, 2018", "2025-01-20" etc.
     const parsed = new Date(dateSpan);
     if (!isNaN(parsed)) sortDate = parsed.toISOString().split('T')[0];
     else {
-      // Fallback: extract year
       const yearMatch = dateSpan.match(/(\d{4})/);
       if (yearMatch) sortDate = yearMatch[1] + '-01-01';
     }
@@ -85,9 +82,8 @@ function extractMeta(filename) {
 }
 
 const posts = files.map(extractMeta)
-  .filter(p => p.title) // skip any that didn't parse
+  .filter(p => p.title) 
   .sort((a, b) => {
-    // Sort newest first; fall back to filename alpha
     if (a.sortDate > b.sortDate) return -1;
     if (a.sortDate < b.sortDate) return  1;
     return a.slug.localeCompare(b.slug);
@@ -118,10 +114,8 @@ const allPostItems = posts.map(postItemHTML).join('\n\n');
 // ── 4. Read current blog/index.html and replace the post list ────────────────
 let blogIndex = fs.readFileSync(BLOG_HTML, 'utf8');
 
-// Replace everything between the post-list div and its closing tag
-// The post list is wrapped in <div class="post-list"> ... </div>
 const listStart = blogIndex.indexOf('<div class="post-list" id="post-list">');
-const listEnd   = blogIndex.indexOf('</div>', listStart) + 6; // include </div>
+const listEnd   = blogIndex.indexOf('</div>', listStart) + 6;
 
 if (listStart === -1) {
   console.error('ERROR: Could not find <div class="post-list" id="post-list"> in blog/index.html');
@@ -135,7 +129,6 @@ blogIndex = before +
   `<div class="post-list" id="post-list">\n\n${allPostItems}\n\n    </div>` +
   after;
 
-// Update the search placeholder count
 blogIndex = blogIndex.replace(
   /placeholder="Search \d+ posts\.\.\."/,
   `placeholder="Search ${posts.length} posts..."`
@@ -153,15 +146,9 @@ rootHTML = rootHTML.replace(
   `$1${posts.length}$2`
 );
 
-// Update "all N posts →" link
+// Update "all N posts →" link - This is now the ONLY replacement for this line.
 rootHTML = rootHTML.replace(
-  /all <span data-post-count>\d+<\/span> posts →/,
-  `all <span data-post-count>${posts.length}</span> posts →`
-);
-
-// Also handle unharvested hardcoded version
-rootHTML = rootHTML.replace(
-  /all \d+ posts →/,
+  /all <span data-post-count>.*?<\/span> posts →/,
   `all <span data-post-count>${posts.length}</span> posts →`
 );
 
