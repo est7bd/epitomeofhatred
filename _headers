@@ -5,6 +5,19 @@
   Permissions-Policy: camera=(), microphone=(), geolocation=()
   Cache-Control: public, max-age=3600
 
+# Partials must never be cached — nav/footer changes need to propagate instantly
+/_header.html
+  Cache-Control: no-cache, must-revalidate
+
+/_footer.html
+  Cache-Control: no-cache, must-revalidate
+
+/assets/css/*
+  Cache-Control: public, max-age=3600
+
+/assets/js/includes.js
+  Cache-Control: no-cache, must-revalidate
+
 /assets/*
   Cache-Control: public, max-age=31536000, immutable
 
