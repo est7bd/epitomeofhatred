@@ -1,0 +1,198 @@
+#!/usr/bin/env node
+/**
+ * build-index.js — epitomeofhatred.com
+ * 
+ * Run this from the repo root whenever you add new blog posts:
+ *   node build-index.js
+ *
+ * What it does:
+ *   1. Reads every HTML file in /blog (except index.html)
+ *   2. Extracts: title, description, date, tags, deck (first <p class="deck">)
+ *   3. Regenerates blog/index.html with all posts sorted newest-first
+ *   4. Updates the post count in root/index.html automatically
+ *
+ * You never need to manually edit blog/index.html again.
+ * Just drop a new HTML file in /blog and run this script.
+ */
+
+const fs   = require('fs');
+const path = require('path');
+
+const BLOG_DIR  = path.join(__dirname, 'blog');
+const ROOT_HTML = path.join(__dirname, 'index.html');
+const BLOG_HTML = path.join(BLOG_DIR, 'index.html');
+
+// ── 1. Read all blog post files ──────────────────────────────────────────────
+const files = fs.readdirSync(BLOG_DIR)
+  .filter(f => f.endsWith('.html') && f !== 'index.html');
+
+console.log(`Found ${files.length} blog post files`);
+
+// ── 2. Extract metadata from each file ──────────────────────────────────────
+function extractMeta(filename) {
+  const slug    = filename.replace('.html', '');
+  const content = fs.readFileSync(path.join(BLOG_DIR, filename), 'utf8');
+
+  const get = (pattern) => {
+    const m = content.match(pattern);
+    return m ? m[1].trim() : '';
+  };
+
+  // Title — from <title> tag, strip " — Epitome of Hatred" suffix
+  const rawTitle = get(/<title>([^<]+)<\/title>/);
+  const title    = rawTitle.replace(/\s*[—–-]+\s*Epitome of Hatred\s*$/i, '').trim();
+
+  // Description — meta description
+  const desc = get(/name="description"[^>]*content="([^"]+)"/) ||
+               get(/content="([^"]+)"[^>]*name="description"/);
+
+  // OG description (often shorter/punchier, good for deck)
+  const ogDesc = get(/property="og:description"[^>]*content="([^"]+)"/) ||
+                 get(/content="([^"]+)"[^>]*property="og:description"/);
+
+  // Date — from post-date span, then data-date attr, then meta
+  const dateSpan  = get(/<span class="post-date">([^<]+)<\/span>/);
+  const dataDate  = get(/data-date="([^"]+)"/);
+
+  // Tags — from post-tag spans
+  const tagMatches = [...content.matchAll(/<span class="post-tag">([^<]+)<\/span>/g)];
+  const tags = tagMatches.map(m => m[1].trim());
+
+  // Topics — from data-topics attr
+  const topics = get(/data-topics="([^"]+)"/);
+
+  // Search text — from data-search attr
+  const search = get(/data-search="([^"]+)"/);
+
+  // Deck — from .deck paragraph in post-hero
+  const deck = get(/<p class="deck">([^<]+(?:<[^<]+>[^<]*<\/[^<]+>[^<]*)*)<\/p>/)
+    .replace(/<[^>]+>/g, '').trim() || ogDesc || desc;
+
+  // Parse date for sorting
+  let sortDate = dataDate || '';
+  if (!sortDate && dateSpan) {
+    // Try to parse "Mar 2025", "March 2025", "Oct 6, 2018", "2025-01-20" etc.
+    const parsed = new Date(dateSpan);
+    if (!isNaN(parsed)) sortDate = parsed.toISOString().split('T')[0];
+    else {
+      // Fallback: extract year
+      const yearMatch = dateSpan.match(/(\d{4})/);
+      if (yearMatch) sortDate = yearMatch[1] + '-01-01';
+    }
+  }
+
+  return { slug, title, desc, deck: deck || desc, tags, topics, search, dateSpan, sortDate };
+}
+
+const posts = files.map(extractMeta)
+  .filter(p => p.title) // skip any that didn't parse
+  .sort((a, b) => {
+    // Sort newest first; fall back to filename alpha
+    if (a.sortDate > b.sortDate) return -1;
+    if (a.sortDate < b.sortDate) return  1;
+    return a.slug.localeCompare(b.slug);
+  });
+
+console.log(`Parsed ${posts.length} posts`);
+
+// ── 3. Generate post-item HTML entries ───────────────────────────────────────
+function postItemHTML(p) {
+  const tagsHTML = p.tags.map(t => `<span class="post-item-tag">${t}</span>`).join('');
+  const dateDisplay = p.dateSpan || p.sortDate || '';
+  const topics = p.topics || p.tags.map(t => t.toLowerCase().replace(/\s+/g,'-')).join(' ');
+  const search = p.search || `${p.title} ${p.desc}`.toLowerCase();
+  const deck   = (p.deck || p.desc || '').replace(/"/g, '&quot;');
+
+  return `      <a href="/blog/${p.slug}" class="post-item" data-date="${p.sortDate}" data-topics="${topics}" data-search="${search.toLowerCase()}">
+        <span class="post-item-date">${dateDisplay}</span>
+        <div class="post-item-content">
+          <div class="post-item-tags">${tagsHTML}</div>
+          <div class="post-item-title">${p.title}</div>
+          <div class="post-item-deck">${deck}</div>
+        </div>
+      </a>`;
+}
+
+const allPostItems = posts.map(postItemHTML).join('\n\n');
+
+// ── 4. Read current blog/index.html and replace the post list ────────────────
+let blogIndex = fs.readFileSync(BLOG_HTML, 'utf8');
+
+// Replace everything between the post-list div and its closing tag
+// The post list is wrapped in <div class="post-list"> ... </div>
+const listStart = blogIndex.indexOf('<div class="post-list" id="post-list">');
+const listEnd   = blogIndex.indexOf('</div>', listStart) + 6; // include </div>
+
+if (listStart === -1) {
+  console.error('ERROR: Could not find <div class="post-list" id="post-list"> in blog/index.html');
+  process.exit(1);
+}
+
+const before = blogIndex.slice(0, listStart);
+const after  = blogIndex.slice(listEnd);
+
+blogIndex = before +
+  `<div class="post-list" id="post-list">\n\n${allPostItems}\n\n    </div>` +
+  after;
+
+// Update the search placeholder count
+blogIndex = blogIndex.replace(
+  /placeholder="Search \d+ posts\.\.\."/,
+  `placeholder="Search ${posts.length} posts..."`
+);
+
+fs.writeFileSync(BLOG_HTML, blogIndex);
+console.log(`✅ blog/index.html updated — ${posts.length} posts`);
+
+// ── 5. Update root/index.html counters ───────────────────────────────────────
+let rootHTML = fs.readFileSync(ROOT_HTML, 'utf8');
+
+// Update damage counter dc-num for posts
+rootHTML = rootHTML.replace(
+  /(<span class="dc-num">)\d+(<\/span>\s*\n\s*<span class="dc-label">Sourced, documented posts)/,
+  `$1${posts.length}$2`
+);
+
+// Update "all N posts →" link
+rootHTML = rootHTML.replace(
+  /all <span data-post-count>\d+<\/span> posts →/,
+  `all <span data-post-count>${posts.length}</span> posts →`
+);
+
+// Also handle unharvested hardcoded version
+rootHTML = rootHTML.replace(
+  /all \d+ posts →/,
+  `all <span data-post-count>${posts.length}</span> posts →`
+);
+
+fs.writeFileSync(ROOT_HTML, rootHTML);
+console.log(`✅ root/index.html updated — counter set to ${posts.length}`);
+
+// ── 6. Update sitemap.xml ─────────────────────────────────────────────────────
+const SITEMAP = path.join(__dirname, 'sitemap.xml');
+let sitemap = fs.readFileSync(SITEMAP, 'utf8');
+
+const existingSlugs = new Set(
+  [...sitemap.matchAll(/epitomeofhatred\.com\/blog\/([^<]+)/g)].map(m => m[1])
+);
+
+const newEntries = posts
+  .filter(p => !existingSlugs.has(p.slug))
+  .map(p => `  <url>
+    <loc>https://epitomeofhatred.com/blog/${p.slug}</loc>
+    <lastmod>${new Date().toISOString().split('T')[0]}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>`).join('\n');
+
+if (newEntries) {
+  sitemap = sitemap.replace('</urlset>', newEntries + '\n\n</urlset>');
+  fs.writeFileSync(SITEMAP, sitemap);
+  const newCount = posts.filter(p => !existingSlugs.has(p.slug)).length;
+  console.log(`✅ sitemap.xml updated — added ${newCount} new URL(s)`);
+} else {
+  console.log(`✅ sitemap.xml — no new URLs to add`);
+}
+
+console.log(`\n🎉 Done! ${posts.length} posts indexed.`);
+console.log(`   Push to GitHub and Cloudflare will deploy automatically.\n`);
