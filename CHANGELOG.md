@@ -99,3 +99,18 @@ Replaced stale slug references with canonical URLs across 15 files:
 ### Updated: Nav + Sitemap
 - `_header.html` and `_footer.html`: added `/timeline` and `/search`
 - `sitemap.xml`: added timeline and search pages
+
+## 2026-03-30 — Footer Rebuild + Date Corrections
+
+### Fixed: Footer layout
+- Completely rewrote footer HTML and CSS — old nested column structure was overriding flex-row on the links
+- New structure: `.footer-top` (logo + horizontal nav row) above `.footer-bottom` (copyright)
+- Logo left, all nav links horizontal and wrapping, copyright below
+- Removed conflicting responsive overrides that were stacking links vertically
+- Removed dead `.footer-left`, `.footer-bottom` (old), `.footer-links` CSS selectors
+
+### Fixed: 78 placeholder dates corrected to actual event dates
+- All `YYYY-01-01` placeholder dates replaced with the specific date the event occurred
+- Display labels updated in blog/index.html (removed all "First Term Record" prefix labels)
+- Date metadata updated inside individual post HTML files
+- Examples: trans-military-ban → 2017-07-26, supreme-court-stolen-seat → 2016-02-13, steve-bannon-arrest → 2020-08-20, e-jean-carroll-verdict → 2023-05-09
