@@ -145,7 +145,7 @@ main { padding-top: 64px; position: relative; z-index: 1; }
 .site-footer {
   border-top: 1px solid var(--border);
   background: var(--bg2);
-  padding: 1rem 2rem;
+  padding: 1.5rem 2rem 1rem;
   position: relative;
   z-index: 1;
 }
@@ -153,16 +153,15 @@ main { padding-top: 64px; position: relative; z-index: 1; }
   max-width: var(--max-w);
   margin: 0 auto;
   display: flex;
-  align-items: center;
-  gap: 2rem;
-  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 0.75rem;
 }
 .footer-logo {
   font-family: var(--font-display);
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   color: var(--text);
   letter-spacing: 0.03em;
-  flex-shrink: 0;
+  line-height: 1;
 }
 .footer-logo span { color: var(--accent); }
 .footer-left p {
@@ -173,8 +172,7 @@ main { padding-top: 64px; position: relative; z-index: 1; }
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  gap: 0.2rem 1.2rem;
-  flex: 1;
+  gap: 0.25rem 1.4rem;
 }
 .footer-links a {
   font-family: var(--font-mono);
@@ -187,9 +185,7 @@ main { padding-top: 64px; position: relative; z-index: 1; }
   font-family: var(--font-mono);
   font-size: 0.65rem;
   color: var(--text-dim);
-  letter-spacing: 0.05em;
-  white-space: nowrap;
-  margin-left: auto;
+  letter-spacing: 0.04em;
 }
 .footer-links a:hover { color: var(--accent2); }
 /* --- Divider --- */
