@@ -37,7 +37,7 @@
     .blog-card-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 1rem; }
     .blog-card-tag { font-family: var(--font-mono); font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-dim); border: 1px solid var(--border); padding: 0.15rem 0.5rem; border-radius: 2px; }
     .blog-card-tag.fc { color: var(--accent2); border-color: var(--accent-dim); }
-    .blog-card-tag.new { color: #5dab6e; border-color: rgba(93,171,110,0.3); }
+    .blog-card-tag.new { color: var(--text-dim); border-color: rgba(93,171,110,0.3); }
     .blog-card-link { display: inline-block; margin-top: 1.2rem; font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent2); letter-spacing: 0.08em; }
     .view-all { display: inline-block; margin-top: 2.5rem; font-family: var(--font-mono); font-size: 0.78rem; letter-spacing: 0.1em; color: var(--text-muted); border-bottom: 1px solid var(--border); padding-bottom: 2px; transition: color var(--transition), border-color var(--transition); }
     .view-all:hover { color: var(--accent2); border-color: var(--accent2); }
@@ -202,8 +202,8 @@
       animation: pulse-home 1.8s ease-in-out infinite;
       flex-shrink: 0;
     }
-    .bhome-badge.developing { color: #e8a020; }
-    .bhome-badge.developing::before { background: #e8a020; }
+    .bhome-badge.developing { color: var(--accent); }
+    .bhome-badge.developing::before { background: var(--accent); }
     .bhome-title {
       font-family: var(--font-display);
       font-size: 1.1rem;
