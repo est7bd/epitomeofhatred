@@ -114,3 +114,12 @@ Replaced stale slug references with canonical URLs across 15 files:
 - Display labels updated in blog/index.html (removed all "First Term Record" prefix labels)
 - Date metadata updated inside individual post HTML files
 - Examples: trans-military-ban → 2017-07-26, supreme-court-stolen-seat → 2016-02-13, steve-bannon-arrest → 2020-08-20, e-jean-carroll-verdict → 2023-05-09
+
+## 2026-03-30 — Footer Layout Fix (Round 3)
+
+### Fixed: Footer
+- Rebuilt as true vertical stack: logo → nav links → copyright, all left-aligned
+- Nav links separated by pipe dividers (border-right), not run together as a sentence
+- Forced `color: var(--text-dim) !important` on all nav links to override global red `a` color
+- Only `breaking` gets accent red via `.footer-breaking` class
+- Copyright sits below the nav row, not floating right

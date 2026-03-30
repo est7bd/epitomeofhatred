@@ -145,21 +145,17 @@ main { padding-top: 64px; position: relative; z-index: 1; }
 .site-footer {
   border-top: 1px solid var(--border);
   background: var(--bg2);
-  padding: 1.25rem 2rem 1rem;
+  padding: 1.5rem 2rem 1.25rem;
   position: relative;
   z-index: 1;
 }
 .footer-inner {
   max-width: var(--max-w);
   margin: 0 auto;
-}
-.footer-top {
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 0.75rem 2rem;
-  margin-bottom: 0.6rem;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.6rem;
 }
 .footer-logo {
   font-family: var(--font-display);
@@ -167,32 +163,38 @@ main { padding-top: 64px; position: relative; z-index: 1; }
   color: var(--text);
   letter-spacing: 0.03em;
   line-height: 1;
-  flex-shrink: 0;
 }
 .footer-logo span { color: var(--accent); }
 .footer-nav {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  gap: 0.2rem 1.2rem;
+  gap: 0.15rem 0;
 }
 .footer-nav a {
   font-family: var(--font-mono);
   font-size: 0.68rem;
-  color: var(--text-dim);
+  color: var(--text-dim) !important;
   letter-spacing: 0.05em;
   text-decoration: none;
+  padding: 0 0.9rem;
+  border-right: 1px solid var(--border);
+  line-height: 1.4;
 }
-.footer-nav a:hover { color: var(--text-muted); }
+.footer-nav a:first-child { padding-left: 0; }
+.footer-nav a:last-child { border-right: none; }
+.footer-nav a:hover { color: var(--text) !important; }
+.footer-nav a.footer-breaking { color: var(--accent) !important; }
 .footer-bottom {
   font-family: var(--font-mono);
-  font-size: 0.63rem;
+  font-size: 0.62rem;
   color: var(--text-dim);
   letter-spacing: 0.04em;
+  margin-top: 0.2rem;
 }
-/* legacy selectors — keep so old references don't break */
-.footer-links a { font-family: var(--font-mono); font-size: 0.68rem; color: var(--text-dim); }
-.footer-copy { font-family: var(--font-mono); font-size: 0.63rem; color: var(--text-dim); }
+/* legacy — prevent bleed */
+.footer-links a { color: var(--text-dim); }
+.footer-copy { color: var(--text-dim); }
 /* --- Divider --- */
 .divider {
   border: none;
