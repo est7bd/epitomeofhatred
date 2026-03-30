@@ -61,3 +61,41 @@ Replaced stale slug references with canonical URLs across 15 files:
 - Damage counter and posts link corrected: 243 → 242
 - (242 = post-item entries in blog/index.html; blog/index.html itself is not self-referential)
 - `post-count.js` dynamically syncs this at runtime, but static fallback now matches
+
+## 2026-03-30 — Major Content + Feature Expansion
+
+### Fixed: Bugs
+- Sitemap: normalized 6 malformed compact `<url>` entries, removed stale `/blog/test` entry
+- Sitemap: added 5 missing posts (`iran-war-escalation-civilian-cost`, `kash-patel-email-hacked-iran`, `riverside-bianco-ballot-seizure-2026`, `senate-funds-tsa-not-ice-2am`, `tsa-funding-wont-fix-lines-overnight`)
+- `receipts.html`: fixed dead link `/blog/musk-doge-conflicts-interest` → `/blog/elon-musk-conflicts-doge-tesla-spacex`
+- `blog/index.html`: added missing `data-date="2017-02-04"` to trump-attacks-judges entry
+
+### Added: people.html — 5 new cards
+- **Elon Musk** — DOGE, $290M donation, billions in conflicts, 92K jobs killed
+- **Matt Gaetz** — Ethics report, sex with a minor finding, resigned before it dropped
+- **Rudy Giuliani** — Ukraine scheme, "trial by combat," $148M defamation judgment, law license revoked
+- **Ryan Zinke** — Bears Ears gutted, lied to investigators, referred to DOJ
+- **Mike Pence** — Pressured to reject electors, mob chanted "hang Mike Pence," Secret Service texted families goodbye
+
+### Added: contradictions.html — 6 new entries
+- Pre-Existing Conditions (four years trying to kill the ACA)
+- Too Busy to Golf (308 rounds, $144M taxpayer cost)
+- Tax Returns ($750 paid in 2016–2017, fought release for years)
+- Voting Rights (Georgia call, fake electors, Jan 6)
+- Trade War Wins (tariffs are a tax, $28B farmer bailout)
+- Transparency (visitor logs hidden, IGs fired, FOIA blocked)
+
+### Added: timeline.html
+- Full chronological view of all 242 posts, dynamically built from blog/index.html
+- Filterable by era (pre-2017 through 2026) and full-text search
+- Year headers, tag display, auto-hides empty year blocks
+
+### Added: search.html
+- Dedicated search page with full-text search across all 242 posts
+- Topic filter buttons (14 topics)
+- Highlighted excerpts with query term matching
+- Supports `?q=` URL parameter for deep linking
+
+### Updated: Nav + Sitemap
+- `_header.html` and `_footer.html`: added `/timeline` and `/search`
+- `sitemap.xml`: added timeline and search pages
