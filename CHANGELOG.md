@@ -132,3 +132,11 @@ Replaced stale slug references with canonical URLs across 15 files:
 - Uses hardcoded color values instead of CSS variables to guarantee override of global `a { color }` rule
 - Layout: logo top-left → nav links row with pipe separators → copyright below, all left-aligned
 - Only breaking link is red; all others are dim/muted
+
+## 2026-03-30 — Footer Spacing + Font Size
+
+### Updated: _footer.html
+- Added 2rem gap (2 lines) between logo and nav
+- Added 2rem gap (2 lines) between nav and copyright
+- Increased nav link font size: 0.68rem → 0.78rem
+- Increased copyright font size: 0.62rem → 0.72rem
