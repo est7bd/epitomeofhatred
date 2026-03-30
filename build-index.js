@@ -81,14 +81,19 @@ function postItemHTML(p) {
 
 const allPostItems = posts.map(postItemHTML).join('\n\n');
 
-// ── 4. Update blog/index.html (This part works well) ────────────────────────
+// ── 4. Update blog/index.html ────────────────────────────────────────────────
 let blogIndex = fs.readFileSync(BLOG_HTML, 'utf8');
-const listStart = blogIndex.indexOf('<div class="post-list" id="post-list">');
-const listEnd   = blogIndex.indexOf('</div>', listStart) + 6;
+const OPEN_TAG = '<div class="post-list" id="post-list">';
+const listStart = blogIndex.indexOf(OPEN_TAG);
 
 if (listStart !== -1) {
+  // Find the closing </div> of post-list:
+  // Post items are <a> tags so the post-list closing </div> comes right after the last </a>
+  const lastPostItem = blogIndex.lastIndexOf('</a>', blogIndex.length);
+  const listEnd = blogIndex.indexOf('</div>', lastPostItem) + 6;
+
   blogIndex = blogIndex.slice(0, listStart) +
-    `<div class="post-list" id="post-list">\n\n${allPostItems}\n\n    </div>` +
+    `${OPEN_TAG}\n\n${allPostItems}\n\n    </div>` +
     blogIndex.slice(listEnd);
 
   blogIndex = blogIndex.replace(
@@ -97,6 +102,8 @@ if (listStart !== -1) {
   );
   fs.writeFileSync(BLOG_HTML, blogIndex);
   console.log(`✅ blog/index.html updated — ${posts.length} posts`);
+} else {
+  console.error('ERROR: Could not find post-list div in blog/index.html');
 }
 
 // ── 5. Update root/index.html (THE FAIL-SAFE REWRITE) ───────────────────────
