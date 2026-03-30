@@ -123,3 +123,12 @@ Replaced stale slug references with canonical URLs across 15 files:
 - Forced `color: var(--text-dim) !important` on all nav links to override global red `a` color
 - Only `breaking` gets accent red via `.footer-breaking` class
 - Copyright sits below the nav row, not floating right
+
+## 2026-03-30 — Footer Layout Fix (Final)
+
+### Fixed: Footer
+- Moved all footer styles into the _footer.html partial as a scoped style block
+- Eliminates global CSS cascade and caching issues overriding the layout
+- Uses hardcoded color values instead of CSS variables to guarantee override of global `a { color }` rule
+- Layout: logo top-left → nav links row with pipe separators → copyright below, all left-aligned
+- Only breaking link is red; all others are dim/muted

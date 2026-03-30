@@ -1,9 +1,60 @@
+<style>
+.site-footer {
+  border-top: 1px solid #262626;
+  background: #111111;
+  padding: 1.5rem 2rem 1.25rem;
+}
+.site-footer .f-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.55rem;
+}
+.site-footer .f-logo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.3rem;
+  color: #ede8e0;
+  letter-spacing: 0.03em;
+  line-height: 1;
+  text-decoration: none;
+}
+.site-footer .f-logo span { color: #cc2222; }
+.site-footer .f-nav {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0;
+}
+.site-footer .f-nav a {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.68rem;
+  color: #4a4a4a !important;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  padding: 0 0.85rem;
+  border-right: 1px solid #262626;
+  line-height: 1;
+}
+.site-footer .f-nav a:first-child { padding-left: 0; }
+.site-footer .f-nav a:last-child { border-right: none; }
+.site-footer .f-nav a:hover { color: #888 !important; }
+.site-footer .f-nav a.f-breaking { color: #cc2222 !important; }
+.site-footer .f-copy {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.62rem;
+  color: #4a4a4a;
+  letter-spacing: 0.04em;
+}
+</style>
 <footer class="site-footer">
-  <div class="footer-inner">
-    <span class="footer-logo">epitome<span>.</span></span>
-    <nav class="footer-nav">
+  <div class="f-inner">
+    <a href="/" class="f-logo">epitome<span>.</span></a>
+    <nav class="f-nav">
       <a href="/blog">blog</a>
-      <a href="/breaking" class="footer-breaking">breaking</a>
+      <a href="/breaking" class="f-breaking">breaking</a>
       <a href="/the-lies">the lies</a>
       <a href="/corruption">corruption</a>
       <a href="/receipts">receipts</a>
@@ -14,7 +65,7 @@
       <a href="/about">about</a>
       <a href="/about#contact">contact</a>
     </nav>
-    <div class="footer-bottom">
+    <div class="f-copy">
       &copy; <span id="footer-year"></span> epitomeofhatred.com &mdash; Say it louder.
     </div>
   </div>
