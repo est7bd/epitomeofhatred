@@ -110,7 +110,7 @@ if (listStart !== -1) {
 let rootHTML = fs.readFileSync(ROOT_HTML, 'utf8');
 
 // 5a. Fix Damage Counter (dc-num)
-const dcLabel = 'Sourced, documented posts</span>';
+const dcLabel = 'Sourced, documented posts on this site</span>';
 if (rootHTML.includes(dcLabel)) {
     const dcParts = rootHTML.split(dcLabel);
     // Target the dc-num span immediately preceding the label
