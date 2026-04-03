@@ -171,7 +171,7 @@
     .bhome-card {
       background: var(--bg3);
       border: 1px solid var(--border);
-      border-top: 2px solid var(--accent);
+      border-top: 2px solid var(--accent-dim);
       padding: 1.2rem 1.4rem;
       text-decoration: none;
       display: flex;
@@ -182,6 +182,19 @@
     .bhome-card:hover {
       border-color: var(--accent2);
       transform: translateY(-2px);
+    }
+    /* Breaking card — elevated treatment */
+    .bhome-card.is-breaking {
+      background: rgba(204,34,34,0.07);
+      border: 1px solid rgba(204,34,34,0.25);
+      border-top: 3px solid var(--accent);
+    }
+    .bhome-card.is-breaking:hover {
+      border-color: var(--accent2);
+      border-top-color: var(--accent2);
+    }
+    .bhome-card.is-breaking .bhome-title {
+      font-size: 1.2rem;
     }
     .bhome-badge {
       font-family: var(--font-mono);
@@ -202,8 +215,18 @@
       animation: pulse-home 1.8s ease-in-out infinite;
       flex-shrink: 0;
     }
-    .bhome-badge.developing { color: var(--accent); }
-    .bhome-badge.developing::before { background: var(--accent); }
+    /* Developing badge — amber */
+    .bhome-badge.developing {
+      color: #c87a00;
+    }
+    .bhome-badge.developing::before {
+      background: #c87a00;
+      animation: pulse-amber 1.8s ease-in-out infinite;
+    }
+    @keyframes pulse-amber {
+      0%, 100% { opacity: 1; transform: scale(1); box-shadow: 0 0 0 0 rgba(200,122,0,0.5); }
+      50%       { opacity: 0.7; transform: scale(1.2); box-shadow: 0 0 0 7px rgba(200,122,0,0); }
+    }
     .bhome-title {
       font-family: var(--font-display);
       font-size: 1.1rem;
@@ -220,6 +243,9 @@
       line-height: 1.5;
       border-left: 2px solid var(--accent-dim);
       padding-left: 0.5rem;
+    }
+    .bhome-card.is-breaking .bhome-status {
+      border-left-color: rgba(204,34,34,0.4);
     }
   </style>
 </head>
@@ -260,20 +286,20 @@
 <a class="breaking-home-link" href="/breaking">see all →</a>
 </div>
 <div class="breaking-home-grid">
-<a class="bhome-card" href="/blog/riverside-bianco-ballot-seizure-2026">
-<span class="bhome-badge developing">Developing</span>
-<div class="bhome-title">Riverside Sheriff Chad Bianco Seized More Ballot Materials. California Is Suing to Stop Him.</div>
-<div class="bhome-status">650,000 ballots already seized. 426 more boxes taken this week. State says he has no authority.</div>
-</a>
-<a class="bhome-card" href="/blog/trump-fires-pam-bondi-ag">
+<a class="bhome-card is-breaking" href="/blog/trump-fires-pam-bondi-ag">
 <span class="bhome-badge">Breaking</span>
 <div class="bhome-title">Trump Fired His AG Because She Wasn't Weaponizing the DOJ Fast Enough.</div>
 <div class="bhome-status">Bondi out. Trump's personal former defense lawyer Todd Blanche now runs the DOJ.</div>
 </a>
-<a class="bhome-card" href="/blog/trump-iran-war-stone-ages-threat">
+<a class="bhome-card is-breaking" href="/blog/trump-iran-war-stone-ages-threat">
 <span class="bhome-badge">Breaking</span>
 <div class="bhome-title">Trump Threatened to Bomb Iran "Back to the Stone Ages." Experts Say That's a War Crime.</div>
 <div class="bhome-status">Day 34. 13 US dead. Gas at $4/gal. No exit strategy. April 6 deadline.</div>
+</a>
+<a class="bhome-card" href="/blog/riverside-bianco-ballot-seizure-2026">
+<span class="bhome-badge developing">Developing</span>
+<div class="bhome-title">Riverside Sheriff Chad Bianco Seized More Ballot Materials. California Is Suing to Stop Him.</div>
+<div class="bhome-status">650,000 ballots already seized. 426 more boxes taken this week. State says he has no authority.</div>
 </a>
 <a class="bhome-card" href="/blog/kash-patel-email-hacked-iran">
 <span class="bhome-badge developing">Developing</span>
