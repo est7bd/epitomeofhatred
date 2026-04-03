@@ -41,6 +41,20 @@
 
   .story-block { border: 1px solid var(--border); margin-bottom: 1.5rem; background: var(--bg); }
   .story-block:hover { border-color: rgba(204,34,34,0.4); }
+  /* Breaking story elevated treatment */
+  .story-block.is-breaking {
+    background: rgba(204,34,34,0.05);
+    border: 1px solid rgba(204,34,34,0.25);
+    border-left: 4px solid var(--accent);
+  }
+  .story-block.is-breaking:hover { border-color: rgba(204,34,34,0.5); border-left-color: var(--accent); }
+  .story-block.is-breaking .story-title { font-size: 2.15rem; }
+  /* Developing badge — amber */
+  .badge.developing {
+    color: #c87a00;
+    border-color: rgba(200,122,0,0.3);
+    background: rgba(200,122,0,0.05);
+  }
   .story-header { display: grid; grid-template-columns: auto 1fr; gap: 1.5rem; padding: 1.5rem 1.5rem 0; align-items: start; }
   .story-status { display: flex; flex-direction: column; gap: 0.4rem; align-items: flex-start; min-width: 110px; }
   .story-meta { font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-dim); margin-top: 0.3rem; }
@@ -101,39 +115,7 @@
     <!-- BREAKING STORIES -->
     <div class="section-label-row"><span class="slabel">Breaking — actively unfolding</span></div>
 
-    <div class="story-block">
-      <div class="story-header">
-        <div class="story-status">
-          <span class="badge developing">Developing</span>
-          <span class="story-meta">Updated March 28, 2026</span>
-        </div>
-        <div>
-          <div class="story-title">Riverside County Sheriff Chad Bianco Seized More Ballot Materials. California Is Trying to Stop Him.</div>
-          <div class="story-deck">Bianco already seized about 650,000 ballots from Riverside County's 2025 redistricting special election. This week he took 426 more boxes of election materials. California's attorney general and voting-rights lawyers say sheriffs do not run elections and the move is unlawful.</div>
-        </div>
-      </div>
-      <div class="story-body">
-        <div class="what-we-know">
-          <span class="wk-label">What we know — confirmed facts</span>
-          <ul class="fact-list">
-            <li><strong>Bianco had already seized about 650,000 ballots</strong> from the November 2025 special election in Riverside County</li>
-            <li><strong>His office seized 426 additional boxes</strong> of election materials this week, according to California's court filing</li>
-            <li><strong>Bianco claims a discrepancy of roughly 45,800 votes</strong>; election officials say the real difference was about 100 votes</li>
-            <li><strong>Attorney General Rob Bonta refiled in lower court</strong> after an earlier petition failed on jurisdictional grounds</li>
-            <li><strong>The UCLA Voting Rights Project asked the California supreme court</strong> to order the ballots returned immediately</li>
-          </ul>
-        </div>
-        <div class="whats-next">
-          <span class="wn-label">What's next</span>
-          <div class="wn-text">Courts will decide whether Bianco can keep counting or whether the ballots must be returned. If the state loses, a Republican sheriff will have established a precedent for using criminal-process tools to seize election materials during an unresolved political dispute.</div>
-        </div>
-        <div class="story-links">
-          <a href="/blog/riverside-bianco-ballot-seizure-2026" class="story-link primary">full post: Riverside County ballot seizure →</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="story-block">
+    <div class="story-block is-breaking">
       <div class="story-header">
         <div class="story-status">
           <span class="badge breaking"><span class="pulse-dot"></span>&nbsp;Breaking</span>
@@ -166,42 +148,7 @@
       </div>
     </div>
 
-    <div class="story-block">
-      <div class="story-header">
-        <div class="story-status">
-          <span class="badge developing">Developing</span>
-          <span class="story-meta">Updated April 2, 2026</span>
-        </div>
-        <div>
-          <div class="story-title">DHS Shutdown: Now the Longest in History. FEMA Disaster Funds Running Out. House Vote: April 13.</div>
-          <div class="story-deck">The partial DHS shutdown broke records over the weekend of March 28, becoming the longest DHS funding lapse in U.S. history. FEMA says its disaster relief fund is running dangerously low. Republicans abandoned bipartisan negotiations and are now pursuing ICE and Border Patrol funding through reconciliation — bypassing Democrats entirely. The House won't vote until April 13.</div>
-        </div>
-      </div>
-      <div class="story-body">
-        <div class="what-we-know">
-          <span class="wk-label">What we know — confirmed facts</span>
-          <ul class="fact-list">
-            <li><strong>Longest DHS funding lapse in U.S. history</strong> — broke the record over the weekend of March 28, 2026</li>
-            <li><strong>FEMA disaster relief "running dangerously low"</strong> — FEMA's own statement; capacity to support disaster survivors constrained with each passing day</li>
-            <li><strong>Senate passed a fix; House rejected it</strong> — Senate bill did not include permanent ICE/CBP funding; House under Johnson rejected it at Trump's direction</li>
-            <li><strong>Reconciliation route announced</strong> — Republicans will fund ICE and CBP through budget reconciliation, bypassing the filibuster and Democrats; Trump gave a June 1 deadline</li>
-            <li><strong>House vote: April 13</strong> — House on recess; no vote scheduled until lawmakers return</li>
-            <li><strong>510+ TSA agents have resigned</strong> since the shutdown began; training replacements takes 4–6 months</li>
-          </ul>
-        </div>
-        <div class="whats-next">
-          <span class="wn-label">What comes next</span>
-          <div class="wn-text">The House returns April 13. The reconciliation bill for ICE and CBP funding will take weeks to draft and pass. FEMA's disaster capacity continues to erode. Airport security staffing shortfalls from agent resignations will outlast the shutdown itself by months regardless of when funding is restored.</div>
-        </div>
-        <div class="story-links">
-          <a href="/blog/dhs-shutdown-longest-in-history" class="story-link primary">full post: longest shutdown in history →</a>
-          <a href="/blog/tsa-longest-wait-times-in-history" class="story-link">record airport wait times →</a>
-          <a href="/blog/dhs-shutdown-ice-funding-hostage" class="story-link">how the shutdown started →</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="story-block">
+    <div class="story-block is-breaking">
       <div class="story-header">
         <div class="story-status">
           <span class="badge breaking"><span class="pulse-dot"></span>&nbsp;Breaking</span>
@@ -241,6 +188,73 @@
 
     <!-- DEVELOPING STORIES -->
     <div class="section-label-row"><span class="slabel">Developing — confirmed, still active</span></div>
+
+    <div class="story-block">
+      <div class="story-header">
+        <div class="story-status">
+          <span class="badge developing">Developing</span>
+          <span class="story-meta">Updated April 2, 2026</span>
+        </div>
+        <div>
+          <div class="story-title">DHS Shutdown: Now the Longest in History. FEMA Disaster Funds Running Out. House Vote: April 13.</div>
+          <div class="story-deck">The partial DHS shutdown broke records over the weekend of March 28, becoming the longest DHS funding lapse in U.S. history. FEMA says its disaster relief fund is running dangerously low. Republicans abandoned bipartisan negotiations and are now pursuing ICE and Border Patrol funding through reconciliation — bypassing Democrats entirely. The House won't vote until April 13.</div>
+        </div>
+      </div>
+      <div class="story-body">
+        <div class="what-we-know">
+          <span class="wk-label">What we know — confirmed facts</span>
+          <ul class="fact-list">
+            <li><strong>Longest DHS funding lapse in U.S. history</strong> — broke the record over the weekend of March 28, 2026</li>
+            <li><strong>FEMA disaster relief "running dangerously low"</strong> — FEMA's own statement; capacity to support disaster survivors constrained with each passing day</li>
+            <li><strong>Senate passed a fix; House rejected it</strong> — Senate bill did not include permanent ICE/CBP funding; House under Johnson rejected it at Trump's direction</li>
+            <li><strong>Reconciliation route announced</strong> — Republicans will fund ICE and CBP through budget reconciliation, bypassing the filibuster and Democrats; Trump gave a June 1 deadline</li>
+            <li><strong>House vote: April 13</strong> — House on recess; no vote scheduled until lawmakers return</li>
+            <li><strong>510+ TSA agents have resigned</strong> since the shutdown began; training replacements takes 4–6 months</li>
+          </ul>
+        </div>
+        <div class="whats-next">
+          <span class="wn-label">What comes next</span>
+          <div class="wn-text">The House returns April 13. The reconciliation bill for ICE and CBP funding will take weeks to draft and pass. FEMA's disaster capacity continues to erode. Airport security staffing shortfalls from agent resignations will outlast the shutdown itself by months regardless of when funding is restored.</div>
+        </div>
+        <div class="story-links">
+          <a href="/blog/dhs-shutdown-longest-in-history" class="story-link primary">full post: longest shutdown in history →</a>
+          <a href="/blog/tsa-longest-wait-times-in-history" class="story-link">record airport wait times →</a>
+          <a href="/blog/dhs-shutdown-ice-funding-hostage" class="story-link">how the shutdown started →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="story-block">
+      <div class="story-header">
+        <div class="story-status">
+          <span class="badge developing">Developing</span>
+          <span class="story-meta">Updated March 28, 2026</span>
+        </div>
+        <div>
+          <div class="story-title">Riverside County Sheriff Chad Bianco Seized More Ballot Materials. California Is Trying to Stop Him.</div>
+          <div class="story-deck">Bianco already seized about 650,000 ballots from Riverside County's 2025 redistricting special election. This week he took 426 more boxes of election materials. California's attorney general and voting-rights lawyers say sheriffs do not run elections and the move is unlawful.</div>
+        </div>
+      </div>
+      <div class="story-body">
+        <div class="what-we-know">
+          <span class="wk-label">What we know — confirmed facts</span>
+          <ul class="fact-list">
+            <li><strong>Bianco had already seized about 650,000 ballots</strong> from the November 2025 special election in Riverside County</li>
+            <li><strong>His office seized 426 additional boxes</strong> of election materials this week, according to California's court filing</li>
+            <li><strong>Bianco claims a discrepancy of roughly 45,800 votes</strong>; election officials say the real difference was about 100 votes</li>
+            <li><strong>Attorney General Rob Bonta refiled in lower court</strong> after an earlier petition failed on jurisdictional grounds</li>
+            <li><strong>The UCLA Voting Rights Project asked the California supreme court</strong> to order the ballots returned immediately</li>
+          </ul>
+        </div>
+        <div class="whats-next">
+          <span class="wn-label">What's next</span>
+          <div class="wn-text">Courts will decide whether Bianco can keep counting or whether the ballots must be returned. If the state loses, a Republican sheriff will have established a precedent for using criminal-process tools to seize election materials during an unresolved political dispute.</div>
+        </div>
+        <div class="story-links">
+          <a href="/blog/riverside-bianco-ballot-seizure-2026" class="story-link primary">full post: Riverside County ballot seizure →</a>
+        </div>
+      </div>
+    </div>
 
     <div class="story-block">
       <div class="story-header">
